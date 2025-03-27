@@ -7,10 +7,18 @@ import 'package:gap/gap.dart';
 class LoginForm extends StatefulWidget {
   const LoginForm({
     required this.onSuccess,
+    required this.withTwoFactor,
+    required this.onSuccessWithTwoFactor,
     super.key,
   });
 
-  final void Function(String authId) onSuccess;
+  final void Function(String authId) onSuccessWithTwoFactor;
+  final void Function(
+    String token,
+    List<String> permission,
+    Map<String, dynamic> data,
+  ) onSuccess;
+  final bool withTwoFactor;
 
   @override
   State<LoginForm> createState() => _LoginFormState();
@@ -27,6 +35,7 @@ class _LoginFormState extends State<LoginForm> {
             LoginEvent.submit(
               _nipController.text,
               _passwordController.text,
+              widget.withTwoFactor,
             ),
           );
     }
@@ -37,7 +46,8 @@ class _LoginFormState extends State<LoginForm> {
     return BlocListener<LoginBloc, LoginState>(
       listener: (context, state) {
         state.maybeWhen(
-          success: (authId) => widget.onSuccess(authId),
+          successWithTwoFactor: widget.onSuccessWithTwoFactor,
+          success: widget.onSuccess,
           orElse: () {},
         );
       },
@@ -50,7 +60,7 @@ class _LoginFormState extends State<LoginForm> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  'Employee Login',
+                  'Company Sign-In',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                 ),
                 const SizedBox(height: 30),

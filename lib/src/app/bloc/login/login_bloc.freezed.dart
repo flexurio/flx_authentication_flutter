@@ -20,7 +20,10 @@ mixin _$LoginState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String authId) success,
+    required TResult Function(
+            String token, List<String> permission, Map<String, dynamic> data)
+        success,
+    required TResult Function(String authId) successWithTwoFactor,
     required TResult Function(String? nip, String? password, String? other)
         error,
   }) =>
@@ -29,7 +32,10 @@ mixin _$LoginState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String authId)? success,
+    TResult? Function(
+            String token, List<String> permission, Map<String, dynamic> data)?
+        success,
+    TResult? Function(String authId)? successWithTwoFactor,
     TResult? Function(String? nip, String? password, String? other)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,7 +43,10 @@ mixin _$LoginState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String authId)? success,
+    TResult Function(
+            String token, List<String> permission, Map<String, dynamic> data)?
+        success,
+    TResult Function(String authId)? successWithTwoFactor,
     TResult Function(String? nip, String? password, String? other)? error,
     required TResult orElse(),
   }) =>
@@ -47,6 +56,7 @@ mixin _$LoginState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_SuccessWithTwoFactor value) successWithTwoFactor,
     required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +65,7 @@ mixin _$LoginState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_SuccessWithTwoFactor value)? successWithTwoFactor,
     TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -63,6 +74,7 @@ mixin _$LoginState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_SuccessWithTwoFactor value)? successWithTwoFactor,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
@@ -85,6 +97,9 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -101,6 +116,9 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -127,7 +145,10 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String authId) success,
+    required TResult Function(
+            String token, List<String> permission, Map<String, dynamic> data)
+        success,
+    required TResult Function(String authId) successWithTwoFactor,
     required TResult Function(String? nip, String? password, String? other)
         error,
   }) {
@@ -139,7 +160,10 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String authId)? success,
+    TResult? Function(
+            String token, List<String> permission, Map<String, dynamic> data)?
+        success,
+    TResult? Function(String authId)? successWithTwoFactor,
     TResult? Function(String? nip, String? password, String? other)? error,
   }) {
     return initial?.call();
@@ -150,7 +174,10 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String authId)? success,
+    TResult Function(
+            String token, List<String> permission, Map<String, dynamic> data)?
+        success,
+    TResult Function(String authId)? successWithTwoFactor,
     TResult Function(String? nip, String? password, String? other)? error,
     required TResult orElse(),
   }) {
@@ -166,6 +193,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_SuccessWithTwoFactor value) successWithTwoFactor,
     required TResult Function(_Error value) error,
   }) {
     return initial(this);
@@ -177,6 +205,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_SuccessWithTwoFactor value)? successWithTwoFactor,
     TResult? Function(_Error value)? error,
   }) {
     return initial?.call(this);
@@ -188,6 +217,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_SuccessWithTwoFactor value)? successWithTwoFactor,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -216,6 +246,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -242,7 +275,10 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String authId) success,
+    required TResult Function(
+            String token, List<String> permission, Map<String, dynamic> data)
+        success,
+    required TResult Function(String authId) successWithTwoFactor,
     required TResult Function(String? nip, String? password, String? other)
         error,
   }) {
@@ -254,7 +290,10 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String authId)? success,
+    TResult? Function(
+            String token, List<String> permission, Map<String, dynamic> data)?
+        success,
+    TResult? Function(String authId)? successWithTwoFactor,
     TResult? Function(String? nip, String? password, String? other)? error,
   }) {
     return loading?.call();
@@ -265,7 +304,10 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String authId)? success,
+    TResult Function(
+            String token, List<String> permission, Map<String, dynamic> data)?
+        success,
+    TResult Function(String authId)? successWithTwoFactor,
     TResult Function(String? nip, String? password, String? other)? error,
     required TResult orElse(),
   }) {
@@ -281,6 +323,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_SuccessWithTwoFactor value) successWithTwoFactor,
     required TResult Function(_Error value) error,
   }) {
     return loading(this);
@@ -292,6 +335,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_SuccessWithTwoFactor value)? successWithTwoFactor,
     TResult? Function(_Error value)? error,
   }) {
     return loading?.call(this);
@@ -303,6 +347,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_SuccessWithTwoFactor value)? successWithTwoFactor,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -323,7 +368,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String authId});
+  $Res call({String token, List<String> permission, Map<String, dynamic> data});
 }
 
 /// @nodoc
@@ -334,16 +379,28 @@ class __$$SuccessImplCopyWithImpl<$Res>
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? authId = null,
+    Object? token = null,
+    Object? permission = null,
+    Object? data = null,
   }) {
     return _then(_$SuccessImpl(
-      null == authId
-          ? _value.authId
-          : authId // ignore: cast_nullable_to_non_nullable
+      null == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
               as String,
+      null == permission
+          ? _value._permission
+          : permission // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -351,14 +408,32 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl(this.authId);
+  const _$SuccessImpl(this.token, final List<String> permission,
+      final Map<String, dynamic> data)
+      : _permission = permission,
+        _data = data;
 
   @override
-  final String authId;
+  final String token;
+  final List<String> _permission;
+  @override
+  List<String> get permission {
+    if (_permission is EqualUnmodifiableListView) return _permission;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_permission);
+  }
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
 
   @override
   String toString() {
-    return 'LoginState.success(authId: $authId)';
+    return 'LoginState.success(token: $token, permission: $permission, data: $data)';
   }
 
   @override
@@ -366,13 +441,22 @@ class _$SuccessImpl implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            (identical(other.authId, authId) || other.authId == authId));
+            (identical(other.token, token) || other.token == token) &&
+            const DeepCollectionEquality()
+                .equals(other._permission, _permission) &&
+            const DeepCollectionEquality().equals(other._data, _data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, authId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      token,
+      const DeepCollectionEquality().hash(_permission),
+      const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
@@ -383,11 +467,14 @@ class _$SuccessImpl implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String authId) success,
+    required TResult Function(
+            String token, List<String> permission, Map<String, dynamic> data)
+        success,
+    required TResult Function(String authId) successWithTwoFactor,
     required TResult Function(String? nip, String? password, String? other)
         error,
   }) {
-    return success(authId);
+    return success(token, permission, data);
   }
 
   @override
@@ -395,10 +482,13 @@ class _$SuccessImpl implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String authId)? success,
+    TResult? Function(
+            String token, List<String> permission, Map<String, dynamic> data)?
+        success,
+    TResult? Function(String authId)? successWithTwoFactor,
     TResult? Function(String? nip, String? password, String? other)? error,
   }) {
-    return success?.call(authId);
+    return success?.call(token, permission, data);
   }
 
   @override
@@ -406,12 +496,15 @@ class _$SuccessImpl implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String authId)? success,
+    TResult Function(
+            String token, List<String> permission, Map<String, dynamic> data)?
+        success,
+    TResult Function(String authId)? successWithTwoFactor,
     TResult Function(String? nip, String? password, String? other)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(authId);
+      return success(token, permission, data);
     }
     return orElse();
   }
@@ -422,6 +515,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_SuccessWithTwoFactor value) successWithTwoFactor,
     required TResult Function(_Error value) error,
   }) {
     return success(this);
@@ -433,6 +527,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_SuccessWithTwoFactor value)? successWithTwoFactor,
     TResult? Function(_Error value)? error,
   }) {
     return success?.call(this);
@@ -444,6 +539,7 @@ class _$SuccessImpl implements _Success {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_SuccessWithTwoFactor value)? successWithTwoFactor,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -455,12 +551,186 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements LoginState {
-  const factory _Success(final String authId) = _$SuccessImpl;
+  const factory _Success(final String token, final List<String> permission,
+      final Map<String, dynamic> data) = _$SuccessImpl;
 
-  String get authId;
-  @JsonKey(ignore: true)
+  String get token;
+  List<String> get permission;
+  Map<String, dynamic> get data;
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SuccessWithTwoFactorImplCopyWith<$Res> {
+  factory _$$SuccessWithTwoFactorImplCopyWith(_$SuccessWithTwoFactorImpl value,
+          $Res Function(_$SuccessWithTwoFactorImpl) then) =
+      __$$SuccessWithTwoFactorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String authId});
+}
+
+/// @nodoc
+class __$$SuccessWithTwoFactorImplCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res, _$SuccessWithTwoFactorImpl>
+    implements _$$SuccessWithTwoFactorImplCopyWith<$Res> {
+  __$$SuccessWithTwoFactorImplCopyWithImpl(_$SuccessWithTwoFactorImpl _value,
+      $Res Function(_$SuccessWithTwoFactorImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? authId = null,
+  }) {
+    return _then(_$SuccessWithTwoFactorImpl(
+      null == authId
+          ? _value.authId
+          : authId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SuccessWithTwoFactorImpl implements _SuccessWithTwoFactor {
+  const _$SuccessWithTwoFactorImpl(this.authId);
+
+  @override
+  final String authId;
+
+  @override
+  String toString() {
+    return 'LoginState.successWithTwoFactor(authId: $authId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessWithTwoFactorImpl &&
+            (identical(other.authId, authId) || other.authId == authId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, authId);
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SuccessWithTwoFactorImplCopyWith<_$SuccessWithTwoFactorImpl>
+      get copyWith =>
+          __$$SuccessWithTwoFactorImplCopyWithImpl<_$SuccessWithTwoFactorImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(
+            String token, List<String> permission, Map<String, dynamic> data)
+        success,
+    required TResult Function(String authId) successWithTwoFactor,
+    required TResult Function(String? nip, String? password, String? other)
+        error,
+  }) {
+    return successWithTwoFactor(authId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(
+            String token, List<String> permission, Map<String, dynamic> data)?
+        success,
+    TResult? Function(String authId)? successWithTwoFactor,
+    TResult? Function(String? nip, String? password, String? other)? error,
+  }) {
+    return successWithTwoFactor?.call(authId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(
+            String token, List<String> permission, Map<String, dynamic> data)?
+        success,
+    TResult Function(String authId)? successWithTwoFactor,
+    TResult Function(String? nip, String? password, String? other)? error,
+    required TResult orElse(),
+  }) {
+    if (successWithTwoFactor != null) {
+      return successWithTwoFactor(authId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_SuccessWithTwoFactor value) successWithTwoFactor,
+    required TResult Function(_Error value) error,
+  }) {
+    return successWithTwoFactor(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_SuccessWithTwoFactor value)? successWithTwoFactor,
+    TResult? Function(_Error value)? error,
+  }) {
+    return successWithTwoFactor?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_SuccessWithTwoFactor value)? successWithTwoFactor,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (successWithTwoFactor != null) {
+      return successWithTwoFactor(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SuccessWithTwoFactor implements LoginState {
+  const factory _SuccessWithTwoFactor(final String authId) =
+      _$SuccessWithTwoFactorImpl;
+
+  String get authId;
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SuccessWithTwoFactorImplCopyWith<_$SuccessWithTwoFactorImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -480,6 +750,8 @@ class __$$ErrorImplCopyWithImpl<$Res>
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -535,7 +807,9 @@ class _$ErrorImpl implements _Error {
   @override
   int get hashCode => Object.hash(runtimeType, nip, password, other);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
@@ -546,7 +820,10 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String authId) success,
+    required TResult Function(
+            String token, List<String> permission, Map<String, dynamic> data)
+        success,
+    required TResult Function(String authId) successWithTwoFactor,
     required TResult Function(String? nip, String? password, String? other)
         error,
   }) {
@@ -558,7 +835,10 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String authId)? success,
+    TResult? Function(
+            String token, List<String> permission, Map<String, dynamic> data)?
+        success,
+    TResult? Function(String authId)? successWithTwoFactor,
     TResult? Function(String? nip, String? password, String? other)? error,
   }) {
     return error?.call(nip, password, other);
@@ -569,7 +849,10 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String authId)? success,
+    TResult Function(
+            String token, List<String> permission, Map<String, dynamic> data)?
+        success,
+    TResult Function(String authId)? successWithTwoFactor,
     TResult Function(String? nip, String? password, String? other)? error,
     required TResult orElse(),
   }) {
@@ -585,6 +868,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_SuccessWithTwoFactor value) successWithTwoFactor,
     required TResult Function(_Error value) error,
   }) {
     return error(this);
@@ -596,6 +880,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_SuccessWithTwoFactor value)? successWithTwoFactor,
     TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
@@ -607,6 +892,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_SuccessWithTwoFactor value)? successWithTwoFactor,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -626,7 +912,10 @@ abstract class _Error implements LoginState {
   String? get nip;
   String? get password;
   String? get other;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -635,19 +924,21 @@ abstract class _Error implements LoginState {
 mixin _$LoginEvent {
   String get nip => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
+  bool get withTwoFactor => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String nip, String password) submit,
+    required TResult Function(String nip, String password, bool withTwoFactor)
+        submit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String nip, String password)? submit,
+    TResult? Function(String nip, String password, bool withTwoFactor)? submit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String nip, String password)? submit,
+    TResult Function(String nip, String password, bool withTwoFactor)? submit,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -668,7 +959,9 @@ mixin _$LoginEvent {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LoginEventCopyWith<LoginEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -679,7 +972,7 @@ abstract class $LoginEventCopyWith<$Res> {
           LoginEvent value, $Res Function(LoginEvent) then) =
       _$LoginEventCopyWithImpl<$Res, LoginEvent>;
   @useResult
-  $Res call({String nip, String password});
+  $Res call({String nip, String password, bool withTwoFactor});
 }
 
 /// @nodoc
@@ -692,11 +985,14 @@ class _$LoginEventCopyWithImpl<$Res, $Val extends LoginEvent>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? nip = null,
     Object? password = null,
+    Object? withTwoFactor = null,
   }) {
     return _then(_value.copyWith(
       nip: null == nip
@@ -707,6 +1003,10 @@ class _$LoginEventCopyWithImpl<$Res, $Val extends LoginEvent>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
+      withTwoFactor: null == withTwoFactor
+          ? _value.withTwoFactor
+          : withTwoFactor // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -719,7 +1019,7 @@ abstract class _$$SubmitImplCopyWith<$Res>
       __$$SubmitImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String nip, String password});
+  $Res call({String nip, String password, bool withTwoFactor});
 }
 
 /// @nodoc
@@ -730,11 +1030,14 @@ class __$$SubmitImplCopyWithImpl<$Res>
       _$SubmitImpl _value, $Res Function(_$SubmitImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? nip = null,
     Object? password = null,
+    Object? withTwoFactor = null,
   }) {
     return _then(_$SubmitImpl(
       null == nip
@@ -745,6 +1048,10 @@ class __$$SubmitImplCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
+      null == withTwoFactor
+          ? _value.withTwoFactor
+          : withTwoFactor // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -752,16 +1059,18 @@ class __$$SubmitImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SubmitImpl implements _Submit {
-  const _$SubmitImpl(this.nip, this.password);
+  const _$SubmitImpl(this.nip, this.password, this.withTwoFactor);
 
   @override
   final String nip;
   @override
   final String password;
+  @override
+  final bool withTwoFactor;
 
   @override
   String toString() {
-    return 'LoginEvent.submit(nip: $nip, password: $password)';
+    return 'LoginEvent.submit(nip: $nip, password: $password, withTwoFactor: $withTwoFactor)';
   }
 
   @override
@@ -771,13 +1080,17 @@ class _$SubmitImpl implements _Submit {
             other is _$SubmitImpl &&
             (identical(other.nip, nip) || other.nip == nip) &&
             (identical(other.password, password) ||
-                other.password == password));
+                other.password == password) &&
+            (identical(other.withTwoFactor, withTwoFactor) ||
+                other.withTwoFactor == withTwoFactor));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, nip, password);
+  int get hashCode => Object.hash(runtimeType, nip, password, withTwoFactor);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SubmitImplCopyWith<_$SubmitImpl> get copyWith =>
@@ -786,27 +1099,28 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String nip, String password) submit,
+    required TResult Function(String nip, String password, bool withTwoFactor)
+        submit,
   }) {
-    return submit(nip, password);
+    return submit(nip, password, withTwoFactor);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String nip, String password)? submit,
+    TResult? Function(String nip, String password, bool withTwoFactor)? submit,
   }) {
-    return submit?.call(nip, password);
+    return submit?.call(nip, password, withTwoFactor);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String nip, String password)? submit,
+    TResult Function(String nip, String password, bool withTwoFactor)? submit,
     required TResult orElse(),
   }) {
     if (submit != null) {
-      return submit(nip, password);
+      return submit(nip, password, withTwoFactor);
     }
     return orElse();
   }
@@ -841,14 +1155,21 @@ class _$SubmitImpl implements _Submit {
 }
 
 abstract class _Submit implements LoginEvent {
-  const factory _Submit(final String nip, final String password) = _$SubmitImpl;
+  const factory _Submit(
+          final String nip, final String password, final bool withTwoFactor) =
+      _$SubmitImpl;
 
   @override
   String get nip;
   @override
   String get password;
   @override
-  @JsonKey(ignore: true)
+  bool get withTwoFactor;
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SubmitImplCopyWith<_$SubmitImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

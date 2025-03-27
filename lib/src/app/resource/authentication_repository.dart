@@ -21,7 +21,7 @@ class AuthenticationRepositoryApi extends Repository {
     onUnauthorized: AuthenticationRepository.logout,
   );
 
-  Future<String> login({
+  Future<String> loginWithTwoFactor({
     required String nip,
     required String password,
   }) async {
@@ -41,6 +41,27 @@ class AuthenticationRepositoryApi extends Repository {
       }
 
       return data['auth_at'] as String;
+    } catch (error) {
+      throw checkErrorApi(error);
+    }
+  }
+
+  Future<String> login({
+    required String nip,
+    required String password,
+  }) async {
+    try {
+      final response = await dio.post<Map<String, dynamic>>(
+        'https://dev-nocode-api.flexurio.com/login',
+        options: Options(
+          headers: {
+            RequestHeader.authorization: getBasicAuthHeader(nip, password),
+          },
+        ),
+      );
+
+      final data = response.data!['data'] as String;
+      return data;
     } catch (error) {
       throw checkErrorApi(error);
     }
@@ -327,10 +348,9 @@ class AuthenticationRepositoryApi extends Repository {
       final data = response.data!['data'] as List;
 
       for (final data in data) {
-        reportAccess
-            .add(ReportAccess.fromJson(data as Map<String, dynamic>));
+        reportAccess.add(ReportAccess.fromJson(data as Map<String, dynamic>));
       }
-      
+
       return reportAccess;
     } catch (error) {
       throw checkErrorApi(error);

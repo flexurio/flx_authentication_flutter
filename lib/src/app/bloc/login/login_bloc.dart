@@ -9,7 +9,13 @@ part 'login_bloc.freezed.dart';
 class LoginState with _$LoginState {
   const factory LoginState.initial() = _Initial;
   const factory LoginState.loading() = _Loading;
-  const factory LoginState.success(String authId) = _Success;
+  const factory LoginState.success(
+    String token,
+    List<String> permission,
+    Map<String, dynamic> data,
+  ) = _Success;
+  const factory LoginState.successWithTwoFactor(String authId) =
+      _SuccessWithTwoFactor;
   const factory LoginState.error({
     String? nip,
     String? password,
@@ -19,21 +25,35 @@ class LoginState with _$LoginState {
 
 @freezed
 class LoginEvent with _$LoginEvent {
-  const factory LoginEvent.submit(String nip, String password) = _Submit;
+  const factory LoginEvent.submit(
+    String nip,
+    String password,
+    bool withTwoFactor,
+  ) = _Submit;
 }
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc() : super(const _Initial()) {
     on<LoginEvent>((event, emit) async {
       await event.when(
-        submit: (nip, password) async {
+        submit: (nip, password, withTwoFactor) async {
           emit(const _Loading());
           try {
-            final authId = await AuthenticationRepositoryApi.instance.login(
-              nip: nip,
-              password: password,
-            );
-            emit(_Success(authId));
+            final repository = AuthenticationRepositoryApi.instance;
+            if (withTwoFactor) {
+              final authId = await repository.loginWithTwoFactor(
+                nip: nip,
+                password: password,
+              );
+              emit(_SuccessWithTwoFactor(authId));
+            } else {
+              final token = await repository.login(
+                nip: nip,
+                password: password,
+              );
+              final data = extractPayloadFromJwt(token);
+              emit(_Success(token, [], data));
+            }
           } on ApiException catch (error) {
             emit(_Error(nip: error.message));
           } catch (error) {

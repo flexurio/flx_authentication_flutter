@@ -84,6 +84,9 @@ class _$RolePermissionStateCopyWithImpl<$Res, $Val extends RolePermissionState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of RolePermissionState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -100,6 +103,9 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of RolePermissionState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -214,6 +220,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of RolePermissionState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -328,6 +337,9 @@ class __$$SuccessImplCopyWithImpl<$Res>
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of RolePermissionState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -445,6 +457,8 @@ class __$$ErrorImplCopyWithImpl<$Res>
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RolePermissionState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -483,7 +497,9 @@ class _$ErrorImpl implements _Error {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RolePermissionState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
@@ -568,7 +584,10 @@ abstract class _Error implements RolePermissionState {
   const factory _Error(final String error) = _$ErrorImpl;
 
   String get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RolePermissionState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -616,7 +635,9 @@ mixin _$RolePermissionEvent {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RolePermissionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RolePermissionEventCopyWith<RolePermissionEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -642,6 +663,8 @@ class _$RolePermissionEventCopyWithImpl<$Res, $Val extends RolePermissionEvent>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RolePermissionEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -660,6 +683,8 @@ class _$RolePermissionEventCopyWithImpl<$Res, $Val extends RolePermissionEvent>
     ) as $Val);
   }
 
+  /// Create a copy of RolePermissionEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $RoleCopyWith<$Res> get role {
@@ -691,6 +716,8 @@ class __$$CreateImplCopyWithImpl<$Res>
       _$CreateImpl _value, $Res Function(_$CreateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RolePermissionEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -738,7 +765,9 @@ class _$CreateImpl implements _Create {
   @override
   int get hashCode => Object.hash(runtimeType, role, permission);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RolePermissionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateImplCopyWith<_$CreateImpl> get copyWith =>
@@ -816,8 +845,11 @@ abstract class _Create implements RolePermissionEvent {
   Role get role;
   @override
   String get permission;
+
+  /// Create a copy of RolePermissionEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreateImplCopyWith<_$CreateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -844,6 +876,8 @@ class __$$DeleteImplCopyWithImpl<$Res>
       _$DeleteImpl _value, $Res Function(_$DeleteImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RolePermissionEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -891,7 +925,9 @@ class _$DeleteImpl implements _Delete {
   @override
   int get hashCode => Object.hash(runtimeType, role, permission);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RolePermissionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteImplCopyWith<_$DeleteImpl> get copyWith =>
@@ -969,8 +1005,11 @@ abstract class _Delete implements RolePermissionEvent {
   Role get role;
   @override
   String get permission;
+
+  /// Create a copy of RolePermissionEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeleteImplCopyWith<_$DeleteImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

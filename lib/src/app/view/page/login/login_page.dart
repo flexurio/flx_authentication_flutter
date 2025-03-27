@@ -6,14 +6,27 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:screen_identifier/screen_identifier.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage._(this.onLoginSuccess);
+  const LoginPage._(
+    this.onLoginSuccess,
+    this.withTwoFactor,
+    this.logoUrl,
+    this.logoNamedUrl,
+  );
 
   final OnLoginSuccess onLoginSuccess;
+  final bool withTwoFactor;
+  final String? logoUrl;
+  final String? logoNamedUrl;
 
-  static Widget prepare({required OnLoginSuccess onLoginSuccess}) {
+  static Widget prepare({
+    required OnLoginSuccess onLoginSuccess,
+    required bool withTwoFactor,
+    String? logoUrl,
+    String? logoNamedUrl,
+  }) {
     return MultiBlocProvider(
       providers: [BlocProvider(create: (_) => LoginBloc())],
-      child: LoginPage._(onLoginSuccess),
+      child: LoginPage._(onLoginSuccess, withTwoFactor, logoUrl, logoNamedUrl),
     );
   }
 
@@ -32,6 +45,68 @@ class _LoginPageState extends State<LoginPage> {
       curve: Curves.fastOutSlowIn,
     );
   }
+
+  @override
+  Widget build(BuildContext context) {
+    return _Container(
+      logoUrl: widget.logoUrl,
+      logoNamedUrl: widget.logoNamedUrl,
+      builder: (contentPadding) {
+        return PageView(
+          physics: const NeverScrollableScrollPhysics(),
+          controller: _pageController,
+          children: [
+            _buildFormUsernamePassword(contentPadding),
+            _buildFormVerification(contentPadding),
+          ],
+        );
+      },
+    );
+  }
+
+  Padding _buildFormVerification(EdgeInsets contentPadding) {
+    return Padding(
+      padding: contentPadding,
+      child: VerifyCodeForm.prepare(
+        authId: _authId,
+        onBackPressed: () => _switchPage(0),
+        onLoginSuccess: widget.onLoginSuccess,
+      ),
+    );
+  }
+
+  AnimatedContainer _buildFormUsernamePassword(EdgeInsets contentPadding) {
+    return AnimatedContainer(
+      padding: contentPadding,
+      duration: const Duration(milliseconds: 350),
+      child: LoginForm(
+        withTwoFactor: widget.withTwoFactor,
+        onSuccessWithTwoFactor: (authId) {
+          setState(() => _authId = authId);
+          _switchPage(1);
+        },
+        onSuccess: (accessToken, permissions, data) {
+          AuthenticationBloc.instance.add(
+            AuthenticationEvent.login(accessToken, permissions, data),
+          );
+          widget.onLoginSuccess(
+              accessToken, extractPayloadFromJwt(accessToken));
+        },
+      ),
+    );
+  }
+}
+
+class _Container extends StatelessWidget {
+  const _Container({
+    required this.builder,
+    required this.logoUrl,
+    required this.logoNamedUrl,
+    super.key,
+  });
+  final Widget Function(EdgeInsets contentPadding) builder;
+  final String? logoUrl;
+  final String? logoNamedUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -55,56 +130,13 @@ class _LoginPageState extends State<LoginPage> {
                   screenIdentifier.conditions(sm: true, md: false) ? null : 600,
               child: Stack(
                 children: [
-                  PageView(
-                    controller: _pageController,
-                    children: [
-                      AnimatedContainer(
-                        padding: contentPadding,
-                        duration: const Duration(milliseconds: 350),
-                        child: LoginForm(
-                          onSuccess: (authId) {
-                            setState(() => _authId = authId);
-                            _switchPage(1);
-                          },
-                        ),
-                      ),
-                      Padding(
-                        padding: contentPadding,
-                        child: VerifyCodeForm.prepare(
-                          authId: _authId,
-                          onBackPressed: () => _switchPage(0),
-                          onLoginSuccess: widget.onLoginSuccess,
-                        ),
-                      ),
-                    ],
-                  ),
+                  builder(contentPadding),
                   Positioned(
                     left: 600,
                     bottom: 0,
                     top: 0,
                     right: 0,
-                    child: AnimatedSwitcher(
-                      duration: const Duration(milliseconds: 500),
-                      child: screenIdentifier.conditions(md: false, lg: true)
-                          ? const ContainerGlass(
-                              width: 300,
-                              elevation: 0,
-                              opacity: .6,
-                              borderRadius: BorderRadius.horizontal(
-                                right: Radius.circular(20),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 24),
-                                    child: LogoNamed(),
-                                  ),
-                                ],
-                              ),
-                            )
-                          : const SizedBox(),
-                    ),
+                    child: _buildLogo(screenIdentifier),
                   ),
                 ],
               ),
@@ -112,6 +144,32 @@ class _LoginPageState extends State<LoginPage> {
           ),
         );
       },
+    );
+  }
+
+  AnimatedSwitcher _buildLogo(ScreenIdentifier screenIdentifier) {
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 500),
+      child: screenIdentifier.conditions(md: false, lg: true)
+          ? ContainerGlass(
+              width: 300,
+              elevation: 0,
+              opacity: .6,
+              borderRadius: const BorderRadius.horizontal(
+                right: Radius.circular(20),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 24),
+                    child:
+                        LogoNamed(logoUrl: logoUrl, logoNamedUrl: logoNamedUrl),
+                  ),
+                ],
+              ),
+            )
+          : const SizedBox(),
     );
   }
 }

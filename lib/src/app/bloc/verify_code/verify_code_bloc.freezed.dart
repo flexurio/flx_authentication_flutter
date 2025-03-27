@@ -90,6 +90,9 @@ class _$VerifyCodeStateCopyWithImpl<$Res, $Val extends VerifyCodeState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of VerifyCodeState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -106,6 +109,9 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of VerifyCodeState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -226,6 +232,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of VerifyCodeState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -350,6 +359,8 @@ class __$$SuccessImplCopyWithImpl<$Res>
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of VerifyCodeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -424,7 +435,9 @@ class _$SuccessImpl implements _Success {
       const DeepCollectionEquality().hash(_permission),
       const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of VerifyCodeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
@@ -520,7 +533,10 @@ abstract class _Success implements VerifyCodeState {
   String get accessToken;
   List<String> get permission;
   Map<String, dynamic> get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of VerifyCodeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -542,6 +558,8 @@ class __$$ErrorImplCopyWithImpl<$Res>
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of VerifyCodeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -580,7 +598,9 @@ class _$ErrorImpl implements _Error {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of VerifyCodeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
@@ -671,7 +691,10 @@ abstract class _Error implements VerifyCodeState {
   const factory _Error(final String error) = _$ErrorImpl;
 
   String get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of VerifyCodeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -718,7 +741,9 @@ mixin _$VerifyCodeEvent {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of VerifyCodeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $VerifyCodeEventCopyWith<VerifyCodeEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -742,6 +767,8 @@ class _$VerifyCodeEventCopyWithImpl<$Res, $Val extends VerifyCodeEvent>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of VerifyCodeEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -785,6 +812,8 @@ class __$$SubmitImplCopyWithImpl<$Res>
       _$SubmitImpl _value, $Res Function(_$SubmitImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of VerifyCodeEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -840,7 +869,9 @@ class _$SubmitImpl implements _Submit {
   @override
   int get hashCode => Object.hash(runtimeType, authId, code, onSuccess);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of VerifyCodeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SubmitImplCopyWith<_$SubmitImpl> get copyWith =>
@@ -917,8 +948,11 @@ abstract class _Submit implements VerifyCodeEvent {
   String get code;
   @override
   OnLoginSuccess get onSuccess;
+
+  /// Create a copy of VerifyCodeEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SubmitImplCopyWith<_$SubmitImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
