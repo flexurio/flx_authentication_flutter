@@ -52,11 +52,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
                 password: password,
               );
               final data = extractPayloadFromJwt(token);
-              final permission = <String>[];
-              for (final item in data['roles'] as List) {
-                final role = (item as Map<String, dynamic>)['ep'] as String;
-                permission.add(role);
-              }
+              final permission = Access.fetchPermissions(data['rl'] as String);
               emit(_Success(token, permission, data));
             }
           } on ApiException catch (error) {
