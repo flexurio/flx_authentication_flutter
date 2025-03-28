@@ -52,7 +52,12 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
                 password: password,
               );
               final data = extractPayloadFromJwt(token);
-              emit(_Success(token, [], data));
+              final permission = <String>[];
+              for (final item in data['roles'] as List) {
+                final role = (item as Map<String, dynamic>)['ep'] as String;
+                permission.add(role);
+              }
+              emit(_Success(token, permission, data));
             }
           } on ApiException catch (error) {
             emit(_Error(nip: error.message));
