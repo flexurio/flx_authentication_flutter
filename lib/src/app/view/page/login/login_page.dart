@@ -90,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
             AuthenticationEvent.login(accessToken, permissions, data),
           );
           widget.onLoginSuccess(
-              accessToken, extractPayloadFromJwt(accessToken));
+              accessToken, extractPayloadFromJwt(accessToken),);
         },
       ),
     );
@@ -102,7 +102,6 @@ class _Container extends StatelessWidget {
     required this.builder,
     required this.logoUrl,
     required this.logoNamedUrl,
-    super.key,
   });
   final Widget Function(EdgeInsets contentPadding) builder;
   final String? logoUrl;
