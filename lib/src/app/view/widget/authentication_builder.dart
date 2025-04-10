@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 
 class AuthenticationChecker extends StatelessWidget {
   const AuthenticationChecker({
-    required this.home, 
+    required this.home,
     super.key,
   });
 

@@ -90,7 +90,9 @@ class _LoginPageState extends State<LoginPage> {
             AuthenticationEvent.login(accessToken, permissions, data),
           );
           widget.onLoginSuccess(
-              accessToken, extractPayloadFromJwt(accessToken),);
+            accessToken,
+            extractPayloadFromJwt(accessToken),
+          );
         },
       ),
     );
