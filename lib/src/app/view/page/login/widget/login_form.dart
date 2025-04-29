@@ -89,7 +89,7 @@ class _LoginFormState extends State<LoginForm> {
                   ),
                 ),
                 const SizedBox(height: 30),
-                Button(
+                Button.action(
                   permission: null,
                   isInProgress: state.maybeWhen(
                     loading: () => true,

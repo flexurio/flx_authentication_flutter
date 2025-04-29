@@ -117,7 +117,7 @@ class _VerifyCodeFormState extends State<VerifyCodeForm> {
                 ),
               ),
               const SizedBox(height: 36),
-              Button(
+              Button.action(
                 permission: null,
                 onPressed: state.maybeWhen(
                   loading: () => null,
