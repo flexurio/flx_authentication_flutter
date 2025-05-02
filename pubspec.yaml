@@ -6,8 +6,8 @@ environment:
 description: A new Flutter package project.
 dependencies:
   dio: ^5.8.0+1
-  flexurio_erp_core:
-    path: ../flexurio_erp_core/
+  flx_core_flutter:
+    path: ../flx_core_flutter/
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.0
@@ -15,10 +15,7 @@ dependencies:
   go_router: ^14.3.0
   hive: ^2.2.3
   hydrated_bloc: ^10.0.0
-  pattern_formatter:
-    git:
-      url: https://github.com/augustineonu/flutter_pattern_formatter.git
-      ref: e310fc81043468b9b2b063bac6122f7dde51b03f
+  pattern_formatter: ^4.0.0
   screen_identifier: ^0.0.2
 dev_dependencies:
   build_runner: ^2.4.6

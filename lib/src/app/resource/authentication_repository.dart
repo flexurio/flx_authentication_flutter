@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flexurio_erp_authentication/flexurio_erp_authentication.dart';
-import 'package:flexurio_erp_core/flexurio_erp_core.dart';
+import 'package:flx_core_flutter/flx_core_flutter.dart';
 
 class AuthenticationRepositoryApi extends Repository {
   AuthenticationRepositoryApi({

@@ -1,6 +1,6 @@
 import 'package:flexurio_erp_authentication/flexurio_erp_authentication.dart';
 import 'package:flexurio_erp_authentication/src/app/util/on_login_success.dart';
-import 'package:flexurio_erp_core/flexurio_erp_core.dart';
+import 'package:flx_core_flutter/flx_core_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
