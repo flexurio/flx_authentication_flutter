@@ -1,18 +1,22 @@
-name: flexurio_erp_authentication
+name: flx_authentication_flutter
 version: 0.0.1
 environment:
   sdk: ">=3.4.0 <4.0.0"
   flutter: ">=1.17.0"
-description: A new Flutter package project.
+description: A lightweight Flutter package for email & password sign-in.
+homepage: https://github.com/flexurio/flx_authentication_flutter
+repository: https://github.com/flexurio/flx_authentication_flutter
+issue_tracker: https://github.com/flexurio/flx_authentication_flutter/issues
 dependencies:
   dio: ^5.8.0+1
-  flx_core_flutter:
-    path: ../flx_core_flutter/
+  flx_core_flutter: ^0.0.2
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.0
   freezed_annotation: ^2.2.0
   go_router: ^14.3.0
+  gap: ^3.0.1
+  pinput: ^2.2.31
   hive: ^2.2.3
   hydrated_bloc: ^10.0.0
   pattern_formatter: ^4.0.0

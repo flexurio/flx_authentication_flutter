@@ -1,4 +1,4 @@
-import 'package:flexurio_erp_authentication/src/app/resource/user_repository.dart';
+import 'package:flx_authentication_flutter/src/app/resource/user_repository.dart';
 import 'package:flx_core_flutter/flx_core_flutter.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';

@@ -1,4 +1,4 @@
-import 'package:flexurio_erp_authentication/src/app/model/user.dart';
+import 'package:flx_authentication_flutter/src/app/model/user.dart';
 
 abstract class UserRepository {
   User? user;
