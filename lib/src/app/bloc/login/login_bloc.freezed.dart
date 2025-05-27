@@ -925,20 +925,26 @@ mixin _$LoginEvent {
   String get nip => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   bool get withTwoFactor => throw _privateConstructorUsedError;
+  String? get urlApi => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String nip, String password, bool withTwoFactor)
+    required TResult Function(
+            String nip, String password, bool withTwoFactor, String? urlApi)
         submit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String nip, String password, bool withTwoFactor)? submit,
+    TResult? Function(
+            String nip, String password, bool withTwoFactor, String? urlApi)?
+        submit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String nip, String password, bool withTwoFactor)? submit,
+    TResult Function(
+            String nip, String password, bool withTwoFactor, String? urlApi)?
+        submit,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -972,7 +978,7 @@ abstract class $LoginEventCopyWith<$Res> {
           LoginEvent value, $Res Function(LoginEvent) then) =
       _$LoginEventCopyWithImpl<$Res, LoginEvent>;
   @useResult
-  $Res call({String nip, String password, bool withTwoFactor});
+  $Res call({String nip, String password, bool withTwoFactor, String? urlApi});
 }
 
 /// @nodoc
@@ -993,6 +999,7 @@ class _$LoginEventCopyWithImpl<$Res, $Val extends LoginEvent>
     Object? nip = null,
     Object? password = null,
     Object? withTwoFactor = null,
+    Object? urlApi = freezed,
   }) {
     return _then(_value.copyWith(
       nip: null == nip
@@ -1007,6 +1014,10 @@ class _$LoginEventCopyWithImpl<$Res, $Val extends LoginEvent>
           ? _value.withTwoFactor
           : withTwoFactor // ignore: cast_nullable_to_non_nullable
               as bool,
+      urlApi: freezed == urlApi
+          ? _value.urlApi
+          : urlApi // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -1019,7 +1030,7 @@ abstract class _$$SubmitImplCopyWith<$Res>
       __$$SubmitImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String nip, String password, bool withTwoFactor});
+  $Res call({String nip, String password, bool withTwoFactor, String? urlApi});
 }
 
 /// @nodoc
@@ -1038,6 +1049,7 @@ class __$$SubmitImplCopyWithImpl<$Res>
     Object? nip = null,
     Object? password = null,
     Object? withTwoFactor = null,
+    Object? urlApi = freezed,
   }) {
     return _then(_$SubmitImpl(
       null == nip
@@ -1052,6 +1064,10 @@ class __$$SubmitImplCopyWithImpl<$Res>
           ? _value.withTwoFactor
           : withTwoFactor // ignore: cast_nullable_to_non_nullable
               as bool,
+      freezed == urlApi
+          ? _value.urlApi
+          : urlApi // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1059,7 +1075,7 @@ class __$$SubmitImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SubmitImpl implements _Submit {
-  const _$SubmitImpl(this.nip, this.password, this.withTwoFactor);
+  const _$SubmitImpl(this.nip, this.password, this.withTwoFactor, this.urlApi);
 
   @override
   final String nip;
@@ -1067,10 +1083,12 @@ class _$SubmitImpl implements _Submit {
   final String password;
   @override
   final bool withTwoFactor;
+  @override
+  final String? urlApi;
 
   @override
   String toString() {
-    return 'LoginEvent.submit(nip: $nip, password: $password, withTwoFactor: $withTwoFactor)';
+    return 'LoginEvent.submit(nip: $nip, password: $password, withTwoFactor: $withTwoFactor, urlApi: $urlApi)';
   }
 
   @override
@@ -1082,11 +1100,13 @@ class _$SubmitImpl implements _Submit {
             (identical(other.password, password) ||
                 other.password == password) &&
             (identical(other.withTwoFactor, withTwoFactor) ||
-                other.withTwoFactor == withTwoFactor));
+                other.withTwoFactor == withTwoFactor) &&
+            (identical(other.urlApi, urlApi) || other.urlApi == urlApi));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, nip, password, withTwoFactor);
+  int get hashCode =>
+      Object.hash(runtimeType, nip, password, withTwoFactor, urlApi);
 
   /// Create a copy of LoginEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -1099,28 +1119,33 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String nip, String password, bool withTwoFactor)
+    required TResult Function(
+            String nip, String password, bool withTwoFactor, String? urlApi)
         submit,
   }) {
-    return submit(nip, password, withTwoFactor);
+    return submit(nip, password, withTwoFactor, urlApi);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String nip, String password, bool withTwoFactor)? submit,
+    TResult? Function(
+            String nip, String password, bool withTwoFactor, String? urlApi)?
+        submit,
   }) {
-    return submit?.call(nip, password, withTwoFactor);
+    return submit?.call(nip, password, withTwoFactor, urlApi);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String nip, String password, bool withTwoFactor)? submit,
+    TResult Function(
+            String nip, String password, bool withTwoFactor, String? urlApi)?
+        submit,
     required TResult orElse(),
   }) {
     if (submit != null) {
-      return submit(nip, password, withTwoFactor);
+      return submit(nip, password, withTwoFactor, urlApi);
     }
     return orElse();
   }
@@ -1155,9 +1180,8 @@ class _$SubmitImpl implements _Submit {
 }
 
 abstract class _Submit implements LoginEvent {
-  const factory _Submit(
-          final String nip, final String password, final bool withTwoFactor) =
-      _$SubmitImpl;
+  const factory _Submit(final String nip, final String password,
+      final bool withTwoFactor, final String? urlApi) = _$SubmitImpl;
 
   @override
   String get nip;
@@ -1165,6 +1189,8 @@ abstract class _Submit implements LoginEvent {
   String get password;
   @override
   bool get withTwoFactor;
+  @override
+  String? get urlApi;
 
   /// Create a copy of LoginEvent
   /// with the given fields replaced by the non-null parameter values.

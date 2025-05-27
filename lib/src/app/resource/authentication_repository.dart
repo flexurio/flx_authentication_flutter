@@ -49,10 +49,11 @@ class AuthenticationRepositoryApi extends Repository {
   Future<String> login({
     required String nip,
     required String password,
+    required String url,
   }) async {
     try {
       final response = await dio.post<Map<String, dynamic>>(
-        'https://dev-nocode-api.flexurio.com/login',
+        url,
         options: Options(
           headers: {
             RequestHeader.authorization: getBasicAuthHeader(nip, password),
