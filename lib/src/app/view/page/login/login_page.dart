@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flx_authentication_flutter/flx_authentication_flutter.dart';
 import 'package:flx_authentication_flutter/src/app/util/on_login_success.dart';
+import 'package:flx_authentication_flutter/src/app/view/page/login/widget/auth_card_form.dart';
+import 'package:flx_authentication_flutter/src/app/view/page/login/widget/sign_up_form.dart';
 import 'package:flx_core_flutter/flx_core_flutter.dart';
 import 'package:screen_identifier/screen_identifier.dart';
 
@@ -30,10 +32,10 @@ class LoginPage extends StatefulWidget {
     return MultiBlocProvider(
       providers: [BlocProvider(create: (_) => LoginBloc())],
       child: LoginPage._(
-        onLoginSuccess, 
-        withTwoFactor, 
-        logoUrl, 
-        logoNamedUrl, 
+        onLoginSuccess,
+        withTwoFactor,
+        logoUrl,
+        logoNamedUrl,
         urlAuthApi,
       ),
     );
@@ -65,7 +67,16 @@ class _LoginPageState extends State<LoginPage> {
           physics: const NeverScrollableScrollPhysics(),
           controller: _pageController,
           children: [
-            _buildFormUsernamePassword(contentPadding),
+            AuthCardForm(
+              title: 'Welcome Back!',
+              subtitle: 'Sign in to continue',
+              child: _buildSignIn(),
+            ),
+            AuthCardForm(
+              title: 'Create Account',
+              subtitle: 'Join us today',
+              child: _buildSignUp(),
+            ),
             _buildFormVerification(contentPadding),
           ],
         );
@@ -84,27 +95,45 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  AnimatedContainer _buildFormUsernamePassword(EdgeInsets contentPadding) {
-    return AnimatedContainer(
-      padding: contentPadding,
-      duration: const Duration(milliseconds: 350),
-      child: LoginForm(
-        urlAuthApi: widget.urlAuthApi,
-        withTwoFactor: widget.withTwoFactor,
-        onSuccessWithTwoFactor: (authId) {
-          setState(() => _authId = authId);
-          _switchPage(1);
-        },
-        onSuccess: (accessToken, permissions, data) {
-          AuthenticationBloc.instance.add(
-            AuthenticationEvent.login(accessToken, permissions, data),
-          );
-          widget.onLoginSuccess(
-            accessToken,
-            extractPayloadFromJwt(accessToken),
-          );
-        },
-      ),
+  Widget _buildSignIn() {
+    return LoginForm(
+      urlAuthApi: widget.urlAuthApi,
+      withTwoFactor: widget.withTwoFactor,
+      onTapSignUp: () => _switchPage(1),
+      onSuccessWithTwoFactor: (authId) {
+        setState(() => _authId = authId);
+        _switchPage(1);
+      },
+      onSuccess: (accessToken, permissions, data) {
+        AuthenticationBloc.instance.add(
+          AuthenticationEvent.login(accessToken, permissions, data),
+        );
+        widget.onLoginSuccess(
+          accessToken,
+          extractPayloadFromJwt(accessToken),
+        );
+      },
+    );
+  }
+
+  Widget _buildSignUp() {
+    return SignUpForm(
+      urlAuthApi: widget.urlAuthApi,
+      withTwoFactor: widget.withTwoFactor,
+      onTapSignIn: () => _switchPage(0),
+      onSuccessWithTwoFactor: (authId) {
+        setState(() => _authId = authId);
+        _switchPage(1);
+      },
+      onSuccess: (accessToken, permissions, data) {
+        AuthenticationBloc.instance.add(
+          AuthenticationEvent.login(accessToken, permissions, data),
+        );
+        widget.onLoginSuccess(
+          accessToken,
+          extractPayloadFromJwt(accessToken),
+        );
+      },
     );
   }
 }
@@ -133,54 +162,24 @@ class _Container extends StatelessWidget {
         );
         return Background(
           asset: AssetBackground.displayLogin,
-          child: Center(
-            child: ContainerGlass(
-              width:
-                  screenIdentifier.conditions(sm: true, md: false) ? null : 900,
-              height:
-                  screenIdentifier.conditions(sm: true, md: false) ? null : 600,
-              child: Stack(
-                children: [
-                  builder(contentPadding),
-                  Positioned(
-                    left: 600,
-                    bottom: 0,
-                    top: 0,
-                    right: 0,
-                    child: _buildLogo(screenIdentifier),
-                  ),
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.black.withOpacity(0.3),
+                  Colors.black.withOpacity(0.6),
+                  Colors.black.withOpacity(0.8),
                 ],
               ),
+            ),
+            child: Center(
+              child: builder(contentPadding),
             ),
           ),
         );
       },
-    );
-  }
-
-  AnimatedSwitcher _buildLogo(ScreenIdentifier screenIdentifier) {
-    return AnimatedSwitcher(
-      duration: const Duration(milliseconds: 500),
-      child: screenIdentifier.conditions(md: false, lg: true)
-          ? ContainerGlass(
-              width: 300,
-              elevation: 0,
-              opacity: .6,
-              borderRadius: const BorderRadius.horizontal(
-                right: Radius.circular(20),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 24),
-                    child:
-                        LogoNamed(logoUrl: logoUrl, logoNamedUrl: logoNamedUrl),
-                  ),
-                ],
-              ),
-            )
-          : const SizedBox(),
     );
   }
 }

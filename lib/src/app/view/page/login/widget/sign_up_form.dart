@@ -4,18 +4,18 @@ import 'package:flx_core_flutter/flx_core_flutter.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 
-class LoginForm extends StatefulWidget {
-  const LoginForm({
+class SignUpForm extends StatefulWidget {
+  const SignUpForm({
     required this.onSuccess,
     required this.withTwoFactor,
     required this.onSuccessWithTwoFactor,
     required this.urlAuthApi,
-    required this.onTapSignUp,
+    required this.onTapSignIn,
     super.key,
   });
 
   final void Function(String authId) onSuccessWithTwoFactor;
-  final VoidCallback onTapSignUp;
+  final VoidCallback onTapSignIn;
   final void Function(
     String token,
     List<String> permission,
@@ -25,10 +25,10 @@ class LoginForm extends StatefulWidget {
   final String? urlAuthApi;
 
   @override
-  State<LoginForm> createState() => _LoginFormState();
+  State<SignUpForm> createState() => _SignUpFormState();
 }
 
-class _LoginFormState extends State<LoginForm> {
+class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
   final _nipController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -109,13 +109,13 @@ class _LoginFormState extends State<LoginForm> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      "Don't have an account? ",
+                      "Already have an account? ",
                       style: TextStyle(color: Color(0xFF718096)),
                     ),
                     GestureDetector(
-                      onTap: widget.onTapSignUp,
+                      onTap: widget.onTapSignIn,
                       child: const Text(
-                        'Sign Up',
+                        'Sign In',
                         style: TextStyle(
                           color: Color(0xFF6366f1),
                           fontWeight: FontWeight.w600,
