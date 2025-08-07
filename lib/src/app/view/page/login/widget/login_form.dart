@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:flx_authentication_flutter/flx_authentication_flutter.dart';
 import 'package:flx_core_flutter/flx_core_flutter.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 
@@ -9,6 +9,7 @@ class LoginForm extends StatefulWidget {
     required this.onSuccess,
     required this.withTwoFactor,
     required this.onSuccessWithTwoFactor,
+    required this.urlAuthApi,
     super.key,
   });
 
@@ -19,6 +20,7 @@ class LoginForm extends StatefulWidget {
     Map<String, dynamic> data,
   ) onSuccess;
   final bool withTwoFactor;
+  final String? urlAuthApi;
 
   @override
   State<LoginForm> createState() => _LoginFormState();
@@ -36,6 +38,7 @@ class _LoginFormState extends State<LoginForm> {
               _nipController.text,
               _passwordController.text,
               widget.withTwoFactor,
+              widget.urlAuthApi,
             ),
           );
     }

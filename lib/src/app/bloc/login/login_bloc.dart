@@ -1,6 +1,8 @@
-import 'package:flx_authentication_flutter/src/app/resource/authentication_repository.dart';
-import 'package:flx_core_flutter/flx_core_flutter.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flx_authentication_flutter/src/app/resource/authentication_repository.dart';
+import 'package:flx_authentication_flutter/src/app/util/access.dart';
+import 'package:flx_authentication_flutter/src/app/util/jwt.dart';
+import 'package:flx_core_flutter/flx_core_flutter.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'login_bloc.freezed.dart';
@@ -29,6 +31,7 @@ class LoginEvent with _$LoginEvent {
     String nip,
     String password,
     bool withTwoFactor,
+    String? urlApi,
   ) = _Submit;
 }
 
@@ -36,7 +39,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc() : super(const _Initial()) {
     on<LoginEvent>((event, emit) async {
       await event.when(
-        submit: (nip, password, withTwoFactor) async {
+        submit: (nip, password, withTwoFactor, urlApi) async {
           emit(const _Loading());
           try {
             final repository = AuthenticationRepositoryApi.instance;
@@ -50,6 +53,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
               final token = await repository.login(
                 nip: nip,
                 password: password,
+                url: urlApi ?? '',
               );
               final data = extractPayloadFromJwt(token);
               final permission = Access.fetchPermissions(data['rl'] as String);
