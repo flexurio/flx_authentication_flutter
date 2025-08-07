@@ -14,6 +14,7 @@ class LoginPage extends StatefulWidget {
     this.logoUrl,
     this.logoNamedUrl,
     this.urlAuthApi,
+    this.signUpPage,
   );
 
   final OnLoginSuccess onLoginSuccess;
@@ -21,6 +22,7 @@ class LoginPage extends StatefulWidget {
   final String? logoUrl;
   final String? logoNamedUrl;
   final String? urlAuthApi;
+  final Widget? signUpPage;
 
   static Widget prepare({
     required OnLoginSuccess onLoginSuccess,
@@ -28,6 +30,7 @@ class LoginPage extends StatefulWidget {
     String? logoUrl,
     String? logoNamedUrl,
     String? urlAuthApi,
+    Widget? signUpPage,
   }) {
     return MultiBlocProvider(
       providers: [BlocProvider(create: (_) => LoginBloc())],
@@ -37,6 +40,7 @@ class LoginPage extends StatefulWidget {
         logoUrl,
         logoNamedUrl,
         urlAuthApi,
+        signUpPage,
       ),
     );
   }
@@ -118,6 +122,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _buildSignUp() {
     return SignUpForm(
+      form: widget.signUpPage ?? const SizedBox.shrink(),
       urlAuthApi: widget.urlAuthApi,
       withTwoFactor: widget.withTwoFactor,
       onTapSignIn: () => _switchPage(0),

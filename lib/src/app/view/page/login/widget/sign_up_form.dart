@@ -11,6 +11,7 @@ class SignUpForm extends StatefulWidget {
     required this.onSuccessWithTwoFactor,
     required this.urlAuthApi,
     required this.onTapSignIn,
+    required this.form,
     super.key,
   });
 
@@ -23,6 +24,7 @@ class SignUpForm extends StatefulWidget {
   ) onSuccess;
   final bool withTwoFactor;
   final String? urlAuthApi;
+  final Widget form;
 
   @override
   State<SignUpForm> createState() => _SignUpFormState();
@@ -64,30 +66,31 @@ class _SignUpFormState extends State<SignUpForm> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                FTextFormField(
-                  labelText: 'NIP',
-                  controller: _nipController,
-                  validator: requiredValidator.call,
-                  errorText: state.maybeMap(
-                    error: (value) => value.nip,
-                    orElse: () => null,
-                  ),
-                ),
-                const Gap(12),
-                FTextFormField(
-                  labelText: 'Password',
-                  controller: _passwordController,
-                  validator: requiredValidator.call,
-                  obscureText: true,
-                  errorText: state.maybeMap(
-                    error: (value) => value.password,
-                    orElse: () => null,
-                  ),
-                  onEditingComplete: state.maybeWhen(
-                    loading: () => null,
-                    orElse: () => _submit,
-                  ),
-                ),
+                widget.form,
+                // FTextFormField(
+                //   labelText: 'NIP',
+                //   controller: _nipController,
+                //   validator: requiredValidator.call,
+                //   errorText: state.maybeMap(
+                //     error: (value) => value.nip,
+                //     orElse: () => null,
+                //   ),
+                // ),
+                // const Gap(12),
+                // FTextFormField(
+                //   labelText: 'Password',
+                //   controller: _passwordController,
+                //   validator: requiredValidator.call,
+                //   obscureText: true,
+                //   errorText: state.maybeMap(
+                //     error: (value) => value.password,
+                //     orElse: () => null,
+                //   ),
+                //   onEditingComplete: state.maybeWhen(
+                //     loading: () => null,
+                //     orElse: () => _submit,
+                //   ),
+                // ),
                 const SizedBox(height: 30),
                 Row(
                   children: [
