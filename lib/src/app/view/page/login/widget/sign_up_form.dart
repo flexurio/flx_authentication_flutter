@@ -31,23 +31,6 @@ class SignUpForm extends StatefulWidget {
 }
 
 class _SignUpFormState extends State<SignUpForm> {
-  final _formKey = GlobalKey<FormState>();
-  final _nipController = TextEditingController();
-  final _passwordController = TextEditingController();
-
-  void _submit() {
-    if (_formKey.currentState!.validate()) {
-      context.read<LoginBloc>().add(
-            LoginEvent.submit(
-              _nipController.text,
-              _passwordController.text,
-              widget.withTwoFactor,
-              widget.urlAuthApi,
-            ),
-          );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocListener<LoginBloc, LoginState>(
@@ -58,79 +41,36 @@ class _SignUpFormState extends State<SignUpForm> {
           orElse: () {},
         );
       },
-      child: Form(
-        key: _formKey,
-        child: BlocBuilder<LoginBloc, LoginState>(
-          builder: (context, state) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                widget.form,
-                // FTextFormField(
-                //   labelText: 'NIP',
-                //   controller: _nipController,
-                //   validator: requiredValidator.call,
-                //   errorText: state.maybeMap(
-                //     error: (value) => value.nip,
-                //     orElse: () => null,
-                //   ),
-                // ),
-                // const Gap(12),
-                // FTextFormField(
-                //   labelText: 'Password',
-                //   controller: _passwordController,
-                //   validator: requiredValidator.call,
-                //   obscureText: true,
-                //   errorText: state.maybeMap(
-                //     error: (value) => value.password,
-                //     orElse: () => null,
-                //   ),
-                //   onEditingComplete: state.maybeWhen(
-                //     loading: () => null,
-                //     orElse: () => _submit,
-                //   ),
-                // ),
-                const SizedBox(height: 30),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Button.action(
-                        permission: null,
-                        isInProgress: state.maybeWhen(
-                          loading: () => true,
-                          orElse: () => false,
-                        ),
-                        onPressed: _submit,
-                        action: DataAction.login,
-                      ),
-                    )
-                  ],
-                ),
-                const SizedBox(height: 24),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      "Already have an account? ",
-                      style: TextStyle(color: Color(0xFF718096)),
-                    ),
-                    GestureDetector(
-                      onTap: widget.onTapSignIn,
-                      child: const Text(
-                        'Sign In',
-                        style: TextStyle(
-                          color: Color(0xFF6366f1),
-                          fontWeight: FontWeight.w600,
-                        ),
+      child: BlocBuilder<LoginBloc, LoginState>(
+        builder: (context, state) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              widget.form,
+              const SizedBox(height: 24),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Already have an account? ',
+                    style: TextStyle(color: Color(0xFF718096)),
+                  ),
+                  GestureDetector(
+                    onTap: widget.onTapSignIn,
+                    child: const Text(
+                      'Sign In',
+                      style: TextStyle(
+                        color: Color(0xFF6366f1),
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
-                  ],
-                ),
-              ],
-            );
-          },
-        ),
+                  ),
+                ],
+              ),
+            ],
+          );
+        },
       ),
     );
   }
