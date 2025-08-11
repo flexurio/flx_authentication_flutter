@@ -22,7 +22,7 @@ class LoginPage extends StatefulWidget {
   final String? logoUrl;
   final String? logoNamedUrl;
   final String? urlAuthApi;
-  final Widget? signUpPage;
+  final Widget Function({required VoidCallback onSuccess}) signUpPage;
 
   static Widget prepare({
     required OnLoginSuccess onLoginSuccess,
@@ -30,7 +30,7 @@ class LoginPage extends StatefulWidget {
     String? logoUrl,
     String? logoNamedUrl,
     String? urlAuthApi,
-    Widget? signUpPage,
+    required Widget Function({required VoidCallback onSuccess}) signUpPage,
   }) {
     return MultiBlocProvider(
       providers: [BlocProvider(create: (_) => LoginBloc())],
@@ -122,7 +122,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _buildSignUp() {
     return SignUpForm(
-      form: widget.signUpPage ?? const SizedBox.shrink(),
+      form: widget.signUpPage,
       urlAuthApi: widget.urlAuthApi,
       withTwoFactor: widget.withTwoFactor,
       onTapSignIn: () => _switchPage(0),
@@ -130,14 +130,15 @@ class _LoginPageState extends State<LoginPage> {
         setState(() => _authId = authId);
         _switchPage(1);
       },
-      onSuccess: (accessToken, permissions, data) {
-        AuthenticationBloc.instance.add(
-          AuthenticationEvent.login(accessToken, permissions, data),
-        );
-        widget.onLoginSuccess(
-          accessToken,
-          extractPayloadFromJwt(accessToken),
-        );
+      onSuccess: () {
+        // AuthenticationBloc.instance.add(
+        //   AuthenticationEvent.login(accessToken, permissions, data),
+        // );
+        // widget.onLoginSuccess(
+        //   accessToken,
+        //   extractPayloadFromJwt(accessToken),
+        // );
+        _switchPage(0);
       },
     );
   }
