@@ -96,6 +96,7 @@ class _VerifyCodeFormState extends State<VerifyCodeForm> {
               ),
               const Gap(24),
               Pinput(
+                enableInteractiveSelection: true,
                 autofocus: true,
                 length: 6,
                 controller: _codeController,
