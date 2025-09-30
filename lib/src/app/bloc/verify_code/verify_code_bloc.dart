@@ -1,8 +1,8 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flx_authentication_flutter/src/app/resource/authentication_repository.dart';
 import 'package:flx_authentication_flutter/src/app/util/jwt.dart';
 import 'package:flx_authentication_flutter/src/app/util/on_login_success.dart';
 import 'package:flx_core_flutter/flx_core_flutter.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'verify_code_bloc.freezed.dart';

@@ -1,7 +1,7 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flx_authentication_flutter/src/app/model/report_access.dart';
 import 'package:flx_authentication_flutter/src/app/resource/authentication_repository.dart';
 import 'package:flx_core_flutter/flx_core_flutter.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'report_user_access_query_bloc.freezed.dart';

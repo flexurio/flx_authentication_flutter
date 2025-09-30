@@ -12,13 +12,10 @@ export 'src/app/model/report_access.dart';
 export 'src/app/model/role.dart';
 export 'src/app/model/user.dart';
 export 'src/app/resource/user_repository.dart';
-
+export 'src/app/util/access.dart';
+export 'src/app/util/jwt.dart';
 // Util
 export 'src/app/util/request_authentication.dart';
-export 'src/app/util/jwt.dart';
-export 'src/app/util/access.dart';
-
-
 // View
 export 'src/app/view/page/login/login_page.dart';
 export 'src/app/view/page/login/widget/login_form.dart';
