@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flx_authentication_flutter/src/app/resource/authentication_repository.dart';
 import 'package:flx_authentication_flutter/src/app/util/access.dart';
@@ -42,6 +43,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         submit: (nip, password, withTwoFactor, urlApi) async {
           emit(const _Loading());
           try {
+            print(
+              '[LOGIN] submit with nip: $nip, withTwoFactor: $withTwoFactor',
+            );
             final repository = AuthenticationRepositoryApi.instance;
             if (withTwoFactor) {
               final authId = await repository.loginWithTwoFactor(

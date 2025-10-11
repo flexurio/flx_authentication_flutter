@@ -52,6 +52,7 @@ class AuthenticationRepositoryApi extends Repository {
     required String url,
   }) async {
     try {
+      print('[LOGIN] login with url: $url');
       final response = await dio.post<Map<String, dynamic>>(
         url,
         options: Options(
