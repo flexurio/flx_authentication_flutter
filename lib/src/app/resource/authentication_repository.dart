@@ -24,10 +24,11 @@ class AuthenticationRepositoryApi extends Repository {
   Future<String> loginWithTwoFactor({
     required String nip,
     required String password,
+    required String? url,
   }) async {
     try {
       final response = await dio.get<Map<String, dynamic>>(
-        pathLogin,
+        url ?? pathLogin,
         options: Options(
           headers: {
             RequestHeader.authorization: getBasicAuthHeader(nip, password),
@@ -36,12 +37,18 @@ class AuthenticationRepositoryApi extends Repository {
       );
 
       final data = response.data!['data'] as Map<String, dynamic>?;
-      if (data == null) {
+      final success = response.data!['success'] as bool;
+      if (!success) {
         throw ApiException.fromType(ExceptionType.invalidUsernamePassword);
       }
 
-      return data['auth_at'] as String;
-    } catch (error) {
+      if (data?.containsKey('auth_at') ?? false) {
+        return data!['auth_at'] as String;
+      }
+
+      return 'NULL';
+    } catch (error, stackTrace) {
+      print('[ERROR] loginWithTwoFactor failed: $error\n$stackTrace');
       throw checkErrorApi(error);
     }
   }

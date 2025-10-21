@@ -12,11 +12,15 @@ class LoginPage extends StatefulWidget {
     this.logoUrl,
     this.logoNamedUrl,
     this.urlAuthApi,
+    this.usingPassword,
+    this.usernameLabel,
   );
 
   final OnLoginSuccess onLoginSuccess;
   final bool withTwoFactor;
   final String? logoUrl;
+  final bool usingPassword;
+  final String usernameLabel;
   final String? logoNamedUrl;
   final String? urlAuthApi;
 
@@ -26,15 +30,19 @@ class LoginPage extends StatefulWidget {
     String? logoUrl,
     String? logoNamedUrl,
     String? urlAuthApi,
+    bool usingPassword = true,
+    String usernameLabel = 'NIP',
   }) {
     return MultiBlocProvider(
       providers: [BlocProvider(create: (_) => LoginBloc())],
       child: LoginPage._(
-        onLoginSuccess, 
-        withTwoFactor, 
-        logoUrl, 
-        logoNamedUrl, 
+        onLoginSuccess,
+        withTwoFactor,
+        logoUrl,
+        logoNamedUrl,
         urlAuthApi,
+        usingPassword,
+        usernameLabel,
       ),
     );
   }
@@ -89,6 +97,8 @@ class _LoginPageState extends State<LoginPage> {
       padding: contentPadding,
       duration: const Duration(milliseconds: 350),
       child: LoginForm(
+        usingPassword: widget.usingPassword,
+        usernameLabel: widget.usernameLabel,
         urlAuthApi: widget.urlAuthApi,
         withTwoFactor: widget.withTwoFactor,
         onSuccessWithTwoFactor: (authId) {

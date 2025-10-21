@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flx_authentication_flutter/src/app/resource/authentication_repository.dart';
 import 'package:flx_authentication_flutter/src/app/util/access.dart';
@@ -51,6 +50,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
               final authId = await repository.loginWithTwoFactor(
                 nip: nip,
                 password: password,
+                url: urlApi,
               );
               emit(_SuccessWithTwoFactor(authId));
             } else {

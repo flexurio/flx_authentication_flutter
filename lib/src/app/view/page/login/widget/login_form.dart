@@ -10,6 +10,8 @@ class LoginForm extends StatefulWidget {
     required this.withTwoFactor,
     required this.onSuccessWithTwoFactor,
     required this.urlAuthApi,
+    required this.usernameLabel,
+    required this.usingPassword,
     super.key,
   });
 
@@ -21,6 +23,8 @@ class LoginForm extends StatefulWidget {
   ) onSuccess;
   final bool withTwoFactor;
   final String? urlAuthApi;
+  final String usernameLabel;
+  final bool usingPassword;
 
   @override
   State<LoginForm> createState() => _LoginFormState();
@@ -66,9 +70,9 @@ class _LoginFormState extends State<LoginForm> {
                   'Company Sign-In',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                 ),
-                const SizedBox(height: 30),
+                const Gap(30),
                 GlassTextFormField(
-                  labelText: 'NIP',
+                  labelText: widget.usernameLabel,
                   controller: _nipController,
                   validator: requiredValidator.call,
                   errorText: state.maybeMap(
@@ -76,22 +80,24 @@ class _LoginFormState extends State<LoginForm> {
                     orElse: () => null,
                   ),
                 ),
-                const Gap(12),
-                GlassTextFormField(
-                  labelText: 'Password',
-                  controller: _passwordController,
-                  validator: requiredValidator.call,
-                  obscureText: true,
-                  errorText: state.maybeMap(
-                    error: (value) => value.password,
-                    orElse: () => null,
+                if (widget.usingPassword) ...[
+                  const Gap(12),
+                  GlassTextFormField(
+                    labelText: 'Password',
+                    controller: _passwordController,
+                    validator: requiredValidator.call,
+                    obscureText: true,
+                    errorText: state.maybeMap(
+                      error: (value) => value.password,
+                      orElse: () => null,
+                    ),
+                    onEditingComplete: state.maybeWhen(
+                      loading: () => null,
+                      orElse: () => _submit,
+                    ),
                   ),
-                  onEditingComplete: state.maybeWhen(
-                    loading: () => null,
-                    orElse: () => _submit,
-                  ),
-                ),
-                const SizedBox(height: 30),
+                ],
+                const Gap(30),
                 Button.action(
                   permission: null,
                   isInProgress: state.maybeWhen(
