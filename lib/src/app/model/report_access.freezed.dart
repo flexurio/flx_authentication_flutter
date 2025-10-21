@@ -27,12 +27,8 @@ mixin _$ReportAccess {
   String get nip => throw _privateConstructorUsedError;
   String get menu => throw _privateConstructorUsedError;
 
-  /// Serializes this ReportAccess to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ReportAccess
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ReportAccessCopyWith<ReportAccess> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -60,8 +56,6 @@ class _$ReportAccessCopyWithImpl<$Res, $Val extends ReportAccess>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ReportAccess
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -114,8 +108,6 @@ class __$$ReportAccessImplCopyWithImpl<$Res>
       _$ReportAccessImpl _value, $Res Function(_$ReportAccessImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ReportAccess
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -187,14 +179,12 @@ class _$ReportAccessImpl extends _ReportAccess {
             (identical(other.menu, menu) || other.menu == menu));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, departmentName, userName, nip, menu);
 
-  /// Create a copy of ReportAccess
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ReportAccessImplCopyWith<_$ReportAccessImpl> get copyWith =>
@@ -229,11 +219,8 @@ abstract class _ReportAccess extends ReportAccess {
   String get nip;
   @override
   String get menu;
-
-  /// Create a copy of ReportAccess
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ReportAccessImplCopyWith<_$ReportAccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -90,9 +90,6 @@ class _$VerifyCodeStateCopyWithImpl<$Res, $Val extends VerifyCodeState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of VerifyCodeState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -109,9 +106,6 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of VerifyCodeState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -232,9 +226,6 @@ class __$$LoadingImplCopyWithImpl<$Res>
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of VerifyCodeState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -359,8 +350,6 @@ class __$$SuccessImplCopyWithImpl<$Res>
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of VerifyCodeState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -435,9 +424,7 @@ class _$SuccessImpl implements _Success {
       const DeepCollectionEquality().hash(_permission),
       const DeepCollectionEquality().hash(_data));
 
-  /// Create a copy of VerifyCodeState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
@@ -533,10 +520,7 @@ abstract class _Success implements VerifyCodeState {
   String get accessToken;
   List<String> get permission;
   Map<String, dynamic> get data;
-
-  /// Create a copy of VerifyCodeState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -558,8 +542,6 @@ class __$$ErrorImplCopyWithImpl<$Res>
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of VerifyCodeState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -598,9 +580,7 @@ class _$ErrorImpl implements _Error {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  /// Create a copy of VerifyCodeState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
@@ -691,10 +671,7 @@ abstract class _Error implements VerifyCodeState {
   const factory _Error(final String error) = _$ErrorImpl;
 
   String get error;
-
-  /// Create a copy of VerifyCodeState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -704,22 +681,25 @@ mixin _$VerifyCodeEvent {
   String get authId => throw _privateConstructorUsedError;
   String get code => throw _privateConstructorUsedError;
   OnLoginSuccess get onSuccess => throw _privateConstructorUsedError;
+  String? get urlAuthApiTwoFactor => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String authId, String code, OnLoginSuccess onSuccess)
+    required TResult Function(String authId, String code,
+            OnLoginSuccess onSuccess, String? urlAuthApiTwoFactor)
         submit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String authId, String code, OnLoginSuccess onSuccess)?
+    TResult? Function(String authId, String code, OnLoginSuccess onSuccess,
+            String? urlAuthApiTwoFactor)?
         submit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String authId, String code, OnLoginSuccess onSuccess)?
+    TResult Function(String authId, String code, OnLoginSuccess onSuccess,
+            String? urlAuthApiTwoFactor)?
         submit,
     required TResult orElse(),
   }) =>
@@ -741,9 +721,7 @@ mixin _$VerifyCodeEvent {
   }) =>
       throw _privateConstructorUsedError;
 
-  /// Create a copy of VerifyCodeEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $VerifyCodeEventCopyWith<VerifyCodeEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -754,7 +732,11 @@ abstract class $VerifyCodeEventCopyWith<$Res> {
           VerifyCodeEvent value, $Res Function(VerifyCodeEvent) then) =
       _$VerifyCodeEventCopyWithImpl<$Res, VerifyCodeEvent>;
   @useResult
-  $Res call({String authId, String code, OnLoginSuccess onSuccess});
+  $Res call(
+      {String authId,
+      String code,
+      OnLoginSuccess onSuccess,
+      String? urlAuthApiTwoFactor});
 }
 
 /// @nodoc
@@ -767,14 +749,13 @@ class _$VerifyCodeEventCopyWithImpl<$Res, $Val extends VerifyCodeEvent>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of VerifyCodeEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? authId = null,
     Object? code = null,
     Object? onSuccess = null,
+    Object? urlAuthApiTwoFactor = freezed,
   }) {
     return _then(_value.copyWith(
       authId: null == authId
@@ -789,6 +770,10 @@ class _$VerifyCodeEventCopyWithImpl<$Res, $Val extends VerifyCodeEvent>
           ? _value.onSuccess
           : onSuccess // ignore: cast_nullable_to_non_nullable
               as OnLoginSuccess,
+      urlAuthApiTwoFactor: freezed == urlAuthApiTwoFactor
+          ? _value.urlAuthApiTwoFactor
+          : urlAuthApiTwoFactor // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -801,7 +786,11 @@ abstract class _$$SubmitImplCopyWith<$Res>
       __$$SubmitImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String authId, String code, OnLoginSuccess onSuccess});
+  $Res call(
+      {String authId,
+      String code,
+      OnLoginSuccess onSuccess,
+      String? urlAuthApiTwoFactor});
 }
 
 /// @nodoc
@@ -812,14 +801,13 @@ class __$$SubmitImplCopyWithImpl<$Res>
       _$SubmitImpl _value, $Res Function(_$SubmitImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of VerifyCodeEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? authId = null,
     Object? code = null,
     Object? onSuccess = null,
+    Object? urlAuthApiTwoFactor = freezed,
   }) {
     return _then(_$SubmitImpl(
       null == authId
@@ -834,6 +822,10 @@ class __$$SubmitImplCopyWithImpl<$Res>
           ? _value.onSuccess
           : onSuccess // ignore: cast_nullable_to_non_nullable
               as OnLoginSuccess,
+      freezed == urlAuthApiTwoFactor
+          ? _value.urlAuthApiTwoFactor
+          : urlAuthApiTwoFactor // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -841,7 +833,8 @@ class __$$SubmitImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SubmitImpl implements _Submit {
-  const _$SubmitImpl(this.authId, this.code, this.onSuccess);
+  const _$SubmitImpl(
+      this.authId, this.code, this.onSuccess, this.urlAuthApiTwoFactor);
 
   @override
   final String authId;
@@ -849,10 +842,12 @@ class _$SubmitImpl implements _Submit {
   final String code;
   @override
   final OnLoginSuccess onSuccess;
+  @override
+  final String? urlAuthApiTwoFactor;
 
   @override
   String toString() {
-    return 'VerifyCodeEvent.submit(authId: $authId, code: $code, onSuccess: $onSuccess)';
+    return 'VerifyCodeEvent.submit(authId: $authId, code: $code, onSuccess: $onSuccess, urlAuthApiTwoFactor: $urlAuthApiTwoFactor)';
   }
 
   @override
@@ -863,15 +858,16 @@ class _$SubmitImpl implements _Submit {
             (identical(other.authId, authId) || other.authId == authId) &&
             (identical(other.code, code) || other.code == code) &&
             (identical(other.onSuccess, onSuccess) ||
-                other.onSuccess == onSuccess));
+                other.onSuccess == onSuccess) &&
+            (identical(other.urlAuthApiTwoFactor, urlAuthApiTwoFactor) ||
+                other.urlAuthApiTwoFactor == urlAuthApiTwoFactor));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, authId, code, onSuccess);
+  int get hashCode =>
+      Object.hash(runtimeType, authId, code, onSuccess, urlAuthApiTwoFactor);
 
-  /// Create a copy of VerifyCodeEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SubmitImplCopyWith<_$SubmitImpl> get copyWith =>
@@ -880,31 +876,33 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String authId, String code, OnLoginSuccess onSuccess)
+    required TResult Function(String authId, String code,
+            OnLoginSuccess onSuccess, String? urlAuthApiTwoFactor)
         submit,
   }) {
-    return submit(authId, code, onSuccess);
+    return submit(authId, code, onSuccess, urlAuthApiTwoFactor);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String authId, String code, OnLoginSuccess onSuccess)?
+    TResult? Function(String authId, String code, OnLoginSuccess onSuccess,
+            String? urlAuthApiTwoFactor)?
         submit,
   }) {
-    return submit?.call(authId, code, onSuccess);
+    return submit?.call(authId, code, onSuccess, urlAuthApiTwoFactor);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String authId, String code, OnLoginSuccess onSuccess)?
+    TResult Function(String authId, String code, OnLoginSuccess onSuccess,
+            String? urlAuthApiTwoFactor)?
         submit,
     required TResult orElse(),
   }) {
     if (submit != null) {
-      return submit(authId, code, onSuccess);
+      return submit(authId, code, onSuccess, urlAuthApiTwoFactor);
     }
     return orElse();
   }
@@ -939,8 +937,11 @@ class _$SubmitImpl implements _Submit {
 }
 
 abstract class _Submit implements VerifyCodeEvent {
-  const factory _Submit(final String authId, final String code,
-      final OnLoginSuccess onSuccess) = _$SubmitImpl;
+  const factory _Submit(
+      final String authId,
+      final String code,
+      final OnLoginSuccess onSuccess,
+      final String? urlAuthApiTwoFactor) = _$SubmitImpl;
 
   @override
   String get authId;
@@ -948,11 +949,10 @@ abstract class _Submit implements VerifyCodeEvent {
   String get code;
   @override
   OnLoginSuccess get onSuccess;
-
-  /// Create a copy of VerifyCodeEvent
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  String? get urlAuthApiTwoFactor;
+  @override
+  @JsonKey(ignore: true)
   _$$SubmitImplCopyWith<_$SubmitImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

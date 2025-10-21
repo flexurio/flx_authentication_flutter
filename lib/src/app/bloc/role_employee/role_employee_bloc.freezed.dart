@@ -84,9 +84,6 @@ class _$RoleEmployeeStateCopyWithImpl<$Res, $Val extends RoleEmployeeState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of RoleEmployeeState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -103,9 +100,6 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of RoleEmployeeState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -220,9 +214,6 @@ class __$$LoadingImplCopyWithImpl<$Res>
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of RoleEmployeeState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -337,9 +328,6 @@ class __$$SuccessImplCopyWithImpl<$Res>
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of RoleEmployeeState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -457,8 +445,6 @@ class __$$ErrorImplCopyWithImpl<$Res>
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of RoleEmployeeState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -497,9 +483,7 @@ class _$ErrorImpl implements _Error {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  /// Create a copy of RoleEmployeeState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
@@ -584,10 +568,7 @@ abstract class _Error implements RoleEmployeeState {
   const factory _Error(final String error) = _$ErrorImpl;
 
   String get error;
-
-  /// Create a copy of RoleEmployeeState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -634,9 +615,7 @@ mixin _$RoleEmployeeEvent {
   }) =>
       throw _privateConstructorUsedError;
 
-  /// Create a copy of RoleEmployeeEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $RoleEmployeeEventCopyWith<RoleEmployeeEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -660,8 +639,6 @@ class _$RoleEmployeeEventCopyWithImpl<$Res, $Val extends RoleEmployeeEvent>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of RoleEmployeeEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -695,8 +672,6 @@ class __$$CreateImplCopyWithImpl<$Res>
       _$CreateImpl _value, $Res Function(_$CreateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of RoleEmployeeEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -735,9 +710,7 @@ class _$CreateImpl implements _Create {
   @override
   int get hashCode => Object.hash(runtimeType, userId);
 
-  /// Create a copy of RoleEmployeeEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateImplCopyWith<_$CreateImpl> get copyWith =>
@@ -811,11 +784,8 @@ abstract class _Create implements RoleEmployeeEvent {
 
   @override
   String get userId;
-
-  /// Create a copy of RoleEmployeeEvent
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$CreateImplCopyWith<_$CreateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -839,8 +809,6 @@ class __$$UpdateImplCopyWithImpl<$Res>
       _$UpdateImpl _value, $Res Function(_$UpdateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of RoleEmployeeEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -879,9 +847,7 @@ class _$UpdateImpl implements _Update {
   @override
   int get hashCode => Object.hash(runtimeType, userId);
 
-  /// Create a copy of RoleEmployeeEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateImplCopyWith<_$UpdateImpl> get copyWith =>
@@ -955,11 +921,8 @@ abstract class _Update implements RoleEmployeeEvent {
 
   @override
   String get userId;
-
-  /// Create a copy of RoleEmployeeEvent
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$UpdateImplCopyWith<_$UpdateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -10,10 +10,12 @@ class LoginPage extends StatefulWidget {
     this.onLoginSuccess,
     this.withTwoFactor,
     this.logoUrl,
+    this.urlAuthApiTwoFactor,
     this.logoNamedUrl,
     this.urlAuthApi,
     this.usingPassword,
     this.usernameLabel,
+    this.pinLength,
   );
 
   final OnLoginSuccess onLoginSuccess;
@@ -23,15 +25,19 @@ class LoginPage extends StatefulWidget {
   final String usernameLabel;
   final String? logoNamedUrl;
   final String? urlAuthApi;
+  final String? urlAuthApiTwoFactor;
+  final int pinLength;
 
   static Widget prepare({
     required OnLoginSuccess onLoginSuccess,
     required bool withTwoFactor,
     String? logoUrl,
     String? logoNamedUrl,
+    String? urlAuthApiTwoFactor,
     String? urlAuthApi,
     bool usingPassword = true,
     String usernameLabel = 'NIP',
+    int pinLength = 6,
   }) {
     return MultiBlocProvider(
       providers: [BlocProvider(create: (_) => LoginBloc())],
@@ -39,10 +45,12 @@ class LoginPage extends StatefulWidget {
         onLoginSuccess,
         withTwoFactor,
         logoUrl,
+        urlAuthApiTwoFactor,
         logoNamedUrl,
         urlAuthApi,
         usingPassword,
         usernameLabel,
+        pinLength,
       ),
     );
   }
@@ -85,6 +93,8 @@ class _LoginPageState extends State<LoginPage> {
     return Padding(
       padding: contentPadding,
       child: VerifyCodeForm.prepare(
+        urlAuthApiTwoFactor: widget.urlAuthApiTwoFactor,
+        pinLength: widget.pinLength,
         authId: _authId,
         onBackPressed: () => _switchPage(0),
         onLoginSuccess: widget.onLoginSuccess,

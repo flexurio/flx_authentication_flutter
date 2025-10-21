@@ -46,7 +46,7 @@ class AuthenticationRepositoryApi extends Repository {
         return data!['auth_at'] as String;
       }
 
-      return 'NULL';
+      return nip;
     } catch (error, stackTrace) {
       print('[ERROR] loginWithTwoFactor failed: $error\n$stackTrace');
       throw checkErrorApi(error);
@@ -79,10 +79,11 @@ class AuthenticationRepositoryApi extends Repository {
   Future<String> verifyCode({
     required String authId,
     required String code,
+    required String? urlAuthApiTwoFactor,
   }) async {
     try {
       final response = await dio.get<Map<String, dynamic>>(
-        pathVerifyCode,
+        urlAuthApiTwoFactor ?? pathVerifyCode,
         options: Options(
           headers: {
             RequestHeader.authorization: getBasicAuthHeader(authId, code),

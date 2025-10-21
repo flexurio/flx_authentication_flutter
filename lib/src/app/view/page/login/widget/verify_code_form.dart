@@ -11,12 +11,16 @@ class VerifyCodeForm extends StatefulWidget {
     required this.onBackPressed,
     required this.authId,
     required this.onLoginSuccess,
+    required this.pinLength,
+    required this.urlAuthApiTwoFactor,
   });
 
   static Widget prepare({
     required void Function() onBackPressed,
     required String authId,
     required OnLoginSuccess onLoginSuccess,
+    required int pinLength,
+    required String? urlAuthApiTwoFactor,
   }) {
     return MultiBlocProvider(
       providers: [BlocProvider(create: (_) => VerifyCodeBloc())],
@@ -24,13 +28,17 @@ class VerifyCodeForm extends StatefulWidget {
         onBackPressed: onBackPressed,
         authId: authId,
         onLoginSuccess: onLoginSuccess,
+        pinLength: pinLength,
+        urlAuthApiTwoFactor: urlAuthApiTwoFactor,
       ),
     );
   }
 
   final void Function() onBackPressed;
   final String authId;
+  final int pinLength;
   final OnLoginSuccess onLoginSuccess;
+  final String? urlAuthApiTwoFactor;
 
   @override
   State<VerifyCodeForm> createState() => _VerifyCodeFormState();
@@ -45,6 +53,7 @@ class _VerifyCodeFormState extends State<VerifyCodeForm> {
             widget.authId,
             _codeController.text,
             widget.onLoginSuccess,
+            widget.urlAuthApiTwoFactor,
           ),
         );
   }
@@ -98,7 +107,7 @@ class _VerifyCodeFormState extends State<VerifyCodeForm> {
               Pinput(
                 enableInteractiveSelection: true,
                 autofocus: true,
-                length: 6,
+                length: widget.pinLength,
                 controller: _codeController,
                 defaultPinTheme: PinTheme(
                   height: 50,

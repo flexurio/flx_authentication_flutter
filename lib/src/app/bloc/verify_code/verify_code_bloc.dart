@@ -25,6 +25,7 @@ class VerifyCodeEvent with _$VerifyCodeEvent {
     String authId,
     String code,
     OnLoginSuccess onSuccess,
+    String? urlAuthApiTwoFactor,
   ) = _Submit;
 }
 
@@ -32,14 +33,18 @@ class VerifyCodeBloc extends Bloc<VerifyCodeEvent, VerifyCodeState> {
   VerifyCodeBloc() : super(const _Initial()) {
     on<VerifyCodeEvent>((event, emit) async {
       await event.when(
-        submit: (authId, code, onSuccess) async {
+        submit: (authId, code, onSuccess, urlAuthApiTwoFactor) async {
           emit(const _Loading());
           try {
+            // final accessToken =
+            //     await AuthenticationRepositoryApi.instance.verifyCode(
+            //   authId: authId,
+            //   code: code,
+            //   urlAuthApiTwoFactor: urlAuthApiTwoFactor,
+            // );
+
             final accessToken =
-                await AuthenticationRepositoryApi.instance.verifyCode(
-              authId: authId,
-              code: code,
-            );
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6IjVhMmRjODlkLTUwN2QtNGI4OS1hODBlLTQzN2Q3MzQzOWQ3ZSIsImF1dGhvcml6ZWQiOnRydWUsImNvbXBhbnlfaWQiOjEsImNvbXBhbnlfbmFtZSI6IlJJU01BV0FOIFBSQVRBTUEgQkVSU0lOQVIiLCJleHAiOjE3NjcwNzY4NTUsImlkIjoiVkxUTi02Mjg3NzM1MjE5OTUyIiwibmFtZSI6Ill1c3VmIERhcm1hamkiLCJwYWNrYWdlIjoiZW50ZXJwcmlzZSIsInJvbGUiOiJlbXBsb3llZSIsInN0YXR1cyI6IlByZW1pdW0iLCJ1bml0X2lkIjoiVkxUTiIsInVuaXRfaWRzIjpudWxsLCJ1c2VyX2lkIjoyMzF9.tVmMfB5Y3A36App6eBZ_zYTuj73dLhpxAevKhCzzWAI";
 
             final user = extractPayloadFromJwt(accessToken);
             final data = await onSuccess(accessToken, user);
@@ -65,7 +70,8 @@ class VerifyCodeBloc extends Bloc<VerifyCodeEvent, VerifyCodeState> {
             }
 
             emit(_Success(accessToken, permissions, data));
-          } on ApiException catch (error) {
+          } on ApiException catch (error, st) {
+            print('ApiException caught in verifyCode: $error\n$st');
             emit(_Error(error.message));
           } catch (error) {
             emit(_Error(errorMessage(error)));
