@@ -106,10 +106,13 @@ class AuthenticationRepositoryApi extends Repository {
   Future<List<String>> rolePermissionFetch({
     required String accessToken,
     required Role role,
+    String? host,
   }) async {
     try {
+      final path = '${host ?? Api.urlApi}/roles/${role.id}/permissions';
+      print('[AUTH REPO] rolePermissionFetch: $path');
       final response = await dio.get<Map<String, dynamic>>(
-        '$rolesPath/${role.id}/permissions',
+        path,
         options: Options(
           headers: {
             RequestHeader.authorization: 'Bearer $accessToken',
@@ -247,10 +250,13 @@ class AuthenticationRepositoryApi extends Repository {
   Future<List<Role>> employeeRoleFetch({
     required String accessToken,
     required String employeeId,
+    required String? host,
   }) async {
     try {
+      final path = '${host ?? Api.urlApi}/users/$employeeId/roles';
+      print('[AUTH REPO] employeeRoleFetch: $path');
       final response = await dio.get<Map<String, dynamic>>(
-        '${Api.urlApi}/users/$employeeId/roles',
+        path,
         options: Options(
           headers: {
             RequestHeader.authorization: 'Bearer $accessToken',
@@ -262,13 +268,16 @@ class AuthenticationRepositoryApi extends Repository {
 
       for (final data in response.data!['data'] as List) {
         final role = Role.fromJson(
-          (data as Map<String, dynamic>)['role_id'] as Map<String, dynamic>,
+          (data as Map<String, dynamic>)[host != null ? 'role' : 'role_id']
+              as Map<String, dynamic>,
         );
         roles.add(role);
       }
 
+      print('[AUTH REPO] employeeRoleFetch: $roles');
       return roles;
-    } catch (error) {
+    } catch (error, st) {
+      print('[AUTH REPO] employeeRoleFetch error!\n$st');
       throw checkErrorApi(error);
     }
   }
