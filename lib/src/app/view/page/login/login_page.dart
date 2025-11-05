@@ -115,6 +115,9 @@ class _LoginPageState extends State<LoginPage> {
           setState(() => _authId = authId);
           _switchPage(1);
         },
+        onFail: (message) {
+          Toast(context).fail(message);
+        },
         onSuccess: (accessToken, permissions, data) {
           AuthenticationBloc.instance.add(
             AuthenticationEvent.login(accessToken, permissions, data),

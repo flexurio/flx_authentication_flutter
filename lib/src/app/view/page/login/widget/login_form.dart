@@ -12,6 +12,7 @@ class LoginForm extends StatefulWidget {
     required this.urlAuthApi,
     required this.usernameLabel,
     required this.usingPassword,
+    required this.onFail,
     super.key,
   });
 
@@ -21,6 +22,7 @@ class LoginForm extends StatefulWidget {
     List<String> permission,
     Map<String, dynamic> data,
   ) onSuccess;
+  final void Function(String message) onFail;
   final bool withTwoFactor;
   final String? urlAuthApi;
   final String usernameLabel;
@@ -55,6 +57,15 @@ class _LoginFormState extends State<LoginForm> {
         state.maybeWhen(
           successWithTwoFactor: widget.onSuccessWithTwoFactor,
           success: widget.onSuccess,
+          error: (nip, password, other) {
+            if (other != null) {
+              widget.onFail(other);
+            } else if (nip != null) {
+              widget.onFail(nip);
+            } else if (password != null) {
+              widget.onFail(password);
+            }
+          },
           orElse: () {},
         );
       },
