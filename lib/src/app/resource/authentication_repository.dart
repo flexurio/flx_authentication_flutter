@@ -102,9 +102,7 @@ class AuthenticationRepositoryApi extends Repository {
       final response = await dio.get<Map<String, dynamic>>(
         '$rolesPath/${role.id}/permissions',
         options: Options(
-          headers: {
-            RequestHeader.authorization: 'Bearer $accessToken',
-          },
+          headers: {RequestHeader.authorization: 'Bearer $accessToken'},
         ),
       );
 
@@ -186,10 +184,7 @@ class AuthenticationRepositoryApi extends Repository {
         options: Options(
           headers: {RequestHeader.authorization: 'Bearer $accessToken'},
         ),
-        data: jsonEncode({
-          'name': name,
-          'description': description,
-        }),
+        data: jsonEncode({'name': name, 'description': description}),
       );
     } catch (error) {
       throw checkErrorApi(error);
@@ -208,10 +203,7 @@ class AuthenticationRepositoryApi extends Repository {
         options: Options(
           headers: {RequestHeader.authorization: 'Bearer $accessToken'},
         ),
-        data: jsonEncode({
-          'name': name,
-          'description': description,
-        }),
+        data: jsonEncode({'name': name, 'description': description}),
       );
     } catch (error) {
       throw checkErrorApi(error);
@@ -243,9 +235,7 @@ class AuthenticationRepositoryApi extends Repository {
       final response = await dio.get<Map<String, dynamic>>(
         '${Api.urlApi}/users/$employeeId/roles',
         options: Options(
-          headers: {
-            RequestHeader.authorization: 'Bearer $accessToken',
-          },
+          headers: {RequestHeader.authorization: 'Bearer $accessToken'},
         ),
       );
 
@@ -272,9 +262,7 @@ class AuthenticationRepositoryApi extends Repository {
       final response = await dio.get<Map<String, dynamic>>(
         '$rolesPath/${role.id}/users',
         options: Options(
-          headers: {
-            RequestHeader.authorization: 'Bearer $accessToken',
-          },
+          headers: {RequestHeader.authorization: 'Bearer $accessToken'},
         ),
       );
 
@@ -282,8 +270,9 @@ class AuthenticationRepositoryApi extends Repository {
       final data = response.data!['data'] as List;
 
       for (final data in data) {
-        employee
-            .add(((data as Map<String, dynamic>)['user_id'] as int).toString());
+        employee.add(
+          ((data as Map<String, dynamic>)['user_id'] as int).toString(),
+        );
       }
 
       return employee;
@@ -339,9 +328,7 @@ class AuthenticationRepositoryApi extends Repository {
           'nip.eq': employeeId,
         },
         options: Options(
-          headers: {
-            RequestHeader.authorization: 'Bearer $accessToken',
-          },
+          headers: {RequestHeader.authorization: 'Bearer $accessToken'},
         ),
       );
 

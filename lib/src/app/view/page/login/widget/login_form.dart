@@ -18,7 +18,8 @@ class LoginForm extends StatefulWidget {
     String token,
     List<String> permission,
     Map<String, dynamic> data,
-  ) onSuccess;
+  )
+  onSuccess;
   final bool withTwoFactor;
   final String? urlAuthApi;
 
@@ -34,13 +35,13 @@ class _LoginFormState extends State<LoginForm> {
   void _submit() {
     if (_formKey.currentState!.validate()) {
       context.read<LoginBloc>().add(
-            LoginEvent.submit(
-              _nipController.text,
-              _passwordController.text,
-              widget.withTwoFactor,
-              widget.urlAuthApi,
-            ),
-          );
+        LoginEvent.submit(
+          _nipController.text,
+          _passwordController.text,
+          widget.withTwoFactor,
+          widget.urlAuthApi,
+        ),
+      );
     }
   }
 

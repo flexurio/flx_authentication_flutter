@@ -12,7 +12,8 @@ part of 'role_employee_query_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$RoleEmployeeQueryState {
@@ -22,16 +23,14 @@ mixin _$RoleEmployeeQueryState {
     required TResult Function() loading,
     required TResult Function(List<String> roleEmployees) loaded,
     required TResult Function(String error) error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<String> roleEmployees)? loaded,
     TResult? Function(String error)? error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -39,24 +38,21 @@ mixin _$RoleEmployeeQueryState {
     TResult Function(List<String> roleEmployees)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) loaded,
     required TResult Function(_Error value) error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? loaded,
     TResult? Function(_Error value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -64,20 +60,22 @@ mixin _$RoleEmployeeQueryState {
     TResult Function(_Success value)? loaded,
     TResult Function(_Error value)? error,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $RoleEmployeeQueryStateCopyWith<$Res> {
-  factory $RoleEmployeeQueryStateCopyWith(RoleEmployeeQueryState value,
-          $Res Function(RoleEmployeeQueryState) then) =
-      _$RoleEmployeeQueryStateCopyWithImpl<$Res, RoleEmployeeQueryState>;
+  factory $RoleEmployeeQueryStateCopyWith(
+    RoleEmployeeQueryState value,
+    $Res Function(RoleEmployeeQueryState) then,
+  ) = _$RoleEmployeeQueryStateCopyWithImpl<$Res, RoleEmployeeQueryState>;
 }
 
 /// @nodoc
-class _$RoleEmployeeQueryStateCopyWithImpl<$Res,
-        $Val extends RoleEmployeeQueryState>
+class _$RoleEmployeeQueryStateCopyWithImpl<
+  $Res,
+  $Val extends RoleEmployeeQueryState
+>
     implements $RoleEmployeeQueryStateCopyWith<$Res> {
   _$RoleEmployeeQueryStateCopyWithImpl(this._value, this._then);
 
@@ -93,8 +91,9 @@ class _$RoleEmployeeQueryStateCopyWithImpl<$Res,
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+    _$InitialImpl value,
+    $Res Function(_$InitialImpl) then,
+  ) = __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -102,8 +101,9 @@ class __$$InitialImplCopyWithImpl<$Res>
     extends _$RoleEmployeeQueryStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+    _$InitialImpl _value,
+    $Res Function(_$InitialImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RoleEmployeeQueryState
   /// with the given fields replaced by the non-null parameter values.
@@ -210,8 +210,9 @@ abstract class _Initial implements RoleEmployeeQueryState {
 /// @nodoc
 abstract class _$$LoadingImplCopyWith<$Res> {
   factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+    _$LoadingImpl value,
+    $Res Function(_$LoadingImpl) then,
+  ) = __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -219,8 +220,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
     extends _$RoleEmployeeQueryStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
+    _$LoadingImpl _value,
+    $Res Function(_$LoadingImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RoleEmployeeQueryState
   /// with the given fields replaced by the non-null parameter values.
@@ -327,8 +329,9 @@ abstract class _Loading implements RoleEmployeeQueryState {
 /// @nodoc
 abstract class _$$SuccessImplCopyWith<$Res> {
   factory _$$SuccessImplCopyWith(
-          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
-      __$$SuccessImplCopyWithImpl<$Res>;
+    _$SuccessImpl value,
+    $Res Function(_$SuccessImpl) then,
+  ) = __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<String> roleEmployees});
 }
@@ -338,22 +341,23 @@ class __$$SuccessImplCopyWithImpl<$Res>
     extends _$RoleEmployeeQueryStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
-      : super(_value, _then);
+    _$SuccessImpl _value,
+    $Res Function(_$SuccessImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RoleEmployeeQueryState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? roleEmployees = null,
-  }) {
-    return _then(_$SuccessImpl(
-      null == roleEmployees
-          ? _value._roleEmployees
-          : roleEmployees // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ));
+  $Res call({Object? roleEmployees = null}) {
+    return _then(
+      _$SuccessImpl(
+        null == roleEmployees
+            ? _value._roleEmployees
+            : roleEmployees // ignore: cast_nullable_to_non_nullable
+                as List<String>,
+      ),
+    );
   }
 }
 
@@ -361,7 +365,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
 
 class _$SuccessImpl implements _Success {
   const _$SuccessImpl(final List<String> roleEmployees)
-      : _roleEmployees = roleEmployees;
+    : _roleEmployees = roleEmployees;
 
   final List<String> _roleEmployees;
   @override
@@ -381,13 +385,17 @@ class _$SuccessImpl implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            const DeepCollectionEquality()
-                .equals(other._roleEmployees, _roleEmployees));
+            const DeepCollectionEquality().equals(
+              other._roleEmployees,
+              _roleEmployees,
+            ));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_roleEmployees));
+    runtimeType,
+    const DeepCollectionEquality().hash(_roleEmployees),
+  );
 
   /// Create a copy of RoleEmployeeQueryState
   /// with the given fields replaced by the non-null parameter values.
@@ -487,8 +495,9 @@ abstract class _Success implements RoleEmployeeQueryState {
 /// @nodoc
 abstract class _$$ErrorImplCopyWith<$Res> {
   factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
+    _$ErrorImpl value,
+    $Res Function(_$ErrorImpl) then,
+  ) = __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String error});
 }
@@ -498,22 +507,23 @@ class __$$ErrorImplCopyWithImpl<$Res>
     extends _$RoleEmployeeQueryStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
-      : super(_value, _then);
+    _$ErrorImpl _value,
+    $Res Function(_$ErrorImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RoleEmployeeQueryState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_$ErrorImpl(
-      null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? error = null}) {
+    return _then(
+      _$ErrorImpl(
+        null == error
+            ? _value.error
+            : error // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -639,49 +649,44 @@ abstract class _Error implements RoleEmployeeQueryState {
 /// @nodoc
 mixin _$RoleEmployeeQueryEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() fetch,
-  }) =>
+  TResult when<TResult extends Object?>({required TResult Function() fetch}) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetch,
-  }) =>
+  TResult? whenOrNull<TResult extends Object?>({TResult? Function()? fetch}) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetch,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Fetch value) fetch,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Fetch value)? fetch,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $RoleEmployeeQueryEventCopyWith<$Res> {
-  factory $RoleEmployeeQueryEventCopyWith(RoleEmployeeQueryEvent value,
-          $Res Function(RoleEmployeeQueryEvent) then) =
-      _$RoleEmployeeQueryEventCopyWithImpl<$Res, RoleEmployeeQueryEvent>;
+  factory $RoleEmployeeQueryEventCopyWith(
+    RoleEmployeeQueryEvent value,
+    $Res Function(RoleEmployeeQueryEvent) then,
+  ) = _$RoleEmployeeQueryEventCopyWithImpl<$Res, RoleEmployeeQueryEvent>;
 }
 
 /// @nodoc
-class _$RoleEmployeeQueryEventCopyWithImpl<$Res,
-        $Val extends RoleEmployeeQueryEvent>
+class _$RoleEmployeeQueryEventCopyWithImpl<
+  $Res,
+  $Val extends RoleEmployeeQueryEvent
+>
     implements $RoleEmployeeQueryEventCopyWith<$Res> {
   _$RoleEmployeeQueryEventCopyWithImpl(this._value, this._then);
 
@@ -697,8 +702,9 @@ class _$RoleEmployeeQueryEventCopyWithImpl<$Res,
 /// @nodoc
 abstract class _$$FetchImplCopyWith<$Res> {
   factory _$$FetchImplCopyWith(
-          _$FetchImpl value, $Res Function(_$FetchImpl) then) =
-      __$$FetchImplCopyWithImpl<$Res>;
+    _$FetchImpl value,
+    $Res Function(_$FetchImpl) then,
+  ) = __$$FetchImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -706,8 +712,9 @@ class __$$FetchImplCopyWithImpl<$Res>
     extends _$RoleEmployeeQueryEventCopyWithImpl<$Res, _$FetchImpl>
     implements _$$FetchImplCopyWith<$Res> {
   __$$FetchImplCopyWithImpl(
-      _$FetchImpl _value, $Res Function(_$FetchImpl) _then)
-      : super(_value, _then);
+    _$FetchImpl _value,
+    $Res Function(_$FetchImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RoleEmployeeQueryEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -734,17 +741,13 @@ class _$FetchImpl implements _Fetch {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() fetch,
-  }) {
+  TResult when<TResult extends Object?>({required TResult Function() fetch}) {
     return fetch();
   }
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetch,
-  }) {
+  TResult? whenOrNull<TResult extends Object?>({TResult? Function()? fetch}) {
     return fetch?.call();
   }
 

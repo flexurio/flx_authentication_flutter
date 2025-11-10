@@ -12,7 +12,8 @@ part of 'report_access.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 ReportAccess _$ReportAccessFromJson(Map<String, dynamic> json) {
   return _ReportAccess.fromJson(json);
@@ -40,14 +41,16 @@ mixin _$ReportAccess {
 /// @nodoc
 abstract class $ReportAccessCopyWith<$Res> {
   factory $ReportAccessCopyWith(
-          ReportAccess value, $Res Function(ReportAccess) then) =
-      _$ReportAccessCopyWithImpl<$Res, ReportAccess>;
+    ReportAccess value,
+    $Res Function(ReportAccess) then,
+  ) = _$ReportAccessCopyWithImpl<$Res, ReportAccess>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'department_name') String departmentName,
-      @JsonKey(name: 'user_name') String userName,
-      String nip,
-      String menu});
+  $Res call({
+    @JsonKey(name: 'department_name') String departmentName,
+    @JsonKey(name: 'user_name') String userName,
+    String nip,
+    String menu,
+  });
 }
 
 /// @nodoc
@@ -70,24 +73,31 @@ class _$ReportAccessCopyWithImpl<$Res, $Val extends ReportAccess>
     Object? nip = null,
     Object? menu = null,
   }) {
-    return _then(_value.copyWith(
-      departmentName: null == departmentName
-          ? _value.departmentName
-          : departmentName // ignore: cast_nullable_to_non_nullable
-              as String,
-      userName: null == userName
-          ? _value.userName
-          : userName // ignore: cast_nullable_to_non_nullable
-              as String,
-      nip: null == nip
-          ? _value.nip
-          : nip // ignore: cast_nullable_to_non_nullable
-              as String,
-      menu: null == menu
-          ? _value.menu
-          : menu // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            departmentName:
+                null == departmentName
+                    ? _value.departmentName
+                    : departmentName // ignore: cast_nullable_to_non_nullable
+                        as String,
+            userName:
+                null == userName
+                    ? _value.userName
+                    : userName // ignore: cast_nullable_to_non_nullable
+                        as String,
+            nip:
+                null == nip
+                    ? _value.nip
+                    : nip // ignore: cast_nullable_to_non_nullable
+                        as String,
+            menu:
+                null == menu
+                    ? _value.menu
+                    : menu // ignore: cast_nullable_to_non_nullable
+                        as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -95,15 +105,17 @@ class _$ReportAccessCopyWithImpl<$Res, $Val extends ReportAccess>
 abstract class _$$ReportAccessImplCopyWith<$Res>
     implements $ReportAccessCopyWith<$Res> {
   factory _$$ReportAccessImplCopyWith(
-          _$ReportAccessImpl value, $Res Function(_$ReportAccessImpl) then) =
-      __$$ReportAccessImplCopyWithImpl<$Res>;
+    _$ReportAccessImpl value,
+    $Res Function(_$ReportAccessImpl) then,
+  ) = __$$ReportAccessImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'department_name') String departmentName,
-      @JsonKey(name: 'user_name') String userName,
-      String nip,
-      String menu});
+  $Res call({
+    @JsonKey(name: 'department_name') String departmentName,
+    @JsonKey(name: 'user_name') String userName,
+    String nip,
+    String menu,
+  });
 }
 
 /// @nodoc
@@ -111,8 +123,9 @@ class __$$ReportAccessImplCopyWithImpl<$Res>
     extends _$ReportAccessCopyWithImpl<$Res, _$ReportAccessImpl>
     implements _$$ReportAccessImplCopyWith<$Res> {
   __$$ReportAccessImplCopyWithImpl(
-      _$ReportAccessImpl _value, $Res Function(_$ReportAccessImpl) _then)
-      : super(_value, _then);
+    _$ReportAccessImpl _value,
+    $Res Function(_$ReportAccessImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ReportAccess
   /// with the given fields replaced by the non-null parameter values.
@@ -124,36 +137,42 @@ class __$$ReportAccessImplCopyWithImpl<$Res>
     Object? nip = null,
     Object? menu = null,
   }) {
-    return _then(_$ReportAccessImpl(
-      departmentName: null == departmentName
-          ? _value.departmentName
-          : departmentName // ignore: cast_nullable_to_non_nullable
-              as String,
-      userName: null == userName
-          ? _value.userName
-          : userName // ignore: cast_nullable_to_non_nullable
-              as String,
-      nip: null == nip
-          ? _value.nip
-          : nip // ignore: cast_nullable_to_non_nullable
-              as String,
-      menu: null == menu
-          ? _value.menu
-          : menu // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$ReportAccessImpl(
+        departmentName:
+            null == departmentName
+                ? _value.departmentName
+                : departmentName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        userName:
+            null == userName
+                ? _value.userName
+                : userName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        nip:
+            null == nip
+                ? _value.nip
+                : nip // ignore: cast_nullable_to_non_nullable
+                    as String,
+        menu:
+            null == menu
+                ? _value.menu
+                : menu // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$ReportAccessImpl extends _ReportAccess {
-  _$ReportAccessImpl(
-      {@JsonKey(name: 'department_name') required this.departmentName,
-      @JsonKey(name: 'user_name') required this.userName,
-      required this.nip,
-      required this.menu})
-      : super._();
+  _$ReportAccessImpl({
+    @JsonKey(name: 'department_name') required this.departmentName,
+    @JsonKey(name: 'user_name') required this.userName,
+    required this.nip,
+    required this.menu,
+  }) : super._();
 
   factory _$ReportAccessImpl.fromJson(Map<String, dynamic> json) =>
       _$$ReportAccessImplFromJson(json);
@@ -202,18 +221,17 @@ class _$ReportAccessImpl extends _ReportAccess {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ReportAccessImplToJson(
-      this,
-    );
+    return _$$ReportAccessImplToJson(this);
   }
 }
 
 abstract class _ReportAccess extends ReportAccess {
-  factory _ReportAccess(
-      {@JsonKey(name: 'department_name') required final String departmentName,
-      @JsonKey(name: 'user_name') required final String userName,
-      required final String nip,
-      required final String menu}) = _$ReportAccessImpl;
+  factory _ReportAccess({
+    @JsonKey(name: 'department_name') required final String departmentName,
+    @JsonKey(name: 'user_name') required final String userName,
+    required final String nip,
+    required final String menu,
+  }) = _$ReportAccessImpl;
   _ReportAccess._() : super._();
 
   factory _ReportAccess.fromJson(Map<String, dynamic> json) =

@@ -12,18 +12,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flx Authentication',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: const Scaffold(
         body: Pinput(
           enableInteractiveSelection: true,
           autofocus: true,
           length: 6,
-          defaultPinTheme: PinTheme(
-            height: 50,
-            width: 50,
-          ),
+          defaultPinTheme: PinTheme(height: 50, width: 50),
         ),
       ),
     );

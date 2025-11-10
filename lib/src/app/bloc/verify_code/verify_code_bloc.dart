@@ -35,28 +35,22 @@ class VerifyCodeBloc extends Bloc<VerifyCodeEvent, VerifyCodeState> {
         submit: (authId, code, onSuccess) async {
           emit(const _Loading());
           try {
-            final accessToken =
-                await AuthenticationRepositoryApi.instance.verifyCode(
-              authId: authId,
-              code: code,
-            );
+            final accessToken = await AuthenticationRepositoryApi.instance
+                .verifyCode(authId: authId, code: code);
 
             final user = extractPayloadFromJwt(accessToken);
             final data = await onSuccess(accessToken, user);
 
-            final roles =
-                await AuthenticationRepositoryApi.instance.employeeRoleFetch(
-              accessToken: accessToken,
-              employeeId: user['id'].toString(),
-            );
+            final roles = await AuthenticationRepositoryApi.instance
+                .employeeRoleFetch(
+                  accessToken: accessToken,
+                  employeeId: user['id'].toString(),
+                );
 
             final permissions = <String>[];
             for (final role in roles) {
               final rolePermissions = await AuthenticationRepositoryApi.instance
-                  .rolePermissionFetch(
-                accessToken: accessToken,
-                role: role,
-              );
+                  .rolePermissionFetch(accessToken: accessToken, role: role);
               for (final rolePermission in rolePermissions) {
                 if (!permissions.contains(rolePermission)) {
                   permissions.add(rolePermission);

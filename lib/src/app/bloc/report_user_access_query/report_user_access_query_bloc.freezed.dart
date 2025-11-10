@@ -12,7 +12,8 @@ part of 'report_user_access_query_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$ReportUserAccessQueryState {
@@ -22,16 +23,14 @@ mixin _$ReportUserAccessQueryState {
     required TResult Function() loading,
     required TResult Function(List<ReportAccess> roleEmployees) loaded,
     required TResult Function(String error) error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<ReportAccess> roleEmployees)? loaded,
     TResult? Function(String error)? error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -39,24 +38,21 @@ mixin _$ReportUserAccessQueryState {
     TResult Function(List<ReportAccess> roleEmployees)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) loaded,
     required TResult Function(_Error value) error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? loaded,
     TResult? Function(_Error value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -64,21 +60,26 @@ mixin _$ReportUserAccessQueryState {
     TResult Function(_Success value)? loaded,
     TResult Function(_Error value)? error,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ReportUserAccessQueryStateCopyWith<$Res> {
-  factory $ReportUserAccessQueryStateCopyWith(ReportUserAccessQueryState value,
-          $Res Function(ReportUserAccessQueryState) then) =
-      _$ReportUserAccessQueryStateCopyWithImpl<$Res,
-          ReportUserAccessQueryState>;
+  factory $ReportUserAccessQueryStateCopyWith(
+    ReportUserAccessQueryState value,
+    $Res Function(ReportUserAccessQueryState) then,
+  ) =
+      _$ReportUserAccessQueryStateCopyWithImpl<
+        $Res,
+        ReportUserAccessQueryState
+      >;
 }
 
 /// @nodoc
-class _$ReportUserAccessQueryStateCopyWithImpl<$Res,
-        $Val extends ReportUserAccessQueryState>
+class _$ReportUserAccessQueryStateCopyWithImpl<
+  $Res,
+  $Val extends ReportUserAccessQueryState
+>
     implements $ReportUserAccessQueryStateCopyWith<$Res> {
   _$ReportUserAccessQueryStateCopyWithImpl(this._value, this._then);
 
@@ -94,8 +95,9 @@ class _$ReportUserAccessQueryStateCopyWithImpl<$Res,
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+    _$InitialImpl value,
+    $Res Function(_$InitialImpl) then,
+  ) = __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -103,8 +105,9 @@ class __$$InitialImplCopyWithImpl<$Res>
     extends _$ReportUserAccessQueryStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+    _$InitialImpl _value,
+    $Res Function(_$InitialImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ReportUserAccessQueryState
   /// with the given fields replaced by the non-null parameter values.
@@ -211,8 +214,9 @@ abstract class _Initial implements ReportUserAccessQueryState {
 /// @nodoc
 abstract class _$$LoadingImplCopyWith<$Res> {
   factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+    _$LoadingImpl value,
+    $Res Function(_$LoadingImpl) then,
+  ) = __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -220,8 +224,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
     extends _$ReportUserAccessQueryStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
+    _$LoadingImpl _value,
+    $Res Function(_$LoadingImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ReportUserAccessQueryState
   /// with the given fields replaced by the non-null parameter values.
@@ -328,8 +333,9 @@ abstract class _Loading implements ReportUserAccessQueryState {
 /// @nodoc
 abstract class _$$SuccessImplCopyWith<$Res> {
   factory _$$SuccessImplCopyWith(
-          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
-      __$$SuccessImplCopyWithImpl<$Res>;
+    _$SuccessImpl value,
+    $Res Function(_$SuccessImpl) then,
+  ) = __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<ReportAccess> roleEmployees});
 }
@@ -339,22 +345,23 @@ class __$$SuccessImplCopyWithImpl<$Res>
     extends _$ReportUserAccessQueryStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
-      : super(_value, _then);
+    _$SuccessImpl _value,
+    $Res Function(_$SuccessImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ReportUserAccessQueryState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? roleEmployees = null,
-  }) {
-    return _then(_$SuccessImpl(
-      null == roleEmployees
-          ? _value._roleEmployees
-          : roleEmployees // ignore: cast_nullable_to_non_nullable
-              as List<ReportAccess>,
-    ));
+  $Res call({Object? roleEmployees = null}) {
+    return _then(
+      _$SuccessImpl(
+        null == roleEmployees
+            ? _value._roleEmployees
+            : roleEmployees // ignore: cast_nullable_to_non_nullable
+                as List<ReportAccess>,
+      ),
+    );
   }
 }
 
@@ -362,7 +369,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
 
 class _$SuccessImpl implements _Success {
   const _$SuccessImpl(final List<ReportAccess> roleEmployees)
-      : _roleEmployees = roleEmployees;
+    : _roleEmployees = roleEmployees;
 
   final List<ReportAccess> _roleEmployees;
   @override
@@ -382,13 +389,17 @@ class _$SuccessImpl implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            const DeepCollectionEquality()
-                .equals(other._roleEmployees, _roleEmployees));
+            const DeepCollectionEquality().equals(
+              other._roleEmployees,
+              _roleEmployees,
+            ));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_roleEmployees));
+    runtimeType,
+    const DeepCollectionEquality().hash(_roleEmployees),
+  );
 
   /// Create a copy of ReportUserAccessQueryState
   /// with the given fields replaced by the non-null parameter values.
@@ -489,8 +500,9 @@ abstract class _Success implements ReportUserAccessQueryState {
 /// @nodoc
 abstract class _$$ErrorImplCopyWith<$Res> {
   factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
+    _$ErrorImpl value,
+    $Res Function(_$ErrorImpl) then,
+  ) = __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String error});
 }
@@ -500,22 +512,23 @@ class __$$ErrorImplCopyWithImpl<$Res>
     extends _$ReportUserAccessQueryStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
-      : super(_value, _then);
+    _$ErrorImpl _value,
+    $Res Function(_$ErrorImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ReportUserAccessQueryState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_$ErrorImpl(
-      null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? error = null}) {
+    return _then(
+      _$ErrorImpl(
+        null == error
+            ? _value.error
+            : error // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -645,56 +658,56 @@ mixin _$ReportUserAccessQueryEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? departmentName, String? employeeId) fetch,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String? departmentName, String? employeeId)? fetch,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? departmentName, String? employeeId)? fetch,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Fetch value) fetch,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Fetch value)? fetch,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 
   /// Create a copy of ReportUserAccessQueryEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   $ReportUserAccessQueryEventCopyWith<ReportUserAccessQueryEvent>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ReportUserAccessQueryEventCopyWith<$Res> {
-  factory $ReportUserAccessQueryEventCopyWith(ReportUserAccessQueryEvent value,
-          $Res Function(ReportUserAccessQueryEvent) then) =
-      _$ReportUserAccessQueryEventCopyWithImpl<$Res,
-          ReportUserAccessQueryEvent>;
+  factory $ReportUserAccessQueryEventCopyWith(
+    ReportUserAccessQueryEvent value,
+    $Res Function(ReportUserAccessQueryEvent) then,
+  ) =
+      _$ReportUserAccessQueryEventCopyWithImpl<
+        $Res,
+        ReportUserAccessQueryEvent
+      >;
   @useResult
   $Res call({String? departmentName, String? employeeId});
 }
 
 /// @nodoc
-class _$ReportUserAccessQueryEventCopyWithImpl<$Res,
-        $Val extends ReportUserAccessQueryEvent>
+class _$ReportUserAccessQueryEventCopyWithImpl<
+  $Res,
+  $Val extends ReportUserAccessQueryEvent
+>
     implements $ReportUserAccessQueryEventCopyWith<$Res> {
   _$ReportUserAccessQueryEventCopyWithImpl(this._value, this._then);
 
@@ -707,20 +720,22 @@ class _$ReportUserAccessQueryEventCopyWithImpl<$Res,
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? departmentName = freezed,
-    Object? employeeId = freezed,
-  }) {
-    return _then(_value.copyWith(
-      departmentName: freezed == departmentName
-          ? _value.departmentName
-          : departmentName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      employeeId: freezed == employeeId
-          ? _value.employeeId
-          : employeeId // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  $Res call({Object? departmentName = freezed, Object? employeeId = freezed}) {
+    return _then(
+      _value.copyWith(
+            departmentName:
+                freezed == departmentName
+                    ? _value.departmentName
+                    : departmentName // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            employeeId:
+                freezed == employeeId
+                    ? _value.employeeId
+                    : employeeId // ignore: cast_nullable_to_non_nullable
+                        as String?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -728,8 +743,9 @@ class _$ReportUserAccessQueryEventCopyWithImpl<$Res,
 abstract class _$$FetchImplCopyWith<$Res>
     implements $ReportUserAccessQueryEventCopyWith<$Res> {
   factory _$$FetchImplCopyWith(
-          _$FetchImpl value, $Res Function(_$FetchImpl) then) =
-      __$$FetchImplCopyWithImpl<$Res>;
+    _$FetchImpl value,
+    $Res Function(_$FetchImpl) then,
+  ) = __$$FetchImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? departmentName, String? employeeId});
@@ -740,27 +756,29 @@ class __$$FetchImplCopyWithImpl<$Res>
     extends _$ReportUserAccessQueryEventCopyWithImpl<$Res, _$FetchImpl>
     implements _$$FetchImplCopyWith<$Res> {
   __$$FetchImplCopyWithImpl(
-      _$FetchImpl _value, $Res Function(_$FetchImpl) _then)
-      : super(_value, _then);
+    _$FetchImpl _value,
+    $Res Function(_$FetchImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ReportUserAccessQueryEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? departmentName = freezed,
-    Object? employeeId = freezed,
-  }) {
-    return _then(_$FetchImpl(
-      departmentName: freezed == departmentName
-          ? _value.departmentName
-          : departmentName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      employeeId: freezed == employeeId
-          ? _value.employeeId
-          : employeeId // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+  $Res call({Object? departmentName = freezed, Object? employeeId = freezed}) {
+    return _then(
+      _$FetchImpl(
+        departmentName:
+            freezed == departmentName
+                ? _value.departmentName
+                : departmentName // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        employeeId:
+            freezed == employeeId
+                ? _value.employeeId
+                : employeeId // ignore: cast_nullable_to_non_nullable
+                    as String?,
+      ),
+    );
   }
 }
 
@@ -859,8 +877,10 @@ class _$FetchImpl implements _Fetch {
 }
 
 abstract class _Fetch implements ReportUserAccessQueryEvent {
-  const factory _Fetch(
-      {final String? departmentName, final String? employeeId}) = _$FetchImpl;
+  const factory _Fetch({
+    final String? departmentName,
+    final String? employeeId,
+  }) = _$FetchImpl;
 
   @override
   String? get departmentName;

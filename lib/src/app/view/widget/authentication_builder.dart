@@ -4,10 +4,7 @@ import 'package:flx_authentication_flutter/flx_authentication_flutter.dart';
 import 'package:go_router/go_router.dart';
 
 class AuthenticationChecker extends StatelessWidget {
-  const AuthenticationChecker({
-    required this.home,
-    super.key,
-  });
+  const AuthenticationChecker({required this.home, super.key});
 
   final Widget home;
 
@@ -25,9 +22,7 @@ class AuthenticationChecker extends StatelessWidget {
         builder: (context, state) {
           return state.maybeWhen(
             authenticated: (_, __, ___) => home,
-            orElse: () => const Center(
-              child: CircularProgressIndicator(),
-            ),
+            orElse: () => const Center(child: CircularProgressIndicator()),
           );
         },
       ),

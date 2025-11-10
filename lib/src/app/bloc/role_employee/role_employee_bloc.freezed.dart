@@ -12,7 +12,8 @@ part of 'role_employee_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$RoleEmployeeState {
@@ -22,16 +23,14 @@ mixin _$RoleEmployeeState {
     required TResult Function() loading,
     required TResult Function() success,
     required TResult Function(String error) error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
     TResult? Function(String error)? error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -39,24 +38,21 @@ mixin _$RoleEmployeeState {
     TResult Function()? success,
     TResult Function(String error)? error,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -64,15 +60,15 @@ mixin _$RoleEmployeeState {
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $RoleEmployeeStateCopyWith<$Res> {
   factory $RoleEmployeeStateCopyWith(
-          RoleEmployeeState value, $Res Function(RoleEmployeeState) then) =
-      _$RoleEmployeeStateCopyWithImpl<$Res, RoleEmployeeState>;
+    RoleEmployeeState value,
+    $Res Function(RoleEmployeeState) then,
+  ) = _$RoleEmployeeStateCopyWithImpl<$Res, RoleEmployeeState>;
 }
 
 /// @nodoc
@@ -92,8 +88,9 @@ class _$RoleEmployeeStateCopyWithImpl<$Res, $Val extends RoleEmployeeState>
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+    _$InitialImpl value,
+    $Res Function(_$InitialImpl) then,
+  ) = __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -101,8 +98,9 @@ class __$$InitialImplCopyWithImpl<$Res>
     extends _$RoleEmployeeStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+    _$InitialImpl _value,
+    $Res Function(_$InitialImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RoleEmployeeState
   /// with the given fields replaced by the non-null parameter values.
@@ -209,8 +207,9 @@ abstract class _Initial implements RoleEmployeeState {
 /// @nodoc
 abstract class _$$LoadingImplCopyWith<$Res> {
   factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+    _$LoadingImpl value,
+    $Res Function(_$LoadingImpl) then,
+  ) = __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -218,8 +217,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
     extends _$RoleEmployeeStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
+    _$LoadingImpl _value,
+    $Res Function(_$LoadingImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RoleEmployeeState
   /// with the given fields replaced by the non-null parameter values.
@@ -326,8 +326,9 @@ abstract class _Loading implements RoleEmployeeState {
 /// @nodoc
 abstract class _$$SuccessImplCopyWith<$Res> {
   factory _$$SuccessImplCopyWith(
-          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
-      __$$SuccessImplCopyWithImpl<$Res>;
+    _$SuccessImpl value,
+    $Res Function(_$SuccessImpl) then,
+  ) = __$$SuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -335,8 +336,9 @@ class __$$SuccessImplCopyWithImpl<$Res>
     extends _$RoleEmployeeStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
-      : super(_value, _then);
+    _$SuccessImpl _value,
+    $Res Function(_$SuccessImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RoleEmployeeState
   /// with the given fields replaced by the non-null parameter values.
@@ -443,8 +445,9 @@ abstract class _Success implements RoleEmployeeState {
 /// @nodoc
 abstract class _$$ErrorImplCopyWith<$Res> {
   factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
+    _$ErrorImpl value,
+    $Res Function(_$ErrorImpl) then,
+  ) = __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String error});
 }
@@ -454,22 +457,23 @@ class __$$ErrorImplCopyWithImpl<$Res>
     extends _$RoleEmployeeStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
-      : super(_value, _then);
+    _$ErrorImpl _value,
+    $Res Function(_$ErrorImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RoleEmployeeState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_$ErrorImpl(
-      null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? error = null}) {
+    return _then(
+      _$ErrorImpl(
+        null == error
+            ? _value.error
+            : error // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -599,40 +603,34 @@ mixin _$RoleEmployeeEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) create,
     required TResult Function(String userId) delete,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String userId)? create,
     TResult? Function(String userId)? delete,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? create,
     TResult Function(String userId)? delete,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Create value) create,
     required TResult Function(_Update value) delete,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Create value)? create,
     TResult? Function(_Update value)? delete,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Create value)? create,
     TResult Function(_Update value)? delete,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 
   /// Create a copy of RoleEmployeeEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -644,8 +642,9 @@ mixin _$RoleEmployeeEvent {
 /// @nodoc
 abstract class $RoleEmployeeEventCopyWith<$Res> {
   factory $RoleEmployeeEventCopyWith(
-          RoleEmployeeEvent value, $Res Function(RoleEmployeeEvent) then) =
-      _$RoleEmployeeEventCopyWithImpl<$Res, RoleEmployeeEvent>;
+    RoleEmployeeEvent value,
+    $Res Function(RoleEmployeeEvent) then,
+  ) = _$RoleEmployeeEventCopyWithImpl<$Res, RoleEmployeeEvent>;
   @useResult
   $Res call({String userId});
 }
@@ -664,15 +663,17 @@ class _$RoleEmployeeEventCopyWithImpl<$Res, $Val extends RoleEmployeeEvent>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-  }) {
-    return _then(_value.copyWith(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  $Res call({Object? userId = null}) {
+    return _then(
+      _value.copyWith(
+            userId:
+                null == userId
+                    ? _value.userId
+                    : userId // ignore: cast_nullable_to_non_nullable
+                        as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -680,8 +681,9 @@ class _$RoleEmployeeEventCopyWithImpl<$Res, $Val extends RoleEmployeeEvent>
 abstract class _$$CreateImplCopyWith<$Res>
     implements $RoleEmployeeEventCopyWith<$Res> {
   factory _$$CreateImplCopyWith(
-          _$CreateImpl value, $Res Function(_$CreateImpl) then) =
-      __$$CreateImplCopyWithImpl<$Res>;
+    _$CreateImpl value,
+    $Res Function(_$CreateImpl) then,
+  ) = __$$CreateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String userId});
@@ -692,22 +694,23 @@ class __$$CreateImplCopyWithImpl<$Res>
     extends _$RoleEmployeeEventCopyWithImpl<$Res, _$CreateImpl>
     implements _$$CreateImplCopyWith<$Res> {
   __$$CreateImplCopyWithImpl(
-      _$CreateImpl _value, $Res Function(_$CreateImpl) _then)
-      : super(_value, _then);
+    _$CreateImpl _value,
+    $Res Function(_$CreateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RoleEmployeeEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-  }) {
-    return _then(_$CreateImpl(
-      null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? userId = null}) {
+    return _then(
+      _$CreateImpl(
+        null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -824,8 +827,9 @@ abstract class _Create implements RoleEmployeeEvent {
 abstract class _$$UpdateImplCopyWith<$Res>
     implements $RoleEmployeeEventCopyWith<$Res> {
   factory _$$UpdateImplCopyWith(
-          _$UpdateImpl value, $Res Function(_$UpdateImpl) then) =
-      __$$UpdateImplCopyWithImpl<$Res>;
+    _$UpdateImpl value,
+    $Res Function(_$UpdateImpl) then,
+  ) = __$$UpdateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String userId});
@@ -836,22 +840,23 @@ class __$$UpdateImplCopyWithImpl<$Res>
     extends _$RoleEmployeeEventCopyWithImpl<$Res, _$UpdateImpl>
     implements _$$UpdateImplCopyWith<$Res> {
   __$$UpdateImplCopyWithImpl(
-      _$UpdateImpl _value, $Res Function(_$UpdateImpl) _then)
-      : super(_value, _then);
+    _$UpdateImpl _value,
+    $Res Function(_$UpdateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RoleEmployeeEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-  }) {
-    return _then(_$UpdateImpl(
-      null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? userId = null}) {
+    return _then(
+      _$UpdateImpl(
+        null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 

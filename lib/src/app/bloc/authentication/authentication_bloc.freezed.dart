@@ -12,61 +12,66 @@ part of 'authentication_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$AuthenticationState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unauthenticated,
-    required TResult Function(String accessToken, List<String> permission,
-            Map<String, dynamic> data)
-        authenticated,
-  }) =>
-      throw _privateConstructorUsedError;
+    required TResult Function(
+      String accessToken,
+      List<String> permission,
+      Map<String, dynamic> data,
+    )
+    authenticated,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unauthenticated,
-    TResult? Function(String accessToken, List<String> permission,
-            Map<String, dynamic> data)?
-        authenticated,
-  }) =>
-      throw _privateConstructorUsedError;
+    TResult? Function(
+      String accessToken,
+      List<String> permission,
+      Map<String, dynamic> data,
+    )?
+    authenticated,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unauthenticated,
-    TResult Function(String accessToken, List<String> permission,
-            Map<String, dynamic> data)?
-        authenticated,
+    TResult Function(
+      String accessToken,
+      List<String> permission,
+      Map<String, dynamic> data,
+    )?
+    authenticated,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Authenticated value) authenticated,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Authenticated value)? authenticated,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Authenticated value)? authenticated,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AuthenticationStateCopyWith<$Res> {
   factory $AuthenticationStateCopyWith(
-          AuthenticationState value, $Res Function(AuthenticationState) then) =
-      _$AuthenticationStateCopyWithImpl<$Res, AuthenticationState>;
+    AuthenticationState value,
+    $Res Function(AuthenticationState) then,
+  ) = _$AuthenticationStateCopyWithImpl<$Res, AuthenticationState>;
 }
 
 /// @nodoc
@@ -85,9 +90,10 @@ class _$AuthenticationStateCopyWithImpl<$Res, $Val extends AuthenticationState>
 
 /// @nodoc
 abstract class _$$UnauthenticatedImplCopyWith<$Res> {
-  factory _$$UnauthenticatedImplCopyWith(_$UnauthenticatedImpl value,
-          $Res Function(_$UnauthenticatedImpl) then) =
-      __$$UnauthenticatedImplCopyWithImpl<$Res>;
+  factory _$$UnauthenticatedImplCopyWith(
+    _$UnauthenticatedImpl value,
+    $Res Function(_$UnauthenticatedImpl) then,
+  ) = __$$UnauthenticatedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -95,8 +101,9 @@ class __$$UnauthenticatedImplCopyWithImpl<$Res>
     extends _$AuthenticationStateCopyWithImpl<$Res, _$UnauthenticatedImpl>
     implements _$$UnauthenticatedImplCopyWith<$Res> {
   __$$UnauthenticatedImplCopyWithImpl(
-      _$UnauthenticatedImpl _value, $Res Function(_$UnauthenticatedImpl) _then)
-      : super(_value, _then);
+    _$UnauthenticatedImpl _value,
+    $Res Function(_$UnauthenticatedImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AuthenticationState
   /// with the given fields replaced by the non-null parameter values.
@@ -125,9 +132,12 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unauthenticated,
-    required TResult Function(String accessToken, List<String> permission,
-            Map<String, dynamic> data)
-        authenticated,
+    required TResult Function(
+      String accessToken,
+      List<String> permission,
+      Map<String, dynamic> data,
+    )
+    authenticated,
   }) {
     return unauthenticated();
   }
@@ -136,9 +146,12 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unauthenticated,
-    TResult? Function(String accessToken, List<String> permission,
-            Map<String, dynamic> data)?
-        authenticated,
+    TResult? Function(
+      String accessToken,
+      List<String> permission,
+      Map<String, dynamic> data,
+    )?
+    authenticated,
   }) {
     return unauthenticated?.call();
   }
@@ -147,9 +160,12 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unauthenticated,
-    TResult Function(String accessToken, List<String> permission,
-            Map<String, dynamic> data)?
-        authenticated,
+    TResult Function(
+      String accessToken,
+      List<String> permission,
+      Map<String, dynamic> data,
+    )?
+    authenticated,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -197,11 +213,15 @@ abstract class _Unauthenticated implements AuthenticationState {
 /// @nodoc
 abstract class _$$AuthenticatedImplCopyWith<$Res> {
   factory _$$AuthenticatedImplCopyWith(
-          _$AuthenticatedImpl value, $Res Function(_$AuthenticatedImpl) then) =
-      __$$AuthenticatedImplCopyWithImpl<$Res>;
+    _$AuthenticatedImpl value,
+    $Res Function(_$AuthenticatedImpl) then,
+  ) = __$$AuthenticatedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {String accessToken, List<String> permission, Map<String, dynamic> data});
+  $Res call({
+    String accessToken,
+    List<String> permission,
+    Map<String, dynamic> data,
+  });
 }
 
 /// @nodoc
@@ -209,8 +229,9 @@ class __$$AuthenticatedImplCopyWithImpl<$Res>
     extends _$AuthenticationStateCopyWithImpl<$Res, _$AuthenticatedImpl>
     implements _$$AuthenticatedImplCopyWith<$Res> {
   __$$AuthenticatedImplCopyWithImpl(
-      _$AuthenticatedImpl _value, $Res Function(_$AuthenticatedImpl) _then)
-      : super(_value, _then);
+    _$AuthenticatedImpl _value,
+    $Res Function(_$AuthenticatedImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AuthenticationState
   /// with the given fields replaced by the non-null parameter values.
@@ -221,30 +242,34 @@ class __$$AuthenticatedImplCopyWithImpl<$Res>
     Object? permission = null,
     Object? data = null,
   }) {
-    return _then(_$AuthenticatedImpl(
-      null == accessToken
-          ? _value.accessToken
-          : accessToken // ignore: cast_nullable_to_non_nullable
-              as String,
-      null == permission
-          ? _value._permission
-          : permission // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
+    return _then(
+      _$AuthenticatedImpl(
+        null == accessToken
+            ? _value.accessToken
+            : accessToken // ignore: cast_nullable_to_non_nullable
+                as String,
+        null == permission
+            ? _value._permission
+            : permission // ignore: cast_nullable_to_non_nullable
+                as List<String>,
+        null == data
+            ? _value._data
+            : data // ignore: cast_nullable_to_non_nullable
+                as Map<String, dynamic>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$AuthenticatedImpl implements _Authenticated {
-  const _$AuthenticatedImpl(this.accessToken, final List<String> permission,
-      final Map<String, dynamic> data)
-      : _permission = permission,
-        _data = data;
+  const _$AuthenticatedImpl(
+    this.accessToken,
+    final List<String> permission,
+    final Map<String, dynamic> data,
+  ) : _permission = permission,
+      _data = data;
 
   @override
   final String accessToken;
@@ -276,17 +301,20 @@ class _$AuthenticatedImpl implements _Authenticated {
             other is _$AuthenticatedImpl &&
             (identical(other.accessToken, accessToken) ||
                 other.accessToken == accessToken) &&
-            const DeepCollectionEquality()
-                .equals(other._permission, _permission) &&
+            const DeepCollectionEquality().equals(
+              other._permission,
+              _permission,
+            ) &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      accessToken,
-      const DeepCollectionEquality().hash(_permission),
-      const DeepCollectionEquality().hash(_data));
+    runtimeType,
+    accessToken,
+    const DeepCollectionEquality().hash(_permission),
+    const DeepCollectionEquality().hash(_data),
+  );
 
   /// Create a copy of AuthenticationState
   /// with the given fields replaced by the non-null parameter values.
@@ -300,9 +328,12 @@ class _$AuthenticatedImpl implements _Authenticated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unauthenticated,
-    required TResult Function(String accessToken, List<String> permission,
-            Map<String, dynamic> data)
-        authenticated,
+    required TResult Function(
+      String accessToken,
+      List<String> permission,
+      Map<String, dynamic> data,
+    )
+    authenticated,
   }) {
     return authenticated(accessToken, permission, data);
   }
@@ -311,9 +342,12 @@ class _$AuthenticatedImpl implements _Authenticated {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unauthenticated,
-    TResult? Function(String accessToken, List<String> permission,
-            Map<String, dynamic> data)?
-        authenticated,
+    TResult? Function(
+      String accessToken,
+      List<String> permission,
+      Map<String, dynamic> data,
+    )?
+    authenticated,
   }) {
     return authenticated?.call(accessToken, permission, data);
   }
@@ -322,9 +356,12 @@ class _$AuthenticatedImpl implements _Authenticated {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unauthenticated,
-    TResult Function(String accessToken, List<String> permission,
-            Map<String, dynamic> data)?
-        authenticated,
+    TResult Function(
+      String accessToken,
+      List<String> permission,
+      Map<String, dynamic> data,
+    )?
+    authenticated,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -367,9 +404,10 @@ class _$AuthenticatedImpl implements _Authenticated {
 
 abstract class _Authenticated implements AuthenticationState {
   const factory _Authenticated(
-      final String accessToken,
-      final List<String> permission,
-      final Map<String, dynamic> data) = _$AuthenticatedImpl;
+    final String accessToken,
+    final List<String> permission,
+    final Map<String, dynamic> data,
+  ) = _$AuthenticatedImpl;
 
   String get accessToken;
   List<String> get permission;
@@ -386,55 +424,59 @@ abstract class _Authenticated implements AuthenticationState {
 mixin _$AuthenticationEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accessToken, List<String> permission,
-            Map<String, dynamic> data)
-        login,
+    required TResult Function(
+      String accessToken,
+      List<String> permission,
+      Map<String, dynamic> data,
+    )
+    login,
     required TResult Function() logout,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accessToken, List<String> permission,
-            Map<String, dynamic> data)?
-        login,
+    TResult? Function(
+      String accessToken,
+      List<String> permission,
+      Map<String, dynamic> data,
+    )?
+    login,
     TResult? Function()? logout,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accessToken, List<String> permission,
-            Map<String, dynamic> data)?
-        login,
+    TResult Function(
+      String accessToken,
+      List<String> permission,
+      Map<String, dynamic> data,
+    )?
+    login,
     TResult Function()? logout,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Login value) login,
     required TResult Function(_Logout value) logout,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Login value)? login,
     TResult? Function(_Logout value)? logout,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Login value)? login,
     TResult Function(_Logout value)? logout,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AuthenticationEventCopyWith<$Res> {
   factory $AuthenticationEventCopyWith(
-          AuthenticationEvent value, $Res Function(AuthenticationEvent) then) =
-      _$AuthenticationEventCopyWithImpl<$Res, AuthenticationEvent>;
+    AuthenticationEvent value,
+    $Res Function(AuthenticationEvent) then,
+  ) = _$AuthenticationEventCopyWithImpl<$Res, AuthenticationEvent>;
 }
 
 /// @nodoc
@@ -454,11 +496,15 @@ class _$AuthenticationEventCopyWithImpl<$Res, $Val extends AuthenticationEvent>
 /// @nodoc
 abstract class _$$LoginImplCopyWith<$Res> {
   factory _$$LoginImplCopyWith(
-          _$LoginImpl value, $Res Function(_$LoginImpl) then) =
-      __$$LoginImplCopyWithImpl<$Res>;
+    _$LoginImpl value,
+    $Res Function(_$LoginImpl) then,
+  ) = __$$LoginImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {String accessToken, List<String> permission, Map<String, dynamic> data});
+  $Res call({
+    String accessToken,
+    List<String> permission,
+    Map<String, dynamic> data,
+  });
 }
 
 /// @nodoc
@@ -466,8 +512,9 @@ class __$$LoginImplCopyWithImpl<$Res>
     extends _$AuthenticationEventCopyWithImpl<$Res, _$LoginImpl>
     implements _$$LoginImplCopyWith<$Res> {
   __$$LoginImplCopyWithImpl(
-      _$LoginImpl _value, $Res Function(_$LoginImpl) _then)
-      : super(_value, _then);
+    _$LoginImpl _value,
+    $Res Function(_$LoginImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AuthenticationEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -478,30 +525,34 @@ class __$$LoginImplCopyWithImpl<$Res>
     Object? permission = null,
     Object? data = null,
   }) {
-    return _then(_$LoginImpl(
-      null == accessToken
-          ? _value.accessToken
-          : accessToken // ignore: cast_nullable_to_non_nullable
-              as String,
-      null == permission
-          ? _value._permission
-          : permission // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
+    return _then(
+      _$LoginImpl(
+        null == accessToken
+            ? _value.accessToken
+            : accessToken // ignore: cast_nullable_to_non_nullable
+                as String,
+        null == permission
+            ? _value._permission
+            : permission // ignore: cast_nullable_to_non_nullable
+                as List<String>,
+        null == data
+            ? _value._data
+            : data // ignore: cast_nullable_to_non_nullable
+                as Map<String, dynamic>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$LoginImpl implements _Login {
-  const _$LoginImpl(this.accessToken, final List<String> permission,
-      final Map<String, dynamic> data)
-      : _permission = permission,
-        _data = data;
+  const _$LoginImpl(
+    this.accessToken,
+    final List<String> permission,
+    final Map<String, dynamic> data,
+  ) : _permission = permission,
+      _data = data;
 
   @override
   final String accessToken;
@@ -533,17 +584,20 @@ class _$LoginImpl implements _Login {
             other is _$LoginImpl &&
             (identical(other.accessToken, accessToken) ||
                 other.accessToken == accessToken) &&
-            const DeepCollectionEquality()
-                .equals(other._permission, _permission) &&
+            const DeepCollectionEquality().equals(
+              other._permission,
+              _permission,
+            ) &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      accessToken,
-      const DeepCollectionEquality().hash(_permission),
-      const DeepCollectionEquality().hash(_data));
+    runtimeType,
+    accessToken,
+    const DeepCollectionEquality().hash(_permission),
+    const DeepCollectionEquality().hash(_data),
+  );
 
   /// Create a copy of AuthenticationEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -556,9 +610,12 @@ class _$LoginImpl implements _Login {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accessToken, List<String> permission,
-            Map<String, dynamic> data)
-        login,
+    required TResult Function(
+      String accessToken,
+      List<String> permission,
+      Map<String, dynamic> data,
+    )
+    login,
     required TResult Function() logout,
   }) {
     return login(accessToken, permission, data);
@@ -567,9 +624,12 @@ class _$LoginImpl implements _Login {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accessToken, List<String> permission,
-            Map<String, dynamic> data)?
-        login,
+    TResult? Function(
+      String accessToken,
+      List<String> permission,
+      Map<String, dynamic> data,
+    )?
+    login,
     TResult? Function()? logout,
   }) {
     return login?.call(accessToken, permission, data);
@@ -578,9 +638,12 @@ class _$LoginImpl implements _Login {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accessToken, List<String> permission,
-            Map<String, dynamic> data)?
-        login,
+    TResult Function(
+      String accessToken,
+      List<String> permission,
+      Map<String, dynamic> data,
+    )?
+    login,
     TResult Function()? logout,
     required TResult orElse(),
   }) {
@@ -623,8 +686,11 @@ class _$LoginImpl implements _Login {
 }
 
 abstract class _Login implements AuthenticationEvent {
-  const factory _Login(final String accessToken, final List<String> permission,
-      final Map<String, dynamic> data) = _$LoginImpl;
+  const factory _Login(
+    final String accessToken,
+    final List<String> permission,
+    final Map<String, dynamic> data,
+  ) = _$LoginImpl;
 
   String get accessToken;
   List<String> get permission;
@@ -640,8 +706,9 @@ abstract class _Login implements AuthenticationEvent {
 /// @nodoc
 abstract class _$$LogoutImplCopyWith<$Res> {
   factory _$$LogoutImplCopyWith(
-          _$LogoutImpl value, $Res Function(_$LogoutImpl) then) =
-      __$$LogoutImplCopyWithImpl<$Res>;
+    _$LogoutImpl value,
+    $Res Function(_$LogoutImpl) then,
+  ) = __$$LogoutImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -649,8 +716,9 @@ class __$$LogoutImplCopyWithImpl<$Res>
     extends _$AuthenticationEventCopyWithImpl<$Res, _$LogoutImpl>
     implements _$$LogoutImplCopyWith<$Res> {
   __$$LogoutImplCopyWithImpl(
-      _$LogoutImpl _value, $Res Function(_$LogoutImpl) _then)
-      : super(_value, _then);
+    _$LogoutImpl _value,
+    $Res Function(_$LogoutImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AuthenticationEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -678,9 +746,12 @@ class _$LogoutImpl implements _Logout {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accessToken, List<String> permission,
-            Map<String, dynamic> data)
-        login,
+    required TResult Function(
+      String accessToken,
+      List<String> permission,
+      Map<String, dynamic> data,
+    )
+    login,
     required TResult Function() logout,
   }) {
     return logout();
@@ -689,9 +760,12 @@ class _$LogoutImpl implements _Logout {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accessToken, List<String> permission,
-            Map<String, dynamic> data)?
-        login,
+    TResult? Function(
+      String accessToken,
+      List<String> permission,
+      Map<String, dynamic> data,
+    )?
+    login,
     TResult? Function()? logout,
   }) {
     return logout?.call();
@@ -700,9 +774,12 @@ class _$LogoutImpl implements _Logout {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accessToken, List<String> permission,
-            Map<String, dynamic> data)?
-        login,
+    TResult Function(
+      String accessToken,
+      List<String> permission,
+      Map<String, dynamic> data,
+    )?
+    login,
     TResult Function()? logout,
     required TResult orElse(),
   }) {

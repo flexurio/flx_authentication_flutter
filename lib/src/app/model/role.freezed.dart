@@ -12,7 +12,8 @@ part of 'role.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 Role _$RoleFromJson(Map<String, dynamic> json) {
   return _Role.fromJson(json);
@@ -60,28 +61,35 @@ class _$RoleCopyWithImpl<$Res, $Val extends Role>
     Object? name = null,
     Object? description = null,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as int,
+            name:
+                null == name
+                    ? _value.name
+                    : name // ignore: cast_nullable_to_non_nullable
+                        as String,
+            description:
+                null == description
+                    ? _value.description
+                    : description // ignore: cast_nullable_to_non_nullable
+                        as String,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$RoleImplCopyWith<$Res> implements $RoleCopyWith<$Res> {
   factory _$$RoleImplCopyWith(
-          _$RoleImpl value, $Res Function(_$RoleImpl) then) =
-      __$$RoleImplCopyWithImpl<$Res>;
+    _$RoleImpl value,
+    $Res Function(_$RoleImpl) then,
+  ) = __$$RoleImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int id, String name, String description});
@@ -92,7 +100,7 @@ class __$$RoleImplCopyWithImpl<$Res>
     extends _$RoleCopyWithImpl<$Res, _$RoleImpl>
     implements _$$RoleImplCopyWith<$Res> {
   __$$RoleImplCopyWithImpl(_$RoleImpl _value, $Res Function(_$RoleImpl) _then)
-      : super(_value, _then);
+    : super(_value, _then);
 
   /// Create a copy of Role
   /// with the given fields replaced by the non-null parameter values.
@@ -103,20 +111,22 @@ class __$$RoleImplCopyWithImpl<$Res>
     Object? name = null,
     Object? description = null,
   }) {
-    return _then(_$RoleImpl(
-      null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$RoleImpl(
+        null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as int,
+        null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                as String,
+        null == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -165,9 +175,7 @@ class _$RoleImpl extends _Role {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$RoleImplToJson(
-      this,
-    );
+    return _$$RoleImplToJson(this);
   }
 }
 

@@ -12,7 +12,8 @@ part of 'role_permission_query_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$RolePermissionQueryState {
@@ -22,16 +23,14 @@ mixin _$RolePermissionQueryState {
     required TResult Function() loading,
     required TResult Function(List<String> permission) loaded,
     required TResult Function(String error) error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<String> permission)? loaded,
     TResult? Function(String error)? error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -39,24 +38,21 @@ mixin _$RolePermissionQueryState {
     TResult Function(List<String> permission)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) loaded,
     required TResult Function(_Error value) error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? loaded,
     TResult? Function(_Error value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -64,20 +60,22 @@ mixin _$RolePermissionQueryState {
     TResult Function(_Success value)? loaded,
     TResult Function(_Error value)? error,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $RolePermissionQueryStateCopyWith<$Res> {
-  factory $RolePermissionQueryStateCopyWith(RolePermissionQueryState value,
-          $Res Function(RolePermissionQueryState) then) =
-      _$RolePermissionQueryStateCopyWithImpl<$Res, RolePermissionQueryState>;
+  factory $RolePermissionQueryStateCopyWith(
+    RolePermissionQueryState value,
+    $Res Function(RolePermissionQueryState) then,
+  ) = _$RolePermissionQueryStateCopyWithImpl<$Res, RolePermissionQueryState>;
 }
 
 /// @nodoc
-class _$RolePermissionQueryStateCopyWithImpl<$Res,
-        $Val extends RolePermissionQueryState>
+class _$RolePermissionQueryStateCopyWithImpl<
+  $Res,
+  $Val extends RolePermissionQueryState
+>
     implements $RolePermissionQueryStateCopyWith<$Res> {
   _$RolePermissionQueryStateCopyWithImpl(this._value, this._then);
 
@@ -93,8 +91,9 @@ class _$RolePermissionQueryStateCopyWithImpl<$Res,
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+    _$InitialImpl value,
+    $Res Function(_$InitialImpl) then,
+  ) = __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -102,8 +101,9 @@ class __$$InitialImplCopyWithImpl<$Res>
     extends _$RolePermissionQueryStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+    _$InitialImpl _value,
+    $Res Function(_$InitialImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RolePermissionQueryState
   /// with the given fields replaced by the non-null parameter values.
@@ -210,8 +210,9 @@ abstract class _Initial implements RolePermissionQueryState {
 /// @nodoc
 abstract class _$$LoadingImplCopyWith<$Res> {
   factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+    _$LoadingImpl value,
+    $Res Function(_$LoadingImpl) then,
+  ) = __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -219,8 +220,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
     extends _$RolePermissionQueryStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
+    _$LoadingImpl _value,
+    $Res Function(_$LoadingImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RolePermissionQueryState
   /// with the given fields replaced by the non-null parameter values.
@@ -327,8 +329,9 @@ abstract class _Loading implements RolePermissionQueryState {
 /// @nodoc
 abstract class _$$SuccessImplCopyWith<$Res> {
   factory _$$SuccessImplCopyWith(
-          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
-      __$$SuccessImplCopyWithImpl<$Res>;
+    _$SuccessImpl value,
+    $Res Function(_$SuccessImpl) then,
+  ) = __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<String> permission});
 }
@@ -338,22 +341,23 @@ class __$$SuccessImplCopyWithImpl<$Res>
     extends _$RolePermissionQueryStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
-      : super(_value, _then);
+    _$SuccessImpl _value,
+    $Res Function(_$SuccessImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RolePermissionQueryState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? permission = null,
-  }) {
-    return _then(_$SuccessImpl(
-      null == permission
-          ? _value._permission
-          : permission // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ));
+  $Res call({Object? permission = null}) {
+    return _then(
+      _$SuccessImpl(
+        null == permission
+            ? _value._permission
+            : permission // ignore: cast_nullable_to_non_nullable
+                as List<String>,
+      ),
+    );
   }
 }
 
@@ -380,13 +384,17 @@ class _$SuccessImpl implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            const DeepCollectionEquality()
-                .equals(other._permission, _permission));
+            const DeepCollectionEquality().equals(
+              other._permission,
+              _permission,
+            ));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_permission));
+    runtimeType,
+    const DeepCollectionEquality().hash(_permission),
+  );
 
   /// Create a copy of RolePermissionQueryState
   /// with the given fields replaced by the non-null parameter values.
@@ -486,8 +494,9 @@ abstract class _Success implements RolePermissionQueryState {
 /// @nodoc
 abstract class _$$ErrorImplCopyWith<$Res> {
   factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
+    _$ErrorImpl value,
+    $Res Function(_$ErrorImpl) then,
+  ) = __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String error});
 }
@@ -497,22 +506,23 @@ class __$$ErrorImplCopyWithImpl<$Res>
     extends _$RolePermissionQueryStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
-      : super(_value, _then);
+    _$ErrorImpl _value,
+    $Res Function(_$ErrorImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RolePermissionQueryState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_$ErrorImpl(
-      null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? error = null}) {
+    return _then(
+      _$ErrorImpl(
+        null == error
+            ? _value.error
+            : error // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -641,52 +651,49 @@ mixin _$RolePermissionQueryEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(Role role) fetch,
     required TResult Function(String permission) toggle,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Role role)? fetch,
     TResult? Function(String permission)? toggle,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Role role)? fetch,
     TResult Function(String permission)? toggle,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Fetch value) fetch,
     required TResult Function(_Toggle value) toggle,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Fetch value)? fetch,
     TResult? Function(_Toggle value)? toggle,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     TResult Function(_Toggle value)? toggle,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $RolePermissionQueryEventCopyWith<$Res> {
-  factory $RolePermissionQueryEventCopyWith(RolePermissionQueryEvent value,
-          $Res Function(RolePermissionQueryEvent) then) =
-      _$RolePermissionQueryEventCopyWithImpl<$Res, RolePermissionQueryEvent>;
+  factory $RolePermissionQueryEventCopyWith(
+    RolePermissionQueryEvent value,
+    $Res Function(RolePermissionQueryEvent) then,
+  ) = _$RolePermissionQueryEventCopyWithImpl<$Res, RolePermissionQueryEvent>;
 }
 
 /// @nodoc
-class _$RolePermissionQueryEventCopyWithImpl<$Res,
-        $Val extends RolePermissionQueryEvent>
+class _$RolePermissionQueryEventCopyWithImpl<
+  $Res,
+  $Val extends RolePermissionQueryEvent
+>
     implements $RolePermissionQueryEventCopyWith<$Res> {
   _$RolePermissionQueryEventCopyWithImpl(this._value, this._then);
 
@@ -702,8 +709,9 @@ class _$RolePermissionQueryEventCopyWithImpl<$Res,
 /// @nodoc
 abstract class _$$FetchImplCopyWith<$Res> {
   factory _$$FetchImplCopyWith(
-          _$FetchImpl value, $Res Function(_$FetchImpl) then) =
-      __$$FetchImplCopyWithImpl<$Res>;
+    _$FetchImpl value,
+    $Res Function(_$FetchImpl) then,
+  ) = __$$FetchImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Role role});
 
@@ -715,22 +723,24 @@ class __$$FetchImplCopyWithImpl<$Res>
     extends _$RolePermissionQueryEventCopyWithImpl<$Res, _$FetchImpl>
     implements _$$FetchImplCopyWith<$Res> {
   __$$FetchImplCopyWithImpl(
-      _$FetchImpl _value, $Res Function(_$FetchImpl) _then)
-      : super(_value, _then);
+    _$FetchImpl _value,
+    $Res Function(_$FetchImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RolePermissionQueryEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? role = null,
-  }) {
-    return _then(_$FetchImpl(
-      role: null == role
-          ? _value.role
-          : role // ignore: cast_nullable_to_non_nullable
-              as Role,
-    ));
+  $Res call({Object? role = null}) {
+    return _then(
+      _$FetchImpl(
+        role:
+            null == role
+                ? _value.role
+                : role // ignore: cast_nullable_to_non_nullable
+                    as Role,
+      ),
+    );
   }
 
   /// Create a copy of RolePermissionQueryEvent
@@ -854,8 +864,9 @@ abstract class _Fetch implements RolePermissionQueryEvent {
 /// @nodoc
 abstract class _$$ToggleImplCopyWith<$Res> {
   factory _$$ToggleImplCopyWith(
-          _$ToggleImpl value, $Res Function(_$ToggleImpl) then) =
-      __$$ToggleImplCopyWithImpl<$Res>;
+    _$ToggleImpl value,
+    $Res Function(_$ToggleImpl) then,
+  ) = __$$ToggleImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String permission});
 }
@@ -865,22 +876,24 @@ class __$$ToggleImplCopyWithImpl<$Res>
     extends _$RolePermissionQueryEventCopyWithImpl<$Res, _$ToggleImpl>
     implements _$$ToggleImplCopyWith<$Res> {
   __$$ToggleImplCopyWithImpl(
-      _$ToggleImpl _value, $Res Function(_$ToggleImpl) _then)
-      : super(_value, _then);
+    _$ToggleImpl _value,
+    $Res Function(_$ToggleImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RolePermissionQueryEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? permission = null,
-  }) {
-    return _then(_$ToggleImpl(
-      permission: null == permission
-          ? _value.permission
-          : permission // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? permission = null}) {
+    return _then(
+      _$ToggleImpl(
+        permission:
+            null == permission
+                ? _value.permission
+                : permission // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 

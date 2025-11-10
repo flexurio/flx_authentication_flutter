@@ -13,27 +13,28 @@ class Access {
     required bool export,
     required bool approveReject,
   }) : permissions = {
-          'delete': delete,
-          'write': write,
-          'read': read,
-          'execute': execute,
-          'open_close': openClose,
-          'export': export,
-          'approve_reject': approveReject,
-        };
+         'delete': delete,
+         'write': write,
+         'read': read,
+         'execute': execute,
+         'open_close': openClose,
+         'export': export,
+         'approve_reject': approveReject,
+       };
   final Map<String, bool> permissions;
 
   int getValue() {
     return permissions.entries.fold<int>(0, (acc, entry) {
-      final bit = {
-        'delete': 1,
-        'write': 2,
-        'read': 4,
-        'execute': 8,
-        'open_close': 16,
-        'export': 32,
-        'approve_reject': 64,
-      }[entry.key]!;
+      final bit =
+          {
+            'delete': 1,
+            'write': 2,
+            'read': 4,
+            'execute': 8,
+            'open_close': 16,
+            'export': 32,
+            'approve_reject': 64,
+          }[entry.key]!;
       return acc + (entry.value ? bit : 0);
     });
   }
@@ -123,18 +124,19 @@ class _FieldCheckboxPermissionState extends State<FieldCheckboxPermission> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: _value.permissions.entries.map((entry) {
-        return Column(
-          children: [
-            FieldCheckBox(
-              label: entry.key.tr(),
-              initialValue: entry.value,
-              onChanged: (value) => _onChanged(entry.key, value),
-            ),
-            const Gap(12),
-          ],
-        );
-      }).toList(),
+      children:
+          _value.permissions.entries.map((entry) {
+            return Column(
+              children: [
+                FieldCheckBox(
+                  label: entry.key.tr(),
+                  initialValue: entry.value,
+                  onChanged: (value) => _onChanged(entry.key, value),
+                ),
+                const Gap(12),
+              ],
+            );
+          }).toList(),
     );
   }
 }

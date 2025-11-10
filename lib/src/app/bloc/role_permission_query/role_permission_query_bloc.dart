@@ -10,36 +10,29 @@ part 'role_permission_query_bloc.freezed.dart';
 class RolePermissionQueryState with _$RolePermissionQueryState {
   const factory RolePermissionQueryState.initial() = _Initial;
   const factory RolePermissionQueryState.loading() = _Loading;
-  const factory RolePermissionQueryState.loaded(
-    List<String> permission,
-  ) = _Success;
+  const factory RolePermissionQueryState.loaded(List<String> permission) =
+      _Success;
   const factory RolePermissionQueryState.error(String error) = _Error;
 }
 
 @freezed
 class RolePermissionQueryEvent with _$RolePermissionQueryEvent {
-  const factory RolePermissionQueryEvent.fetch({
-    required Role role,
-  }) = _Fetch;
-  const factory RolePermissionQueryEvent.toggle({
-    required String permission,
-  }) = _Toggle;
+  const factory RolePermissionQueryEvent.fetch({required Role role}) = _Fetch;
+  const factory RolePermissionQueryEvent.toggle({required String permission}) =
+      _Toggle;
 }
 
 class RolePermissionQueryBloc
     extends Bloc<RolePermissionQueryEvent, RolePermissionQueryState> {
   RolePermissionQueryBloc({required this.accessToken})
-      : super(const _Initial()) {
+    : super(const _Initial()) {
     on<RolePermissionQueryEvent>((event, emit) async {
       await event.when(
         fetch: (role) async {
           emit(const _Loading());
           try {
-            _permission =
-                await AuthenticationRepositoryApi.instance.rolePermissionFetch(
-              accessToken: accessToken,
-              role: role,
-            );
+            _permission = await AuthenticationRepositoryApi.instance
+                .rolePermissionFetch(accessToken: accessToken, role: role);
             emit(_Success(List.from(_permission)));
           } catch (error) {
             emit(_Error(errorMessage(error)));

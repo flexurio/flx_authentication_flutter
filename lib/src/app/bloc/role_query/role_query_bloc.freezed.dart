@@ -12,7 +12,8 @@ part of 'role_query_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$RoleQueryState {
@@ -22,16 +23,14 @@ mixin _$RoleQueryState {
     required TResult Function(PageOptions<Role> pageOptions) loading,
     required TResult Function(PageOptions<Role> pageOptions) loaded,
     required TResult Function(String error) error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(PageOptions<Role> pageOptions)? loading,
     TResult? Function(PageOptions<Role> pageOptions)? loaded,
     TResult? Function(String error)? error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -39,24 +38,21 @@ mixin _$RoleQueryState {
     TResult Function(PageOptions<Role> pageOptions)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) loaded,
     required TResult Function(_Error value) error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? loaded,
     TResult? Function(_Error value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -64,15 +60,15 @@ mixin _$RoleQueryState {
     TResult Function(_Success value)? loaded,
     TResult Function(_Error value)? error,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $RoleQueryStateCopyWith<$Res> {
   factory $RoleQueryStateCopyWith(
-          RoleQueryState value, $Res Function(RoleQueryState) then) =
-      _$RoleQueryStateCopyWithImpl<$Res, RoleQueryState>;
+    RoleQueryState value,
+    $Res Function(RoleQueryState) then,
+  ) = _$RoleQueryStateCopyWithImpl<$Res, RoleQueryState>;
 }
 
 /// @nodoc
@@ -92,8 +88,9 @@ class _$RoleQueryStateCopyWithImpl<$Res, $Val extends RoleQueryState>
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+    _$InitialImpl value,
+    $Res Function(_$InitialImpl) then,
+  ) = __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -101,8 +98,9 @@ class __$$InitialImplCopyWithImpl<$Res>
     extends _$RoleQueryStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+    _$InitialImpl _value,
+    $Res Function(_$InitialImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RoleQueryState
   /// with the given fields replaced by the non-null parameter values.
@@ -209,8 +207,9 @@ abstract class _Initial implements RoleQueryState {
 /// @nodoc
 abstract class _$$LoadingImplCopyWith<$Res> {
   factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+    _$LoadingImpl value,
+    $Res Function(_$LoadingImpl) then,
+  ) = __$$LoadingImplCopyWithImpl<$Res>;
   @useResult
   $Res call({PageOptions<Role> pageOptions});
 }
@@ -220,22 +219,23 @@ class __$$LoadingImplCopyWithImpl<$Res>
     extends _$RoleQueryStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
+    _$LoadingImpl _value,
+    $Res Function(_$LoadingImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RoleQueryState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? pageOptions = null,
-  }) {
-    return _then(_$LoadingImpl(
-      null == pageOptions
-          ? _value.pageOptions
-          : pageOptions // ignore: cast_nullable_to_non_nullable
-              as PageOptions<Role>,
-    ));
+  $Res call({Object? pageOptions = null}) {
+    return _then(
+      _$LoadingImpl(
+        null == pageOptions
+            ? _value.pageOptions
+            : pageOptions // ignore: cast_nullable_to_non_nullable
+                as PageOptions<Role>,
+      ),
+    );
   }
 }
 
@@ -362,8 +362,9 @@ abstract class _Loading implements RoleQueryState {
 /// @nodoc
 abstract class _$$SuccessImplCopyWith<$Res> {
   factory _$$SuccessImplCopyWith(
-          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
-      __$$SuccessImplCopyWithImpl<$Res>;
+    _$SuccessImpl value,
+    $Res Function(_$SuccessImpl) then,
+  ) = __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({PageOptions<Role> pageOptions});
 }
@@ -373,22 +374,23 @@ class __$$SuccessImplCopyWithImpl<$Res>
     extends _$RoleQueryStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
-      : super(_value, _then);
+    _$SuccessImpl _value,
+    $Res Function(_$SuccessImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RoleQueryState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? pageOptions = null,
-  }) {
-    return _then(_$SuccessImpl(
-      null == pageOptions
-          ? _value.pageOptions
-          : pageOptions // ignore: cast_nullable_to_non_nullable
-              as PageOptions<Role>,
-    ));
+  $Res call({Object? pageOptions = null}) {
+    return _then(
+      _$SuccessImpl(
+        null == pageOptions
+            ? _value.pageOptions
+            : pageOptions // ignore: cast_nullable_to_non_nullable
+                as PageOptions<Role>,
+      ),
+    );
   }
 }
 
@@ -515,8 +517,9 @@ abstract class _Success implements RoleQueryState {
 /// @nodoc
 abstract class _$$ErrorImplCopyWith<$Res> {
   factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
+    _$ErrorImpl value,
+    $Res Function(_$ErrorImpl) then,
+  ) = __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String error});
 }
@@ -526,22 +529,23 @@ class __$$ErrorImplCopyWithImpl<$Res>
     extends _$RoleQueryStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
-      : super(_value, _then);
+    _$ErrorImpl _value,
+    $Res Function(_$ErrorImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RoleQueryState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_$ErrorImpl(
-      null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? error = null}) {
+    return _then(
+      _$ErrorImpl(
+        null == error
+            ? _value.error
+            : error // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -670,35 +674,29 @@ mixin _$RoleQueryEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(PageOptions<Role>? pageOptions) fetch,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PageOptions<Role>? pageOptions)? fetch,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PageOptions<Role>? pageOptions)? fetch,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Fetch value) fetch,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Fetch value)? fetch,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 
   /// Create a copy of RoleQueryEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -710,8 +708,9 @@ mixin _$RoleQueryEvent {
 /// @nodoc
 abstract class $RoleQueryEventCopyWith<$Res> {
   factory $RoleQueryEventCopyWith(
-          RoleQueryEvent value, $Res Function(RoleQueryEvent) then) =
-      _$RoleQueryEventCopyWithImpl<$Res, RoleQueryEvent>;
+    RoleQueryEvent value,
+    $Res Function(RoleQueryEvent) then,
+  ) = _$RoleQueryEventCopyWithImpl<$Res, RoleQueryEvent>;
   @useResult
   $Res call({PageOptions<Role>? pageOptions});
 }
@@ -730,15 +729,17 @@ class _$RoleQueryEventCopyWithImpl<$Res, $Val extends RoleQueryEvent>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? pageOptions = freezed,
-  }) {
-    return _then(_value.copyWith(
-      pageOptions: freezed == pageOptions
-          ? _value.pageOptions
-          : pageOptions // ignore: cast_nullable_to_non_nullable
-              as PageOptions<Role>?,
-    ) as $Val);
+  $Res call({Object? pageOptions = freezed}) {
+    return _then(
+      _value.copyWith(
+            pageOptions:
+                freezed == pageOptions
+                    ? _value.pageOptions
+                    : pageOptions // ignore: cast_nullable_to_non_nullable
+                        as PageOptions<Role>?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -746,8 +747,9 @@ class _$RoleQueryEventCopyWithImpl<$Res, $Val extends RoleQueryEvent>
 abstract class _$$FetchImplCopyWith<$Res>
     implements $RoleQueryEventCopyWith<$Res> {
   factory _$$FetchImplCopyWith(
-          _$FetchImpl value, $Res Function(_$FetchImpl) then) =
-      __$$FetchImplCopyWithImpl<$Res>;
+    _$FetchImpl value,
+    $Res Function(_$FetchImpl) then,
+  ) = __$$FetchImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({PageOptions<Role>? pageOptions});
@@ -758,22 +760,24 @@ class __$$FetchImplCopyWithImpl<$Res>
     extends _$RoleQueryEventCopyWithImpl<$Res, _$FetchImpl>
     implements _$$FetchImplCopyWith<$Res> {
   __$$FetchImplCopyWithImpl(
-      _$FetchImpl _value, $Res Function(_$FetchImpl) _then)
-      : super(_value, _then);
+    _$FetchImpl _value,
+    $Res Function(_$FetchImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RoleQueryEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? pageOptions = freezed,
-  }) {
-    return _then(_$FetchImpl(
-      pageOptions: freezed == pageOptions
-          ? _value.pageOptions
-          : pageOptions // ignore: cast_nullable_to_non_nullable
-              as PageOptions<Role>?,
-    ));
+  $Res call({Object? pageOptions = freezed}) {
+    return _then(
+      _$FetchImpl(
+        pageOptions:
+            freezed == pageOptions
+                ? _value.pageOptions
+                : pageOptions // ignore: cast_nullable_to_non_nullable
+                    as PageOptions<Role>?,
+      ),
+    );
   }
 }
 
