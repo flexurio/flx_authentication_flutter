@@ -22,7 +22,7 @@ class RoleEmployeeEvent with _$RoleEmployeeEvent {
 
 class RoleEmployeeBloc extends Bloc<RoleEmployeeEvent, RoleEmployeeState> {
   RoleEmployeeBloc({required this.role, required this.accessToken})
-    : super(const _Initial()) {
+      : super(const _Initial()) {
     on<RoleEmployeeEvent>((event, emit) async {
       await event.when(
         create: (userId) async {

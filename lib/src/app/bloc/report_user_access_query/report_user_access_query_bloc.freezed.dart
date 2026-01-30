@@ -23,14 +23,16 @@ mixin _$ReportUserAccessQueryState {
     required TResult Function() loading,
     required TResult Function(List<ReportAccess> roleEmployees) loaded,
     required TResult Function(String error) error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<ReportAccess> roleEmployees)? loaded,
     TResult? Function(String error)? error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -38,21 +40,24 @@ mixin _$ReportUserAccessQueryState {
     TResult Function(List<ReportAccess> roleEmployees)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) loaded,
     required TResult Function(_Error value) error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? loaded,
     TResult? Function(_Error value)? error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -60,7 +65,8 @@ mixin _$ReportUserAccessQueryState {
     TResult Function(_Success value)? loaded,
     TResult Function(_Error value)? error,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -68,18 +74,13 @@ abstract class $ReportUserAccessQueryStateCopyWith<$Res> {
   factory $ReportUserAccessQueryStateCopyWith(
     ReportUserAccessQueryState value,
     $Res Function(ReportUserAccessQueryState) then,
-  ) =
-      _$ReportUserAccessQueryStateCopyWithImpl<
-        $Res,
-        ReportUserAccessQueryState
-      >;
+  ) = _$ReportUserAccessQueryStateCopyWithImpl<$Res,
+      ReportUserAccessQueryState>;
 }
 
 /// @nodoc
-class _$ReportUserAccessQueryStateCopyWithImpl<
-  $Res,
-  $Val extends ReportUserAccessQueryState
->
+class _$ReportUserAccessQueryStateCopyWithImpl<$Res,
+        $Val extends ReportUserAccessQueryState>
     implements $ReportUserAccessQueryStateCopyWith<$Res> {
   _$ReportUserAccessQueryStateCopyWithImpl(this._value, this._then);
 
@@ -369,7 +370,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
 
 class _$SuccessImpl implements _Success {
   const _$SuccessImpl(final List<ReportAccess> roleEmployees)
-    : _roleEmployees = roleEmployees;
+      : _roleEmployees = roleEmployees;
 
   final List<ReportAccess> _roleEmployees;
   @override
@@ -397,9 +398,9 @@ class _$SuccessImpl implements _Success {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(_roleEmployees),
-  );
+        runtimeType,
+        const DeepCollectionEquality().hash(_roleEmployees),
+      );
 
   /// Create a copy of ReportUserAccessQueryState
   /// with the given fields replaced by the non-null parameter values.
@@ -658,35 +659,41 @@ mixin _$ReportUserAccessQueryEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? departmentName, String? employeeId) fetch,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String? departmentName, String? employeeId)? fetch,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? departmentName, String? employeeId)? fetch,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Fetch value) fetch,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Fetch value)? fetch,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 
   /// Create a copy of ReportUserAccessQueryEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   $ReportUserAccessQueryEventCopyWith<ReportUserAccessQueryEvent>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -694,20 +701,15 @@ abstract class $ReportUserAccessQueryEventCopyWith<$Res> {
   factory $ReportUserAccessQueryEventCopyWith(
     ReportUserAccessQueryEvent value,
     $Res Function(ReportUserAccessQueryEvent) then,
-  ) =
-      _$ReportUserAccessQueryEventCopyWithImpl<
-        $Res,
-        ReportUserAccessQueryEvent
-      >;
+  ) = _$ReportUserAccessQueryEventCopyWithImpl<$Res,
+      ReportUserAccessQueryEvent>;
   @useResult
   $Res call({String? departmentName, String? employeeId});
 }
 
 /// @nodoc
-class _$ReportUserAccessQueryEventCopyWithImpl<
-  $Res,
-  $Val extends ReportUserAccessQueryEvent
->
+class _$ReportUserAccessQueryEventCopyWithImpl<$Res,
+        $Val extends ReportUserAccessQueryEvent>
     implements $ReportUserAccessQueryEventCopyWith<$Res> {
   _$ReportUserAccessQueryEventCopyWithImpl(this._value, this._then);
 
@@ -723,18 +725,15 @@ class _$ReportUserAccessQueryEventCopyWithImpl<
   $Res call({Object? departmentName = freezed, Object? employeeId = freezed}) {
     return _then(
       _value.copyWith(
-            departmentName:
-                freezed == departmentName
-                    ? _value.departmentName
-                    : departmentName // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            employeeId:
-                freezed == employeeId
-                    ? _value.employeeId
-                    : employeeId // ignore: cast_nullable_to_non_nullable
-                        as String?,
-          )
-          as $Val,
+        departmentName: freezed == departmentName
+            ? _value.departmentName
+            : departmentName // ignore: cast_nullable_to_non_nullable
+                as String?,
+        employeeId: freezed == employeeId
+            ? _value.employeeId
+            : employeeId // ignore: cast_nullable_to_non_nullable
+                as String?,
+      ) as $Val,
     );
   }
 }
@@ -767,16 +766,14 @@ class __$$FetchImplCopyWithImpl<$Res>
   $Res call({Object? departmentName = freezed, Object? employeeId = freezed}) {
     return _then(
       _$FetchImpl(
-        departmentName:
-            freezed == departmentName
-                ? _value.departmentName
-                : departmentName // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        employeeId:
-            freezed == employeeId
-                ? _value.employeeId
-                : employeeId // ignore: cast_nullable_to_non_nullable
-                    as String?,
+        departmentName: freezed == departmentName
+            ? _value.departmentName
+            : departmentName // ignore: cast_nullable_to_non_nullable
+                as String?,
+        employeeId: freezed == employeeId
+            ? _value.employeeId
+            : employeeId // ignore: cast_nullable_to_non_nullable
+                as String?,
       ),
     );
   }

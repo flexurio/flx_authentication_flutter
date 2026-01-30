@@ -63,23 +63,19 @@ class _$RoleCopyWithImpl<$Res, $Val extends Role>
   }) {
     return _then(
       _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int,
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            description:
-                null == description
-                    ? _value.description
-                    : description // ignore: cast_nullable_to_non_nullable
-                        as String,
-          )
-          as $Val,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as int,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                as String,
+        description: null == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                as String,
+      ) as $Val,
     );
   }
 }
@@ -100,7 +96,7 @@ class __$$RoleImplCopyWithImpl<$Res>
     extends _$RoleCopyWithImpl<$Res, _$RoleImpl>
     implements _$$RoleImplCopyWith<$Res> {
   __$$RoleImplCopyWithImpl(_$RoleImpl _value, $Res Function(_$RoleImpl) _then)
-    : super(_value, _then);
+      : super(_value, _then);
 
   /// Create a copy of Role
   /// with the given fields replaced by the non-null parameter values.

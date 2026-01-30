@@ -25,7 +25,7 @@ class RolePermissionQueryEvent with _$RolePermissionQueryEvent {
 class RolePermissionQueryBloc
     extends Bloc<RolePermissionQueryEvent, RolePermissionQueryState> {
   RolePermissionQueryBloc({required this.accessToken})
-    : super(const _Initial()) {
+      : super(const _Initial()) {
     on<RolePermissionQueryEvent>((event, emit) async {
       await event.when(
         fetch: (role) async {

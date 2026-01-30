@@ -23,14 +23,16 @@ mixin _$RoleQueryState {
     required TResult Function(PageOptions<Role> pageOptions) loading,
     required TResult Function(PageOptions<Role> pageOptions) loaded,
     required TResult Function(String error) error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(PageOptions<Role> pageOptions)? loading,
     TResult? Function(PageOptions<Role> pageOptions)? loaded,
     TResult? Function(String error)? error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -38,21 +40,24 @@ mixin _$RoleQueryState {
     TResult Function(PageOptions<Role> pageOptions)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) loaded,
     required TResult Function(_Error value) error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? loaded,
     TResult? Function(_Error value)? error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -60,7 +65,8 @@ mixin _$RoleQueryState {
     TResult Function(_Success value)? loaded,
     TResult Function(_Error value)? error,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -674,29 +680,35 @@ mixin _$RoleQueryEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(PageOptions<Role>? pageOptions) fetch,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PageOptions<Role>? pageOptions)? fetch,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PageOptions<Role>? pageOptions)? fetch,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Fetch value) fetch,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Fetch value)? fetch,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 
   /// Create a copy of RoleQueryEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -732,13 +744,11 @@ class _$RoleQueryEventCopyWithImpl<$Res, $Val extends RoleQueryEvent>
   $Res call({Object? pageOptions = freezed}) {
     return _then(
       _value.copyWith(
-            pageOptions:
-                freezed == pageOptions
-                    ? _value.pageOptions
-                    : pageOptions // ignore: cast_nullable_to_non_nullable
-                        as PageOptions<Role>?,
-          )
-          as $Val,
+        pageOptions: freezed == pageOptions
+            ? _value.pageOptions
+            : pageOptions // ignore: cast_nullable_to_non_nullable
+                as PageOptions<Role>?,
+      ) as $Val,
     );
   }
 }
@@ -771,11 +781,10 @@ class __$$FetchImplCopyWithImpl<$Res>
   $Res call({Object? pageOptions = freezed}) {
     return _then(
       _$FetchImpl(
-        pageOptions:
-            freezed == pageOptions
-                ? _value.pageOptions
-                : pageOptions // ignore: cast_nullable_to_non_nullable
-                    as PageOptions<Role>?,
+        pageOptions: freezed == pageOptions
+            ? _value.pageOptions
+            : pageOptions // ignore: cast_nullable_to_non_nullable
+                as PageOptions<Role>?,
       ),
     );
   }

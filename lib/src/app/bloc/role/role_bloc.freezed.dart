@@ -23,14 +23,16 @@ mixin _$RoleState {
     required TResult Function() loading,
     required TResult Function() success,
     required TResult Function(String error) error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
     TResult? Function(String error)? error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -38,21 +40,24 @@ mixin _$RoleState {
     TResult Function()? success,
     TResult Function(String error)? error,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -60,7 +65,8 @@ mixin _$RoleState {
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -601,39 +607,45 @@ mixin _$RoleEvent {
     required TResult Function(String description, String name) create,
     required TResult Function(String name, String description, Role role) edit,
     required TResult Function(Role role) delete,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String description, String name)? create,
     TResult? Function(String name, String description, Role role)? edit,
     TResult? Function(Role role)? delete,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String description, String name)? create,
     TResult Function(String name, String description, Role role)? edit,
     TResult Function(Role role)? delete,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Create value) create,
     required TResult Function(_Edit value) edit,
     required TResult Function(_Delete value) delete,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Create value)? create,
     TResult? Function(_Edit value)? edit,
     TResult? Function(_Delete value)? delete,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Create value)? create,
     TResult Function(_Edit value)? edit,
     TResult Function(_Delete value)? delete,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -682,16 +694,14 @@ class __$$CreateImplCopyWithImpl<$Res>
   $Res call({Object? description = null, Object? name = null}) {
     return _then(
       _$CreateImpl(
-        description:
-            null == description
-                ? _value.description
-                : description // ignore: cast_nullable_to_non_nullable
-                    as String,
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
+        description: null == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                as String,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                as String,
       ),
     );
   }
@@ -835,7 +845,7 @@ class __$$EditImplCopyWithImpl<$Res>
     extends _$RoleEventCopyWithImpl<$Res, _$EditImpl>
     implements _$$EditImplCopyWith<$Res> {
   __$$EditImplCopyWithImpl(_$EditImpl _value, $Res Function(_$EditImpl) _then)
-    : super(_value, _then);
+      : super(_value, _then);
 
   /// Create a copy of RoleEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -848,21 +858,18 @@ class __$$EditImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$EditImpl(
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        description:
-            null == description
-                ? _value.description
-                : description // ignore: cast_nullable_to_non_nullable
-                    as String,
-        role:
-            null == role
-                ? _value.role
-                : role // ignore: cast_nullable_to_non_nullable
-                    as Role,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                as String,
+        description: null == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                as String,
+        role: null == role
+            ? _value.role
+            : role // ignore: cast_nullable_to_non_nullable
+                as Role,
       ),
     );
   }
@@ -1036,11 +1043,10 @@ class __$$DeleteImplCopyWithImpl<$Res>
   $Res call({Object? role = null}) {
     return _then(
       _$DeleteImpl(
-        role:
-            null == role
-                ? _value.role
-                : role // ignore: cast_nullable_to_non_nullable
-                    as Role,
+        role: null == role
+            ? _value.role
+            : role // ignore: cast_nullable_to_non_nullable
+                as Role,
       ),
     );
   }

@@ -23,14 +23,16 @@ mixin _$MaterialState {
     required TResult Function() loading,
     required TResult Function() success,
     required TResult Function(String error) error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
     TResult? Function(String error)? error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -38,21 +40,24 @@ mixin _$MaterialState {
     TResult Function()? success,
     TResult Function(String error)? error,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -60,7 +65,8 @@ mixin _$MaterialState {
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -95,7 +101,7 @@ class __$$_InitialCopyWithImpl<$Res>
     extends _$MaterialStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-    : super(_value, _then);
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -209,7 +215,7 @@ class __$$_LoadingCopyWithImpl<$Res>
     extends _$MaterialStateCopyWithImpl<$Res, _$_Loading>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
-    : super(_value, _then);
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -323,7 +329,7 @@ class __$$_SuccessCopyWithImpl<$Res>
     extends _$MaterialStateCopyWithImpl<$Res, _$_Success>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
-    : super(_value, _then);
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -437,7 +443,7 @@ class __$$_ErrorCopyWithImpl<$Res>
     extends _$MaterialStateCopyWithImpl<$Res, _$_Error>
     implements _$$_ErrorCopyWith<$Res> {
   __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
-    : super(_value, _then);
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -579,20 +585,19 @@ mixin _$MaterialEvent {
       MaterialUnit stockUnit,
       String id,
       bool? isAssets,
-    )
-    create,
+    ) create,
     required TResult Function(
       String name,
       MaterialGroup materialGroup,
       MaterialUnit materialUnit,
       String id,
       bool? isAssets,
-    )
-    update,
+    ) update,
     required TResult Function(String id) delete,
     required TResult Function(String id) activate,
     required TResult Function(String id) deactivate,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
@@ -602,20 +607,19 @@ mixin _$MaterialEvent {
       MaterialUnit stockUnit,
       String id,
       bool? isAssets,
-    )?
-    create,
+    )? create,
     TResult? Function(
       String name,
       MaterialGroup materialGroup,
       MaterialUnit materialUnit,
       String id,
       bool? isAssets,
-    )?
-    update,
+    )? update,
     TResult? Function(String id)? delete,
     TResult? Function(String id)? activate,
     TResult? Function(String id)? deactivate,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
@@ -625,21 +629,20 @@ mixin _$MaterialEvent {
       MaterialUnit stockUnit,
       String id,
       bool? isAssets,
-    )?
-    create,
+    )? create,
     TResult Function(
       String name,
       MaterialGroup materialGroup,
       MaterialUnit materialUnit,
       String id,
       bool? isAssets,
-    )?
-    update,
+    )? update,
     TResult Function(String id)? delete,
     TResult Function(String id)? activate,
     TResult Function(String id)? deactivate,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Create value) create,
@@ -647,7 +650,8 @@ mixin _$MaterialEvent {
     required TResult Function(_Delete value) delete,
     required TResult Function(_Activate value) activate,
     required TResult Function(_Deactivate value) deactivate,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Create value)? create,
@@ -655,7 +659,8 @@ mixin _$MaterialEvent {
     TResult? Function(_Delete value)? delete,
     TResult? Function(_Activate value)? activate,
     TResult? Function(_Deactivate value)? deactivate,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Create value)? create,
@@ -664,7 +669,8 @@ mixin _$MaterialEvent {
     TResult Function(_Activate value)? activate,
     TResult Function(_Deactivate value)? deactivate,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MaterialEventCopyWith<MaterialEvent> get copyWith =>
@@ -696,13 +702,11 @@ class _$MaterialEventCopyWithImpl<$Res, $Val extends MaterialEvent>
   $Res call({Object? id = null}) {
     return _then(
       _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as String,
-          )
-          as $Val,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as String,
+      ) as $Val,
     );
   }
 }
@@ -733,7 +737,7 @@ class __$$_CreateCopyWithImpl<$Res>
     extends _$MaterialEventCopyWithImpl<$Res, _$_Create>
     implements _$$_CreateCopyWith<$Res> {
   __$$_CreateCopyWithImpl(_$_Create _value, $Res Function(_$_Create) _then)
-    : super(_value, _then);
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -747,36 +751,30 @@ class __$$_CreateCopyWithImpl<$Res>
   }) {
     return _then(
       _$_Create(
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        materialGroup:
-            null == materialGroup
-                ? _value.materialGroup
-                : materialGroup // ignore: cast_nullable_to_non_nullable
-                    as MaterialGroup,
-        materialUnit:
-            null == materialUnit
-                ? _value.materialUnit
-                : materialUnit // ignore: cast_nullable_to_non_nullable
-                    as MaterialUnit,
-        stockUnit:
-            null == stockUnit
-                ? _value.stockUnit
-                : stockUnit // ignore: cast_nullable_to_non_nullable
-                    as MaterialUnit,
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as String,
-        isAssets:
-            freezed == isAssets
-                ? _value.isAssets
-                : isAssets // ignore: cast_nullable_to_non_nullable
-                    as bool?,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                as String,
+        materialGroup: null == materialGroup
+            ? _value.materialGroup
+            : materialGroup // ignore: cast_nullable_to_non_nullable
+                as MaterialGroup,
+        materialUnit: null == materialUnit
+            ? _value.materialUnit
+            : materialUnit // ignore: cast_nullable_to_non_nullable
+                as MaterialUnit,
+        stockUnit: null == stockUnit
+            ? _value.stockUnit
+            : stockUnit // ignore: cast_nullable_to_non_nullable
+                as MaterialUnit,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as String,
+        isAssets: freezed == isAssets
+            ? _value.isAssets
+            : isAssets // ignore: cast_nullable_to_non_nullable
+                as bool?,
       ),
     );
   }
@@ -855,14 +853,14 @@ class _$_Create implements _Create {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    name,
-    materialGroup,
-    materialUnit,
-    stockUnit,
-    id,
-    isAssets,
-  );
+        runtimeType,
+        name,
+        materialGroup,
+        materialUnit,
+        stockUnit,
+        id,
+        isAssets,
+      );
 
   @JsonKey(ignore: true)
   @override
@@ -880,16 +878,14 @@ class _$_Create implements _Create {
       MaterialUnit stockUnit,
       String id,
       bool? isAssets,
-    )
-    create,
+    ) create,
     required TResult Function(
       String name,
       MaterialGroup materialGroup,
       MaterialUnit materialUnit,
       String id,
       bool? isAssets,
-    )
-    update,
+    ) update,
     required TResult Function(String id) delete,
     required TResult Function(String id) activate,
     required TResult Function(String id) deactivate,
@@ -907,16 +903,14 @@ class _$_Create implements _Create {
       MaterialUnit stockUnit,
       String id,
       bool? isAssets,
-    )?
-    create,
+    )? create,
     TResult? Function(
       String name,
       MaterialGroup materialGroup,
       MaterialUnit materialUnit,
       String id,
       bool? isAssets,
-    )?
-    update,
+    )? update,
     TResult? Function(String id)? delete,
     TResult? Function(String id)? activate,
     TResult? Function(String id)? deactivate,
@@ -941,16 +935,14 @@ class _$_Create implements _Create {
       MaterialUnit stockUnit,
       String id,
       bool? isAssets,
-    )?
-    create,
+    )? create,
     TResult Function(
       String name,
       MaterialGroup materialGroup,
       MaterialUnit materialUnit,
       String id,
       bool? isAssets,
-    )?
-    update,
+    )? update,
     TResult Function(String id)? delete,
     TResult Function(String id)? activate,
     TResult Function(String id)? deactivate,
@@ -1050,7 +1042,7 @@ class __$$_UpdateCopyWithImpl<$Res>
     extends _$MaterialEventCopyWithImpl<$Res, _$_Update>
     implements _$$_UpdateCopyWith<$Res> {
   __$$_UpdateCopyWithImpl(_$_Update _value, $Res Function(_$_Update) _then)
-    : super(_value, _then);
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -1063,31 +1055,26 @@ class __$$_UpdateCopyWithImpl<$Res>
   }) {
     return _then(
       _$_Update(
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        materialGroup:
-            null == materialGroup
-                ? _value.materialGroup
-                : materialGroup // ignore: cast_nullable_to_non_nullable
-                    as MaterialGroup,
-        materialUnit:
-            null == materialUnit
-                ? _value.materialUnit
-                : materialUnit // ignore: cast_nullable_to_non_nullable
-                    as MaterialUnit,
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as String,
-        isAssets:
-            freezed == isAssets
-                ? _value.isAssets
-                : isAssets // ignore: cast_nullable_to_non_nullable
-                    as bool?,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                as String,
+        materialGroup: null == materialGroup
+            ? _value.materialGroup
+            : materialGroup // ignore: cast_nullable_to_non_nullable
+                as MaterialGroup,
+        materialUnit: null == materialUnit
+            ? _value.materialUnit
+            : materialUnit // ignore: cast_nullable_to_non_nullable
+                as MaterialUnit,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as String,
+        isAssets: freezed == isAssets
+            ? _value.isAssets
+            : isAssets // ignore: cast_nullable_to_non_nullable
+                as bool?,
       ),
     );
   }
@@ -1171,16 +1158,14 @@ class _$_Update implements _Update {
       MaterialUnit stockUnit,
       String id,
       bool? isAssets,
-    )
-    create,
+    ) create,
     required TResult Function(
       String name,
       MaterialGroup materialGroup,
       MaterialUnit materialUnit,
       String id,
       bool? isAssets,
-    )
-    update,
+    ) update,
     required TResult Function(String id) delete,
     required TResult Function(String id) activate,
     required TResult Function(String id) deactivate,
@@ -1198,16 +1183,14 @@ class _$_Update implements _Update {
       MaterialUnit stockUnit,
       String id,
       bool? isAssets,
-    )?
-    create,
+    )? create,
     TResult? Function(
       String name,
       MaterialGroup materialGroup,
       MaterialUnit materialUnit,
       String id,
       bool? isAssets,
-    )?
-    update,
+    )? update,
     TResult? Function(String id)? delete,
     TResult? Function(String id)? activate,
     TResult? Function(String id)? deactivate,
@@ -1225,16 +1208,14 @@ class _$_Update implements _Update {
       MaterialUnit stockUnit,
       String id,
       bool? isAssets,
-    )?
-    create,
+    )? create,
     TResult Function(
       String name,
       MaterialGroup materialGroup,
       MaterialUnit materialUnit,
       String id,
       bool? isAssets,
-    )?
-    update,
+    )? update,
     TResult Function(String id)? delete,
     TResult Function(String id)? activate,
     TResult Function(String id)? deactivate,
@@ -1323,18 +1304,17 @@ class __$$_DeleteCopyWithImpl<$Res>
     extends _$MaterialEventCopyWithImpl<$Res, _$_Delete>
     implements _$$_DeleteCopyWith<$Res> {
   __$$_DeleteCopyWithImpl(_$_Delete _value, $Res Function(_$_Delete) _then)
-    : super(_value, _then);
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? id = null}) {
     return _then(
       _$_Delete(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as String,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as String,
       ),
     );
   }
@@ -1380,16 +1360,14 @@ class _$_Delete implements _Delete {
       MaterialUnit stockUnit,
       String id,
       bool? isAssets,
-    )
-    create,
+    ) create,
     required TResult Function(
       String name,
       MaterialGroup materialGroup,
       MaterialUnit materialUnit,
       String id,
       bool? isAssets,
-    )
-    update,
+    ) update,
     required TResult Function(String id) delete,
     required TResult Function(String id) activate,
     required TResult Function(String id) deactivate,
@@ -1407,16 +1385,14 @@ class _$_Delete implements _Delete {
       MaterialUnit stockUnit,
       String id,
       bool? isAssets,
-    )?
-    create,
+    )? create,
     TResult? Function(
       String name,
       MaterialGroup materialGroup,
       MaterialUnit materialUnit,
       String id,
       bool? isAssets,
-    )?
-    update,
+    )? update,
     TResult? Function(String id)? delete,
     TResult? Function(String id)? activate,
     TResult? Function(String id)? deactivate,
@@ -1434,16 +1410,14 @@ class _$_Delete implements _Delete {
       MaterialUnit stockUnit,
       String id,
       bool? isAssets,
-    )?
-    create,
+    )? create,
     TResult Function(
       String name,
       MaterialGroup materialGroup,
       MaterialUnit materialUnit,
       String id,
       bool? isAssets,
-    )?
-    update,
+    )? update,
     TResult Function(String id)? delete,
     TResult Function(String id)? activate,
     TResult Function(String id)? deactivate,
@@ -1533,11 +1507,10 @@ class __$$_ActivateCopyWithImpl<$Res>
   $Res call({Object? id = null}) {
     return _then(
       _$_Activate(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as String,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as String,
       ),
     );
   }
@@ -1583,16 +1556,14 @@ class _$_Activate implements _Activate {
       MaterialUnit stockUnit,
       String id,
       bool? isAssets,
-    )
-    create,
+    ) create,
     required TResult Function(
       String name,
       MaterialGroup materialGroup,
       MaterialUnit materialUnit,
       String id,
       bool? isAssets,
-    )
-    update,
+    ) update,
     required TResult Function(String id) delete,
     required TResult Function(String id) activate,
     required TResult Function(String id) deactivate,
@@ -1610,16 +1581,14 @@ class _$_Activate implements _Activate {
       MaterialUnit stockUnit,
       String id,
       bool? isAssets,
-    )?
-    create,
+    )? create,
     TResult? Function(
       String name,
       MaterialGroup materialGroup,
       MaterialUnit materialUnit,
       String id,
       bool? isAssets,
-    )?
-    update,
+    )? update,
     TResult? Function(String id)? delete,
     TResult? Function(String id)? activate,
     TResult? Function(String id)? deactivate,
@@ -1637,16 +1606,14 @@ class _$_Activate implements _Activate {
       MaterialUnit stockUnit,
       String id,
       bool? isAssets,
-    )?
-    create,
+    )? create,
     TResult Function(
       String name,
       MaterialGroup materialGroup,
       MaterialUnit materialUnit,
       String id,
       bool? isAssets,
-    )?
-    update,
+    )? update,
     TResult Function(String id)? delete,
     TResult Function(String id)? activate,
     TResult Function(String id)? deactivate,
@@ -1736,11 +1703,10 @@ class __$$_DeactivateCopyWithImpl<$Res>
   $Res call({Object? id = null}) {
     return _then(
       _$_Deactivate(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as String,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as String,
       ),
     );
   }
@@ -1786,16 +1752,14 @@ class _$_Deactivate implements _Deactivate {
       MaterialUnit stockUnit,
       String id,
       bool? isAssets,
-    )
-    create,
+    ) create,
     required TResult Function(
       String name,
       MaterialGroup materialGroup,
       MaterialUnit materialUnit,
       String id,
       bool? isAssets,
-    )
-    update,
+    ) update,
     required TResult Function(String id) delete,
     required TResult Function(String id) activate,
     required TResult Function(String id) deactivate,
@@ -1813,16 +1777,14 @@ class _$_Deactivate implements _Deactivate {
       MaterialUnit stockUnit,
       String id,
       bool? isAssets,
-    )?
-    create,
+    )? create,
     TResult? Function(
       String name,
       MaterialGroup materialGroup,
       MaterialUnit materialUnit,
       String id,
       bool? isAssets,
-    )?
-    update,
+    )? update,
     TResult? Function(String id)? delete,
     TResult? Function(String id)? activate,
     TResult? Function(String id)? deactivate,
@@ -1840,16 +1802,14 @@ class _$_Deactivate implements _Deactivate {
       MaterialUnit stockUnit,
       String id,
       bool? isAssets,
-    )?
-    create,
+    )? create,
     TResult Function(
       String name,
       MaterialGroup materialGroup,
       MaterialUnit materialUnit,
       String id,
       bool? isAssets,
-    )?
-    update,
+    )? update,
     TResult Function(String id)? delete,
     TResult Function(String id)? activate,
     TResult Function(String id)? deactivate,

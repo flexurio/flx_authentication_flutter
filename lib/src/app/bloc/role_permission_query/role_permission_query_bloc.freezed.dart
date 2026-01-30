@@ -23,14 +23,16 @@ mixin _$RolePermissionQueryState {
     required TResult Function() loading,
     required TResult Function(List<String> permission) loaded,
     required TResult Function(String error) error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<String> permission)? loaded,
     TResult? Function(String error)? error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -38,21 +40,24 @@ mixin _$RolePermissionQueryState {
     TResult Function(List<String> permission)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) loaded,
     required TResult Function(_Error value) error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? loaded,
     TResult? Function(_Error value)? error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -60,7 +65,8 @@ mixin _$RolePermissionQueryState {
     TResult Function(_Success value)? loaded,
     TResult Function(_Error value)? error,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -72,10 +78,8 @@ abstract class $RolePermissionQueryStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RolePermissionQueryStateCopyWithImpl<
-  $Res,
-  $Val extends RolePermissionQueryState
->
+class _$RolePermissionQueryStateCopyWithImpl<$Res,
+        $Val extends RolePermissionQueryState>
     implements $RolePermissionQueryStateCopyWith<$Res> {
   _$RolePermissionQueryStateCopyWithImpl(this._value, this._then);
 
@@ -392,9 +396,9 @@ class _$SuccessImpl implements _Success {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(_permission),
-  );
+        runtimeType,
+        const DeepCollectionEquality().hash(_permission),
+      );
 
   /// Create a copy of RolePermissionQueryState
   /// with the given fields replaced by the non-null parameter values.
@@ -651,34 +655,40 @@ mixin _$RolePermissionQueryEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(Role role) fetch,
     required TResult Function(String permission) toggle,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Role role)? fetch,
     TResult? Function(String permission)? toggle,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Role role)? fetch,
     TResult Function(String permission)? toggle,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Fetch value) fetch,
     required TResult Function(_Toggle value) toggle,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Fetch value)? fetch,
     TResult? Function(_Toggle value)? toggle,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     TResult Function(_Toggle value)? toggle,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -690,10 +700,8 @@ abstract class $RolePermissionQueryEventCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RolePermissionQueryEventCopyWithImpl<
-  $Res,
-  $Val extends RolePermissionQueryEvent
->
+class _$RolePermissionQueryEventCopyWithImpl<$Res,
+        $Val extends RolePermissionQueryEvent>
     implements $RolePermissionQueryEventCopyWith<$Res> {
   _$RolePermissionQueryEventCopyWithImpl(this._value, this._then);
 
@@ -734,11 +742,10 @@ class __$$FetchImplCopyWithImpl<$Res>
   $Res call({Object? role = null}) {
     return _then(
       _$FetchImpl(
-        role:
-            null == role
-                ? _value.role
-                : role // ignore: cast_nullable_to_non_nullable
-                    as Role,
+        role: null == role
+            ? _value.role
+            : role // ignore: cast_nullable_to_non_nullable
+                as Role,
       ),
     );
   }
@@ -887,11 +894,10 @@ class __$$ToggleImplCopyWithImpl<$Res>
   $Res call({Object? permission = null}) {
     return _then(
       _$ToggleImpl(
-        permission:
-            null == permission
-                ? _value.permission
-                : permission // ignore: cast_nullable_to_non_nullable
-                    as String,
+        permission: null == permission
+            ? _value.permission
+            : permission // ignore: cast_nullable_to_non_nullable
+                as String,
       ),
     );
   }

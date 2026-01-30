@@ -23,7 +23,7 @@ class RoleEmployeeQueryEvent with _$RoleEmployeeQueryEvent {
 class RoleEmployeeQueryBloc
     extends Bloc<RoleEmployeeQueryEvent, RoleEmployeeQueryState> {
   RoleEmployeeQueryBloc({required this.role, required this.accessToken})
-    : super(const _Initial()) {
+      : super(const _Initial()) {
     on<RoleEmployeeQueryEvent>((event, emit) async {
       await event.when(
         fetch: () async {

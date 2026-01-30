@@ -23,14 +23,16 @@ mixin _$RolePermissionState {
     required TResult Function() loading,
     required TResult Function() success,
     required TResult Function(String error) error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
     TResult? Function(String error)? error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -38,21 +40,24 @@ mixin _$RolePermissionState {
     TResult Function()? success,
     TResult Function(String error)? error,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -60,7 +65,8 @@ mixin _$RolePermissionState {
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -604,34 +610,40 @@ mixin _$RolePermissionEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(Role role, String permission) create,
     required TResult Function(Role role, String permission) delete,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Role role, String permission)? create,
     TResult? Function(Role role, String permission)? delete,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Role role, String permission)? create,
     TResult Function(Role role, String permission)? delete,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Create value) create,
     required TResult Function(_Delete value) delete,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Create value)? create,
     TResult? Function(_Delete value)? delete,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Create value)? create,
     TResult Function(_Delete value)? delete,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 
   /// Create a copy of RolePermissionEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -669,18 +681,15 @@ class _$RolePermissionEventCopyWithImpl<$Res, $Val extends RolePermissionEvent>
   $Res call({Object? role = null, Object? permission = null}) {
     return _then(
       _value.copyWith(
-            role:
-                null == role
-                    ? _value.role
-                    : role // ignore: cast_nullable_to_non_nullable
-                        as Role,
-            permission:
-                null == permission
-                    ? _value.permission
-                    : permission // ignore: cast_nullable_to_non_nullable
-                        as String,
-          )
-          as $Val,
+        role: null == role
+            ? _value.role
+            : role // ignore: cast_nullable_to_non_nullable
+                as Role,
+        permission: null == permission
+            ? _value.permission
+            : permission // ignore: cast_nullable_to_non_nullable
+                as String,
+      ) as $Val,
     );
   }
 
@@ -726,16 +735,14 @@ class __$$CreateImplCopyWithImpl<$Res>
   $Res call({Object? role = null, Object? permission = null}) {
     return _then(
       _$CreateImpl(
-        role:
-            null == role
-                ? _value.role
-                : role // ignore: cast_nullable_to_non_nullable
-                    as Role,
-        permission:
-            null == permission
-                ? _value.permission
-                : permission // ignore: cast_nullable_to_non_nullable
-                    as String,
+        role: null == role
+            ? _value.role
+            : role // ignore: cast_nullable_to_non_nullable
+                as Role,
+        permission: null == permission
+            ? _value.permission
+            : permission // ignore: cast_nullable_to_non_nullable
+                as String,
       ),
     );
   }
@@ -890,16 +897,14 @@ class __$$DeleteImplCopyWithImpl<$Res>
   $Res call({Object? role = null, Object? permission = null}) {
     return _then(
       _$DeleteImpl(
-        role:
-            null == role
-                ? _value.role
-                : role // ignore: cast_nullable_to_non_nullable
-                    as Role,
-        permission:
-            null == permission
-                ? _value.permission
-                : permission // ignore: cast_nullable_to_non_nullable
-                    as String,
+        role: null == role
+            ? _value.role
+            : role // ignore: cast_nullable_to_non_nullable
+                as Role,
+        permission: null == permission
+            ? _value.permission
+            : permission // ignore: cast_nullable_to_non_nullable
+                as String,
       ),
     );
   }

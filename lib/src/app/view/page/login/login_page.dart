@@ -161,29 +161,28 @@ class _Container extends StatelessWidget {
   AnimatedSwitcher _buildLogo(ScreenIdentifier screenIdentifier) {
     return AnimatedSwitcher(
       duration: const Duration(milliseconds: 500),
-      child:
-          screenIdentifier.conditions(md: false, lg: true)
-              ? ContainerGlass(
-                width: 300,
-                elevation: 0,
-                opacity: .6,
-                borderRadius: const BorderRadius.horizontal(
-                  right: Radius.circular(20),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 24),
-                      child: LogoNamed(
-                        logoUrl: logoUrl,
-                        logoNamedUrl: logoNamedUrl,
-                      ),
+      child: screenIdentifier.conditions(md: false, lg: true)
+          ? ContainerGlass(
+              width: 300,
+              elevation: 0,
+              opacity: .6,
+              borderRadius: const BorderRadius.horizontal(
+                right: Radius.circular(20),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 24),
+                    child: LogoNamed(
+                      logoUrl: logoUrl,
+                      logoNamedUrl: logoNamedUrl,
                     ),
-                  ],
-                ),
-              )
-              : const SizedBox(),
+                  ),
+                ],
+              ),
+            )
+          : const SizedBox(),
     );
   }
 }

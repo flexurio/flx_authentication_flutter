@@ -41,11 +41,11 @@ class VerifyCodeBloc extends Bloc<VerifyCodeEvent, VerifyCodeState> {
             final user = extractPayloadFromJwt(accessToken);
             final data = await onSuccess(accessToken, user);
 
-            final roles = await AuthenticationRepositoryApi.instance
-                .employeeRoleFetch(
-                  accessToken: accessToken,
-                  employeeId: user['id'].toString(),
-                );
+            final roles =
+                await AuthenticationRepositoryApi.instance.employeeRoleFetch(
+              accessToken: accessToken,
+              employeeId: user['id'].toString(),
+            );
 
             final permissions = <String>[];
             for (final role in roles) {

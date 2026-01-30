@@ -25,12 +25,12 @@ mixin _$LoginState {
       String token,
       List<String> permission,
       Map<String, dynamic> data,
-    )
-    success,
+    ) success,
     required TResult Function(String authId) successWithTwoFactor,
     required TResult Function(String? nip, String? password, String? other)
-    error,
-  }) => throw _privateConstructorUsedError;
+        error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -39,11 +39,11 @@ mixin _$LoginState {
       String token,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    success,
+    )? success,
     TResult? Function(String authId)? successWithTwoFactor,
     TResult? Function(String? nip, String? password, String? other)? error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -52,12 +52,12 @@ mixin _$LoginState {
       String token,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    success,
+    )? success,
     TResult Function(String authId)? successWithTwoFactor,
     TResult Function(String? nip, String? password, String? other)? error,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
@@ -65,7 +65,8 @@ mixin _$LoginState {
     required TResult Function(_Success value) success,
     required TResult Function(_SuccessWithTwoFactor value) successWithTwoFactor,
     required TResult Function(_Error value) error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
@@ -73,7 +74,8 @@ mixin _$LoginState {
     TResult? Function(_Success value)? success,
     TResult? Function(_SuccessWithTwoFactor value)? successWithTwoFactor,
     TResult? Function(_Error value)? error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -82,7 +84,8 @@ mixin _$LoginState {
     TResult Function(_SuccessWithTwoFactor value)? successWithTwoFactor,
     TResult Function(_Error value)? error,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -156,11 +159,10 @@ class _$InitialImpl implements _Initial {
       String token,
       List<String> permission,
       Map<String, dynamic> data,
-    )
-    success,
+    ) success,
     required TResult Function(String authId) successWithTwoFactor,
     required TResult Function(String? nip, String? password, String? other)
-    error,
+        error,
   }) {
     return initial();
   }
@@ -174,8 +176,7 @@ class _$InitialImpl implements _Initial {
       String token,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    success,
+    )? success,
     TResult? Function(String authId)? successWithTwoFactor,
     TResult? Function(String? nip, String? password, String? other)? error,
   }) {
@@ -191,8 +192,7 @@ class _$InitialImpl implements _Initial {
       String token,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    success,
+    )? success,
     TResult Function(String authId)? successWithTwoFactor,
     TResult Function(String? nip, String? password, String? other)? error,
     required TResult orElse(),
@@ -297,11 +297,10 @@ class _$LoadingImpl implements _Loading {
       String token,
       List<String> permission,
       Map<String, dynamic> data,
-    )
-    success,
+    ) success,
     required TResult Function(String authId) successWithTwoFactor,
     required TResult Function(String? nip, String? password, String? other)
-    error,
+        error,
   }) {
     return loading();
   }
@@ -315,8 +314,7 @@ class _$LoadingImpl implements _Loading {
       String token,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    success,
+    )? success,
     TResult? Function(String authId)? successWithTwoFactor,
     TResult? Function(String? nip, String? password, String? other)? error,
   }) {
@@ -332,8 +330,7 @@ class _$LoadingImpl implements _Loading {
       String token,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    success,
+    )? success,
     TResult Function(String authId)? successWithTwoFactor,
     TResult Function(String? nip, String? password, String? other)? error,
     required TResult orElse(),
@@ -443,8 +440,8 @@ class _$SuccessImpl implements _Success {
     this.token,
     final List<String> permission,
     final Map<String, dynamic> data,
-  ) : _permission = permission,
-      _data = data;
+  )   : _permission = permission,
+        _data = data;
 
   @override
   final String token;
@@ -484,11 +481,11 @@ class _$SuccessImpl implements _Success {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    token,
-    const DeepCollectionEquality().hash(_permission),
-    const DeepCollectionEquality().hash(_data),
-  );
+        runtimeType,
+        token,
+        const DeepCollectionEquality().hash(_permission),
+        const DeepCollectionEquality().hash(_data),
+      );
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -507,11 +504,10 @@ class _$SuccessImpl implements _Success {
       String token,
       List<String> permission,
       Map<String, dynamic> data,
-    )
-    success,
+    ) success,
     required TResult Function(String authId) successWithTwoFactor,
     required TResult Function(String? nip, String? password, String? other)
-    error,
+        error,
   }) {
     return success(token, permission, data);
   }
@@ -525,8 +521,7 @@ class _$SuccessImpl implements _Success {
       String token,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    success,
+    )? success,
     TResult? Function(String authId)? successWithTwoFactor,
     TResult? Function(String? nip, String? password, String? other)? error,
   }) {
@@ -542,8 +537,7 @@ class _$SuccessImpl implements _Success {
       String token,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    success,
+    )? success,
     TResult Function(String authId)? successWithTwoFactor,
     TResult Function(String? nip, String? password, String? other)? error,
     required TResult orElse(),
@@ -678,11 +672,11 @@ class _$SuccessWithTwoFactorImpl implements _SuccessWithTwoFactor {
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessWithTwoFactorImplCopyWith<_$SuccessWithTwoFactorImpl>
-  get copyWith =>
-      __$$SuccessWithTwoFactorImplCopyWithImpl<_$SuccessWithTwoFactorImpl>(
-        this,
-        _$identity,
-      );
+      get copyWith =>
+          __$$SuccessWithTwoFactorImplCopyWithImpl<_$SuccessWithTwoFactorImpl>(
+            this,
+            _$identity,
+          );
 
   @override
   @optionalTypeArgs
@@ -693,11 +687,10 @@ class _$SuccessWithTwoFactorImpl implements _SuccessWithTwoFactor {
       String token,
       List<String> permission,
       Map<String, dynamic> data,
-    )
-    success,
+    ) success,
     required TResult Function(String authId) successWithTwoFactor,
     required TResult Function(String? nip, String? password, String? other)
-    error,
+        error,
   }) {
     return successWithTwoFactor(authId);
   }
@@ -711,8 +704,7 @@ class _$SuccessWithTwoFactorImpl implements _SuccessWithTwoFactor {
       String token,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    success,
+    )? success,
     TResult? Function(String authId)? successWithTwoFactor,
     TResult? Function(String? nip, String? password, String? other)? error,
   }) {
@@ -728,8 +720,7 @@ class _$SuccessWithTwoFactorImpl implements _SuccessWithTwoFactor {
       String token,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    success,
+    )? success,
     TResult Function(String authId)? successWithTwoFactor,
     TResult Function(String? nip, String? password, String? other)? error,
     required TResult orElse(),
@@ -791,7 +782,7 @@ abstract class _SuccessWithTwoFactor implements LoginState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessWithTwoFactorImplCopyWith<_$SuccessWithTwoFactorImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -824,21 +815,18 @@ class __$$ErrorImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$ErrorImpl(
-        nip:
-            freezed == nip
-                ? _value.nip
-                : nip // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        password:
-            freezed == password
-                ? _value.password
-                : password // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        other:
-            freezed == other
-                ? _value.other
-                : other // ignore: cast_nullable_to_non_nullable
-                    as String?,
+        nip: freezed == nip
+            ? _value.nip
+            : nip // ignore: cast_nullable_to_non_nullable
+                as String?,
+        password: freezed == password
+            ? _value.password
+            : password // ignore: cast_nullable_to_non_nullable
+                as String?,
+        other: freezed == other
+            ? _value.other
+            : other // ignore: cast_nullable_to_non_nullable
+                as String?,
       ),
     );
   }
@@ -892,11 +880,10 @@ class _$ErrorImpl implements _Error {
       String token,
       List<String> permission,
       Map<String, dynamic> data,
-    )
-    success,
+    ) success,
     required TResult Function(String authId) successWithTwoFactor,
     required TResult Function(String? nip, String? password, String? other)
-    error,
+        error,
   }) {
     return error(nip, password, other);
   }
@@ -910,8 +897,7 @@ class _$ErrorImpl implements _Error {
       String token,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    success,
+    )? success,
     TResult? Function(String authId)? successWithTwoFactor,
     TResult? Function(String? nip, String? password, String? other)? error,
   }) {
@@ -927,8 +913,7 @@ class _$ErrorImpl implements _Error {
       String token,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    success,
+    )? success,
     TResult Function(String authId)? successWithTwoFactor,
     TResult Function(String? nip, String? password, String? other)? error,
     required TResult orElse(),
@@ -1011,9 +996,9 @@ mixin _$LoginEvent {
       String password,
       bool withTwoFactor,
       String? urlApi,
-    )
-    submit,
-  }) => throw _privateConstructorUsedError;
+    ) submit,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
@@ -1021,9 +1006,9 @@ mixin _$LoginEvent {
       String password,
       bool withTwoFactor,
       String? urlApi,
-    )?
-    submit,
-  }) => throw _privateConstructorUsedError;
+    )? submit,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
@@ -1031,23 +1016,26 @@ mixin _$LoginEvent {
       String password,
       bool withTwoFactor,
       String? urlApi,
-    )?
-    submit,
+    )? submit,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Submit value) submit,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Submit value)? submit,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Submit value)? submit,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 
   /// Create a copy of LoginEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -1088,28 +1076,23 @@ class _$LoginEventCopyWithImpl<$Res, $Val extends LoginEvent>
   }) {
     return _then(
       _value.copyWith(
-            nip:
-                null == nip
-                    ? _value.nip
-                    : nip // ignore: cast_nullable_to_non_nullable
-                        as String,
-            password:
-                null == password
-                    ? _value.password
-                    : password // ignore: cast_nullable_to_non_nullable
-                        as String,
-            withTwoFactor:
-                null == withTwoFactor
-                    ? _value.withTwoFactor
-                    : withTwoFactor // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            urlApi:
-                freezed == urlApi
-                    ? _value.urlApi
-                    : urlApi // ignore: cast_nullable_to_non_nullable
-                        as String?,
-          )
-          as $Val,
+        nip: null == nip
+            ? _value.nip
+            : nip // ignore: cast_nullable_to_non_nullable
+                as String,
+        password: null == password
+            ? _value.password
+            : password // ignore: cast_nullable_to_non_nullable
+                as String,
+        withTwoFactor: null == withTwoFactor
+            ? _value.withTwoFactor
+            : withTwoFactor // ignore: cast_nullable_to_non_nullable
+                as bool,
+        urlApi: freezed == urlApi
+            ? _value.urlApi
+            : urlApi // ignore: cast_nullable_to_non_nullable
+                as String?,
+      ) as $Val,
     );
   }
 }
@@ -1220,8 +1203,7 @@ class _$SubmitImpl implements _Submit {
       String password,
       bool withTwoFactor,
       String? urlApi,
-    )
-    submit,
+    ) submit,
   }) {
     return submit(nip, password, withTwoFactor, urlApi);
   }
@@ -1234,8 +1216,7 @@ class _$SubmitImpl implements _Submit {
       String password,
       bool withTwoFactor,
       String? urlApi,
-    )?
-    submit,
+    )? submit,
   }) {
     return submit?.call(nip, password, withTwoFactor, urlApi);
   }
@@ -1248,8 +1229,7 @@ class _$SubmitImpl implements _Submit {
       String password,
       bool withTwoFactor,
       String? urlApi,
-    )?
-    submit,
+    )? submit,
     required TResult orElse(),
   }) {
     if (submit != null) {

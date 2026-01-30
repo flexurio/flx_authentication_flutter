@@ -75,28 +75,23 @@ class _$ReportAccessCopyWithImpl<$Res, $Val extends ReportAccess>
   }) {
     return _then(
       _value.copyWith(
-            departmentName:
-                null == departmentName
-                    ? _value.departmentName
-                    : departmentName // ignore: cast_nullable_to_non_nullable
-                        as String,
-            userName:
-                null == userName
-                    ? _value.userName
-                    : userName // ignore: cast_nullable_to_non_nullable
-                        as String,
-            nip:
-                null == nip
-                    ? _value.nip
-                    : nip // ignore: cast_nullable_to_non_nullable
-                        as String,
-            menu:
-                null == menu
-                    ? _value.menu
-                    : menu // ignore: cast_nullable_to_non_nullable
-                        as String,
-          )
-          as $Val,
+        departmentName: null == departmentName
+            ? _value.departmentName
+            : departmentName // ignore: cast_nullable_to_non_nullable
+                as String,
+        userName: null == userName
+            ? _value.userName
+            : userName // ignore: cast_nullable_to_non_nullable
+                as String,
+        nip: null == nip
+            ? _value.nip
+            : nip // ignore: cast_nullable_to_non_nullable
+                as String,
+        menu: null == menu
+            ? _value.menu
+            : menu // ignore: cast_nullable_to_non_nullable
+                as String,
+      ) as $Val,
     );
   }
 }
@@ -139,26 +134,22 @@ class __$$ReportAccessImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$ReportAccessImpl(
-        departmentName:
-            null == departmentName
-                ? _value.departmentName
-                : departmentName // ignore: cast_nullable_to_non_nullable
-                    as String,
-        userName:
-            null == userName
-                ? _value.userName
-                : userName // ignore: cast_nullable_to_non_nullable
-                    as String,
-        nip:
-            null == nip
-                ? _value.nip
-                : nip // ignore: cast_nullable_to_non_nullable
-                    as String,
-        menu:
-            null == menu
-                ? _value.menu
-                : menu // ignore: cast_nullable_to_non_nullable
-                    as String,
+        departmentName: null == departmentName
+            ? _value.departmentName
+            : departmentName // ignore: cast_nullable_to_non_nullable
+                as String,
+        userName: null == userName
+            ? _value.userName
+            : userName // ignore: cast_nullable_to_non_nullable
+                as String,
+        nip: null == nip
+            ? _value.nip
+            : nip // ignore: cast_nullable_to_non_nullable
+                as String,
+        menu: null == menu
+            ? _value.menu
+            : menu // ignore: cast_nullable_to_non_nullable
+                as String,
       ),
     );
   }

@@ -23,14 +23,16 @@ mixin _$RoleEmployeeQueryState {
     required TResult Function() loading,
     required TResult Function(List<String> roleEmployees) loaded,
     required TResult Function(String error) error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<String> roleEmployees)? loaded,
     TResult? Function(String error)? error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -38,21 +40,24 @@ mixin _$RoleEmployeeQueryState {
     TResult Function(List<String> roleEmployees)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) loaded,
     required TResult Function(_Error value) error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? loaded,
     TResult? Function(_Error value)? error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -60,7 +65,8 @@ mixin _$RoleEmployeeQueryState {
     TResult Function(_Success value)? loaded,
     TResult Function(_Error value)? error,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -72,10 +78,8 @@ abstract class $RoleEmployeeQueryStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RoleEmployeeQueryStateCopyWithImpl<
-  $Res,
-  $Val extends RoleEmployeeQueryState
->
+class _$RoleEmployeeQueryStateCopyWithImpl<$Res,
+        $Val extends RoleEmployeeQueryState>
     implements $RoleEmployeeQueryStateCopyWith<$Res> {
   _$RoleEmployeeQueryStateCopyWithImpl(this._value, this._then);
 
@@ -365,7 +369,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
 
 class _$SuccessImpl implements _Success {
   const _$SuccessImpl(final List<String> roleEmployees)
-    : _roleEmployees = roleEmployees;
+      : _roleEmployees = roleEmployees;
 
   final List<String> _roleEmployees;
   @override
@@ -393,9 +397,9 @@ class _$SuccessImpl implements _Success {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(_roleEmployees),
-  );
+        runtimeType,
+        const DeepCollectionEquality().hash(_roleEmployees),
+      );
 
   /// Create a copy of RoleEmployeeQueryState
   /// with the given fields replaced by the non-null parameter values.
@@ -658,20 +662,24 @@ mixin _$RoleEmployeeQueryEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetch,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Fetch value) fetch,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Fetch value)? fetch,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -683,10 +691,8 @@ abstract class $RoleEmployeeQueryEventCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RoleEmployeeQueryEventCopyWithImpl<
-  $Res,
-  $Val extends RoleEmployeeQueryEvent
->
+class _$RoleEmployeeQueryEventCopyWithImpl<$Res,
+        $Val extends RoleEmployeeQueryEvent>
     implements $RoleEmployeeQueryEventCopyWith<$Res> {
   _$RoleEmployeeQueryEventCopyWithImpl(this._value, this._then);
 

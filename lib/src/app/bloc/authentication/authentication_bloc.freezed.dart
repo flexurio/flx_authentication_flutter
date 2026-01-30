@@ -24,9 +24,9 @@ mixin _$AuthenticationState {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )
-    authenticated,
-  }) => throw _privateConstructorUsedError;
+    ) authenticated,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unauthenticated,
@@ -34,9 +34,9 @@ mixin _$AuthenticationState {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    authenticated,
-  }) => throw _privateConstructorUsedError;
+    )? authenticated,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unauthenticated,
@@ -44,26 +44,29 @@ mixin _$AuthenticationState {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    authenticated,
+    )? authenticated,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Authenticated value) authenticated,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Authenticated value)? authenticated,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Authenticated value)? authenticated,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -136,8 +139,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )
-    authenticated,
+    ) authenticated,
   }) {
     return unauthenticated();
   }
@@ -150,8 +152,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    authenticated,
+    )? authenticated,
   }) {
     return unauthenticated?.call();
   }
@@ -164,8 +165,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    authenticated,
+    )? authenticated,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -268,8 +268,8 @@ class _$AuthenticatedImpl implements _Authenticated {
     this.accessToken,
     final List<String> permission,
     final Map<String, dynamic> data,
-  ) : _permission = permission,
-      _data = data;
+  )   : _permission = permission,
+        _data = data;
 
   @override
   final String accessToken;
@@ -310,11 +310,11 @@ class _$AuthenticatedImpl implements _Authenticated {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    accessToken,
-    const DeepCollectionEquality().hash(_permission),
-    const DeepCollectionEquality().hash(_data),
-  );
+        runtimeType,
+        accessToken,
+        const DeepCollectionEquality().hash(_permission),
+        const DeepCollectionEquality().hash(_data),
+      );
 
   /// Create a copy of AuthenticationState
   /// with the given fields replaced by the non-null parameter values.
@@ -332,8 +332,7 @@ class _$AuthenticatedImpl implements _Authenticated {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )
-    authenticated,
+    ) authenticated,
   }) {
     return authenticated(accessToken, permission, data);
   }
@@ -346,8 +345,7 @@ class _$AuthenticatedImpl implements _Authenticated {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    authenticated,
+    )? authenticated,
   }) {
     return authenticated?.call(accessToken, permission, data);
   }
@@ -360,8 +358,7 @@ class _$AuthenticatedImpl implements _Authenticated {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    authenticated,
+    )? authenticated,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -428,47 +425,50 @@ mixin _$AuthenticationEvent {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )
-    login,
+    ) login,
     required TResult Function() logout,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    login,
+    )? login,
     TResult? Function()? logout,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    login,
+    )? login,
     TResult Function()? logout,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Login value) login,
     required TResult Function(_Logout value) logout,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Login value)? login,
     TResult? Function(_Logout value)? logout,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Login value)? login,
     TResult Function(_Logout value)? logout,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -551,8 +551,8 @@ class _$LoginImpl implements _Login {
     this.accessToken,
     final List<String> permission,
     final Map<String, dynamic> data,
-  ) : _permission = permission,
-      _data = data;
+  )   : _permission = permission,
+        _data = data;
 
   @override
   final String accessToken;
@@ -593,11 +593,11 @@ class _$LoginImpl implements _Login {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    accessToken,
-    const DeepCollectionEquality().hash(_permission),
-    const DeepCollectionEquality().hash(_data),
-  );
+        runtimeType,
+        accessToken,
+        const DeepCollectionEquality().hash(_permission),
+        const DeepCollectionEquality().hash(_data),
+      );
 
   /// Create a copy of AuthenticationEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -614,8 +614,7 @@ class _$LoginImpl implements _Login {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )
-    login,
+    ) login,
     required TResult Function() logout,
   }) {
     return login(accessToken, permission, data);
@@ -628,8 +627,7 @@ class _$LoginImpl implements _Login {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    login,
+    )? login,
     TResult? Function()? logout,
   }) {
     return login?.call(accessToken, permission, data);
@@ -642,8 +640,7 @@ class _$LoginImpl implements _Login {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    login,
+    )? login,
     TResult Function()? logout,
     required TResult orElse(),
   }) {
@@ -750,8 +747,7 @@ class _$LogoutImpl implements _Logout {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )
-    login,
+    ) login,
     required TResult Function() logout,
   }) {
     return logout();
@@ -764,8 +760,7 @@ class _$LogoutImpl implements _Logout {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    login,
+    )? login,
     TResult? Function()? logout,
   }) {
     return logout?.call();
@@ -778,8 +773,7 @@ class _$LogoutImpl implements _Logout {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    login,
+    )? login,
     TResult Function()? logout,
     required TResult orElse(),
   }) {

@@ -27,18 +27,18 @@ class ReportUserAccessQueryEvent with _$ReportUserAccessQueryEvent {
 class ReportUserAccessQueryBloc
     extends Bloc<ReportUserAccessQueryEvent, ReportUserAccessQueryState> {
   ReportUserAccessQueryBloc({required this.accessToken})
-    : super(const _Initial()) {
+      : super(const _Initial()) {
     on<ReportUserAccessQueryEvent>((event, emit) async {
       await event.when(
         fetch: (departmentName, employeeId) async {
           emit(const _Loading());
           try {
-            final reportAccess = await AuthenticationRepositoryApi.instance
-                .reportAccessFetch(
-                  accessToken: accessToken,
-                  departmentName: departmentName,
-                  employeeId: employeeId,
-                );
+            final reportAccess =
+                await AuthenticationRepositoryApi.instance.reportAccessFetch(
+              accessToken: accessToken,
+              departmentName: departmentName,
+              employeeId: employeeId,
+            );
             emit(_Success(reportAccess));
           } catch (error) {
             emit(_Error(errorMessage(error)));

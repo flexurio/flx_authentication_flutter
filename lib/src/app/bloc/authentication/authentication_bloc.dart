@@ -30,7 +30,7 @@ class AuthenticationEvent with _$AuthenticationEvent {
 class AuthenticationBloc
     extends HydratedBloc<AuthenticationEvent, AuthenticationState> {
   AuthenticationBloc._({required this.userRepository, required this.onLogin})
-    : super(const _Unauthenticated()) {
+      : super(const _Unauthenticated()) {
     on<AuthenticationEvent>((event, emit) async {
       event.when(
         login: (accessToken, permission, data) {

@@ -25,10 +25,10 @@ mixin _$VerifyCodeState {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )
-    success,
+    ) success,
     required TResult Function(String error) error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -37,10 +37,10 @@ mixin _$VerifyCodeState {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    success,
+    )? success,
     TResult? Function(String error)? error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -49,25 +49,27 @@ mixin _$VerifyCodeState {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    success,
+    )? success,
     TResult Function(String error)? error,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -75,7 +77,8 @@ mixin _$VerifyCodeState {
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -149,8 +152,7 @@ class _$InitialImpl implements _Initial {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )
-    success,
+    ) success,
     required TResult Function(String error) error,
   }) {
     return initial();
@@ -165,8 +167,7 @@ class _$InitialImpl implements _Initial {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    success,
+    )? success,
     TResult? Function(String error)? error,
   }) {
     return initial?.call();
@@ -181,8 +182,7 @@ class _$InitialImpl implements _Initial {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    success,
+    )? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -283,8 +283,7 @@ class _$LoadingImpl implements _Loading {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )
-    success,
+    ) success,
     required TResult Function(String error) error,
   }) {
     return loading();
@@ -299,8 +298,7 @@ class _$LoadingImpl implements _Loading {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    success,
+    )? success,
     TResult? Function(String error)? error,
   }) {
     return loading?.call();
@@ -315,8 +313,7 @@ class _$LoadingImpl implements _Loading {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    success,
+    )? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -426,8 +423,8 @@ class _$SuccessImpl implements _Success {
     this.accessToken,
     final List<String> permission,
     final Map<String, dynamic> data,
-  ) : _permission = permission,
-      _data = data;
+  )   : _permission = permission,
+        _data = data;
 
   @override
   final String accessToken;
@@ -468,11 +465,11 @@ class _$SuccessImpl implements _Success {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    accessToken,
-    const DeepCollectionEquality().hash(_permission),
-    const DeepCollectionEquality().hash(_data),
-  );
+        runtimeType,
+        accessToken,
+        const DeepCollectionEquality().hash(_permission),
+        const DeepCollectionEquality().hash(_data),
+      );
 
   /// Create a copy of VerifyCodeState
   /// with the given fields replaced by the non-null parameter values.
@@ -491,8 +488,7 @@ class _$SuccessImpl implements _Success {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )
-    success,
+    ) success,
     required TResult Function(String error) error,
   }) {
     return success(accessToken, permission, data);
@@ -507,8 +503,7 @@ class _$SuccessImpl implements _Success {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    success,
+    )? success,
     TResult? Function(String error)? error,
   }) {
     return success?.call(accessToken, permission, data);
@@ -523,8 +518,7 @@ class _$SuccessImpl implements _Success {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    success,
+    )? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -666,8 +660,7 @@ class _$ErrorImpl implements _Error {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )
-    success,
+    ) success,
     required TResult Function(String error) error,
   }) {
     return error(this.error);
@@ -682,8 +675,7 @@ class _$ErrorImpl implements _Error {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    success,
+    )? success,
     TResult? Function(String error)? error,
   }) {
     return error?.call(this.error);
@@ -698,8 +690,7 @@ class _$ErrorImpl implements _Error {
       String accessToken,
       List<String> permission,
       Map<String, dynamic> data,
-    )?
-    success,
+    )? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -770,33 +761,38 @@ mixin _$VerifyCodeEvent {
       String authId,
       String code,
       OnLoginSuccess onSuccess,
-    )
-    submit,
-  }) => throw _privateConstructorUsedError;
+    ) submit,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String authId, String code, OnLoginSuccess onSuccess)?
-    submit,
-  }) => throw _privateConstructorUsedError;
+        submit,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String authId, String code, OnLoginSuccess onSuccess)?
-    submit,
+        submit,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Submit value) submit,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Submit value)? submit,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Submit value)? submit,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 
   /// Create a copy of VerifyCodeEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -836,23 +832,19 @@ class _$VerifyCodeEventCopyWithImpl<$Res, $Val extends VerifyCodeEvent>
   }) {
     return _then(
       _value.copyWith(
-            authId:
-                null == authId
-                    ? _value.authId
-                    : authId // ignore: cast_nullable_to_non_nullable
-                        as String,
-            code:
-                null == code
-                    ? _value.code
-                    : code // ignore: cast_nullable_to_non_nullable
-                        as String,
-            onSuccess:
-                null == onSuccess
-                    ? _value.onSuccess
-                    : onSuccess // ignore: cast_nullable_to_non_nullable
-                        as OnLoginSuccess,
-          )
-          as $Val,
+        authId: null == authId
+            ? _value.authId
+            : authId // ignore: cast_nullable_to_non_nullable
+                as String,
+        code: null == code
+            ? _value.code
+            : code // ignore: cast_nullable_to_non_nullable
+                as String,
+        onSuccess: null == onSuccess
+            ? _value.onSuccess
+            : onSuccess // ignore: cast_nullable_to_non_nullable
+                as OnLoginSuccess,
+      ) as $Val,
     );
   }
 }
@@ -952,8 +944,7 @@ class _$SubmitImpl implements _Submit {
       String authId,
       String code,
       OnLoginSuccess onSuccess,
-    )
-    submit,
+    ) submit,
   }) {
     return submit(authId, code, onSuccess);
   }
@@ -962,7 +953,7 @@ class _$SubmitImpl implements _Submit {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String authId, String code, OnLoginSuccess onSuccess)?
-    submit,
+        submit,
   }) {
     return submit?.call(authId, code, onSuccess);
   }
@@ -971,7 +962,7 @@ class _$SubmitImpl implements _Submit {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String authId, String code, OnLoginSuccess onSuccess)?
-    submit,
+        submit,
     required TResult orElse(),
   }) {
     if (submit != null) {

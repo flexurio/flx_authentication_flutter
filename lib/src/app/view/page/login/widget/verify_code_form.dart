@@ -41,12 +41,12 @@ class _VerifyCodeFormState extends State<VerifyCodeForm> {
 
   void _submit() {
     context.read<VerifyCodeBloc>().add(
-      VerifyCodeEvent.submit(
-        widget.authId,
-        _codeController.text,
-        widget.onLoginSuccess,
-      ),
-    );
+          VerifyCodeEvent.submit(
+            widget.authId,
+            _codeController.text,
+            widget.onLoginSuccess,
+          ),
+        );
   }
 
   @override
