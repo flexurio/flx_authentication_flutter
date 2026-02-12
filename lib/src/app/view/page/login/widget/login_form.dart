@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flx_authentication_flutter/flx_authentication_flutter.dart';
+import 'package:flx_authentication_flutter/src/app/view/widget/country_phone_code.dart';
+import 'package:flx_authentication_flutter/src/app/view/widget/f_text_phone_field.dart';
 import 'package:flx_core_flutter/flx_core_flutter.dart';
 import 'package:gap/gap.dart';
 
@@ -12,6 +15,7 @@ class LoginForm extends StatefulWidget {
     required this.urlAuthApi,
     required this.usernameLabel,
     required this.usingPassword,
+    this.loginType = LoginFormType.nipPassword,
     super.key,
   });
 
@@ -25,6 +29,7 @@ class LoginForm extends StatefulWidget {
   final String? urlAuthApi;
   final String usernameLabel;
   final bool usingPassword;
+  final LoginFormType loginType;
 
   @override
   State<LoginForm> createState() => _LoginFormState();
@@ -34,12 +39,19 @@ class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
   final _nipController = TextEditingController();
   final _passwordController = TextEditingController();
+  String _phoneCode = '62';
 
   void _submit() {
     if (_formKey.currentState!.validate()) {
+      String username;
+      if (widget.loginType == LoginFormType.phone) {
+        username = '$_phoneCode${_nipController.text}'.replaceAll('+', '');
+      } else {
+        username = _nipController.text;
+      }
       context.read<LoginBloc>().add(
             LoginEvent.submit(
-              _nipController.text,
+              username,
               _passwordController.text,
               widget.withTwoFactor,
               widget.urlAuthApi,
@@ -71,15 +83,7 @@ class _LoginFormState extends State<LoginForm> {
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                 ),
                 const Gap(30),
-                GlassTextFormField(
-                  labelText: widget.usernameLabel,
-                  controller: _nipController,
-                  validator: requiredValidator.call,
-                  errorText: state.maybeMap(
-                    error: (value) => value.nip,
-                    orElse: () => null,
-                  ),
-                ),
+                _buildForm(state),
                 if (widget.usingPassword) ...[
                   const Gap(12),
                   GlassTextFormField(
@@ -114,4 +118,52 @@ class _LoginFormState extends State<LoginForm> {
       ),
     );
   }
+
+  Widget _buildForm(LoginState state) {
+    if (widget.loginType == LoginFormType.phone) {
+      return FTextPhoneField(
+        maxLength: 20,
+        isGlass: true,
+        labelText: widget.usernameLabel,
+        controller: _nipController,
+        validator: requiredValidator.call,
+        prefix: CountryCodeDropdown(
+          selectedCode: _phoneCode,
+          onChanged: (code) {
+            if (code != null) {
+              setState(() {
+                _phoneCode = code;
+              });
+            }
+          },
+        ),
+        onChanged: (phone) {
+          setState(() {});
+        },
+        inputFormatters: [
+          FilteringTextInputFormatter.digitsOnly,
+        ],
+        errorText: state.maybeMap(
+          error: (value) => value.nip,
+          orElse: () => null,
+        ),
+        onEditingComplete: state.maybeWhen(
+          loading: () => null,
+          orElse: () => _submit,
+        ),
+      );
+    } else {
+      return GlassTextFormField(
+        labelText: widget.usernameLabel,
+        controller: _nipController,
+        validator: requiredValidator.call,
+        errorText: state.maybeMap(
+          error: (value) => value.nip,
+          orElse: () => null,
+        ),
+      );
+    }
+  }
 }
+
+enum LoginFormType { phone, nipPassword }
