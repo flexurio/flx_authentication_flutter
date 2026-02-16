@@ -16,6 +16,7 @@ class LoginPage extends StatefulWidget {
     this.usingPassword,
     this.usernameLabel,
     this.pinLength,
+    this.loginType,
   );
 
   final OnLoginSuccess onLoginSuccess;
@@ -27,6 +28,7 @@ class LoginPage extends StatefulWidget {
   final String? urlAuthApi;
   final String? urlAuthApiTwoFactor;
   final int pinLength;
+  final LoginFormType loginType;
 
   static Widget prepare({
     required OnLoginSuccess onLoginSuccess,
@@ -38,6 +40,7 @@ class LoginPage extends StatefulWidget {
     bool usingPassword = true,
     String usernameLabel = 'NIP',
     int pinLength = 6,
+    LoginFormType loginType = LoginFormType.nipPassword,
   }) {
     return MultiBlocProvider(
       providers: [BlocProvider(create: (_) => LoginBloc())],
@@ -51,6 +54,7 @@ class LoginPage extends StatefulWidget {
         usingPassword,
         usernameLabel,
         pinLength,
+        loginType,
       ),
     );
   }
@@ -107,6 +111,7 @@ class _LoginPageState extends State<LoginPage> {
       padding: contentPadding,
       duration: const Duration(milliseconds: 350),
       child: LoginForm(
+        loginType: widget.loginType,
         usingPassword: widget.usingPassword,
         usernameLabel: widget.usernameLabel,
         urlAuthApi: widget.urlAuthApi,
