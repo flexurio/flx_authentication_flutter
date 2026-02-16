@@ -122,7 +122,7 @@ class _LoginFormState extends State<LoginForm> {
   Widget _buildForm(LoginState state) {
     if (widget.loginType == LoginFormType.phone) {
       return FTextPhoneField(
-        maxLength: 20,
+        maxLength: 50,
         isGlass: true,
         labelText: widget.usernameLabel,
         controller: _nipController,
