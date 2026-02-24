@@ -114,8 +114,10 @@ class _VerifyCodeFormState extends State<VerifyCodeForm> {
                   width: 50,
                   decoration: BoxDecoration(
                     border: Border.all(
-                      color:
-                          theme.modeCondition(Colors.white54, Colors.black12),
+                      color: theme.modeCondition(
+                        Colors.white54,
+                        Colors.black12,
+                      ),
                     ),
                     borderRadius: BorderRadius.circular(12),
                     color: theme.modeCondition(Colors.white38, Colors.black12),

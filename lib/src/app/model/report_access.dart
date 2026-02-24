@@ -17,11 +17,6 @@ class ReportAccess with _$ReportAccess {
       _$ReportAccessFromJson(json);
 
   factory ReportAccess.empty() {
-    return ReportAccess(
-      departmentName: '',
-      userName: '',
-      nip: '',
-      menu: '',
-    );
+    return ReportAccess(departmentName: '', userName: '', nip: '', menu: '');
   }
 }

@@ -16,12 +16,8 @@ class RoleEmployeeState with _$RoleEmployeeState {
 
 @freezed
 class RoleEmployeeEvent with _$RoleEmployeeEvent {
-  const factory RoleEmployeeEvent.create(
-    String userId,
-  ) = _Create;
-  const factory RoleEmployeeEvent.delete(
-    String userId,
-  ) = _Update;
+  const factory RoleEmployeeEvent.create(String userId) = _Create;
+  const factory RoleEmployeeEvent.delete(String userId) = _Update;
 }
 
 class RoleEmployeeBloc extends Bloc<RoleEmployeeEvent, RoleEmployeeState> {

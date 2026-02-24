@@ -10,9 +10,8 @@ part 'role_employee_query_bloc.freezed.dart';
 class RoleEmployeeQueryState with _$RoleEmployeeQueryState {
   const factory RoleEmployeeQueryState.initial() = _Initial;
   const factory RoleEmployeeQueryState.loading() = _Loading;
-  const factory RoleEmployeeQueryState.loaded(
-    List<String> roleEmployees,
-  ) = _Success;
+  const factory RoleEmployeeQueryState.loaded(List<String> roleEmployees) =
+      _Success;
   const factory RoleEmployeeQueryState.error(String error) = _Error;
 }
 
@@ -30,11 +29,8 @@ class RoleEmployeeQueryBloc
         fetch: () async {
           emit(const _Loading());
           try {
-            final roleEmployee =
-                await AuthenticationRepositoryApi.instance.roleEmployeeFetch(
-              accessToken: accessToken,
-              role: role,
-            );
+            final roleEmployee = await AuthenticationRepositoryApi.instance
+                .roleEmployeeFetch(accessToken: accessToken, role: role);
             emit(_Success(roleEmployee));
           } catch (error) {
             emit(_Error(errorMessage(error)));

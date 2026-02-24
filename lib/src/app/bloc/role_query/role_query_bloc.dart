@@ -9,20 +9,15 @@ part 'role_query_bloc.freezed.dart';
 @freezed
 class RoleQueryState with _$RoleQueryState {
   const factory RoleQueryState.initial() = _Initial;
-  const factory RoleQueryState.loading(
-    PageOptions<Role> pageOptions,
-  ) = _Loading;
-  const factory RoleQueryState.loaded(
-    PageOptions<Role> pageOptions,
-  ) = _Success;
+  const factory RoleQueryState.loading(PageOptions<Role> pageOptions) =
+      _Loading;
+  const factory RoleQueryState.loaded(PageOptions<Role> pageOptions) = _Success;
   const factory RoleQueryState.error(String error) = _Error;
 }
 
 @freezed
 class RoleQueryEvent with _$RoleQueryEvent {
-  const factory RoleQueryEvent.fetch({
-    PageOptions<Role>? pageOptions,
-  }) = _Fetch;
+  const factory RoleQueryEvent.fetch({PageOptions<Role>? pageOptions}) = _Fetch;
 }
 
 class RoleQueryBloc extends Bloc<RoleQueryEvent, RoleQueryState> {
@@ -40,13 +35,9 @@ class RoleQueryBloc extends Bloc<RoleQueryEvent, RoleQueryState> {
               accessToken: accessToken,
               pageOptions: _pageOptions,
             );
-            emit(
-              _Success(_pageOptions),
-            );
+            emit(_Success(_pageOptions));
           } catch (error) {
-            emit(
-              _Error(errorMessage(error)),
-            );
+            emit(_Error(errorMessage(error)));
           }
         },
       );
