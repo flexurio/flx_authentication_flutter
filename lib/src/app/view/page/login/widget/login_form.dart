@@ -109,10 +109,6 @@ class _LoginFormState extends State<LoginForm> {
                     controller: _passwordController,
                     validator: requiredValidator.call,
                     obscureText: true,
-                    errorText: state.maybeMap(
-                      error: (value) => value.password,
-                      orElse: () => null,
-                    ),
                     onEditingComplete: state.maybeWhen(
                       loading: () => null,
                       orElse: () => _submit,
@@ -161,10 +157,6 @@ class _LoginFormState extends State<LoginForm> {
         inputFormatters: [
           FilteringTextInputFormatter.digitsOnly,
         ],
-        errorText: state.maybeMap(
-          error: (value) => value.nip,
-          orElse: () => null,
-        ),
         onEditingComplete: state.maybeWhen(
           loading: () => null,
           orElse: () => _submit,
@@ -175,10 +167,6 @@ class _LoginFormState extends State<LoginForm> {
         labelText: widget.usernameLabel,
         controller: _nipController,
         validator: requiredValidator.call,
-        errorText: state.maybeMap(
-          error: (value) => value.nip,
-          orElse: () => null,
-        ),
       );
     }
   }

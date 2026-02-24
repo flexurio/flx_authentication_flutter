@@ -146,57 +146,60 @@ class _Container extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenIdentifierBuilder(
-      builder: (context, screenIdentifier) {
-        final isSmall = screenIdentifier.conditions(sm: true, md: false);
-        final contentPadding = screenIdentifier.conditions(
-          sm: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
-          md: const EdgeInsets.only(right: 150, left: 150),
-          lg: const EdgeInsets.only(right: 450, left: 150),
-        );
-        return LoginBackground(
-          asset: AssetBackground.displayLogin,
-          child: Center(
-            child: SingleChildScrollView(
-              padding: isSmall ? const EdgeInsets.all(24) : null,
-              child: ContainerGlass(
-                width: isSmall ? double.infinity : 900,
-                height: isSmall ? 560 : 600,
-                child: Stack(
-                  children: [
-                    if (isSmall)
-                      Align(
-                        alignment: Alignment.topCenter,
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 40),
-                          child: LoginLogo(
-                            logoUrl: logoUrl,
-                            logoNamedUrl: logoNamedUrl,
-                            height: 60,
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: ScreenIdentifierBuilder(
+        builder: (context, screenIdentifier) {
+          final isSmall = screenIdentifier.conditions(sm: true, md: false);
+          final contentPadding = screenIdentifier.conditions(
+            sm: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+            md: const EdgeInsets.only(right: 150, left: 150),
+            lg: const EdgeInsets.only(right: 450, left: 150),
+          );
+          return LoginBackground(
+            asset: AssetBackground.displayLogin,
+            child: Center(
+              child: SingleChildScrollView(
+                padding: isSmall ? const EdgeInsets.all(24) : null,
+                child: ContainerGlass(
+                  width: isSmall ? double.infinity : 900,
+                  height: isSmall ? 560 : 600,
+                  child: Stack(
+                    children: [
+                      if (isSmall)
+                        Align(
+                          alignment: Alignment.topCenter,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 40),
+                            child: LoginLogo(
+                              logoUrl: logoUrl,
+                              logoNamedUrl: logoNamedUrl,
+                              height: 60,
+                            ),
                           ),
                         ),
+                      Padding(
+                        padding: isSmall
+                            ? const EdgeInsets.only(top: 90)
+                            : EdgeInsets.zero,
+                        child: builder(contentPadding),
                       ),
-                    Padding(
-                      padding: isSmall
-                          ? const EdgeInsets.only(top: 90)
-                          : EdgeInsets.zero,
-                      child: builder(contentPadding),
-                    ),
-                    if (!isSmall)
-                      Positioned(
-                        left: 600,
-                        bottom: 0,
-                        top: 0,
-                        right: 0,
-                        child: _buildLogo(screenIdentifier),
-                      ),
-                  ],
+                      if (!isSmall)
+                        Positioned(
+                          left: 600,
+                          bottom: 0,
+                          top: 0,
+                          right: 0,
+                          child: _buildLogo(screenIdentifier),
+                        ),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 
