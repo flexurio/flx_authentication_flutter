@@ -69,6 +69,11 @@ class _VerifyCodeFormState extends State<VerifyCodeForm> {
               AuthenticationEvent.login(accessToken, permissions, data),
             );
           },
+          error: (errorMsg) {
+            if (errorMsg.isNotEmpty) {
+              Toast(context).fail(errorMsg);
+            }
+          },
           orElse: () {},
         );
       },

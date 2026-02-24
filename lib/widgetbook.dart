@@ -56,11 +56,11 @@ class WidgetbookApp extends StatelessWidget {
           themes: [
             WidgetbookTheme(
               name: 'Light',
-              data: ThemeData.light(),
+              data: MyTheme.getTheme(flavorConfig.color, ThemeMode.light),
             ),
             WidgetbookTheme(
               name: 'Dark',
-              data: ThemeData.dark(),
+              data: MyTheme.getTheme(flavorConfig.color, ThemeMode.dark),
             ),
           ],
         ),

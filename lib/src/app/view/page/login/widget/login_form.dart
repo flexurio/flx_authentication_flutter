@@ -67,6 +67,12 @@ class _LoginFormState extends State<LoginForm> {
         state.maybeWhen(
           successWithTwoFactor: widget.onSuccessWithTwoFactor,
           success: widget.onSuccess,
+          error: (nip, password, other) {
+            final errorMsg = other ?? password ?? nip;
+            if (errorMsg != null && errorMsg.isNotEmpty) {
+              Toast(context).fail(errorMsg);
+            }
+          },
           orElse: () {},
         );
       },

@@ -15,39 +15,38 @@ class LoginLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Attempt to load logoNamedUrl first as it usually contains both logo and name image
-    if (logoNamedUrl != null && logoNamedUrl!.isNotEmpty) {
-      return _buildImage(logoNamedUrl!);
-    }
+    Widget fallback = _buildFallbackIcon();
 
-    // Fallback to logoUrl if available
+    // Secondary fallback is logoUrl
     if (logoUrl != null && logoUrl!.isNotEmpty) {
-      return _buildImage(logoUrl!);
+      fallback = _buildImage(logoUrl!, fallback);
     }
 
-    // Default fallback to an app icon if no image is provided or if loading fails
-    return _buildFallbackIcon();
+    // Primary attempt is logoNamedUrl
+    if (logoNamedUrl != null && logoNamedUrl!.isNotEmpty) {
+      return _buildImage(logoNamedUrl!, fallback);
+    }
+
+    // If both are null, return the final fallback
+    return fallback;
   }
 
-  Widget _buildImage(String path) {
+  Widget _buildImage(String path, Widget fallback) {
     final isNetwork = path.startsWith('http');
 
-    Widget image;
     if (isNetwork) {
-      image = Image.network(
+      return Image.network(
         path,
         height: height,
-        errorBuilder: (context, error, stackTrace) => _buildFallbackIcon(),
+        errorBuilder: (context, error, stackTrace) => fallback,
       );
     } else {
-      image = Image.asset(
+      return Image.asset(
         path,
         height: height,
-        errorBuilder: (context, error, stackTrace) => _buildFallbackIcon(),
+        errorBuilder: (context, error, stackTrace) => fallback,
       );
     }
-
-    return image;
   }
 
   Widget _buildFallbackIcon() {
