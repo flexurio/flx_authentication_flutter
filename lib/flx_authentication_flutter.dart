@@ -21,3 +21,5 @@ export 'src/app/view/page/login/login_page.dart';
 export 'src/app/view/page/login/widget/login_form.dart';
 export 'src/app/view/page/login/widget/verify_code_form.dart';
 export 'src/app/view/widget/authentication_builder.dart';
+export 'src/app/view/widget/login_background.dart';
+export 'src/app/view/widget/login_logo.dart';

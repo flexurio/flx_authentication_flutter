@@ -156,7 +156,7 @@ class _Container extends StatelessWidget {
           md: const EdgeInsets.only(right: 150, left: 150),
           lg: const EdgeInsets.only(right: 450, left: 150),
         );
-        return Background(
+        return LoginBackground(
           asset: AssetBackground.displayLogin,
           child: Center(
             child: ContainerGlass(
@@ -200,7 +200,7 @@ class _Container extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 24),
                     child:
-                        LogoNamed(logoUrl: logoUrl, logoNamedUrl: logoNamedUrl),
+                        LoginLogo(logoUrl: logoUrl, logoNamedUrl: logoNamedUrl),
                   ),
                 ],
               ),
