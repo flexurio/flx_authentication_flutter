@@ -71,7 +71,7 @@ class _VerifyCodeFormState extends State<VerifyCodeForm> {
           },
           error: (errorMsg) {
             if (errorMsg.isNotEmpty) {
-              Toast(context).fail(errorMsg);
+              Toast(context).fail('Verification Failed\n$errorMsg');
             }
           },
           orElse: () {},
