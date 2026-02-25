@@ -11,6 +11,8 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:flx_authentication_flutter/src/app/view/page/login/login_page.widgetbook.dart'
     as _flx_authentication_flutter_src_app_view_page_login_login_page_widgetbook;
+import 'package:flx_authentication_flutter/src/app/view/widget/login_logo.widgetbook.dart'
+    as _flx_authentication_flutter_src_app_view_widget_login_logo_widgetbook;
 import 'package:widgetbook/widgetbook.dart' as _widgetbook;
 
 final directories = <_widgetbook.WidgetbookNode>[
@@ -38,7 +40,35 @@ final directories = <_widgetbook.WidgetbookNode>[
                 ],
               )
             ],
-          )
+          ),
+          _widgetbook.WidgetbookFolder(
+            name: 'widget',
+            children: [
+              _widgetbook.WidgetbookComponent(
+                name: 'LoginLogo',
+                useCases: [
+                  _widgetbook.WidgetbookUseCase(
+                    name: 'Default',
+                    builder:
+                        _flx_authentication_flutter_src_app_view_widget_login_logo_widgetbook
+                            .loginLogoDefaultUseCase,
+                  ),
+                  _widgetbook.WidgetbookUseCase(
+                    name: 'With Local Asset',
+                    builder:
+                        _flx_authentication_flutter_src_app_view_widget_login_logo_widgetbook
+                            .loginLogoLocalUseCase,
+                  ),
+                  _widgetbook.WidgetbookUseCase(
+                    name: 'With Network Image',
+                    builder:
+                        _flx_authentication_flutter_src_app_view_widget_login_logo_widgetbook
+                            .loginLogoNetworkUseCase,
+                  ),
+                ],
+              )
+            ],
+          ),
         ],
       )
     ],
