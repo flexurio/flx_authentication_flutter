@@ -18,7 +18,10 @@ export 'src/app/util/jwt.dart';
 export 'src/app/util/request_authentication.dart';
 // View
 export 'src/app/view/page/login/login_page.dart';
+export 'src/app/view/page/login/widget/login_container.dart';
+export 'src/app/view/page/login/widget/login_credential_view.dart';
 export 'src/app/view/page/login/widget/login_form.dart';
+export 'src/app/view/page/login/widget/login_verification_view.dart';
 export 'src/app/view/page/login/widget/verify_code_form.dart';
 export 'src/app/view/widget/authentication_builder.dart';
 export 'src/app/view/widget/login_background.dart';
