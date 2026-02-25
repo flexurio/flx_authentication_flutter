@@ -23,7 +23,8 @@ class LoginBackground extends StatelessWidget {
   Widget _buildBackground() {
     if (asset == null || asset!.isEmpty) {
       debugPrint(
-          'LoginBackground: No asset provided, using Unsplash fallback.');
+        'LoginBackground: No asset provided, using Unsplash fallback.',
+      );
       return _buildFallback();
     }
 
@@ -35,7 +36,9 @@ class LoginBackground extends StatelessWidget {
       height: double.infinity,
       errorBuilder: (context, error, stackTrace) {
         debugPrint(
-            'LoginBackground: Failed to load asset "$asset". Falling back to Unsplash.');
+          'LoginBackground: Failed to load asset "$asset". '
+          'Falling back to Unsplash.',
+        );
         return _buildFallback();
       },
     );

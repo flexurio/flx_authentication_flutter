@@ -31,3 +31,33 @@ Widget loginPageDefaultUseCase(BuildContext context) {
     ),
   );
 }
+
+@widgetbook.UseCase(
+  name: 'With Asset Logo',
+  type: LoginPage,
+)
+Widget loginPageWithAssetLogoUseCase(BuildContext context) {
+  return LoginPage.prepare(
+    onLoginSuccess: (token, payload) async {
+      debugPrint('Login success: $token');
+      return {};
+    },
+    withTwoFactor: context.knobs.boolean(
+      label: 'With Two Factor',
+    ),
+    usernameLabel: context.knobs.string(
+      label: 'Username Label',
+      initialValue: 'NIP',
+    ),
+    usingPassword: context.knobs.boolean(
+      label: 'Using Password',
+      initialValue: true,
+    ),
+    loginType: context.knobs.list<LoginFormType>(
+      label: 'Login Type',
+      options: LoginFormType.values,
+      initialOption: LoginFormType.nipPassword,
+    ),
+    logoNamedUrl: 'assets/images/logoipsum-380.png',
+  );
+}

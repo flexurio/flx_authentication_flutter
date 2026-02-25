@@ -19,38 +19,50 @@ class LoginLogo extends StatelessWidget {
 
     // Secondary fallback is logoUrl
     if (logoUrl != null && logoUrl!.isNotEmpty) {
-      fallback = _buildImage(logoUrl!, fallback);
+      debugPrint('LoginLogo: logoUrl provided: $logoUrl');
+      fallback = _buildImage(logoUrl!, fallback, source: 'logoUrl');
     }
 
     // Primary attempt is logoNamedUrl
     if (logoNamedUrl != null && logoNamedUrl!.isNotEmpty) {
-      return _buildImage(logoNamedUrl!, fallback);
+      debugPrint('LoginLogo: logoNamedUrl provided: $logoNamedUrl');
+      return _buildImage(logoNamedUrl!, fallback, source: 'logoNamedUrl');
     }
 
     // If both are null, return the final fallback
+    debugPrint('LoginLogo: Both logoUrl and logoNamedUrl are null/empty.');
     return fallback;
   }
 
-  Widget _buildImage(String path, Widget fallback) {
+  Widget _buildImage(String path, Widget fallback, {required String source}) {
     final isNetwork = path.startsWith('http');
 
     if (isNetwork) {
+      debugPrint('LoginLogo: Loading network image from $source: $path');
       return Image.network(
         path,
         height: height,
-        errorBuilder: (context, error, stackTrace) => fallback,
+        errorBuilder: (context, error, stackTrace) {
+          debugPrint('LoginLogo: Failed to load network image from $source.');
+          return fallback;
+        },
       );
     } else {
+      debugPrint('LoginLogo: Loading asset image from $source: $path');
       return Image.asset(
         path,
         height: height,
-        errorBuilder: (context, error, stackTrace) => fallback,
+        errorBuilder: (context, error, stackTrace) {
+          debugPrint('LoginLogo: Failed to load asset image from $source.');
+          return fallback;
+        },
       );
     }
   }
 
   Widget _buildFallbackIcon() {
-    final String initial = flavorConfig.companyName.isNotEmpty
+    debugPrint('LoginLogo: Using fallback icon/company name.');
+    final initial = flavorConfig.companyName.isNotEmpty
         ? flavorConfig.companyName[0].toUpperCase()
         : 'C';
 
@@ -95,7 +107,7 @@ class LoginLogo extends StatelessWidget {
             fontSize: height * 0.6,
             fontWeight: FontWeight.bold,
             color: Colors.white,
-            letterSpacing: 1.0,
+            letterSpacing: 1,
           ),
         ),
       ],

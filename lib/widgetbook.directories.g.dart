@@ -28,14 +28,22 @@ final directories = <_widgetbook.WidgetbookNode>[
               _widgetbook.WidgetbookFolder(
                 name: 'login',
                 children: [
-                  _widgetbook.WidgetbookLeafComponent(
+                  _widgetbook.WidgetbookComponent(
                     name: 'LoginPage',
-                    useCase: _widgetbook.WidgetbookUseCase(
-                      name: 'Default',
-                      builder:
-                          _flx_authentication_flutter_src_app_view_page_login_login_page_widgetbook
-                              .loginPageDefaultUseCase,
-                    ),
+                    useCases: [
+                      _widgetbook.WidgetbookUseCase(
+                        name: 'Default',
+                        builder:
+                            _flx_authentication_flutter_src_app_view_page_login_login_page_widgetbook
+                                .loginPageDefaultUseCase,
+                      ),
+                      _widgetbook.WidgetbookUseCase(
+                        name: 'With Asset Logo',
+                        builder:
+                            _flx_authentication_flutter_src_app_view_page_login_login_page_widgetbook
+                                .loginPageWithAssetLogoUseCase,
+                      ),
+                    ],
                   )
                 ],
               )
