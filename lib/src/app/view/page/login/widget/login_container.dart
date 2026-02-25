@@ -85,15 +85,15 @@ class LoginContainer extends StatelessWidget {
               borderRadius: const BorderRadius.horizontal(
                 right: Radius.circular(20),
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 24),
-                    child:
-                        LoginLogo(logoUrl: logoUrl, logoNamedUrl: logoNamedUrl),
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: LoginLogo(
+                    logoUrl: logoUrl,
+                    logoNamedUrl: logoNamedUrl,
+                    height: 300,
                   ),
-                ],
+                ),
               ),
             )
           : const SizedBox(),

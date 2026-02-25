@@ -68,7 +68,7 @@ class _LoginFormState extends State<LoginForm> {
           successWithTwoFactor: widget.onSuccessWithTwoFactor,
           success: widget.onSuccess,
           error: (nip, password, other) {
-            final List<String> errors = [];
+            final errors = <String>[];
             if (nip != null && nip.isNotEmpty) {
               errors.add('${widget.usernameLabel}: $nip');
             }

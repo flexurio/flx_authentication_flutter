@@ -14,11 +14,9 @@ Widget loginLogoDefaultUseCase(BuildContext context) {
       child: LoginLogo(
         logoUrl: context.knobs.stringOrNull(
           label: 'Logo URL',
-          initialValue: null,
         ),
         logoNamedUrl: context.knobs.stringOrNull(
           label: 'Logo Named URL',
-          initialValue: null,
         ),
         height: context.knobs.double.slider(
           label: 'Height',
@@ -57,8 +55,25 @@ Widget loginLogoLocalUseCase(BuildContext context) {
     backgroundColor: Color(0xFF0F172A),
     body: Center(
       child: LoginLogo(
-        logoUrl: 'assets/images/logoipsum-380.png',
-        height: 100,
+        logoUrl: 'assets/images/logoipsum.png',
+        height: 60,
+      ),
+    ),
+  );
+}
+
+@widgetbook.UseCase(
+  name: 'Combined Assets',
+  type: LoginLogo,
+)
+Widget loginLogoCombinedUseCase(BuildContext context) {
+  return const Scaffold(
+    backgroundColor: Color(0xFF0F172A),
+    body: Center(
+      child: LoginLogo(
+        logoUrl: 'assets/images/logoipsum.png',
+        logoNamedUrl: 'assets/images/logoipsum-named.png',
+        height: 48,
       ),
     ),
   );

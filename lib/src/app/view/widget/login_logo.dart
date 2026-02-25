@@ -15,23 +15,66 @@ class LoginLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget fallback = _buildFallbackIcon();
+    final hasLogo = logoUrl != null && logoUrl!.isNotEmpty;
+    final hasLogoNamed = logoNamedUrl != null && logoNamedUrl!.isNotEmpty;
 
-    // Secondary fallback is logoUrl
-    if (logoUrl != null && logoUrl!.isNotEmpty) {
-      debugPrint('LoginLogo: logoUrl provided: $logoUrl');
-      fallback = _buildImage(logoUrl!, fallback, source: 'logoUrl');
+    if (!hasLogo && !hasLogoNamed) {
+      debugPrint('LoginLogo: Both logoUrl and logoNamedUrl are null/empty.');
+      return _buildFallbackIcon();
     }
 
-    // Primary attempt is logoNamedUrl
-    if (logoNamedUrl != null && logoNamedUrl!.isNotEmpty) {
-      debugPrint('LoginLogo: logoNamedUrl provided: $logoNamedUrl');
-      return _buildImage(logoNamedUrl!, fallback, source: 'logoNamedUrl');
+    Widget content;
+
+    if (hasLogo && hasLogoNamed) {
+      debugPrint(
+        'LoginLogo: Showing both logoUrl and logoNamedUrl side-by-side',
+      );
+      content = Row(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(
+            height: height,
+            child: _buildImage(
+              logoUrl!,
+              const SizedBox.shrink(),
+              source: 'logoUrl',
+            ),
+          ),
+          const SizedBox(width: 32),
+          SizedBox(
+            height: height * 0.7,
+            child: _buildImage(
+              logoNamedUrl!,
+              const SizedBox.shrink(),
+              source: 'logoNamedUrl',
+            ),
+          ),
+        ],
+      );
+    } else if (hasLogo) {
+      debugPrint('LoginLogo: Showing logoUrl only');
+      content = SizedBox(
+        height: height,
+        child: _buildImage(logoUrl!, _buildFallbackIcon(), source: 'logoUrl'),
+      );
+    } else {
+      debugPrint('LoginLogo: Showing logoNamedUrl only');
+      content = SizedBox(
+        height: height,
+        child: _buildImage(
+          logoNamedUrl!,
+          _buildFallbackIcon(),
+          source: 'logoNamedUrl',
+        ),
+      );
     }
 
-    // If both are null, return the final fallback
-    debugPrint('LoginLogo: Both logoUrl and logoNamedUrl are null/empty.');
-    return fallback;
+    return FittedBox(
+      fit: BoxFit.contain,
+      alignment: Alignment.center,
+      child: content,
+    );
   }
 
   Widget _buildImage(String path, Widget fallback, {required String source}) {
@@ -41,7 +84,7 @@ class LoginLogo extends StatelessWidget {
       debugPrint('LoginLogo: Loading network image from $source: $path');
       return Image.network(
         path,
-        height: height,
+        fit: BoxFit.fitHeight,
         errorBuilder: (context, error, stackTrace) {
           debugPrint('LoginLogo: Failed to load network image from $source.');
           return fallback;
@@ -51,7 +94,7 @@ class LoginLogo extends StatelessWidget {
       debugPrint('LoginLogo: Loading asset image from $source: $path');
       return Image.asset(
         path,
-        height: height,
+        fit: BoxFit.fitHeight,
         errorBuilder: (context, error, stackTrace) {
           debugPrint('LoginLogo: Failed to load asset image from $source.');
           return fallback;
@@ -104,7 +147,7 @@ class LoginLogo extends StatelessWidget {
         Text(
           flavorConfig.companyName,
           style: TextStyle(
-            fontSize: height * 0.6,
+            fontSize: height * 0.4,
             fontWeight: FontWeight.bold,
             color: Colors.white,
             letterSpacing: 1,

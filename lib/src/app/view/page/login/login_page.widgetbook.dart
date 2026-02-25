@@ -58,6 +58,7 @@ Widget loginPageWithAssetLogoUseCase(BuildContext context) {
       options: LoginFormType.values,
       initialOption: LoginFormType.nipPassword,
     ),
-    logoNamedUrl: 'assets/images/logoipsum-380.png',
+    logoUrl: 'assets/images/logoipsum.png',
+    logoNamedUrl: 'assets/images/logoipsum-named.png',
   );
 }
