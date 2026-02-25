@@ -31,76 +31,47 @@ class LoginLogo extends StatelessWidget {
       );
       content = Row(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(
+          _ValidatedRatioImage(
+            path: logoUrl!,
+            expectedRatio: 1 / 1,
+            label: 'Logo',
             height: height,
-            child: _buildImage(
-              logoUrl!,
-              const SizedBox.shrink(),
-              source: 'logoUrl',
-            ),
+            fallback: const SizedBox.shrink(),
           ),
           const SizedBox(width: 32),
-          SizedBox(
-            height: height * 0.7,
-            child: _buildImage(
-              logoNamedUrl!,
-              const SizedBox.shrink(),
-              source: 'logoNamedUrl',
-            ),
+          _ValidatedRatioImage(
+            path: logoNamedUrl!,
+            expectedRatio: 30 / 7,
+            label: 'Logo Named',
+            height: height * 0.8,
+            fallback: const SizedBox.shrink(),
           ),
         ],
       );
     } else if (hasLogo) {
       debugPrint('LoginLogo: Showing logoUrl only');
-      content = SizedBox(
+      content = _ValidatedRatioImage(
+        path: logoUrl!,
+        expectedRatio: 1 / 1,
+        label: 'Logo',
         height: height,
-        child: _buildImage(logoUrl!, _buildFallbackIcon(), source: 'logoUrl'),
+        fallback: _buildFallbackIcon(),
       );
     } else {
       debugPrint('LoginLogo: Showing logoNamedUrl only');
-      content = SizedBox(
+      content = _ValidatedRatioImage(
+        path: logoNamedUrl!,
+        expectedRatio: 30 / 7,
+        label: 'Logo Named',
         height: height,
-        child: _buildImage(
-          logoNamedUrl!,
-          _buildFallbackIcon(),
-          source: 'logoNamedUrl',
-        ),
+        fallback: _buildFallbackIcon(),
       );
     }
 
     return FittedBox(
-      fit: BoxFit.contain,
-      alignment: Alignment.center,
       child: content,
     );
-  }
-
-  Widget _buildImage(String path, Widget fallback, {required String source}) {
-    final isNetwork = path.startsWith('http');
-
-    if (isNetwork) {
-      debugPrint('LoginLogo: Loading network image from $source: $path');
-      return Image.network(
-        path,
-        fit: BoxFit.fitHeight,
-        errorBuilder: (context, error, stackTrace) {
-          debugPrint('LoginLogo: Failed to load network image from $source.');
-          return fallback;
-        },
-      );
-    } else {
-      debugPrint('LoginLogo: Loading asset image from $source: $path');
-      return Image.asset(
-        path,
-        fit: BoxFit.fitHeight,
-        errorBuilder: (context, error, stackTrace) {
-          debugPrint('LoginLogo: Failed to load asset image from $source.');
-          return fallback;
-        },
-      );
-    }
   }
 
   Widget _buildFallbackIcon() {
@@ -154,6 +125,146 @@ class LoginLogo extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class _ValidatedRatioImage extends StatefulWidget {
+  const _ValidatedRatioImage({
+    required this.path,
+    required this.expectedRatio,
+    required this.label,
+    required this.fallback,
+    this.height,
+  });
+
+  final String path;
+  final double expectedRatio;
+  final String label;
+  final Widget fallback;
+  final double? height;
+
+  @override
+  State<_ValidatedRatioImage> createState() => _ValidatedRatioImageState();
+}
+
+class _ValidatedRatioImageState extends State<_ValidatedRatioImage> {
+  bool? _isValid;
+  String? _errorDetail;
+  late ImageProvider _provider;
+
+  @override
+  void initState() {
+    super.initState();
+    _initProvider();
+    _validate();
+  }
+
+  @override
+  void didUpdateWidget(_ValidatedRatioImage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.path != widget.path) {
+      _initProvider();
+      _validate();
+    }
+  }
+
+  void _initProvider() {
+    final isNetwork = widget.path.startsWith('http');
+    if (isNetwork) {
+      _provider = NetworkImage(widget.path);
+    } else {
+      _provider = AssetImage(widget.path);
+    }
+  }
+
+  void _validate() {
+    _provider.resolve(ImageConfiguration.empty).addListener(
+          ImageStreamListener(
+            (info, synchronousCall) {
+              if (!mounted) return;
+              final width = info.image.width;
+              final height = info.image.height;
+              final actualRatio = width / height;
+
+              // Check ratio with 1% tolerance
+              final diff = (actualRatio - widget.expectedRatio).abs();
+              final isValid = diff < (widget.expectedRatio * 0.05);
+
+              setState(() {
+                _isValid = isValid;
+                if (!isValid) {
+                  _errorDetail = 'Ratio: ${actualRatio.toStringAsFixed(2)}\n'
+                      'Target: ${widget.expectedRatio.toStringAsFixed(2)}';
+                }
+              });
+            },
+            onError: (exception, stackTrace) {
+              if (!mounted) return;
+              setState(() {
+                _isValid = false;
+                _errorDetail = 'Failed to load';
+              });
+            },
+          ),
+        );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (_isValid == null) {
+      return SizedBox(
+        height: widget.height,
+        child: const Center(
+          child: Padding(
+            padding: EdgeInsets.all(8),
+            child: CircularProgressIndicator(strokeWidth: 2),
+          ),
+        ),
+      );
+    }
+
+    if (!_isValid!) {
+      return Container(
+        height: widget.height,
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        decoration: BoxDecoration(
+          color: Colors.red.withValues(alpha: 0.1),
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(color: Colors.red.withValues(alpha: 0.5)),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(Icons.error_outline, color: Colors.red, size: 16),
+            const SizedBox(height: 4),
+            Text(
+              '${widget.label} Ratio Error',
+              style: const TextStyle(
+                color: Colors.red,
+                fontSize: 10,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              _errorDetail ?? '',
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.red,
+                fontSize: 8,
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    return Image(
+      image: _provider,
+      height: widget.height,
+      fit: BoxFit.contain,
+      errorBuilder: (context, error, stackTrace) => widget.fallback,
     );
   }
 }
