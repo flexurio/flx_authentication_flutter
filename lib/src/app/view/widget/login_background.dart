@@ -22,87 +22,54 @@ class LoginBackground extends StatelessWidget {
 
   Widget _buildBackground() {
     if (asset == null || asset!.isEmpty) {
+      debugPrint(
+          'LoginBackground: No asset provided, using Unsplash fallback.');
       return _buildFallback();
     }
 
+    debugPrint('LoginBackground: Loading from asset: $asset');
     return Image.asset(
       asset!,
       fit: BoxFit.cover,
       width: double.infinity,
       height: double.infinity,
       errorBuilder: (context, error, stackTrace) {
+        debugPrint(
+            'LoginBackground: Failed to load asset "$asset". Falling back to Unsplash.');
         return _buildFallback();
       },
     );
   }
 
   Widget _buildFallback() {
-    return Container(
-      decoration: const BoxDecoration(
-        color: Color(0xFF0F172A),
-      ),
+    debugPrint('LoginBackground: Fetching image from Unsplash...');
+    return SizedBox.expand(
       child: Stack(
         children: [
-          Positioned.fill(
-            child: CustomPaint(
-              painter: _GridPainter(),
-            ),
-          ),
-          Positioned(
-            top: -150,
-            right: -150,
-            child: _GlowDisk(color: Colors.blue.withValues(alpha: 0.1)),
-          ),
-          Positioned(
-            bottom: -150,
-            left: -150,
-            child: _GlowDisk(color: Colors.indigo.withValues(alpha: 0.1)),
-          ),
-        ],
-      ),
-    );
-  }
-}
+          // Base layer: Always dark blue
+          const ColoredBox(color: Color(0xFF0F172A)),
 
-class _GlowDisk extends StatelessWidget {
-  const _GlowDisk({required this.color});
-  final Color color;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 400,
-      height: 400,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        boxShadow: [
-          BoxShadow(
-            color: color,
-            blurRadius: 100,
-            spreadRadius: 50,
+          // Image layer: Try to load Unsplash
+          Image.network(
+            'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1920',
+            fit: BoxFit.cover,
+            width: double.infinity,
+            height: double.infinity,
+            loadingBuilder: (context, child, loadingProgress) {
+              if (loadingProgress == null) return child;
+              return const SizedBox.expand(
+                child: ColoredBox(color: Color(0xFF0F172A)),
+              );
+            },
+            errorBuilder: (context, error, stackTrace) {
+              debugPrint('LoginBackground: Failed to fetch Unsplash image.');
+              return const SizedBox.expand(
+                child: ColoredBox(color: Color(0xFF0F172A)),
+              );
+            },
           ),
         ],
       ),
     );
   }
-}
-
-class _GridPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = Colors.white.withValues(alpha: 0.05)
-      ..strokeWidth = 1.0;
-
-    const step = 40.0;
-    for (double i = 0; i < size.width; i += step) {
-      canvas.drawLine(Offset(i, 0), Offset(i, size.height), paint);
-    }
-    for (double i = 0; i < size.height; i += step) {
-      canvas.drawLine(Offset(0, i), Offset(size.width, i), paint);
-    }
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
