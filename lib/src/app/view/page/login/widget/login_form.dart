@@ -96,11 +96,37 @@ class _LoginFormState extends State<LoginForm> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Company Sign-In',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ShaderMask(
+                      shaderCallback: (bounds) => const LinearGradient(
+                        colors: [Color(0xFF0F172A), Color(0xFF334155)],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ).createShader(bounds),
+                      child: const Text(
+                        'Welcome Back',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 36,
+                          color: Colors.white,
+                          letterSpacing: -1,
+                        ),
+                      ),
+                    ),
+                    const Gap(8),
+                    Text(
+                      'Please sign in to your account to continue.',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: const Color(0xFF475569).withValues(alpha: 0.8),
+                        letterSpacing: 0.2,
+                      ),
+                    ),
+                  ],
                 ),
-                const Gap(30),
+                const Gap(32),
                 _buildForm(state),
                 if (widget.usingPassword) ...[
                   const Gap(12),
