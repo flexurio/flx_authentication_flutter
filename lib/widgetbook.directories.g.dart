@@ -56,6 +56,12 @@ final directories = <_widgetbook.WidgetbookNode>[
                 name: 'LoginLogo',
                 useCases: [
                   _widgetbook.WidgetbookUseCase(
+                    name: 'Combined Assets',
+                    builder:
+                        _flx_authentication_flutter_src_app_view_widget_login_logo_widgetbook
+                            .loginLogoCombinedUseCase,
+                  ),
+                  _widgetbook.WidgetbookUseCase(
                     name: 'Default',
                     builder:
                         _flx_authentication_flutter_src_app_view_widget_login_logo_widgetbook
