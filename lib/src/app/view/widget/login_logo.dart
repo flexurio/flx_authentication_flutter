@@ -18,15 +18,21 @@ class LoginLogo extends StatelessWidget {
     final hasLogo = logoUrl != null && logoUrl!.isNotEmpty;
     final hasLogoNamed = logoNamedUrl != null && logoNamedUrl!.isNotEmpty;
 
+    // Target sizes to fit within the ~300px right panel (available ~268px)
+    const logoSize = 48.0;
+    const namedWidth = 180.0;
+    const namedHeight = 48.0;
+    const gap = 12.0;
+
     if (!hasLogo && !hasLogoNamed) {
       debugPrint('LoginLogo: Both logoUrl and logoNamedUrl are null/empty.');
       return Row(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          _buildLogoFallback(),
-          const SizedBox(width: 24),
-          _buildNamedFallback(),
+          _buildLogoFallback(logoSize),
+          const SizedBox(width: gap),
+          _buildNamedFallback(namedWidth, namedHeight),
         ],
       );
     }
@@ -42,65 +48,64 @@ class LoginLogo extends StatelessWidget {
             path: logoUrl!,
             expectedRatio: 1 / 1,
             label: 'Logo',
-            width: 70,
-            height: 70,
-            fallback: _buildLogoFallback(),
+            width: logoSize,
+            height: logoSize,
+            fallback: _buildLogoFallback(logoSize),
           ),
-          const SizedBox(width: 24),
+          const SizedBox(width: gap),
           _ValidatedRatioImage(
             path: logoNamedUrl!,
             expectedRatio: 30 / 7,
             label: 'Logo Named',
-            width: 300,
-            height: 70,
-            fallback: _buildNamedFallback(),
+            width: namedWidth,
+            height: namedHeight,
+            fallback: _buildNamedFallback(namedWidth, namedHeight),
           ),
         ],
       );
     } else if (hasLogo) {
-      content = _ValidatedRatioImage(
-        path: logoUrl!,
-        expectedRatio: 1 / 1,
-        label: 'Logo',
-        width: 70,
-        height: 70,
-        fallback: Row(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            _buildLogoFallback(),
-            const SizedBox(width: 12),
-            _buildNamedFallback(),
-          ],
-        ),
+      content = Row(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          _ValidatedRatioImage(
+            path: logoUrl!,
+            expectedRatio: 1 / 1,
+            label: 'Logo',
+            width: logoSize,
+            height: logoSize,
+            fallback: _buildLogoFallback(logoSize),
+          ),
+          const SizedBox(width: 8),
+          _buildNamedFallback(namedWidth * 0.7, namedHeight * 0.7),
+        ],
       );
     } else {
-      content = _ValidatedRatioImage(
-        path: logoNamedUrl!,
-        expectedRatio: 30 / 7,
-        label: 'Logo Named',
-        width: 300,
-        height: 70,
-        fallback: Row(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            _buildLogoFallback(),
-            const SizedBox(width: 12),
-            _buildNamedFallback(),
-          ],
-        ),
+      content = Row(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          _buildLogoFallback(logoSize * 0.7),
+          const SizedBox(width: 8),
+          _ValidatedRatioImage(
+            path: logoNamedUrl!,
+            expectedRatio: 30 / 7,
+            label: 'Logo Named',
+            width: namedWidth,
+            height: namedHeight,
+            fallback: _buildNamedFallback(namedWidth, namedHeight),
+          ),
+        ],
       );
     }
 
     return FittedBox(
-      fit: BoxFit.contain,
+      fit: BoxFit.scaleDown,
       child: content,
     );
   }
 
-  Widget _buildLogoFallback() {
-    const size = 70.0;
+  Widget _buildLogoFallback(double size) {
     final initial = flavorConfig.companyName.isNotEmpty
         ? flavorConfig.companyName[0].toUpperCase()
         : 'C';
@@ -110,7 +115,7 @@ class LoginLogo extends StatelessWidget {
       width: size,
       decoration: BoxDecoration(
         color: flavorConfig.color.withValues(alpha: 0.1),
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(size * 0.2),
         border: Border.all(
           color: flavorConfig.color.withValues(alpha: 0.5),
           width: 1.5,
@@ -128,17 +133,14 @@ class LoginLogo extends StatelessWidget {
     );
   }
 
-  Widget _buildNamedFallback() {
-    const fWidth = 300.0;
-    const fHeight = 70.0;
-
+  Widget _buildNamedFallback(double width, double height) {
     return Container(
-      height: fHeight,
-      width: fWidth,
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      height: height,
+      width: width,
+      padding: const EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
         color: flavorConfig.color.withValues(alpha: 0.05),
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(height * 0.2),
         border: Border.all(
           color: flavorConfig.color.withValues(alpha: 0.3),
           width: 1.5,
@@ -150,7 +152,7 @@ class LoginLogo extends StatelessWidget {
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(
-          fontSize: fHeight * 0.4,
+          fontSize: height * 0.4,
           fontWeight: FontWeight.bold,
           color: flavorConfig.color.withValues(alpha: 0.8),
           letterSpacing: 1,
