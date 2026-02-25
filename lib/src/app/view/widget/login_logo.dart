@@ -20,111 +20,142 @@ class LoginLogo extends StatelessWidget {
 
     if (!hasLogo && !hasLogoNamed) {
       debugPrint('LoginLogo: Both logoUrl and logoNamedUrl are null/empty.');
-      return _buildFallbackIcon();
+      return Row(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          _buildLogoFallback(),
+          const SizedBox(width: 24),
+          _buildNamedFallback(),
+        ],
+      );
     }
 
     Widget content;
 
     if (hasLogo && hasLogoNamed) {
-      debugPrint(
-        'LoginLogo: Showing both logoUrl and logoNamedUrl side-by-side',
-      );
       content = Row(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           _ValidatedRatioImage(
             path: logoUrl!,
             expectedRatio: 1 / 1,
             label: 'Logo',
-            height: height,
-            fallback: const SizedBox.shrink(),
+            width: 70,
+            height: 70,
+            fallback: _buildLogoFallback(),
           ),
-          const SizedBox(width: 32),
+          const SizedBox(width: 24),
           _ValidatedRatioImage(
             path: logoNamedUrl!,
             expectedRatio: 30 / 7,
             label: 'Logo Named',
-            height: height * 0.8,
-            fallback: const SizedBox.shrink(),
+            width: 300,
+            height: 70,
+            fallback: _buildNamedFallback(),
           ),
         ],
       );
     } else if (hasLogo) {
-      debugPrint('LoginLogo: Showing logoUrl only');
       content = _ValidatedRatioImage(
         path: logoUrl!,
         expectedRatio: 1 / 1,
         label: 'Logo',
-        height: height,
-        fallback: _buildFallbackIcon(),
+        width: 70,
+        height: 70,
+        fallback: Row(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            _buildLogoFallback(),
+            const SizedBox(width: 12),
+            _buildNamedFallback(),
+          ],
+        ),
       );
     } else {
-      debugPrint('LoginLogo: Showing logoNamedUrl only');
       content = _ValidatedRatioImage(
         path: logoNamedUrl!,
         expectedRatio: 30 / 7,
         label: 'Logo Named',
-        height: height,
-        fallback: _buildFallbackIcon(),
+        width: 300,
+        height: 70,
+        fallback: Row(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            _buildLogoFallback(),
+            const SizedBox(width: 12),
+            _buildNamedFallback(),
+          ],
+        ),
       );
     }
 
     return FittedBox(
+      fit: BoxFit.contain,
       child: content,
     );
   }
 
-  Widget _buildFallbackIcon() {
-    debugPrint('LoginLogo: Using fallback icon/company name.');
+  Widget _buildLogoFallback() {
+    const size = 70.0;
     final initial = flavorConfig.companyName.isNotEmpty
         ? flavorConfig.companyName[0].toUpperCase()
         : 'C';
 
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          height: height,
-          width: height,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                flavorConfig.color.withValues(alpha: 0.7),
-                flavorConfig.color,
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-            borderRadius: BorderRadius.circular(height * 0.25),
-            boxShadow: [
-              BoxShadow(
-                color: flavorConfig.color.withValues(alpha: 0.4),
-                blurRadius: 8,
-                offset: const Offset(0, 4),
-              ),
-            ],
-          ),
-          alignment: Alignment.center,
-          child: Text(
-            initial,
-            style: TextStyle(
-              fontSize: height * 0.6,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
+    return Container(
+      height: size,
+      width: size,
+      decoration: BoxDecoration(
+        color: flavorConfig.color.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: flavorConfig.color.withValues(alpha: 0.5),
+          width: 1.5,
         ),
-        const SizedBox(width: 12),
-        Text(
-          flavorConfig.companyName,
-          style: TextStyle(
-            fontSize: height * 0.4,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-            letterSpacing: 1,
-          ),
+      ),
+      alignment: Alignment.center,
+      child: Text(
+        initial,
+        style: TextStyle(
+          fontSize: size * 0.5,
+          fontWeight: FontWeight.bold,
+          color: flavorConfig.color,
         ),
-      ],
+      ),
+    );
+  }
+
+  Widget _buildNamedFallback() {
+    const fWidth = 300.0;
+    const fHeight = 70.0;
+
+    return Container(
+      height: fHeight,
+      width: fWidth,
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      decoration: BoxDecoration(
+        color: flavorConfig.color.withValues(alpha: 0.05),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: flavorConfig.color.withValues(alpha: 0.3),
+          width: 1.5,
+        ),
+      ),
+      alignment: Alignment.center,
+      child: Text(
+        flavorConfig.companyName,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        style: TextStyle(
+          fontSize: fHeight * 0.4,
+          fontWeight: FontWeight.bold,
+          color: flavorConfig.color.withValues(alpha: 0.8),
+          letterSpacing: 1,
+        ),
+      ),
     );
   }
 }
@@ -135,14 +166,16 @@ class _ValidatedRatioImage extends StatefulWidget {
     required this.expectedRatio,
     required this.label,
     required this.fallback,
-    this.height,
+    required this.width,
+    required this.height,
   });
 
   final String path;
   final double expectedRatio;
   final String label;
   final Widget fallback;
-  final double? height;
+  final double width;
+  final double height;
 
   @override
   State<_ValidatedRatioImage> createState() => _ValidatedRatioImageState();
@@ -187,7 +220,7 @@ class _ValidatedRatioImageState extends State<_ValidatedRatioImage> {
               final height = info.image.height;
               final actualRatio = width / height;
 
-              // Check ratio with 1% tolerance
+              // Check ratio with 5% tolerance
               final diff = (actualRatio - widget.expectedRatio).abs();
               final isValid = diff < (widget.expectedRatio * 0.05);
 
@@ -214,33 +247,33 @@ class _ValidatedRatioImageState extends State<_ValidatedRatioImage> {
   Widget build(BuildContext context) {
     if (_isValid == null) {
       return SizedBox(
+        width: widget.width,
         height: widget.height,
         child: const Center(
-          child: Padding(
-            padding: EdgeInsets.all(8),
-            child: CircularProgressIndicator(strokeWidth: 2),
-          ),
+          child: CircularProgressIndicator(strokeWidth: 2),
         ),
       );
     }
 
     if (!_isValid!) {
       return Container(
+        width: widget.width,
         height: widget.height,
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           color: Colors.red.withValues(alpha: 0.1),
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(12),
           border: Border.all(color: Colors.red.withValues(alpha: 0.5)),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.error_outline, color: Colors.red, size: 16),
+            const Icon(Icons.error_outline, color: Colors.red, size: 20),
             const SizedBox(height: 4),
             Text(
               '${widget.label} Ratio Error',
+              textAlign: TextAlign.center,
               style: const TextStyle(
                 color: Colors.red,
                 fontSize: 10,
@@ -252,7 +285,7 @@ class _ValidatedRatioImageState extends State<_ValidatedRatioImage> {
               textAlign: TextAlign.center,
               style: const TextStyle(
                 color: Colors.red,
-                fontSize: 8,
+                fontSize: 9,
               ),
             ),
           ],
@@ -262,6 +295,7 @@ class _ValidatedRatioImageState extends State<_ValidatedRatioImage> {
 
     return Image(
       image: _provider,
+      width: widget.width,
       height: widget.height,
       fit: BoxFit.contain,
       errorBuilder: (context, error, stackTrace) => widget.fallback,

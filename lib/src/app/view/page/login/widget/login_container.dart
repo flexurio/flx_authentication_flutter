@@ -91,7 +91,7 @@ class LoginContainer extends StatelessWidget {
                   child: LoginLogo(
                     logoUrl: logoUrl,
                     logoNamedUrl: logoNamedUrl,
-                    height: 300,
+                    height: 120,
                   ),
                 ),
               ),
