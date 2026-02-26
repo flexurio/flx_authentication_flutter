@@ -70,8 +70,10 @@ class AuthenticationRepositoryApi extends Repository {
       );
 
       final data = response.data!['data'] as String;
+      print('[LOGIN] data: $data');
       return data;
     } catch (error) {
+      print('[LOGIN] error: $error');
       throw checkErrorApi(error);
     }
   }
