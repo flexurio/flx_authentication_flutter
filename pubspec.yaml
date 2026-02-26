@@ -12,7 +12,7 @@ dependencies:
   dio: ^5.8.0+1
   flx_core_flutter:
     git:
-      url: https://gitlab.com/VNEU/flexurio-erp-core.git
+      url: https://github.com/flexurio/flx_core_flutter.git
       ref: main
   flutter:
     sdk: flutter
