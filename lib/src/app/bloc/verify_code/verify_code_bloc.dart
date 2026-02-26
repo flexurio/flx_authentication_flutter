@@ -36,6 +36,7 @@ class VerifyCodeBloc extends Bloc<VerifyCodeEvent, VerifyCodeState> {
         submit: (authId, code, onSuccess, urlAuthApiTwoFactor) async {
           emit(const _Loading());
           try {
+            print('[VERIFY CODE] check code');
             final accessToken =
                 await AuthenticationRepositoryApi.instance.verifyCode(
               authId: authId,
@@ -46,18 +47,27 @@ class VerifyCodeBloc extends Bloc<VerifyCodeEvent, VerifyCodeState> {
             final user = extractPayloadFromJwt(accessToken);
             final data = await onSuccess(accessToken, user);
 
+            print('[VERIFY CODE] fetch user roles');
             final roles =
                 await AuthenticationRepositoryApi.instance.employeeRoleFetch(
               accessToken: accessToken,
-              employeeId: user['id'].toString(),
+              employeeId: user[urlAuthApiTwoFactor != null ? 'user_id' : 'id']
+                  .toString(),
+              host: urlAuthApiTwoFactor != null
+                  ? 'https://${Uri.parse(urlAuthApiTwoFactor).host}'
+                  : null,
             );
 
+            print('[VERIFY CODE] fetch permissions');
             final permissions = <String>[];
             for (final role in roles) {
               final rolePermissions = await AuthenticationRepositoryApi.instance
                   .rolePermissionFetch(
                 accessToken: accessToken,
                 role: role,
+                host: urlAuthApiTwoFactor != null
+                    ? 'https://${Uri.parse(urlAuthApiTwoFactor).host}'
+                    : null,
               );
               for (final rolePermission in rolePermissions) {
                 if (!permissions.contains(rolePermission)) {
@@ -71,6 +81,7 @@ class VerifyCodeBloc extends Bloc<VerifyCodeEvent, VerifyCodeState> {
             print('ApiException caught in verifyCode: $error\n$st');
             emit(_Error(error.message));
           } catch (error) {
+            print('Error caught in verifyCode: $error');
             emit(_Error(errorMessage(error)));
           }
         },
