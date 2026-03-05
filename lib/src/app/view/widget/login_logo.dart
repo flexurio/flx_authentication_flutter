@@ -28,7 +28,6 @@ class LoginLogo extends StatelessWidget {
       debugPrint('LoginLogo: Both logoUrl and logoNamedUrl are null/empty.');
       return Row(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           _buildLogoFallback(logoSize),
           const SizedBox(width: gap),
@@ -42,7 +41,6 @@ class LoginLogo extends StatelessWidget {
     if (hasLogo && hasLogoNamed) {
       content = Row(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           _ValidatedRatioImage(
             path: logoUrl!,
@@ -66,7 +64,6 @@ class LoginLogo extends StatelessWidget {
     } else if (hasLogo) {
       content = Row(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           _ValidatedRatioImage(
             path: logoUrl!,
@@ -83,7 +80,6 @@ class LoginLogo extends StatelessWidget {
     } else {
       content = Row(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           _buildLogoFallback(logoSize * 0.7),
           const SizedBox(width: 8),
