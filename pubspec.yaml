@@ -13,7 +13,7 @@ dependencies:
   flx_core_flutter:
     git:
       url: https://github.com/flexurio/flx_core_flutter.git
-      ref: main
+      ref: dev
   flutter:
     sdk: flutter
   dropdown_button2: ^2.3.9
