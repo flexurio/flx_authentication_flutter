@@ -48,7 +48,7 @@ class Access {
     'approve_reject': Colors.pink,
   };
 
-  static Access fromValue(int value) {
+  factory Access.fromValue(int value) {
     return Access(
       delete: (value & 1) != 0,
       write: (value & 2) != 0,
@@ -63,18 +63,17 @@ class Access {
   static List<String> fetchPermissions(String role) {
     return role
         .split(',')
-        .expand((permission) {
+        .expand<String>((permission) {
           final parts = permission.split('/');
           if (parts.length < 2) return [];
           final menu = parts[0];
           final action = int.tryParse(parts[1]) ?? 0;
-          final access = fromValue(action);
+          final access = Access.fromValue(action);
           return access.permissions.entries
               .where((e) => e.value)
               .map((e) => '${menu}_${e.key}');
         })
-        .toList()
-        .cast();
+        .toList();
   }
 
   Access copyWith({Map<String, bool>? updates}) {
