@@ -96,7 +96,7 @@ class FTextPhoneField extends FormField<String> {
                         fillColor: theme.modeCondition(
                           isGlass
                               ? Colors.white38
-                              : Colors.blueGrey.shade50.withOpacity(.5),
+                              : Colors.blueGrey.shade50.withValues(alpha: .5),
                           MyTheme.black00dp,
                         ),
                         suffixText: suffixText,
