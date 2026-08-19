@@ -12,6 +12,7 @@ export 'src/app/model/report_access.dart';
 export 'src/app/model/role.dart';
 export 'src/app/model/user.dart';
 export 'src/app/model/user_app.dart';
+export 'src/app/model/user_department.dart';
 export 'src/app/resource/user_repository.dart';
 export 'src/app/util/access.dart';
 export 'src/app/util/jwt.dart';
