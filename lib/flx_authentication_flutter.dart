@@ -8,6 +8,7 @@ export 'src/app/bloc/role_permission/role_permission_bloc.dart';
 export 'src/app/bloc/role_permission_query/role_permission_query_bloc.dart';
 export 'src/app/bloc/role_query/role_query_bloc.dart';
 export 'src/app/bloc/verify_code/verify_code_bloc.dart';
+export 'src/app/model/config.dart';
 export 'src/app/model/report_access.dart';
 export 'src/app/model/role.dart';
 export 'src/app/model/user.dart';
