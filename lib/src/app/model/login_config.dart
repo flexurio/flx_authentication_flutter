@@ -239,10 +239,13 @@ class LoginRightPanelConfig {
 
 Color? _hexToColor(String hexString) {
   try {
-    final buffer = StringBuffer();
-    if (hexString.length == 6 || hexString.length == 7) buffer.write('ff');
-    buffer.write(hexString.replaceFirst('#', ''));
-    return Color(int.parse(buffer.toString(), radix: 16));
+    var hex = hexString.replaceFirst('#', '').trim();
+    if (hex.length == 6) {
+      hex = 'ff$hex';
+    } else if (hex.length == 8) {
+      // already contains alpha (e.g. 66FFFFFF or FFFFFF66)
+    }
+    return Color(int.parse(hex, radix: 16));
   } catch (_) {
     return null;
   }
