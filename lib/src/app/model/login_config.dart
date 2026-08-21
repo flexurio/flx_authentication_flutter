@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 class LoginConfig {
   const LoginConfig({
     this.layout = 'split_right_form',
+    this.leftFlex = 8,
+    this.rightFlex = 3,
     this.background,
     this.leftPanel,
     this.rightPanel,
@@ -13,6 +15,8 @@ class LoginConfig {
   factory LoginConfig.fromJson(Map<String, dynamic> json) {
     return LoginConfig(
       layout: json['layout'] as String? ?? 'split_right_form',
+      leftFlex: (json['leftFlex'] as num?)?.toInt() ?? 8,
+      rightFlex: (json['rightFlex'] as num?)?.toInt() ?? 3,
       background: json['background'] != null
           ? LoginBackgroundConfig.fromJson(
               json['background'] as Map<String, dynamic>,
@@ -44,6 +48,13 @@ class LoginConfig {
   }
 
   final String layout;
+
+  /// Flex ratio for the left panel (default 8)
+  final int leftFlex;
+
+  /// Flex ratio for the right panel (default 3)
+  final int rightFlex;
+
   final LoginBackgroundConfig? background;
   final LoginLeftPanelConfig? leftPanel;
   final LoginRightPanelConfig? rightPanel;
@@ -90,15 +101,20 @@ class LoginBackgroundConfig {
 
 class LoginLeftPanelConfig {
   const LoginLeftPanelConfig({
+    this.mode = 'text',
     this.tag,
     this.title,
     this.description,
     this.features = const [],
     this.copyright,
+    this.imageUrl,
+    this.imageFit = 'contain',
+    this.imageAlignment = 'center',
   });
 
   factory LoginLeftPanelConfig.fromJson(Map<String, dynamic> json) {
     return LoginLeftPanelConfig(
+      mode: json['mode'] as String? ?? 'text',
       tag: json['tag'] as String?,
       title: json['title'] as String?,
       description: json['description'] as String?,
@@ -111,14 +127,28 @@ class LoginLeftPanelConfig {
               .toList() ??
           const [],
       copyright: json['copyright'] as String?,
+      imageUrl: json['imageUrl'] as String?,
+      imageFit: json['imageFit'] as String? ?? 'contain',
+      imageAlignment: json['imageAlignment'] as String? ?? 'center',
     );
   }
 
+  /// 'text' | 'image' | 'image_with_text'
+  final String mode;
   final String? tag;
   final String? title;
   final String? description;
   final List<LoginFeatureItemConfig> features;
   final String? copyright;
+
+  /// Asset path or network URL for the image (used when mode is 'image' or 'image_with_text')
+  final String? imageUrl;
+
+  /// BoxFit mapping: 'contain' | 'cover' | 'fill' | 'fitWidth' | 'fitHeight'
+  final String imageFit;
+
+  /// Alignment: 'center' | 'topCenter' | 'bottomCenter' | 'centerLeft' | 'centerRight'
+  final String imageAlignment;
 }
 
 class LoginFeatureItemConfig {
@@ -151,6 +181,7 @@ class LoginRightPanelConfig {
     this.cardBackgroundColor,
     this.cardBackgroundGradient,
     this.cardBorderRadius,
+    this.cardMaxWidth,
     this.panelBackgroundColor,
     this.panelBackgroundGradient,
   });
@@ -183,6 +214,7 @@ class LoginRightPanelConfig {
           : null,
       cardBackgroundGradient: cardGradientColors,
       cardBorderRadius: (json['cardBorderRadius'] as num?)?.toDouble(),
+      cardMaxWidth: (json['cardMaxWidth'] as num?)?.toDouble(),
       panelBackgroundColor: json['panelBackgroundColor'] != null
           ? _hexToColor(json['panelBackgroundColor'].toString())
           : null,
@@ -198,6 +230,9 @@ class LoginRightPanelConfig {
   final Color? cardBackgroundColor;
   final List<Color>? cardBackgroundGradient;
   final double? cardBorderRadius;
+
+  /// Maximum width of the login card. Defaults to 380 if not set.
+  final double? cardMaxWidth;
   final Color? panelBackgroundColor;
   final List<Color>? panelBackgroundGradient;
 }

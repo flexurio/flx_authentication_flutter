@@ -217,9 +217,9 @@ class LoginContainer extends StatelessWidget {
               ? null
               : const LinearGradient(
                   colors: [
-                    Color(0xFFE2E8F0),
-                    Color(0xFFF1F5F9),
-                    Color(0xFFF8FAFC),
+                    Color(0xFFD9E2EC), // Soft pale slate
+                    Color(0xFFEDF2F7), // Very subtle grey
+                    Color(0xFFF8FAFC), // Off-white clean slate
                   ],
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter,
@@ -234,22 +234,36 @@ class LoginContainer extends StatelessWidget {
         Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Left: transparent, blue bg from parent
+            // Left panel — wrapper depends on mode
             Expanded(
-              flex: 6,
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(48, 40, 40, 80),
-                child: Center(
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 560),
-                    child: _buildLeftInfoPanel(context),
-                  ),
-                ),
+              flex: config?.leftFlex ?? 8,
+              child: Builder(
+                builder: (context) {
+                  final mode = config?.leftPanel?.mode ?? 'text';
+                  final isImageMode =
+                      mode == 'image' || mode == 'image_with_text';
+
+                  if (isImageMode) {
+                    // Image fills the full left column (no padding, no constraints)
+                    return ClipRect(child: _buildLeftInfoPanel(context));
+                  }
+
+                  // Text mode: centered & padded
+                  return Padding(
+                    padding: const EdgeInsets.fromLTRB(48, 40, 40, 80),
+                    child: Center(
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 560),
+                        child: _buildLeftInfoPanel(context),
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
             // Right: gray background panel — card centered = equal left/right margins
             Expanded(
-              flex: 5,
+              flex: config?.rightFlex ?? 3,
               child: Container(
                 decoration: rightPanelDecoration,
                 child: SingleChildScrollView(
@@ -265,7 +279,9 @@ class LoginContainer extends StatelessWidget {
                           vertical: 40,
                         ),
                         child: Container(
-                          constraints: const BoxConstraints(maxWidth: 440),
+                          constraints: BoxConstraints(
+                            maxWidth: config?.rightPanel?.cardMaxWidth ?? 380,
+                          ),
                           decoration: BoxDecoration(
                             gradient:
                                 config?.rightPanel?.cardBackgroundGradient !=
@@ -332,6 +348,149 @@ class LoginContainer extends StatelessWidget {
   }
 
   Widget _buildLeftInfoPanel(BuildContext context) {
+    final leftConfig = config?.leftPanel;
+    final mode = leftConfig?.mode ?? 'text';
+
+    switch (mode) {
+      case 'image':
+        return _buildLeftImagePanel(context, withText: false);
+      case 'image_with_text':
+        return _buildLeftImagePanel(context, withText: true);
+      case 'text':
+      default:
+        return _buildLeftTextPanel(context);
+    }
+  }
+
+  /// Renders the image-based left panel.
+  /// [withText] = true overlays tag + title + copyright on top of the image.
+  Widget _buildLeftImagePanel(BuildContext context, {required bool withText}) {
+    final leftConfig = config?.leftPanel;
+    final imageUrl = leftConfig?.imageUrl ?? '';
+    final fit = _resolveBoxFit(leftConfig?.imageFit ?? 'contain');
+    final alignment = _resolveAlignment(leftConfig?.imageAlignment ?? 'center');
+
+    final isNetwork =
+        imageUrl.startsWith('http://') || imageUrl.startsWith('https://');
+
+    Widget imageWidget;
+    if (imageUrl.isEmpty) {
+      // Fallback: show placeholder icon
+      imageWidget = Center(
+        child: Icon(
+          Icons.image_outlined,
+          size: 80,
+          color: Colors.white.withValues(alpha: 0.4),
+        ),
+      );
+    } else if (isNetwork) {
+      imageWidget = Image.network(
+        imageUrl,
+        fit: fit,
+        alignment: alignment,
+        errorBuilder: (_, __, ___) => Center(
+          child: Icon(
+            Icons.broken_image_outlined,
+            size: 80,
+            color: Colors.white.withValues(alpha: 0.4),
+          ),
+        ),
+      );
+    } else {
+      imageWidget = Image.asset(
+        imageUrl,
+        fit: fit,
+        alignment: alignment,
+        errorBuilder: (_, __, ___) => Center(
+          child: Icon(
+            Icons.broken_image_outlined,
+            size: 80,
+            color: Colors.white.withValues(alpha: 0.4),
+          ),
+        ),
+      );
+    }
+
+    if (!withText) return imageWidget;
+
+    // image_with_text: stack image + gradient overlay + text at bottom
+    final tag = leftConfig?.tag ?? '';
+    final title = leftConfig?.title ?? flavorConfig.companyName;
+
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        imageWidget,
+        // Dark gradient overlay for readability
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Colors.transparent,
+                Colors.black.withValues(alpha: 0.55),
+              ],
+              stops: const [0.5, 1.0],
+            ),
+          ),
+        ),
+        // Text anchored at bottom
+        Positioned(
+          left: 0,
+          right: 0,
+          bottom: 24,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if (tag.isNotEmpty) ...[
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.2),
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(
+                      color: Colors.white.withValues(alpha: 0.3),
+                    ),
+                  ),
+                  child: Text(
+                    tag.toUpperCase(),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 11,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 1.1,
+                    ),
+                  ),
+                ),
+                const Gap(10),
+              ],
+              Text(
+                title,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 28,
+                  fontWeight: FontWeight.w800,
+                  letterSpacing: -0.3,
+                  shadows: [
+                    Shadow(
+                      color: Colors.black45,
+                      blurRadius: 8,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  /// Renders the text-based left panel (default mode).
+  Widget _buildLeftTextPanel(BuildContext context) {
     final leftConfig = config?.leftPanel;
     final tag = leftConfig?.tag ?? 'COMPLIANCE MANAGEMENT';
     final title = leftConfig?.title ?? flavorConfig.companyName;
@@ -414,6 +573,50 @@ class LoginContainer extends StatelessWidget {
         ...features.map(_buildFeatureItem),
       ],
     );
+  }
+
+  BoxFit _resolveBoxFit(String value) {
+    switch (value.toLowerCase()) {
+      case 'cover':
+        return BoxFit.cover;
+      case 'fill':
+        return BoxFit.fill;
+      case 'fitwidth':
+        return BoxFit.fitWidth;
+      case 'fitheight':
+        return BoxFit.fitHeight;
+      case 'scaledown':
+        return BoxFit.scaleDown;
+      case 'none':
+        return BoxFit.none;
+      case 'contain':
+      default:
+        return BoxFit.contain;
+    }
+  }
+
+  Alignment _resolveAlignment(String value) {
+    switch (value.toLowerCase()) {
+      case 'topcenter':
+        return Alignment.topCenter;
+      case 'topleft':
+        return Alignment.topLeft;
+      case 'topright':
+        return Alignment.topRight;
+      case 'bottomcenter':
+        return Alignment.bottomCenter;
+      case 'bottomleft':
+        return Alignment.bottomLeft;
+      case 'bottomright':
+        return Alignment.bottomRight;
+      case 'centerleft':
+        return Alignment.centerLeft;
+      case 'centerright':
+        return Alignment.centerRight;
+      case 'center':
+      default:
+        return Alignment.center;
+    }
   }
 
   Widget _buildFeatureItem(LoginFeatureItemConfig item) {
