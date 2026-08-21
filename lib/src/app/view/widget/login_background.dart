@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flx_authentication_flutter/src/app/model/login_config.dart';
 
 class LoginBackground extends StatelessWidget {
   const LoginBackground({
     required this.child,
     this.asset,
+    this.config,
     super.key,
   });
 
   final Widget child;
   final String? asset;
+  final LoginBackgroundConfig? config;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +24,37 @@ class LoginBackground extends StatelessWidget {
   }
 
   Widget _buildBackground() {
+    if (config != null) {
+      if (config!.type == 'color' &&
+          config!.colors != null &&
+          config!.colors!.isNotEmpty) {
+        return Container(color: config!.colors!.first);
+      }
+      if (config!.type == 'gradient' &&
+          config!.colors != null &&
+          config!.colors!.isNotEmpty) {
+        return Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: config!.colors!,
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          child: config!.pattern == 'dots' ? _buildDotsOverlay() : null,
+        );
+      }
+      if (config!.image != null && config!.image!.isNotEmpty) {
+        return Image.asset(
+          config!.image!,
+          fit: BoxFit.cover,
+          width: double.infinity,
+          height: double.infinity,
+          errorBuilder: (context, error, stackTrace) => _buildFallback(),
+        );
+      }
+    }
+
     if (asset == null || asset!.isEmpty) {
       debugPrint(
         'LoginBackground: No asset provided, using Unsplash fallback.',
@@ -41,6 +75,13 @@ class LoginBackground extends StatelessWidget {
         );
         return _buildFallback();
       },
+    );
+  }
+
+  Widget _buildDotsOverlay() {
+    return CustomPaint(
+      size: Size.infinite,
+      painter: _DotPatternPainter(),
     );
   }
 
@@ -75,4 +116,25 @@ class LoginBackground extends StatelessWidget {
       ),
     );
   }
+}
+
+class _DotPatternPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = Colors.white.withValues(alpha: 0.08)
+      ..style = PaintingStyle.fill;
+
+    const spacing = 28.0;
+    const radius = 1.5;
+
+    for (double x = 14; x < size.width; x += spacing) {
+      for (double y = 14; y < size.height; y += spacing) {
+        canvas.drawCircle(Offset(x, y), radius, paint);
+      }
+    }
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

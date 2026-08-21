@@ -60,7 +60,6 @@ class _VerifyCodeFormState extends State<VerifyCodeForm> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return BlocListener<VerifyCodeBloc, VerifyCodeState>(
       listener: (context, state) {
         state.maybeWhen(
@@ -115,17 +114,54 @@ class _VerifyCodeFormState extends State<VerifyCodeForm> {
                 length: widget.pinLength,
                 controller: _codeController,
                 defaultPinTheme: PinTheme(
-                  height: 50,
-                  width: 50,
+                  height: 52,
+                  width: 52,
+                  textStyle: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    color: Color(0xFF1E293B),
+                  ),
                   decoration: BoxDecoration(
+                    color: const Color(0xFFF8FAFC),
                     border: Border.all(
-                      color: theme.modeCondition(
-                        Colors.white54,
-                        Colors.black12,
-                      ),
+                      color: const Color(0xFFCBD5E1),
+                      width: 1.5,
                     ),
                     borderRadius: BorderRadius.circular(12),
-                    color: theme.modeCondition(Colors.white38, Colors.black12),
+                  ),
+                ),
+                focusedPinTheme: PinTheme(
+                  height: 52,
+                  width: 52,
+                  textStyle: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    color: Color(0xFF1E293B),
+                  ),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFEFF6FF),
+                    border: Border.all(
+                      color: const Color(0xFF3B82F6),
+                      width: 2,
+                    ),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                submittedPinTheme: PinTheme(
+                  height: 52,
+                  width: 52,
+                  textStyle: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    color: Color(0xFF1E293B),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(
+                      color: const Color(0xFF94A3B8),
+                      width: 1.5,
+                    ),
+                    borderRadius: BorderRadius.circular(12),
                   ),
                 ),
                 onCompleted: state.maybeWhen(
