@@ -61,19 +61,16 @@ class Access {
   }
 
   static List<String> fetchPermissions(String role) {
-    return role
-        .split(',')
-        .expand<String>((permission) {
-          final parts = permission.split('/');
-          if (parts.length < 2) return [];
-          final menu = parts[0];
-          final action = int.tryParse(parts[1]) ?? 0;
-          final access = Access.fromValue(action);
-          return access.permissions.entries
-              .where((e) => e.value)
-              .map((e) => '${menu}_${e.key}');
-        })
-        .toList();
+    return role.split(',').expand<String>((permission) {
+      final parts = permission.split('/');
+      if (parts.length < 2) return [];
+      final menu = parts[0];
+      final action = int.tryParse(parts[1]) ?? 0;
+      final access = Access.fromValue(action);
+      return access.permissions.entries
+          .where((e) => e.value)
+          .map((e) => '${menu}_${e.key}');
+    }).toList();
   }
 
   Access copyWith({Map<String, bool>? updates}) {

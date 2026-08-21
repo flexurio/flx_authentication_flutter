@@ -12,6 +12,7 @@ class LoginCredentialView extends StatelessWidget {
     required this.withTwoFactor,
     required this.onSuccessWithTwoFactor,
     required this.onLoginSuccess,
+    this.config,
     super.key,
   });
 
@@ -23,6 +24,7 @@ class LoginCredentialView extends StatelessWidget {
   final bool withTwoFactor;
   final void Function(String authId) onSuccessWithTwoFactor;
   final OnLoginSuccess onLoginSuccess;
+  final LoginConfig? config;
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +38,7 @@ class LoginCredentialView extends StatelessWidget {
         urlAuthApi: urlAuthApi,
         withTwoFactor: withTwoFactor,
         onSuccessWithTwoFactor: onSuccessWithTwoFactor,
+        config: config,
         onSuccess: (accessToken, permissions, data) {
           AuthenticationBloc.instance.add(
             AuthenticationEvent.login(accessToken, permissions, data),

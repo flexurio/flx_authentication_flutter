@@ -15,6 +15,8 @@ class LoginPage extends StatefulWidget {
     this.usernameLabel,
     this.pinLength,
     this.loginType,
+    this.loginConfig,
+    this.configAssetPath,
   );
 
   final OnLoginSuccess onLoginSuccess;
@@ -27,6 +29,8 @@ class LoginPage extends StatefulWidget {
   final String? urlAuthApiTwoFactor;
   final int pinLength;
   final LoginFormType loginType;
+  final LoginConfig? loginConfig;
+  final String? configAssetPath;
 
   static Widget prepare({
     required OnLoginSuccess onLoginSuccess,
@@ -39,6 +43,8 @@ class LoginPage extends StatefulWidget {
     String usernameLabel = 'NIP',
     int pinLength = 6,
     LoginFormType loginType = LoginFormType.nipPassword,
+    LoginConfig? loginConfig,
+    String? configAssetPath,
   }) {
     return MultiBlocProvider(
       providers: [BlocProvider(create: (_) => LoginBloc())],
@@ -53,6 +59,8 @@ class LoginPage extends StatefulWidget {
         usernameLabel,
         pinLength,
         loginType,
+        loginConfig,
+        configAssetPath,
       ),
     );
   }
@@ -64,6 +72,25 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final _pageController = PageController();
   var _authId = '';
+  LoginConfig? _loadedConfig;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadedConfig = widget.loginConfig;
+    _loadConfigIfNeeded();
+  }
+
+  Future<void> _loadConfigIfNeeded() async {
+    if (widget.loginConfig == null && widget.configAssetPath != null) {
+      final config = await LoginConfig.loadFromAsset(widget.configAssetPath);
+      if (mounted && config != null) {
+        setState(() {
+          _loadedConfig = config;
+        });
+      }
+    }
+  }
 
   void _switchPage(int page) {
     _pageController.animateToPage(
@@ -75,11 +102,14 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final effectiveConfig = _loadedConfig ?? widget.loginConfig;
+
     return LoginContainer(
       logoUrl: widget.logoUrl,
       logoNamedUrl: widget.logoNamedUrl,
+      config: effectiveConfig,
       builder: (contentPadding) {
-        return PageView(
+        final pageView = PageView(
           physics: const NeverScrollableScrollPhysics(),
           controller: _pageController,
           children: [
@@ -90,6 +120,7 @@ class _LoginPageState extends State<LoginPage> {
               usernameLabel: widget.usernameLabel,
               urlAuthApi: widget.urlAuthApi,
               withTwoFactor: widget.withTwoFactor,
+              config: effectiveConfig,
               onSuccessWithTwoFactor: (authId) {
                 setState(() => _authId = authId);
                 _switchPage(1);
@@ -106,6 +137,15 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ],
         );
+
+        if (effectiveConfig != null) {
+          return SizedBox(
+            height: 380,
+            child: pageView,
+          );
+        }
+
+        return pageView;
       },
     );
   }
