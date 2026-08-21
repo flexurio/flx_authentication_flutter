@@ -9,10 +9,10 @@ Sistem login Flexurio ERP mendukung konfigurasi tampilan secara dinamis melalui 
 File config diload berdasarkan `companyId` dari flavor:
 
 ```dart
-configAssetPath: 'asset/configuration/login_config_${config.companyId}.json'
+configAssetPath: 'asset/configuration-login/login_config_${config.companyId}.json'
 ```
 
-Contoh: perusahaan dengan `companyId = 01` → `asset/configuration/login_config_01.json`
+Contoh: perusahaan dengan `companyId = 01` → `asset/configuration-login/login_config_01.json`
 
 > [!NOTE]
 > Jika file tidak ditemukan atau field tidak disertakan, sistem akan menggunakan nilai **default** secara otomatis.
