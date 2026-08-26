@@ -18,6 +18,7 @@ export 'src/app/model/user_department.dart';
 export 'src/app/resource/user_repository.dart';
 export 'src/app/util/access.dart';
 export 'src/app/util/jwt.dart';
+export 'src/app/util/run_chiron.dart';
 // Util
 export 'src/app/util/request_authentication.dart';
 // View
