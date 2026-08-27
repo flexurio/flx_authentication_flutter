@@ -44,6 +44,7 @@ Future<void> runChironApp({
   void Function(Map<String, dynamic> data)? onLogin,
 }) async {
   WidgetsFlutterBinding.ensureInitialized();
+  globalApplicationMenus = menu;
 
   final home = AuthenticationBuilder(
     authenticated: () {
