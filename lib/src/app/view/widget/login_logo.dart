@@ -257,36 +257,39 @@ class _ValidatedRatioImageState extends State<_ValidatedRatioImage> {
       return Container(
         width: widget.width,
         height: widget.height,
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(4),
         decoration: BoxDecoration(
           color: Colors.red.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(12),
           border: Border.all(color: Colors.red.withValues(alpha: 0.5)),
         ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(Icons.error_outline, color: Colors.red, size: 20),
-            const SizedBox(height: 4),
-            Text(
-              '${widget.label} Ratio Error',
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Colors.red,
-                fontSize: 10,
-                fontWeight: FontWeight.bold,
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.error_outline, color: Colors.red, size: 16),
+              const SizedBox(height: 2),
+              Text(
+                '${widget.label} Ratio Error',
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Colors.red,
+                  fontSize: 10,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            Text(
-              _errorDetail ?? '',
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Colors.red,
-                fontSize: 9,
+              Text(
+                _errorDetail ?? '',
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Colors.red,
+                  fontSize: 9,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       );
     }
