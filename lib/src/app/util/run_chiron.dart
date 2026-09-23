@@ -129,6 +129,7 @@ Widget _getLoginPage(
     logoNamedUrl: 'asset/image/logo-name-company-${config.companyId}.png',
     // configAssetPath:
     //     'asset/configuration-login/login_config_${config.companyId}.json', // login dengan text
-    // configAssetPath: 'asset/configuration-login/login_config_image_${config.companyId}.json', // login dengan gambar
+    configAssetPath:
+        'asset/configuration-login/login_config_image_${config.companyId}.json', // login dengan gambar
   );
 }
