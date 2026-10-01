@@ -13,8 +13,9 @@ class AuthenticationState with _$AuthenticationState {
   const factory AuthenticationState.authenticated(
     String accessToken,
     List<String> permission,
-    Map<String, dynamic> data,
-  ) = _Authenticated;
+    Map<String, dynamic> data, {
+    String? refreshToken,
+  }) = _Authenticated;
 }
 
 @freezed
@@ -22,8 +23,9 @@ class AuthenticationEvent with _$AuthenticationEvent {
   const factory AuthenticationEvent.login(
     String accessToken,
     List<String> permission,
-    Map<String, dynamic> data,
-  ) = _Login;
+    Map<String, dynamic> data, {
+    String? refreshToken,
+  }) = _Login;
   const factory AuthenticationEvent.logout() = _Logout;
 }
 
@@ -33,10 +35,21 @@ class AuthenticationBloc
       : super(const _Unauthenticated()) {
     on<AuthenticationEvent>((event, emit) async {
       event.when(
-        login: (accessToken, permission, data) {
-          userRepository.setUserFromJwt(accessToken, permission);
+        login: (accessToken, permission, data, refreshToken) {
+          userRepository.setUserFromJwt(
+            accessToken,
+            permission,
+            refreshToken: refreshToken,
+          );
           onLogin(data);
-          emit(_Authenticated(accessToken, permission, data));
+          emit(
+            _Authenticated(
+              accessToken,
+              permission,
+              data,
+              refreshToken: refreshToken,
+            ),
+          );
         },
         logout: () {
           userRepository.unset();
@@ -69,10 +82,20 @@ class AuthenticationBloc
     try {
       final accessToken = json['accessToken'] as String;
       final data = json['data'] as Map<String, dynamic>;
-      final permission = json['permission'] as List<String>;
-      userRepository.setUserFromJwt(accessToken, permission);
+      final permission = (json['permission'] as List).cast<String>();
+      final refreshToken = json['refreshToken'] as String?;
+      userRepository.setUserFromJwt(
+        accessToken,
+        permission,
+        refreshToken: refreshToken,
+      );
       onLogin(data);
-      return _Authenticated(accessToken, permission, data);
+      return _Authenticated(
+        accessToken,
+        permission,
+        data,
+        refreshToken: refreshToken,
+      );
     } catch (e) {
       return const _Unauthenticated();
     }
@@ -81,11 +104,12 @@ class AuthenticationBloc
   @override
   Map<String, dynamic>? toJson(AuthenticationState state) {
     return state.maybeWhen(
-      authenticated: (accessToken, permission, data) {
+      authenticated: (accessToken, permission, data, refreshToken) {
         return {
           'accessToken': accessToken,
           'permission': Permission.toListString(permission),
           'data': data,
+          if (refreshToken != null) 'refreshToken': refreshToken,
         };
       },
       orElse: () => {},

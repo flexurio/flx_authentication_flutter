@@ -16,7 +16,7 @@ class RoleQueryState with _$RoleQueryState {
 }
 
 @freezed
-class RoleQueryEvent with _$RoleQueryEvent {
+abstract class RoleQueryEvent with _$RoleQueryEvent {
   const factory RoleQueryEvent.fetch({PageOptions<Role>? pageOptions}) = _Fetch;
 }
 

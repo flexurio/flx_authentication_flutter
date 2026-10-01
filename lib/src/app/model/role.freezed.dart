@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,85 +9,63 @@ part of 'role.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Role _$RoleFromJson(Map<String, dynamic> json) {
-  return _Role.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Role {
-  int get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
+  int get id;
+  String get name;
+  String get description;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $RoleCopyWith<Role> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $RoleCopyWith<$Res> {
-  factory $RoleCopyWith(Role value, $Res Function(Role) then) =
-      _$RoleCopyWithImpl<$Res, Role>;
-  @useResult
-  $Res call({int id, String name, String description});
-}
-
-/// @nodoc
-class _$RoleCopyWithImpl<$Res, $Val extends Role>
-    implements $RoleCopyWith<$Res> {
-  _$RoleCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of Role
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $RoleCopyWith<Role> get copyWith =>
+      _$RoleCopyWithImpl<Role>(this as Role, _$identity);
+
+  /// Serializes this Role to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? description = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Role &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.description, description) ||
+                other.description == description));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, name, description);
+
+  @override
+  String toString() {
+    return 'Role(id: $id, name: $name, description: $description)';
   }
 }
 
 /// @nodoc
-abstract class _$$RoleImplCopyWith<$Res> implements $RoleCopyWith<$Res> {
-  factory _$$RoleImplCopyWith(
-          _$RoleImpl value, $Res Function(_$RoleImpl) then) =
-      __$$RoleImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $RoleCopyWith<$Res> {
+  factory $RoleCopyWith(Role value, $Res Function(Role) _then) =
+      _$RoleCopyWithImpl;
   @useResult
   $Res call({int id, String name, String description});
 }
 
 /// @nodoc
-class __$$RoleImplCopyWithImpl<$Res>
-    extends _$RoleCopyWithImpl<$Res, _$RoleImpl>
-    implements _$$RoleImplCopyWith<$Res> {
-  __$$RoleImplCopyWithImpl(_$RoleImpl _value, $Res Function(_$RoleImpl) _then)
-      : super(_value, _then);
+class _$RoleCopyWithImpl<$Res> implements $RoleCopyWith<$Res> {
+  _$RoleCopyWithImpl(this._self, this._then);
 
+  final Role _self;
+  final $Res Function(Role) _then;
+
+  /// Create a copy of Role
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -95,30 +73,185 @@ class __$$RoleImplCopyWithImpl<$Res>
     Object? name = null,
     Object? description = null,
   }) {
-    return _then(_$RoleImpl(
-      null == id
-          ? _value.id
+    return _then(_self.copyWith(
+      id: null == id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      null == name
-          ? _value.name
+      name: null == name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      null == description
-          ? _value.description
+      description: null == description
+          ? _self.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
 }
 
+/// Adds pattern-matching-related methods to [Role].
+extension RolePatterns on Role {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Role value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Role() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_Role value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Role():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Role value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Role() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(int id, String name, String description)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Role() when $default != null:
+        return $default(_that.id, _that.name, _that.description);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(int id, String name, String description) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Role():
+        return $default(_that.id, _that.name, _that.description);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(int id, String name, String description)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Role() when $default != null:
+        return $default(_that.id, _that.name, _that.description);
+      case _:
+        return null;
+    }
+  }
+}
+
 /// @nodoc
 @JsonSerializable()
-class _$RoleImpl extends _Role {
-  _$RoleImpl(this.id, this.name, this.description) : super._();
-
-  factory _$RoleImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RoleImplFromJson(json);
+class _Role extends Role {
+  _Role(this.id, this.name, this.description) : super._();
+  factory _Role.fromJson(Map<String, dynamic> json) => _$RoleFromJson(json);
 
   @override
   final int id;
@@ -127,55 +260,82 @@ class _$RoleImpl extends _Role {
   @override
   final String description;
 
+  /// Create a copy of Role
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Role(id: $id, name: $name, description: $description)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$RoleCopyWith<_Role> get copyWith =>
+      __$RoleCopyWithImpl<_Role>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$RoleToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RoleImpl &&
+            other is _Role &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, description);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$RoleImplCopyWith<_$RoleImpl> get copyWith =>
-      __$$RoleImplCopyWithImpl<_$RoleImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RoleImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Role(id: $id, name: $name, description: $description)';
   }
 }
 
-abstract class _Role extends Role {
-  factory _Role(final int id, final String name, final String description) =
-      _$RoleImpl;
-  _Role._() : super._();
-
-  factory _Role.fromJson(Map<String, dynamic> json) = _$RoleImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$RoleCopyWith<$Res> implements $RoleCopyWith<$Res> {
+  factory _$RoleCopyWith(_Role value, $Res Function(_Role) _then) =
+      __$RoleCopyWithImpl;
   @override
-  int get id;
-  @override
-  String get name;
-  @override
-  String get description;
-  @override
-  @JsonKey(ignore: true)
-  _$$RoleImplCopyWith<_$RoleImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @useResult
+  $Res call({int id, String name, String description});
 }
+
+/// @nodoc
+class __$RoleCopyWithImpl<$Res> implements _$RoleCopyWith<$Res> {
+  __$RoleCopyWithImpl(this._self, this._then);
+
+  final _Role _self;
+  final $Res Function(_Role) _then;
+
+  /// Create a copy of Role
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? description = null,
+  }) {
+    return _then(_Role(
+      null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

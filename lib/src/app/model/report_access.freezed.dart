@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,89 +9,58 @@ part of 'report_access.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ReportAccess _$ReportAccessFromJson(Map<String, dynamic> json) {
-  return _ReportAccess.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ReportAccess {
   @JsonKey(name: 'department_name')
-  String get departmentName => throw _privateConstructorUsedError;
+  String get departmentName;
   @JsonKey(name: 'user_name')
-  String get userName => throw _privateConstructorUsedError;
-  String get nip => throw _privateConstructorUsedError;
-  String get menu => throw _privateConstructorUsedError;
+  String get userName;
+  String get nip;
+  String get menu;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ReportAccessCopyWith<ReportAccess> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ReportAccessCopyWith<$Res> {
-  factory $ReportAccessCopyWith(
-          ReportAccess value, $Res Function(ReportAccess) then) =
-      _$ReportAccessCopyWithImpl<$Res, ReportAccess>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: 'department_name') String departmentName,
-      @JsonKey(name: 'user_name') String userName,
-      String nip,
-      String menu});
-}
-
-/// @nodoc
-class _$ReportAccessCopyWithImpl<$Res, $Val extends ReportAccess>
-    implements $ReportAccessCopyWith<$Res> {
-  _$ReportAccessCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of ReportAccess
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $ReportAccessCopyWith<ReportAccess> get copyWith =>
+      _$ReportAccessCopyWithImpl<ReportAccess>(
+          this as ReportAccess, _$identity);
+
+  /// Serializes this ReportAccess to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? departmentName = null,
-    Object? userName = null,
-    Object? nip = null,
-    Object? menu = null,
-  }) {
-    return _then(_value.copyWith(
-      departmentName: null == departmentName
-          ? _value.departmentName
-          : departmentName // ignore: cast_nullable_to_non_nullable
-              as String,
-      userName: null == userName
-          ? _value.userName
-          : userName // ignore: cast_nullable_to_non_nullable
-              as String,
-      nip: null == nip
-          ? _value.nip
-          : nip // ignore: cast_nullable_to_non_nullable
-              as String,
-      menu: null == menu
-          ? _value.menu
-          : menu // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ReportAccess &&
+            (identical(other.departmentName, departmentName) ||
+                other.departmentName == departmentName) &&
+            (identical(other.userName, userName) ||
+                other.userName == userName) &&
+            (identical(other.nip, nip) || other.nip == nip) &&
+            (identical(other.menu, menu) || other.menu == menu));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, departmentName, userName, nip, menu);
+
+  @override
+  String toString() {
+    return 'ReportAccess(departmentName: $departmentName, userName: $userName, nip: $nip, menu: $menu)';
   }
 }
 
 /// @nodoc
-abstract class _$$ReportAccessImplCopyWith<$Res>
-    implements $ReportAccessCopyWith<$Res> {
-  factory _$$ReportAccessImplCopyWith(
-          _$ReportAccessImpl value, $Res Function(_$ReportAccessImpl) then) =
-      __$$ReportAccessImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ReportAccessCopyWith<$Res> {
+  factory $ReportAccessCopyWith(
+          ReportAccess value, $Res Function(ReportAccess) _then) =
+      _$ReportAccessCopyWithImpl;
   @useResult
   $Res call(
       {@JsonKey(name: 'department_name') String departmentName,
@@ -101,13 +70,14 @@ abstract class _$$ReportAccessImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ReportAccessImplCopyWithImpl<$Res>
-    extends _$ReportAccessCopyWithImpl<$Res, _$ReportAccessImpl>
-    implements _$$ReportAccessImplCopyWith<$Res> {
-  __$$ReportAccessImplCopyWithImpl(
-      _$ReportAccessImpl _value, $Res Function(_$ReportAccessImpl) _then)
-      : super(_value, _then);
+class _$ReportAccessCopyWithImpl<$Res> implements $ReportAccessCopyWith<$Res> {
+  _$ReportAccessCopyWithImpl(this._self, this._then);
 
+  final ReportAccess _self;
+  final $Res Function(ReportAccess) _then;
+
+  /// Create a copy of ReportAccess
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -116,39 +86,213 @@ class __$$ReportAccessImplCopyWithImpl<$Res>
     Object? nip = null,
     Object? menu = null,
   }) {
-    return _then(_$ReportAccessImpl(
+    return _then(_self.copyWith(
       departmentName: null == departmentName
-          ? _value.departmentName
+          ? _self.departmentName
           : departmentName // ignore: cast_nullable_to_non_nullable
               as String,
       userName: null == userName
-          ? _value.userName
+          ? _self.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as String,
       nip: null == nip
-          ? _value.nip
+          ? _self.nip
           : nip // ignore: cast_nullable_to_non_nullable
               as String,
       menu: null == menu
-          ? _value.menu
+          ? _self.menu
           : menu // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
 }
 
+/// Adds pattern-matching-related methods to [ReportAccess].
+extension ReportAccessPatterns on ReportAccess {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ReportAccess value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _ReportAccess() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_ReportAccess value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ReportAccess():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_ReportAccess value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ReportAccess() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            @JsonKey(name: 'department_name') String departmentName,
+            @JsonKey(name: 'user_name') String userName,
+            String nip,
+            String menu)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _ReportAccess() when $default != null:
+        return $default(
+            _that.departmentName, _that.userName, _that.nip, _that.menu);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            @JsonKey(name: 'department_name') String departmentName,
+            @JsonKey(name: 'user_name') String userName,
+            String nip,
+            String menu)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ReportAccess():
+        return $default(
+            _that.departmentName, _that.userName, _that.nip, _that.menu);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            @JsonKey(name: 'department_name') String departmentName,
+            @JsonKey(name: 'user_name') String userName,
+            String nip,
+            String menu)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ReportAccess() when $default != null:
+        return $default(
+            _that.departmentName, _that.userName, _that.nip, _that.menu);
+      case _:
+        return null;
+    }
+  }
+}
+
 /// @nodoc
 @JsonSerializable()
-class _$ReportAccessImpl extends _ReportAccess {
-  _$ReportAccessImpl(
+class _ReportAccess extends ReportAccess {
+  _ReportAccess(
       {@JsonKey(name: 'department_name') required this.departmentName,
       @JsonKey(name: 'user_name') required this.userName,
       required this.nip,
       required this.menu})
       : super._();
-
-  factory _$ReportAccessImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ReportAccessImplFromJson(json);
+  factory _ReportAccess.fromJson(Map<String, dynamic> json) =>
+      _$ReportAccessFromJson(json);
 
   @override
   @JsonKey(name: 'department_name')
@@ -161,16 +305,26 @@ class _$ReportAccessImpl extends _ReportAccess {
   @override
   final String menu;
 
+  /// Create a copy of ReportAccess
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ReportAccess(departmentName: $departmentName, userName: $userName, nip: $nip, menu: $menu)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ReportAccessCopyWith<_ReportAccess> get copyWith =>
+      __$ReportAccessCopyWithImpl<_ReportAccess>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ReportAccessToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ReportAccessImpl &&
+            other is _ReportAccess &&
             (identical(other.departmentName, departmentName) ||
                 other.departmentName == departmentName) &&
             (identical(other.userName, userName) ||
@@ -179,48 +333,69 @@ class _$ReportAccessImpl extends _ReportAccess {
             (identical(other.menu, menu) || other.menu == menu));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, departmentName, userName, nip, menu);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ReportAccessImplCopyWith<_$ReportAccessImpl> get copyWith =>
-      __$$ReportAccessImplCopyWithImpl<_$ReportAccessImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ReportAccessImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ReportAccess(departmentName: $departmentName, userName: $userName, nip: $nip, menu: $menu)';
   }
 }
 
-abstract class _ReportAccess extends ReportAccess {
-  factory _ReportAccess(
-      {@JsonKey(name: 'department_name') required final String departmentName,
-      @JsonKey(name: 'user_name') required final String userName,
-      required final String nip,
-      required final String menu}) = _$ReportAccessImpl;
-  _ReportAccess._() : super._();
-
-  factory _ReportAccess.fromJson(Map<String, dynamic> json) =
-      _$ReportAccessImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$ReportAccessCopyWith<$Res>
+    implements $ReportAccessCopyWith<$Res> {
+  factory _$ReportAccessCopyWith(
+          _ReportAccess value, $Res Function(_ReportAccess) _then) =
+      __$ReportAccessCopyWithImpl;
   @override
-  @JsonKey(name: 'department_name')
-  String get departmentName;
-  @override
-  @JsonKey(name: 'user_name')
-  String get userName;
-  @override
-  String get nip;
-  @override
-  String get menu;
-  @override
-  @JsonKey(ignore: true)
-  _$$ReportAccessImplCopyWith<_$ReportAccessImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'department_name') String departmentName,
+      @JsonKey(name: 'user_name') String userName,
+      String nip,
+      String menu});
 }
+
+/// @nodoc
+class __$ReportAccessCopyWithImpl<$Res>
+    implements _$ReportAccessCopyWith<$Res> {
+  __$ReportAccessCopyWithImpl(this._self, this._then);
+
+  final _ReportAccess _self;
+  final $Res Function(_ReportAccess) _then;
+
+  /// Create a copy of ReportAccess
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? departmentName = null,
+    Object? userName = null,
+    Object? nip = null,
+    Object? menu = null,
+  }) {
+    return _then(_ReportAccess(
+      departmentName: null == departmentName
+          ? _self.departmentName
+          : departmentName // ignore: cast_nullable_to_non_nullable
+              as String,
+      userName: null == userName
+          ? _self.userName
+          : userName // ignore: cast_nullable_to_non_nullable
+              as String,
+      nip: null == nip
+          ? _self.nip
+          : nip // ignore: cast_nullable_to_non_nullable
+              as String,
+      menu: null == menu
+          ? _self.menu
+          : menu // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

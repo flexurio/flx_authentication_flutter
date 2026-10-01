@@ -20,7 +20,7 @@ class VerifyCodeState with _$VerifyCodeState {
 }
 
 @freezed
-class VerifyCodeEvent with _$VerifyCodeEvent {
+abstract class VerifyCodeEvent with _$VerifyCodeEvent {
   const factory VerifyCodeEvent.submit(
     String authId,
     String code,
@@ -47,34 +47,18 @@ class VerifyCodeBloc extends Bloc<VerifyCodeEvent, VerifyCodeState> {
             final user = extractPayloadFromJwt(accessToken);
             final data = await onSuccess(accessToken, user);
 
-            print('[VERIFY CODE] fetch user roles');
-            final roles =
-                await AuthenticationRepositoryApi.instance.employeeRoleFetch(
+            print('[VERIFY CODE] fetch permissions');
+            final employeeId =
+                (user['id'] ?? user['user_id'] ?? user['nip'])?.toString() ??
+                    '';
+            final permissions =
+                await AuthenticationRepositoryApi.instance.fetchUserPermissions(
               accessToken: accessToken,
-              employeeId: user[urlAuthApiTwoFactor != null ? 'user_id' : 'id']
-                  .toString(),
+              employeeId: employeeId,
               host: urlAuthApiTwoFactor != null
                   ? 'https://${Uri.parse(urlAuthApiTwoFactor).host}'
                   : null,
             );
-
-            print('[VERIFY CODE] fetch permissions');
-            final permissions = <String>[];
-            for (final role in roles) {
-              final rolePermissions = await AuthenticationRepositoryApi.instance
-                  .rolePermissionFetch(
-                accessToken: accessToken,
-                role: role,
-                host: urlAuthApiTwoFactor != null
-                    ? 'https://${Uri.parse(urlAuthApiTwoFactor).host}'
-                    : null,
-              );
-              for (final rolePermission in rolePermissions) {
-                if (!permissions.contains(rolePermission)) {
-                  permissions.add(rolePermission);
-                }
-              }
-            }
 
             emit(_Success(accessToken, permissions, data));
           } on ApiException catch (error, st) {

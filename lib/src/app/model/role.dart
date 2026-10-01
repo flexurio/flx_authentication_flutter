@@ -4,7 +4,7 @@ part 'role.freezed.dart';
 part 'role.g.dart';
 
 @freezed
-class Role with _$Role {
+abstract class Role with _$Role {
   factory Role(int id, String name, String description) = _Role;
   const Role._();
 

@@ -17,7 +17,7 @@ class ReportUserAccessQueryState with _$ReportUserAccessQueryState {
 }
 
 @freezed
-class ReportUserAccessQueryEvent with _$ReportUserAccessQueryEvent {
+abstract class ReportUserAccessQueryEvent with _$ReportUserAccessQueryEvent {
   const factory ReportUserAccessQueryEvent.fetch({
     String? departmentName,
     String? employeeId,

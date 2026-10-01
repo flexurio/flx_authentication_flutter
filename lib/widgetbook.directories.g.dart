@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_import, prefer_relative_imports, directives_ordering
@@ -9,6 +10,7 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+
 import 'package:flx_authentication_flutter/src/app/view/page/login/login_page.widgetbook.dart'
     as _flx_authentication_flutter_src_app_view_page_login_login_page_widgetbook;
 import 'package:flx_authentication_flutter/src/app/view/widget/login_logo.widgetbook.dart'

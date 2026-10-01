@@ -21,7 +21,7 @@ class AuthenticationRepositoryApi extends Repository {
     onUnauthorized: AuthenticationRepository.logout,
   );
 
-  Future<String> loginWithTwoFactor({
+  Future<LoginAuthResult> loginWithTwoFactor({
     required String nip,
     required String password,
     required String? url,
@@ -37,19 +37,59 @@ class AuthenticationRepositoryApi extends Repository {
       );
 
       final data = response.data!['data'] as Map<String, dynamic>?;
-      final success = response.data!['success'] as bool;
-      if (!success) {
+      final success = response.data!['success'] as bool? ?? false;
+      if (!success || data == null) {
         throw ApiException.fromType(ExceptionType.invalidUsernamePassword);
       }
 
-      if (data?.containsKey('auth_at') ?? false) {
-        return data!['auth_at'] as String;
+      if (data.containsKey('access_token')) {
+        return LoginAuthResult.direct(
+          accessToken: data['access_token'] as String,
+          refreshToken: data['refresh_token'] as String?,
+          user: data,
+        );
       }
 
-      return nip;
+      if (data.containsKey('auth_at')) {
+        return LoginAuthResult.twoFactor(authId: data['auth_at'] as String);
+      }
+
+      return LoginAuthResult.twoFactor(authId: nip);
     } catch (error, stackTrace) {
       print('[ERROR] loginWithTwoFactor failed: $error\n$stackTrace');
       throw checkErrorApi(error);
+    }
+  }
+
+  Future<List<String>> fetchUserPermissions({
+    required String accessToken,
+    required String employeeId,
+    String? host,
+  }) async {
+    try {
+      final roles = await employeeRoleFetch(
+        accessToken: accessToken,
+        employeeId: employeeId,
+        host: host,
+      );
+
+      final permissions = <String>[];
+      for (final role in roles) {
+        final rolePermissions = await rolePermissionFetch(
+          accessToken: accessToken,
+          role: role,
+          host: host,
+        );
+        for (final rolePermission in rolePermissions) {
+          if (!permissions.contains(rolePermission)) {
+            permissions.add(rolePermission);
+          }
+        }
+      }
+      return permissions;
+    } catch (e) {
+      print('[AUTH REPO] fetchUserPermissions error: $e');
+      return <String>[];
     }
   }
 
@@ -246,6 +286,10 @@ class AuthenticationRepositoryApi extends Repository {
     required String employeeId,
     required String? host,
   }) async {
+    if (employeeId.isEmpty || employeeId == 'null') {
+      print('[AUTH REPO] employeeRoleFetch: employeeId is empty or null');
+      return <Role>[];
+    }
     try {
       final path = '${host ?? Api.urlApi}/users/$employeeId/roles';
       print('[AUTH REPO] employeeRoleFetch: $path');
@@ -259,11 +303,12 @@ class AuthenticationRepositoryApi extends Repository {
       final roles = <Role>[];
 
       for (final data in response.data!['data'] as List) {
-        final role = Role.fromJson(
-          (data as Map<String, dynamic>)[host != null ? 'role' : 'role_id']
-              as Map<String, dynamic>,
-        );
-        roles.add(role);
+        final roleMap = data as Map<String, dynamic>;
+        final roleData = roleMap['role'] ?? roleMap['role_id'] ?? roleMap;
+        if (roleData is Map<String, dynamic>) {
+          final role = Role.fromJson(roleData);
+          roles.add(role);
+        }
       }
 
       print('[AUTH REPO] employeeRoleFetch: $roles');

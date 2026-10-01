@@ -15,7 +15,7 @@ class RoleEmployeeState with _$RoleEmployeeState {
 }
 
 @freezed
-class RoleEmployeeEvent with _$RoleEmployeeEvent {
+abstract class RoleEmployeeEvent with _$RoleEmployeeEvent {
   const factory RoleEmployeeEvent.create(String userId) = _Create;
   const factory RoleEmployeeEvent.delete(String userId) = _Update;
 }

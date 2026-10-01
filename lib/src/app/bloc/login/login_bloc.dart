@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flx_authentication_flutter/src/app/resource/authentication_repository.dart';
 import 'package:flx_authentication_flutter/src/app/util/access.dart';
 import 'package:flx_authentication_flutter/src/app/util/jwt.dart';
+import 'package:flx_authentication_flutter/src/app/util/on_login_success.dart';
 import 'package:flx_core_flutter/flx_core_flutter.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -14,8 +15,9 @@ class LoginState with _$LoginState {
   const factory LoginState.success(
     String token,
     List<String> permission,
-    Map<String, dynamic> data,
-  ) = _Success;
+    Map<String, dynamic> data, {
+    String? refreshToken,
+  }) = _Success;
   const factory LoginState.successWithTwoFactor(String authId) =
       _SuccessWithTwoFactor;
   const factory LoginState.error({
@@ -26,20 +28,21 @@ class LoginState with _$LoginState {
 }
 
 @freezed
-class LoginEvent with _$LoginEvent {
+abstract class LoginEvent with _$LoginEvent {
   const factory LoginEvent.submit(
     String nip,
     String password,
     bool withTwoFactor,
-    String? urlApi,
-  ) = _Submit;
+    String? urlApi, {
+    OnLoginSuccess? onLoginSuccess,
+  }) = _Submit;
 }
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc() : super(const _Initial()) {
     on<LoginEvent>((event, emit) async {
       await event.when(
-        submit: (nip, password, withTwoFactor, urlApi) async {
+        submit: (nip, password, withTwoFactor, urlApi, onLoginSuccess) async {
           emit(const _Loading());
           try {
             print(
@@ -47,12 +50,43 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
             );
             final repository = AuthenticationRepositoryApi.instance;
             if (withTwoFactor) {
-              final authId = await repository.loginWithTwoFactor(
+              final result = await repository.loginWithTwoFactor(
                 nip: nip,
                 password: password,
                 url: urlApi,
               );
-              emit(_SuccessWithTwoFactor(authId));
+              if (result.isTwoFactor) {
+                emit(_SuccessWithTwoFactor(result.authId!));
+              } else {
+                final accessToken = result.accessToken!;
+                final user = extractPayloadFromJwt(accessToken);
+                final data = onLoginSuccess != null
+                    ? await onLoginSuccess(accessToken, user)
+                    : <String, dynamic>{};
+
+                final host =
+                    urlApi != null ? 'https://${Uri.parse(urlApi).host}' : null;
+
+                final employeeId =
+                    (user['id'] ?? user['user_id'] ?? user['nip'])
+                            ?.toString() ??
+                        '';
+
+                final permissions = await repository.fetchUserPermissions(
+                  accessToken: accessToken,
+                  employeeId: employeeId,
+                  host: host,
+                );
+
+                emit(
+                  _Success(
+                    accessToken,
+                    permissions,
+                    data,
+                    refreshToken: result.refreshToken,
+                  ),
+                );
+              }
             } else {
               final token = await repository.login(
                 nip: nip,

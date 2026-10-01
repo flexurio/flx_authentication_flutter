@@ -4,7 +4,7 @@ part 'report_access.freezed.dart';
 part 'report_access.g.dart';
 
 @freezed
-class ReportAccess with _$ReportAccess {
+abstract class ReportAccess with _$ReportAccess {
   factory ReportAccess({
     @JsonKey(name: 'department_name') required String departmentName,
     @JsonKey(name: 'user_name') required String userName,

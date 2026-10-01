@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,178 +9,45 @@ part of 'role_query_bloc.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$RoleQueryState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(PageOptions<Role> pageOptions) loading,
-    required TResult Function(PageOptions<Role> pageOptions) loaded,
-    required TResult Function(String error) error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(PageOptions<Role> pageOptions)? loading,
-    TResult? Function(PageOptions<Role> pageOptions)? loaded,
-    TResult? Function(String error)? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(PageOptions<Role> pageOptions)? loading,
-    TResult Function(PageOptions<Role> pageOptions)? loaded,
-    TResult Function(String error)? error,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) loaded,
-    required TResult Function(_Error value) error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? loaded,
-    TResult? Function(_Error value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? loaded,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $RoleQueryStateCopyWith<$Res> {
-  factory $RoleQueryStateCopyWith(
-          RoleQueryState value, $Res Function(RoleQueryState) then) =
-      _$RoleQueryStateCopyWithImpl<$Res, RoleQueryState>;
-}
-
-/// @nodoc
-class _$RoleQueryStateCopyWithImpl<$Res, $Val extends RoleQueryState>
-    implements $RoleQueryStateCopyWith<$Res> {
-  _$RoleQueryStateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-}
-
-/// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$RoleQueryStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
-
-  @override
-  String toString() {
-    return 'RoleQueryState.initial()';
-  }
-
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType && other is RoleQueryState);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(PageOptions<Role> pageOptions) loading,
-    required TResult Function(PageOptions<Role> pageOptions) loaded,
-    required TResult Function(String error) error,
-  }) {
-    return initial();
+  String toString() {
+    return 'RoleQueryState()';
   }
+}
 
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(PageOptions<Role> pageOptions)? loading,
-    TResult? Function(PageOptions<Role> pageOptions)? loaded,
-    TResult? Function(String error)? error,
-  }) {
-    return initial?.call();
-  }
+/// @nodoc
+class $RoleQueryStateCopyWith<$Res> {
+  $RoleQueryStateCopyWith(RoleQueryState _, $Res Function(RoleQueryState) __);
+}
 
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(PageOptions<Role> pageOptions)? loading,
-    TResult Function(PageOptions<Role> pageOptions)? loaded,
-    TResult Function(String error)? error,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
+/// Adds pattern-matching-related methods to [RoleQueryState].
+extension RoleQueryStatePatterns on RoleQueryState {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
 
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) loaded,
-    required TResult Function(_Error value) error,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? loaded,
-    TResult? Function(_Error value)? error,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -189,188 +56,272 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial(this);
+    final _that = this;
+    switch (_that) {
+      case _Initial() when initial != null:
+        return initial(_that);
+      case _Loading() when loading != null:
+        return loading(_that);
+      case _Success() when loaded != null:
+        return loaded(_that);
+      case _Error() when error != null:
+        return error(_that);
+      case _:
+        return orElse();
     }
-    return orElse();
   }
-}
 
-abstract class _Initial implements RoleQueryState {
-  const factory _Initial() = _$InitialImpl;
-}
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
 
-/// @nodoc
-abstract class _$$LoadingImplCopyWith<$Res> {
-  factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({PageOptions<Role> pageOptions});
-}
-
-/// @nodoc
-class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$RoleQueryStateCopyWithImpl<$Res, _$LoadingImpl>
-    implements _$$LoadingImplCopyWith<$Res> {
-  __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? pageOptions = null,
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) loaded,
+    required TResult Function(_Error value) error,
   }) {
-    return _then(_$LoadingImpl(
-      null == pageOptions
-          ? _value.pageOptions
-          : pageOptions // ignore: cast_nullable_to_non_nullable
-              as PageOptions<Role>,
-    ));
+    final _that = this;
+    switch (_that) {
+      case _Initial():
+        return initial(_that);
+      case _Loading():
+        return loading(_that);
+      case _Success():
+        return loaded(_that);
+      case _Error():
+        return error(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? loaded,
+    TResult? Function(_Error value)? error,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when initial != null:
+        return initial(_that);
+      case _Loading() when loading != null:
+        return loading(_that);
+      case _Success() when loaded != null:
+        return loaded(_that);
+      case _Error() when error != null:
+        return error(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(PageOptions<Role> pageOptions)? loading,
+    TResult Function(PageOptions<Role> pageOptions)? loaded,
+    TResult Function(String error)? error,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when initial != null:
+        return initial();
+      case _Loading() when loading != null:
+        return loading(_that.pageOptions);
+      case _Success() when loaded != null:
+        return loaded(_that.pageOptions);
+      case _Error() when error != null:
+        return error(_that.error);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(PageOptions<Role> pageOptions) loading,
+    required TResult Function(PageOptions<Role> pageOptions) loaded,
+    required TResult Function(String error) error,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial():
+        return initial();
+      case _Loading():
+        return loading(_that.pageOptions);
+      case _Success():
+        return loaded(_that.pageOptions);
+      case _Error():
+        return error(_that.error);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(PageOptions<Role> pageOptions)? loading,
+    TResult? Function(PageOptions<Role> pageOptions)? loaded,
+    TResult? Function(String error)? error,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when initial != null:
+        return initial();
+      case _Loading() when loading != null:
+        return loading(_that.pageOptions);
+      case _Success() when loaded != null:
+        return loaded(_that.pageOptions);
+      case _Error() when error != null:
+        return error(_that.error);
+      case _:
+        return null;
+    }
   }
 }
 
 /// @nodoc
 
-class _$LoadingImpl implements _Loading {
-  const _$LoadingImpl(this.pageOptions);
+class _Initial implements RoleQueryState {
+  const _Initial();
 
   @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Initial);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'RoleQueryState.initial()';
+  }
+}
+
+/// @nodoc
+
+class _Loading implements RoleQueryState {
+  const _Loading(this.pageOptions);
+
   final PageOptions<Role> pageOptions;
+
+  /// Create a copy of RoleQueryState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$LoadingCopyWith<_Loading> get copyWith =>
+      __$LoadingCopyWithImpl<_Loading>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Loading &&
+            (identical(other.pageOptions, pageOptions) ||
+                other.pageOptions == pageOptions));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, pageOptions);
 
   @override
   String toString() {
     return 'RoleQueryState.loading(pageOptions: $pageOptions)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LoadingImpl &&
-            (identical(other.pageOptions, pageOptions) ||
-                other.pageOptions == pageOptions));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, pageOptions);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LoadingImplCopyWith<_$LoadingImpl> get copyWith =>
-      __$$LoadingImplCopyWithImpl<_$LoadingImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(PageOptions<Role> pageOptions) loading,
-    required TResult Function(PageOptions<Role> pageOptions) loaded,
-    required TResult Function(String error) error,
-  }) {
-    return loading(pageOptions);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(PageOptions<Role> pageOptions)? loading,
-    TResult? Function(PageOptions<Role> pageOptions)? loaded,
-    TResult? Function(String error)? error,
-  }) {
-    return loading?.call(pageOptions);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(PageOptions<Role> pageOptions)? loading,
-    TResult Function(PageOptions<Role> pageOptions)? loaded,
-    TResult Function(String error)? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(pageOptions);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) loaded,
-    required TResult Function(_Error value) error,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? loaded,
-    TResult? Function(_Error value)? error,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? loaded,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Loading implements RoleQueryState {
-  const factory _Loading(final PageOptions<Role> pageOptions) = _$LoadingImpl;
-
-  PageOptions<Role> get pageOptions;
-  @JsonKey(ignore: true)
-  _$$LoadingImplCopyWith<_$LoadingImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SuccessImplCopyWith<$Res> {
-  factory _$$SuccessImplCopyWith(
-          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
-      __$$SuccessImplCopyWithImpl<$Res>;
+abstract mixin class _$LoadingCopyWith<$Res>
+    implements $RoleQueryStateCopyWith<$Res> {
+  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) _then) =
+      __$LoadingCopyWithImpl;
   @useResult
   $Res call({PageOptions<Role> pageOptions});
 }
 
 /// @nodoc
-class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$RoleQueryStateCopyWithImpl<$Res, _$SuccessImpl>
-    implements _$$SuccessImplCopyWith<$Res> {
-  __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
-      : super(_value, _then);
+class __$LoadingCopyWithImpl<$Res> implements _$LoadingCopyWith<$Res> {
+  __$LoadingCopyWithImpl(this._self, this._then);
 
+  final _Loading _self;
+  final $Res Function(_Loading) _then;
+
+  /// Create a copy of RoleQueryState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? pageOptions = null,
   }) {
-    return _then(_$SuccessImpl(
+    return _then(_Loading(
       null == pageOptions
-          ? _value.pageOptions
+          ? _self.pageOptions
           : pageOptions // ignore: cast_nullable_to_non_nullable
               as PageOptions<Role>,
     ));
@@ -379,22 +330,23 @@ class __$$SuccessImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SuccessImpl implements _Success {
-  const _$SuccessImpl(this.pageOptions);
+class _Success implements RoleQueryState {
+  const _Success(this.pageOptions);
 
-  @override
   final PageOptions<Role> pageOptions;
 
-  @override
-  String toString() {
-    return 'RoleQueryState.loaded(pageOptions: $pageOptions)';
-  }
+  /// Create a copy of RoleQueryState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SuccessCopyWith<_Success> get copyWith =>
+      __$SuccessCopyWithImpl<_Success>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SuccessImpl &&
+            other is _Success &&
             (identical(other.pageOptions, pageOptions) ||
                 other.pageOptions == pageOptions));
   }
@@ -402,121 +354,99 @@ class _$SuccessImpl implements _Success {
   @override
   int get hashCode => Object.hash(runtimeType, pageOptions);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
-      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(PageOptions<Role> pageOptions) loading,
-    required TResult Function(PageOptions<Role> pageOptions) loaded,
-    required TResult Function(String error) error,
-  }) {
-    return loaded(pageOptions);
+  String toString() {
+    return 'RoleQueryState.loaded(pageOptions: $pageOptions)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(PageOptions<Role> pageOptions)? loading,
-    TResult? Function(PageOptions<Role> pageOptions)? loaded,
-    TResult? Function(String error)? error,
-  }) {
-    return loaded?.call(pageOptions);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(PageOptions<Role> pageOptions)? loading,
-    TResult Function(PageOptions<Role> pageOptions)? loaded,
-    TResult Function(String error)? error,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(pageOptions);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) loaded,
-    required TResult Function(_Error value) error,
-  }) {
-    return loaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? loaded,
-    TResult? Function(_Error value)? error,
-  }) {
-    return loaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? loaded,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Success implements RoleQueryState {
-  const factory _Success(final PageOptions<Role> pageOptions) = _$SuccessImpl;
-
-  PageOptions<Role> get pageOptions;
-  @JsonKey(ignore: true)
-  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ErrorImplCopyWith<$Res> {
-  factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
+abstract mixin class _$SuccessCopyWith<$Res>
+    implements $RoleQueryStateCopyWith<$Res> {
+  factory _$SuccessCopyWith(_Success value, $Res Function(_Success) _then) =
+      __$SuccessCopyWithImpl;
+  @useResult
+  $Res call({PageOptions<Role> pageOptions});
+}
+
+/// @nodoc
+class __$SuccessCopyWithImpl<$Res> implements _$SuccessCopyWith<$Res> {
+  __$SuccessCopyWithImpl(this._self, this._then);
+
+  final _Success _self;
+  final $Res Function(_Success) _then;
+
+  /// Create a copy of RoleQueryState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? pageOptions = null,
+  }) {
+    return _then(_Success(
+      null == pageOptions
+          ? _self.pageOptions
+          : pageOptions // ignore: cast_nullable_to_non_nullable
+              as PageOptions<Role>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _Error implements RoleQueryState {
+  const _Error(this.error);
+
+  final String error;
+
+  /// Create a copy of RoleQueryState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ErrorCopyWith<_Error> get copyWith =>
+      __$ErrorCopyWithImpl<_Error>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Error &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @override
+  String toString() {
+    return 'RoleQueryState.error(error: $error)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$ErrorCopyWith<$Res>
+    implements $RoleQueryStateCopyWith<$Res> {
+  factory _$ErrorCopyWith(_Error value, $Res Function(_Error) _then) =
+      __$ErrorCopyWithImpl;
   @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$RoleQueryStateCopyWithImpl<$Res, _$ErrorImpl>
-    implements _$$ErrorImplCopyWith<$Res> {
-  __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
-      : super(_value, _then);
+class __$ErrorCopyWithImpl<$Res> implements _$ErrorCopyWith<$Res> {
+  __$ErrorCopyWithImpl(this._self, this._then);
 
+  final _Error _self;
+  final $Res Function(_Error) _then;
+
+  /// Create a copy of RoleQueryState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? error = null,
   }) {
-    return _then(_$ErrorImpl(
+    return _then(_Error(
       null == error
-          ? _value.error
+          ? _self.error
           : error // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -524,244 +454,22 @@ class __$$ErrorImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-class _$ErrorImpl implements _Error {
-  const _$ErrorImpl(this.error);
-
-  @override
-  final String error;
-
-  @override
-  String toString() {
-    return 'RoleQueryState.error(error: $error)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ErrorImpl &&
-            (identical(other.error, error) || other.error == error));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, error);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
-      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(PageOptions<Role> pageOptions) loading,
-    required TResult Function(PageOptions<Role> pageOptions) loaded,
-    required TResult Function(String error) error,
-  }) {
-    return error(this.error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(PageOptions<Role> pageOptions)? loading,
-    TResult? Function(PageOptions<Role> pageOptions)? loaded,
-    TResult? Function(String error)? error,
-  }) {
-    return error?.call(this.error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(PageOptions<Role> pageOptions)? loading,
-    TResult Function(PageOptions<Role> pageOptions)? loaded,
-    TResult Function(String error)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this.error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) loaded,
-    required TResult Function(_Error value) error,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? loaded,
-    TResult? Function(_Error value)? error,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? loaded,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Error implements RoleQueryState {
-  const factory _Error(final String error) = _$ErrorImpl;
-
-  String get error;
-  @JsonKey(ignore: true)
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
 mixin _$RoleQueryEvent {
-  PageOptions<Role>? get pageOptions => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(PageOptions<Role>? pageOptions) fetch,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PageOptions<Role>? pageOptions)? fetch,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PageOptions<Role>? pageOptions)? fetch,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Fetch value) fetch,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Fetch value)? fetch,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Fetch value)? fetch,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  PageOptions<Role>? get pageOptions;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RoleQueryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $RoleQueryEventCopyWith<RoleQueryEvent> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $RoleQueryEventCopyWith<$Res> {
-  factory $RoleQueryEventCopyWith(
-          RoleQueryEvent value, $Res Function(RoleQueryEvent) then) =
-      _$RoleQueryEventCopyWithImpl<$Res, RoleQueryEvent>;
-  @useResult
-  $Res call({PageOptions<Role>? pageOptions});
-}
-
-/// @nodoc
-class _$RoleQueryEventCopyWithImpl<$Res, $Val extends RoleQueryEvent>
-    implements $RoleQueryEventCopyWith<$Res> {
-  _$RoleQueryEventCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? pageOptions = freezed,
-  }) {
-    return _then(_value.copyWith(
-      pageOptions: freezed == pageOptions
-          ? _value.pageOptions
-          : pageOptions // ignore: cast_nullable_to_non_nullable
-              as PageOptions<Role>?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$FetchImplCopyWith<$Res>
-    implements $RoleQueryEventCopyWith<$Res> {
-  factory _$$FetchImplCopyWith(
-          _$FetchImpl value, $Res Function(_$FetchImpl) then) =
-      __$$FetchImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({PageOptions<Role>? pageOptions});
-}
-
-/// @nodoc
-class __$$FetchImplCopyWithImpl<$Res>
-    extends _$RoleQueryEventCopyWithImpl<$Res, _$FetchImpl>
-    implements _$$FetchImplCopyWith<$Res> {
-  __$$FetchImplCopyWithImpl(
-      _$FetchImpl _value, $Res Function(_$FetchImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? pageOptions = freezed,
-  }) {
-    return _then(_$FetchImpl(
-      pageOptions: freezed == pageOptions
-          ? _value.pageOptions
-          : pageOptions // ignore: cast_nullable_to_non_nullable
-              as PageOptions<Role>?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$FetchImpl implements _Fetch {
-  const _$FetchImpl({this.pageOptions});
-
-  @override
-  final PageOptions<Role>? pageOptions;
-
-  @override
-  String toString() {
-    return 'RoleQueryEvent.fetch(pageOptions: $pageOptions)';
-  }
+      _$RoleQueryEventCopyWithImpl<RoleQueryEvent>(
+          this as RoleQueryEvent, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchImpl &&
+            other is RoleQueryEvent &&
             (identical(other.pageOptions, pageOptions) ||
                 other.pageOptions == pageOptions));
   }
@@ -769,76 +477,267 @@ class _$FetchImpl implements _Fetch {
   @override
   int get hashCode => Object.hash(runtimeType, pageOptions);
 
-  @JsonKey(ignore: true)
   @override
+  String toString() {
+    return 'RoleQueryEvent(pageOptions: $pageOptions)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $RoleQueryEventCopyWith<$Res> {
+  factory $RoleQueryEventCopyWith(
+          RoleQueryEvent value, $Res Function(RoleQueryEvent) _then) =
+      _$RoleQueryEventCopyWithImpl;
+  @useResult
+  $Res call({PageOptions<Role>? pageOptions});
+}
+
+/// @nodoc
+class _$RoleQueryEventCopyWithImpl<$Res>
+    implements $RoleQueryEventCopyWith<$Res> {
+  _$RoleQueryEventCopyWithImpl(this._self, this._then);
+
+  final RoleQueryEvent _self;
+  final $Res Function(RoleQueryEvent) _then;
+
+  /// Create a copy of RoleQueryEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  _$$FetchImplCopyWith<_$FetchImpl> get copyWith =>
-      __$$FetchImplCopyWithImpl<_$FetchImpl>(this, _$identity);
-
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(PageOptions<Role>? pageOptions) fetch,
+  $Res call({
+    Object? pageOptions = freezed,
   }) {
-    return fetch(pageOptions);
+    return _then(_self.copyWith(
+      pageOptions: freezed == pageOptions
+          ? _self.pageOptions
+          : pageOptions // ignore: cast_nullable_to_non_nullable
+              as PageOptions<Role>?,
+    ));
   }
+}
 
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PageOptions<Role>? pageOptions)? fetch,
-  }) {
-    return fetch?.call(pageOptions);
-  }
+/// Adds pattern-matching-related methods to [RoleQueryEvent].
+extension RoleQueryEventPatterns on RoleQueryEvent {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
 
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PageOptions<Role>? pageOptions)? fetch,
-    required TResult orElse(),
-  }) {
-    if (fetch != null) {
-      return fetch(pageOptions);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Fetch value) fetch,
-  }) {
-    return fetch(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Fetch value)? fetch,
-  }) {
-    return fetch?.call(this);
-  }
-
-  @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     required TResult orElse(),
   }) {
-    if (fetch != null) {
-      return fetch(this);
+    final _that = this;
+    switch (_that) {
+      case _Fetch() when fetch != null:
+        return fetch(_that);
+      case _:
+        return orElse();
     }
-    return orElse();
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Fetch value) fetch,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Fetch():
+        return fetch(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Fetch() when fetch != null:
+        return fetch(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PageOptions<Role>? pageOptions)? fetch,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Fetch() when fetch != null:
+        return fetch(_that.pageOptions);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(PageOptions<Role>? pageOptions) fetch,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Fetch():
+        return fetch(_that.pageOptions);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PageOptions<Role>? pageOptions)? fetch,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Fetch() when fetch != null:
+        return fetch(_that.pageOptions);
+      case _:
+        return null;
+    }
   }
 }
 
-abstract class _Fetch implements RoleQueryEvent {
-  const factory _Fetch({final PageOptions<Role>? pageOptions}) = _$FetchImpl;
+/// @nodoc
+
+class _Fetch implements RoleQueryEvent {
+  const _Fetch({this.pageOptions});
 
   @override
-  PageOptions<Role>? get pageOptions;
+  final PageOptions<Role>? pageOptions;
+
+  /// Create a copy of RoleQueryEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$FetchImplCopyWith<_$FetchImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$FetchCopyWith<_Fetch> get copyWith =>
+      __$FetchCopyWithImpl<_Fetch>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Fetch &&
+            (identical(other.pageOptions, pageOptions) ||
+                other.pageOptions == pageOptions));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, pageOptions);
+
+  @override
+  String toString() {
+    return 'RoleQueryEvent.fetch(pageOptions: $pageOptions)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$FetchCopyWith<$Res>
+    implements $RoleQueryEventCopyWith<$Res> {
+  factory _$FetchCopyWith(_Fetch value, $Res Function(_Fetch) _then) =
+      __$FetchCopyWithImpl;
+  @override
+  @useResult
+  $Res call({PageOptions<Role>? pageOptions});
+}
+
+/// @nodoc
+class __$FetchCopyWithImpl<$Res> implements _$FetchCopyWith<$Res> {
+  __$FetchCopyWithImpl(this._self, this._then);
+
+  final _Fetch _self;
+  final $Res Function(_Fetch) _then;
+
+  /// Create a copy of RoleQueryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? pageOptions = freezed,
+  }) {
+    return _then(_Fetch(
+      pageOptions: freezed == pageOptions
+          ? _self.pageOptions
+          : pageOptions // ignore: cast_nullable_to_non_nullable
+              as PageOptions<Role>?,
+    ));
+  }
+}
+
+// dart format on

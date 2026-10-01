@@ -9,8 +9,13 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 class UserRepositoryMock extends UserRepository {
   @override
-  void setUserFromJwt(String accessToken, List<String> permission) {
+  void setUserFromJwt(
+    String accessToken,
+    List<String> permission, {
+    String? refreshToken,
+  }) {
     token = accessToken;
+    this.refreshToken = refreshToken;
     permissions = permission;
   }
 }

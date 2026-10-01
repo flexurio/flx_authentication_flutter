@@ -8,14 +8,20 @@ import 'package:hive/hive.dart';
 abstract class UserRepository {
   User? user;
   String? token;
+  String? refreshToken;
   List<String> permissions = [];
 
   bool checkPermission(String permission) => permissions.contains(permission);
 
-  void setUserFromJwt(String accessToken, List<String> permission);
+  void setUserFromJwt(
+    String accessToken,
+    List<String> permission, {
+    String? refreshToken,
+  });
 
   void unset() {
     token = null;
+    refreshToken = null;
     user = null;
   }
 }
@@ -42,8 +48,13 @@ class UserRepositoryApp extends UserRepository {
   bool checkPermission(String permission) => permissions.contains(permission);
 
   @override
-  void setUserFromJwt(String accessToken, List<String> permission) {
+  void setUserFromJwt(
+    String accessToken,
+    List<String> permission, {
+    String? refreshToken,
+  }) {
     token = accessToken;
+    this.refreshToken = refreshToken;
     final userPayload = extractPayloadFromJwt(accessToken);
     userApp = UserApp.fromJson(userPayload);
     permissions = permission;
@@ -60,7 +71,9 @@ class UserRepositoryApp extends UserRepository {
   @override
   void unset() {
     token = null;
+    refreshToken = null;
     user = null;
+    userApp = null;
   }
 
   static Map<String, dynamic> dataAdapterFromInstance(dynamic data) {

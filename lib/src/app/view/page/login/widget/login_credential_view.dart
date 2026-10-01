@@ -38,10 +38,16 @@ class LoginCredentialView extends StatelessWidget {
         urlAuthApi: urlAuthApi,
         withTwoFactor: withTwoFactor,
         onSuccessWithTwoFactor: onSuccessWithTwoFactor,
+        onLoginSuccess: onLoginSuccess,
         config: config,
-        onSuccess: (accessToken, permissions, data) {
+        onSuccess: (accessToken, permissions, data, {refreshToken}) {
           AuthenticationBloc.instance.add(
-            AuthenticationEvent.login(accessToken, permissions, data),
+            AuthenticationEvent.login(
+              accessToken,
+              permissions,
+              data,
+              refreshToken: refreshToken,
+            ),
           );
           onLoginSuccess(
             accessToken,

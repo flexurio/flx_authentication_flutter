@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flx_authentication_flutter/flx_authentication_flutter.dart';
+import 'package:flx_authentication_flutter/src/app/util/on_login_success.dart';
 import 'package:flx_authentication_flutter/src/app/view/widget/country_phone_code.dart';
 import 'package:flx_authentication_flutter/src/app/view/widget/f_text_phone_field.dart';
 import 'package:flx_core_flutter/flx_core_flutter.dart';
@@ -15,6 +16,7 @@ class LoginForm extends StatefulWidget {
     required this.urlAuthApi,
     required this.usernameLabel,
     required this.usingPassword,
+    this.onLoginSuccess,
     this.loginType = LoginFormType.nipPassword,
     this.config,
     super.key,
@@ -24,8 +26,10 @@ class LoginForm extends StatefulWidget {
   final void Function(
     String token,
     List<String> permission,
-    Map<String, dynamic> data,
-  ) onSuccess;
+    Map<String, dynamic> data, {
+    String? refreshToken,
+  }) onSuccess;
+  final OnLoginSuccess? onLoginSuccess;
   final bool withTwoFactor;
   final String? urlAuthApi;
   final String usernameLabel;
@@ -58,6 +62,7 @@ class _LoginFormState extends State<LoginForm> {
               _passwordController.text,
               widget.withTwoFactor,
               widget.urlAuthApi,
+              onLoginSuccess: widget.onLoginSuccess,
             ),
           );
     }
@@ -73,7 +78,12 @@ class _LoginFormState extends State<LoginForm> {
       listener: (context, state) {
         state.maybeWhen(
           successWithTwoFactor: widget.onSuccessWithTwoFactor,
-          success: widget.onSuccess,
+          success: (token, permission, data, refreshToken) => widget.onSuccess(
+            token,
+            permission,
+            data,
+            refreshToken: refreshToken,
+          ),
           error: (nip, password, other) {
             final errors = <String>[];
             if (nip != null && nip.isNotEmpty) {

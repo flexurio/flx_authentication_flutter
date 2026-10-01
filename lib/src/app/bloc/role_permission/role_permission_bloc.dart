@@ -15,7 +15,7 @@ class RolePermissionState with _$RolePermissionState {
 }
 
 @freezed
-class RolePermissionEvent with _$RolePermissionEvent {
+abstract class RolePermissionEvent with _$RolePermissionEvent {
   const factory RolePermissionEvent.create({
     required Role role,
     required String permission,
