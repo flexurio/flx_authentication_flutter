@@ -10,11 +10,11 @@ class AuthenticationRepositoryApi extends Repository {
     required super.onUnauthorized,
   });
 
-  static const pathLogin = '${Api.urlAuth}/users/login';
-  static const pathVerifyCode = '${Api.urlAuth}/users/token_auth';
-  static final rolesPath = '${Api.urlApi}/roles';
-  static final rolePath = '${Api.urlApi}/role';
-  static final reportListUserPath = '${Api.urlApi}/report-list-user-access';
+  static String get pathLogin => '${Api.urlAuth}/users/login';
+  static String get pathVerifyCode => '${Api.urlAuth}/users/token_auth';
+  static String get rolesPath => '${Api.urlApi}/roles';
+  static String get rolePath => '${Api.urlApi}/role';
+  static String get reportListUserPath => '${Api.urlApi}/report-list-user-access';
 
   static AuthenticationRepositoryApi instance = AuthenticationRepositoryApi(
     dio: Api.dio,
