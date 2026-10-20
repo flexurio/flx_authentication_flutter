@@ -149,6 +149,25 @@ Menampilkan gambar yang mengisi penuh panel kiri. Tidak ada teks.
 | `imageUrl` | `string` | - | Path asset lokal atau URL `http(s)://` |
 | `imageFit` | `string` | `"contain"` | Cara gambar mengisi area (lihat tabel) |
 | `imageAlignment` | `string` | `"center"` | Posisi gambar dalam area |
+| `backgroundColor` | `string` | - | Warna heksadesimal latar belakang panel (misal `"#FFFFFF"`) |
+
+---
+
+### Responsivitas Layout & Tampilan Gambar
+
+Sistem login Flexurio menerapkan tata letak responsif adaptif:
+
+1. **Layar < 1024px (Mobile & Tablet / Layar Terbagi):**
+   - Otomatis beralih ke layout **Single-Column** vertikal yang dapat di-scroll.
+   - Jika mode `image` atau `image_with_text` aktif, gambar akan otomatis tampil sebagai **banner responsif di atas card form login** dengan sudut melengkung dan bayangan halus.
+   - Card form login mempertahankan lebar yang proporsional sehingga form input dan tombol (seperti input PIN verifikasi 6 digit) tidak terhimpit.
+   - Container card form login selalu ditampilkan **solid/opaque** (menggunakan gradient abu-terang elegan, tidak transparan) sehingga teks dan input tetap terlihat kontras dan tidak tembus ke motif/warna latar belakang layar.
+   - Copyright (jika ada) ditampilkan rapi di bagian bawah halaman.
+
+2. **Layar >= 1024px (Desktop):**
+   - Tampilan **Split-Screen 2 Kolom** (panel kiri gambar/teks, panel kanan card form).
+   - Panel kanan memiliki proteksi batas lebar minimum aman (`minRightPanelWidth`), memastikan card form login tidak gepeng meskipun layar berada pada resolusi menengah (1024px–1300px) atau saat menggunakan rasio flex kiri yang besar.
+   - Pada panel kiri, gambar diposisikan proporsional dan tidak terpotong saat menggunakan `imageFit: "contain"`.
 
 ---
 
@@ -160,7 +179,7 @@ Menampilkan gambar penuh dengan overlay gradient gelap dan teks (tag + judul) di
 "leftPanel": {
   "mode": "image_with_text",
   "imageUrl": "asset/image/login-banner-company-01.png",
-  "imageFit": "cover",
+  "imageFit": "contain",
   "imageAlignment": "center",
   "tag": "ENTERPRISE RESOURCE PLANNING",
   "title": "Flexurio ERP"
@@ -176,13 +195,13 @@ Menampilkan gambar penuh dengan overlay gradient gelap dan teks (tag + judul) di
 
 | Nilai | Keterangan |
 |---|---|
-| `"contain"` | Gambar proporsional, seluruh gambar terlihat (default) |
-| `"cover"` | Gambar mengisi area, bagian tepi mungkin terpotong |
-| `"fill"` | Gambar distretch mengisi area (tidak proporsional) |
-| `"fitWidth"` | Gambar fit berdasarkan lebar |
-| `"fitHeight"` | Gambar fit berdasarkan tinggi |
-| `"scaleDown"` | Sama seperti contain, tapi tidak diperbesar |
-| `"none"` | Ukuran asli gambar |
+| `"contain"` | **(Sangat Direkomendasikan untuk Banner Berisi Teks/Infografis/Visi-Misi)** Gambar proporsional dan seluruh isi gambar terlihat utuh tanpa ada teks yang terpotong. |
+| `"cover"` | Gambar mengisi seluruh area panel, bagian tepi mungkin terpotong (cocok untuk foto gedung/lanskap tanpa teks). |
+| `"fill"` | Gambar distretch mengisi area (tidak proporsional). |
+| `"fitWidth"` | Gambar fit berdasarkan lebar. |
+| `"fitHeight"` | Gambar fit berdasarkan tinggi. |
+| `"scaleDown"` | Sama seperti contain, tapi tidak diperbesar melebihi ukuran aslinya. |
+| `"none"` | Ukuran asli gambar. |
 
 ### Nilai `imageAlignment`
 

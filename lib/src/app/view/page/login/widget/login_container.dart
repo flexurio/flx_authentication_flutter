@@ -24,6 +24,7 @@ class LoginContainer extends StatelessWidget {
       backgroundColor: Colors.transparent,
       body: ScreenIdentifierBuilder(
         builder: (context, screenIdentifier) {
+          final screenWidth = MediaQuery.sizeOf(context).width;
           final isSmall = screenIdentifier.conditions(sm: true, md: false);
 
           if (config == null) {
@@ -34,10 +35,15 @@ class LoginContainer extends StatelessWidget {
           final effectiveLogoNamedUrl =
               config?.rightPanel?.logoNamedUrl ?? logoNamedUrl;
 
+          // On screens < 1024px (mobile, tablet, and narrow split screens),
+          // switch to single-column layout so image banner and form are
+          // responsive.
+          final isSingleColumn = screenWidth < 1024;
+
           return LoginBackground(
             asset: AssetBackground.displayLogin,
             config: config?.background,
-            child: isSmall
+            child: isSingleColumn
                 ? _buildMobileLayout(
                     context,
                     effectiveLogoUrl,
@@ -141,57 +147,229 @@ class LoginContainer extends StatelessWidget {
     String? logoUrl,
     String? logoNamedUrl,
   ) {
+    final leftConfig = config?.leftPanel;
+    final mode = leftConfig?.mode ?? 'text';
+    final isImageMode = mode == 'image' || mode == 'image_with_text';
+    final imageUrl = leftConfig?.imageUrl ?? '';
+    final hasImage = isImageMode && imageUrl.isNotEmpty;
+
+    final copyright = leftConfig?.copyright ??
+        '© ${DateTime.now().year} ${flavorConfig.companyName}. '
+            'All rights reserved.';
+
+    final cardColor = config?.rightPanel?.cardBackgroundColor;
+    final isTransparentColor = cardColor != null && cardColor.a < 0.999;
+
+    final Gradient? mobileCardGradient;
+    final Color? mobileCardColor;
+
+    if (config?.rightPanel?.cardBackgroundGradient != null) {
+      mobileCardGradient = LinearGradient(
+        colors: config!.rightPanel!.cardBackgroundGradient!,
+        begin: Alignment.bottomCenter,
+        end: Alignment.topCenter,
+      );
+      mobileCardColor = null;
+    } else if (cardColor != null && !isTransparentColor) {
+      mobileCardGradient = null;
+      mobileCardColor = cardColor;
+    } else {
+      // Opaque gradient fallback matching the card style
+      // (ensures form is never transparent on screen < 1024px)
+      mobileCardGradient = const LinearGradient(
+        colors: [
+          Color(0xFFE2E8F0),
+          Color(0xFFF1F5F9),
+          Color(0xFFFFFFFF),
+          Color(0xFFFFFFFF),
+        ],
+        stops: [0.0, 0.25, 0.65, 1.0],
+        begin: Alignment.bottomCenter,
+        end: Alignment.topCenter,
+      );
+      mobileCardColor = null;
+    }
+
     return Center(
       child: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
-        child: Container(
-          constraints: const BoxConstraints(maxWidth: 450),
-          decoration: BoxDecoration(
-            gradient: config?.rightPanel?.cardBackgroundGradient != null
-                ? LinearGradient(
-                    colors: config!.rightPanel!.cardBackgroundGradient!,
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                  )
-                : config?.rightPanel?.cardBackgroundColor != null
-                    ? null
-                    : const LinearGradient(
-                        colors: [
-                          Color(0xFFE2E8F0),
-                          Color(0xFFF1F5F9),
-                          Color(0xFFFFFFFF),
-                          Color(0xFFFFFFFF),
-                        ],
-                        stops: [0.0, 0.25, 0.65, 1.0],
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
-                      ),
-            color: config?.rightPanel?.cardBackgroundColor,
-            borderRadius: BorderRadius.circular(
-              config?.rightPanel?.cardBorderRadius ?? 24,
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.1),
-                blurRadius: 30,
-                offset: const Offset(0, 10),
-              ),
-            ],
-          ),
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 460),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              LoginLogo(
-                logoUrl: logoUrl,
-                logoNamedUrl: logoNamedUrl,
-                height: config?.rightPanel?.logoHeight ?? 50,
+              if (hasImage && leftConfig != null)
+                _buildMobileBanner(context, leftConfig),
+              Container(
+                decoration: BoxDecoration(
+                  gradient: mobileCardGradient,
+                  color: mobileCardColor,
+                  borderRadius: BorderRadius.circular(
+                    config?.rightPanel?.cardBorderRadius ?? 24,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.1),
+                      blurRadius: 30,
+                      offset: const Offset(0, 10),
+                    ),
+                  ],
+                ),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    LoginLogo(
+                      logoUrl: logoUrl,
+                      logoNamedUrl: logoNamedUrl,
+                      height: config?.rightPanel?.logoHeight ?? 50,
+                    ),
+                    const Gap(24),
+                    builder(EdgeInsets.zero),
+                  ],
+                ),
               ),
-              const Gap(24),
-              builder(EdgeInsets.zero),
+              if (copyright.trim().isNotEmpty) ...[
+                const Gap(24),
+                Text(
+                  copyright,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white.withValues(alpha: 0.6),
+                    fontSize: 12,
+                  ),
+                ),
+              ],
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildMobileBanner(
+    BuildContext context,
+    LoginLeftPanelConfig leftConfig,
+  ) {
+    final imageUrl = leftConfig.imageUrl ?? '';
+    if (imageUrl.isEmpty) return const SizedBox.shrink();
+
+    final isNetwork =
+        imageUrl.startsWith('http://') || imageUrl.startsWith('https://');
+
+    final borderRadius = BorderRadius.circular(
+      config?.rightPanel?.cardBorderRadius ?? 20,
+    );
+
+    final imageWidget = isNetwork
+        ? Image.network(
+            imageUrl,
+            fit: BoxFit.contain,
+            errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+          )
+        : Image.asset(
+            imageUrl,
+            fit: BoxFit.contain,
+            errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+          );
+
+    final isWithText = leftConfig.mode == 'image_with_text';
+    final tag = leftConfig.tag ?? '';
+    final title = leftConfig.title ?? flavorConfig.companyName;
+
+    Widget bannerContent;
+    if (isWithText) {
+      bannerContent = Stack(
+        alignment: Alignment.bottomLeft,
+        children: [
+          imageWidget,
+          Positioned.fill(
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Colors.transparent,
+                    Colors.black.withValues(alpha: 0.6),
+                  ],
+                  stops: const [0.5, 1.0],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (tag.isNotEmpty) ...[
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 3,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withValues(alpha: 0.2),
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(
+                        color: Colors.white.withValues(alpha: 0.3),
+                      ),
+                    ),
+                    child: Text(
+                      tag.toUpperCase(),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 10,
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 1,
+                      ),
+                    ),
+                  ),
+                  const Gap(6),
+                ],
+                Text(
+                  title,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: -0.2,
+                    shadows: [
+                      Shadow(
+                        color: Colors.black45,
+                        blurRadius: 6,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      );
+    } else {
+      bannerContent = imageWidget;
+    }
+
+    return Container(
+      margin: const EdgeInsets.only(bottom: 20),
+      decoration: BoxDecoration(
+        color: leftConfig.backgroundColor ?? Colors.white,
+        borderRadius: borderRadius,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.08),
+            blurRadius: 24,
+            offset: const Offset(0, 8),
+          ),
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: borderRadius,
+        child: bannerContent,
       ),
     );
   }
@@ -204,7 +382,8 @@ class LoginContainer extends StatelessWidget {
   ) {
     final leftConfig = config?.leftPanel;
     final copyright = leftConfig?.copyright ??
-        '© ${DateTime.now().year} ${flavorConfig.companyName}. All rights reserved.';
+        '© ${DateTime.now().year} ${flavorConfig.companyName}. '
+            'All rights reserved.';
 
     final Decoration rightPanelDecoration = BoxDecoration(
       gradient: config?.rightPanel?.panelBackgroundGradient != null
@@ -227,122 +406,140 @@ class LoginContainer extends StatelessWidget {
       color: config?.rightPanel?.panelBackgroundColor,
     );
 
-    return Stack(
-      children: [
-        // Full-screen Row: left panel is transparent (outer blue bg shows through),
-        // right panel owns the gray gradient — card inside Center = perfectly symmetric
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            // Left panel — wrapper depends on mode
-            Expanded(
-              flex: config?.leftFlex ?? 8,
-              child: Builder(
-                builder: (context) {
-                  final mode = config?.leftPanel?.mode ?? 'text';
-                  final isImageMode =
-                      mode == 'image' || mode == 'image_with_text';
+    final screenWidth = MediaQuery.sizeOf(context).width;
+    final totalFlex = (config?.leftFlex ?? 8) + (config?.rightFlex ?? 3);
+    final rightFlexRatio = (config?.rightFlex ?? 3) / totalFlex;
+    final cardMaxWidth = config?.rightPanel?.cardMaxWidth ?? 380;
+    // Ensure right panel has enough breathing room for
+    // cardMaxWidth + minimum padding
+    final minRightPanelWidth = cardMaxWidth + 64;
+    final idealRightPanelWidth = screenWidth * rightFlexRatio;
+    final useFixedWidth = idealRightPanelWidth < minRightPanelWidth;
 
-                  if (isImageMode) {
-                    // Image fills the full left column (no padding, no constraints)
-                    return ClipRect(child: _buildLeftInfoPanel(context));
-                  }
+    final leftPanelWidget = Container(
+      color: leftConfig?.backgroundColor,
+      child: Builder(
+        builder: (context) {
+          final mode = config?.leftPanel?.mode ?? 'text';
+          final isImageMode = mode == 'image' || mode == 'image_with_text';
 
-                  // Text mode: centered & padded
-                  return Padding(
-                    padding: const EdgeInsets.fromLTRB(48, 40, 40, 80),
-                    child: Center(
-                      child: ConstrainedBox(
-                        constraints: const BoxConstraints(maxWidth: 560),
-                        child: _buildLeftInfoPanel(context),
-                      ),
-                    ),
-                  );
-                },
+          if (isImageMode) {
+            // Image fills the full left column
+            return ClipRect(child: _buildLeftInfoPanel(context));
+          }
+
+          // Text mode: centered & padded
+          return Padding(
+            padding: const EdgeInsets.fromLTRB(48, 40, 40, 80),
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 560),
+                child: _buildLeftInfoPanel(context),
               ),
             ),
-            // Right: gray background panel — card centered = equal left/right margins
-            Expanded(
-              flex: config?.rightFlex ?? 3,
+          );
+        },
+      ),
+    );
+
+    final rightPanelContent = Container(
+      decoration: rightPanelDecoration,
+      child: SingleChildScrollView(
+        child: ConstrainedBox(
+          // at minimum, fill the full viewport height so Center works
+          constraints: BoxConstraints(
+            minHeight: MediaQuery.sizeOf(context).height,
+          ),
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 32,
+                vertical: 40,
+              ),
               child: Container(
-                decoration: rightPanelDecoration,
-                child: SingleChildScrollView(
-                  child: ConstrainedBox(
-                    // at minimum, fill the full viewport height so Center works
-                    constraints: BoxConstraints(
-                      minHeight: MediaQuery.sizeOf(context).height,
-                    ),
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 48,
-                          vertical: 40,
-                        ),
-                        child: Container(
-                          constraints: BoxConstraints(
-                            maxWidth: config?.rightPanel?.cardMaxWidth ?? 380,
-                          ),
-                          decoration: BoxDecoration(
-                            gradient:
-                                config?.rightPanel?.cardBackgroundGradient !=
-                                        null
-                                    ? LinearGradient(
-                                        colors: config!.rightPanel!
-                                            .cardBackgroundGradient!,
-                                        begin: Alignment.bottomCenter,
-                                        end: Alignment.topCenter,
-                                      )
-                                    : null,
-                            color: config?.rightPanel?.cardBackgroundColor ??
-                                Colors.white,
-                            borderRadius: BorderRadius.circular(
-                              config?.rightPanel?.cardBorderRadius ?? 24,
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withValues(alpha: 0.08),
-                                blurRadius: 32,
-                                offset: const Offset(0, 12),
-                              ),
-                            ],
-                          ),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 40,
-                            vertical: 40,
-                          ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              LoginLogo(
-                                logoUrl: logoUrl,
-                                logoNamedUrl: logoNamedUrl,
-                                height: config?.rightPanel?.logoHeight ?? 50,
-                              ),
-                              const Gap(32),
-                              builder(EdgeInsets.zero),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
+                constraints: BoxConstraints(
+                  maxWidth: cardMaxWidth,
+                ),
+                decoration: BoxDecoration(
+                  gradient: config?.rightPanel?.cardBackgroundGradient != null
+                      ? LinearGradient(
+                          colors: config!.rightPanel!.cardBackgroundGradient!,
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                        )
+                      : null,
+                  color:
+                      config?.rightPanel?.cardBackgroundColor ?? Colors.white,
+                  borderRadius: BorderRadius.circular(
+                    config?.rightPanel?.cardBorderRadius ?? 24,
                   ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.08),
+                      blurRadius: 32,
+                      offset: const Offset(0, 12),
+                    ),
+                  ],
+                ),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 40,
+                  vertical: 40,
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    LoginLogo(
+                      logoUrl: logoUrl,
+                      logoNamedUrl: logoNamedUrl,
+                      height: config?.rightPanel?.logoHeight ?? 50,
+                    ),
+                    const Gap(32),
+                    builder(EdgeInsets.zero),
+                  ],
                 ),
               ),
             ),
+          ),
+        ),
+      ),
+    );
+
+    return Stack(
+      children: [
+        // Full-screen Row: left panel takes remaining space,
+        // right panel is clamped or flexed
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              flex: useFixedWidth ? 1 : (config?.leftFlex ?? 8),
+              child: leftPanelWidget,
+            ),
+            if (useFixedWidth)
+              SizedBox(
+                width: minRightPanelWidth,
+                child: rightPanelContent,
+              )
+            else
+              Expanded(
+                flex: config?.rightFlex ?? 3,
+                child: rightPanelContent,
+              ),
           ],
         ),
         // Copyright — bottom-left overlay
-        Positioned(
-          left: 48,
-          bottom: 24,
-          child: Text(
-            copyright,
-            style: TextStyle(
-              color: Colors.white.withValues(alpha: 0.6),
-              fontSize: 12,
+        if (copyright.trim().isNotEmpty)
+          Positioned(
+            left: 48,
+            bottom: 24,
+            child: Text(
+              copyright,
+              style: TextStyle(
+                color: Colors.white.withValues(alpha: 0.6),
+                fontSize: 12,
+              ),
             ),
           ),
-        ),
       ],
     );
   }
@@ -388,6 +585,8 @@ class LoginContainer extends StatelessWidget {
         imageUrl,
         fit: fit,
         alignment: alignment,
+        width: double.infinity,
+        height: double.infinity,
         errorBuilder: (_, __, ___) => Center(
           child: Icon(
             Icons.broken_image_outlined,
@@ -401,6 +600,8 @@ class LoginContainer extends StatelessWidget {
         imageUrl,
         fit: fit,
         alignment: alignment,
+        width: double.infinity,
+        height: double.infinity,
         errorBuilder: (_, __, ___) => Center(
           child: Icon(
             Icons.broken_image_outlined,
@@ -411,7 +612,7 @@ class LoginContainer extends StatelessWidget {
       );
     }
 
-    if (!withText) return imageWidget;
+    if (!withText) return SizedBox.expand(child: imageWidget);
 
     // image_with_text: stack image + gradient overlay + text at bottom
     final tag = leftConfig?.tag ?? '';
@@ -495,26 +696,30 @@ class LoginContainer extends StatelessWidget {
     final tag = leftConfig?.tag ?? 'COMPLIANCE MANAGEMENT';
     final title = leftConfig?.title ?? flavorConfig.companyName;
     final description = leftConfig?.description ??
-        'Manage compliance, verification, and audit processes seamlessly for operations.';
+        'Manage compliance, verification, and audit processes '
+            'seamlessly for operations.';
     final features = leftConfig?.features ??
         const [
           LoginFeatureItemConfig(
             icon: 'shield',
             title: 'Compliance Verification',
             description:
-                'Comprehensive tracking and compliance validation for transactions and operations',
+                'Comprehensive tracking and compliance validation '
+                'for transactions and operations',
           ),
           LoginFeatureItemConfig(
             icon: 'task',
             title: 'Audit & Workflow Approval',
             description:
-                'Streamlined review and structured approval cycles across business units',
+                'Streamlined review and structured approval cycles '
+                'across business units',
           ),
           LoginFeatureItemConfig(
             icon: 'analytics',
             title: 'Integrated Monitoring',
             description:
-                'Real-time visibility, reporting, and operational compliance tracking',
+                'Real-time visibility, reporting, and operational '
+                'compliance tracking',
           ),
         ];
 

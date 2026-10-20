@@ -110,6 +110,7 @@ class LoginLeftPanelConfig {
     this.imageUrl,
     this.imageFit = 'contain',
     this.imageAlignment = 'center',
+    this.backgroundColor,
   });
 
   factory LoginLeftPanelConfig.fromJson(Map<String, dynamic> json) {
@@ -130,6 +131,9 @@ class LoginLeftPanelConfig {
       imageUrl: json['imageUrl'] as String?,
       imageFit: json['imageFit'] as String? ?? 'contain',
       imageAlignment: json['imageAlignment'] as String? ?? 'center',
+      backgroundColor: json['backgroundColor'] != null
+          ? _hexToColor(json['backgroundColor'] as String)
+          : null,
     );
   }
 
@@ -141,14 +145,20 @@ class LoginLeftPanelConfig {
   final List<LoginFeatureItemConfig> features;
   final String? copyright;
 
-  /// Asset path or network URL for the image (used when mode is 'image' or 'image_with_text')
+  /// Asset path or network URL for the image
+  /// (used when mode is 'image' or 'image_with_text')
   final String? imageUrl;
 
   /// BoxFit mapping: 'contain' | 'cover' | 'fill' | 'fitWidth' | 'fitHeight'
   final String imageFit;
 
-  /// Alignment: 'center' | 'topCenter' | 'bottomCenter' | 'centerLeft' | 'centerRight'
+  /// Alignment: 'center' | 'topCenter' | 'bottomCenter' |
+  /// 'centerLeft' | 'centerRight'
   final String imageAlignment;
+
+  /// Background color for the left panel
+  /// (useful for images with white/solid background)
+  final Color? backgroundColor;
 }
 
 class LoginFeatureItemConfig {
