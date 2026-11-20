@@ -17,6 +17,9 @@ class LoginPage extends StatefulWidget {
     this.loginType,
     this.loginConfig,
     this.configAssetPath,
+    this.additionalField,
+    this.onUsernameChanged,
+    this.formHeight,
   );
 
   final OnLoginSuccess onLoginSuccess;
@@ -31,6 +34,9 @@ class LoginPage extends StatefulWidget {
   final LoginFormType loginType;
   final LoginConfig? loginConfig;
   final String? configAssetPath;
+  final Widget? additionalField;
+  final ValueChanged<String>? onUsernameChanged;
+  final double? formHeight;
 
   static Widget prepare({
     required OnLoginSuccess onLoginSuccess,
@@ -45,6 +51,9 @@ class LoginPage extends StatefulWidget {
     LoginFormType loginType = LoginFormType.nipPassword,
     LoginConfig? loginConfig,
     String? configAssetPath,
+    Widget? additionalField,
+    ValueChanged<String>? onUsernameChanged,
+    double? formHeight,
   }) {
     return MultiBlocProvider(
       providers: [BlocProvider(create: (_) => LoginBloc())],
@@ -61,6 +70,9 @@ class LoginPage extends StatefulWidget {
         loginType,
         loginConfig,
         configAssetPath,
+        additionalField,
+        onUsernameChanged,
+        formHeight,
       ),
     );
   }
@@ -121,6 +133,8 @@ class _LoginPageState extends State<LoginPage> {
               urlAuthApi: widget.urlAuthApi,
               withTwoFactor: widget.withTwoFactor,
               config: effectiveConfig,
+              additionalField: widget.additionalField,
+              onUsernameChanged: widget.onUsernameChanged,
               onSuccessWithTwoFactor: (authId) {
                 setState(() => _authId = authId);
                 _switchPage(1);
@@ -132,7 +146,10 @@ class _LoginPageState extends State<LoginPage> {
               urlAuthApiTwoFactor: widget.urlAuthApiTwoFactor,
               pinLength: widget.pinLength,
               authId: _authId,
-              onBackPressed: () => _switchPage(0),
+              onBackPressed: () {
+                widget.onUsernameChanged?.call('');
+                _switchPage(0);
+              },
               onLoginSuccess: widget.onLoginSuccess,
             ),
           ],
@@ -140,7 +157,8 @@ class _LoginPageState extends State<LoginPage> {
 
         if (effectiveConfig != null) {
           return SizedBox(
-            height: 380,
+            height: widget.formHeight ??
+                (widget.additionalField != null ? 450 : 380),
             child: pageView,
           );
         }

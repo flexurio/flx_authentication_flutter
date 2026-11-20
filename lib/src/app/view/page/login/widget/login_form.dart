@@ -19,6 +19,8 @@ class LoginForm extends StatefulWidget {
     this.onLoginSuccess,
     this.loginType = LoginFormType.nipPassword,
     this.config,
+    this.additionalField,
+    this.onUsernameChanged,
     super.key,
   });
 
@@ -36,6 +38,8 @@ class LoginForm extends StatefulWidget {
   final bool usingPassword;
   final LoginFormType loginType;
   final LoginConfig? config;
+  final Widget? additionalField;
+  final ValueChanged<String>? onUsernameChanged;
 
   @override
   State<LoginForm> createState() => _LoginFormState();
@@ -46,19 +50,44 @@ class _LoginFormState extends State<LoginForm> {
   final _nipController = TextEditingController();
   final _passwordController = TextEditingController();
   String _phoneCode = '62';
+  String _lastNotifiedUsername = '';
   bool _obscurePassword = true;
+
+  String get _formattedUsername {
+    if (widget.loginType == LoginFormType.phone) {
+      if (_nipController.text.isEmpty) return '';
+      return '$_phoneCode${_nipController.text}'.replaceAll('+', '');
+    }
+    return _nipController.text;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _nipController.addListener(_notifyUsernameChanged);
+  }
+
+  @override
+  void dispose() {
+    _nipController
+      ..removeListener(_notifyUsernameChanged)
+      ..dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  void _notifyUsernameChanged() {
+    final current = _formattedUsername;
+    if (current == _lastNotifiedUsername) return;
+    _lastNotifiedUsername = current;
+    widget.onUsernameChanged?.call(current);
+  }
 
   void _submit() {
     if (_formKey.currentState!.validate()) {
-      String username;
-      if (widget.loginType == LoginFormType.phone) {
-        username = '$_phoneCode${_nipController.text}'.replaceAll('+', '');
-      } else {
-        username = _nipController.text;
-      }
       context.read<LoginBloc>().add(
             LoginEvent.submit(
-              username,
+              _formattedUsername,
               _passwordController.text,
               widget.withTwoFactor,
               widget.urlAuthApi,
@@ -156,6 +185,10 @@ class _LoginFormState extends State<LoginForm> {
         ),
         const Gap(32),
         _buildClassicUsernameField(state),
+        if (widget.additionalField != null) ...[
+          const Gap(12),
+          widget.additionalField!,
+        ],
         if (widget.usingPassword) ...[
           const Gap(12),
           GlassTextFormField(
@@ -198,6 +231,7 @@ class _LoginFormState extends State<LoginForm> {
               setState(() {
                 _phoneCode = code;
               });
+              _notifyUsernameChanged();
             }
           },
         ),
@@ -263,6 +297,10 @@ class _LoginFormState extends State<LoginForm> {
         const Gap(24),
         // NIP / Username field
         _buildUsernameField(state),
+        if (widget.additionalField != null) ...[
+          const Gap(16),
+          widget.additionalField!,
+        ],
         if (widget.usingPassword) ...[
           const Gap(16),
           _buildPasswordField(state),
@@ -318,6 +356,7 @@ class _LoginFormState extends State<LoginForm> {
               setState(() {
                 _phoneCode = code;
               });
+              _notifyUsernameChanged();
             }
           },
         ),

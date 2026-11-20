@@ -13,6 +13,8 @@ class LoginCredentialView extends StatelessWidget {
     required this.onSuccessWithTwoFactor,
     required this.onLoginSuccess,
     this.config,
+    this.additionalField,
+    this.onUsernameChanged,
     super.key,
   });
 
@@ -25,6 +27,8 @@ class LoginCredentialView extends StatelessWidget {
   final void Function(String authId) onSuccessWithTwoFactor;
   final OnLoginSuccess onLoginSuccess;
   final LoginConfig? config;
+  final Widget? additionalField;
+  final ValueChanged<String>? onUsernameChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +44,8 @@ class LoginCredentialView extends StatelessWidget {
         onSuccessWithTwoFactor: onSuccessWithTwoFactor,
         onLoginSuccess: onLoginSuccess,
         config: config,
+        additionalField: additionalField,
+        onUsernameChanged: onUsernameChanged,
         onSuccess: (accessToken, permissions, data, {refreshToken}) {
           AuthenticationBloc.instance.add(
             AuthenticationEvent.login(
