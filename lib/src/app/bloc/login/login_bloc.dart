@@ -39,7 +39,9 @@ abstract class LoginEvent with _$LoginEvent {
 }
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  LoginBloc() : super(const _Initial()) {
+  LoginBloc({AuthenticationRepositoryApi? repository})
+      : _repository = repository ?? AuthenticationRepositoryApi.instance,
+        super(const _Initial()) {
     on<LoginEvent>((event, emit) async {
       await event.when(
         submit: (nip, password, withTwoFactor, urlApi, onLoginSuccess) async {
@@ -48,30 +50,32 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
             print(
               '[LOGIN] submit with nip: $nip, withTwoFactor: $withTwoFactor',
             );
-            final repository = AuthenticationRepositoryApi.instance;
-            final result = await repository.loginWithTwoFactor(
+            final result = await _repository.loginWithTwoFactor(
               nip: nip,
               password: password,
               url: urlApi,
+              method: withTwoFactor ? null : 'POST',
             );
             if (withTwoFactor && result.isTwoFactor) {
               emit(_SuccessWithTwoFactor(result.authId!));
             } else {
-              final accessToken = result.accessToken!;
+              final accessToken = result.accessToken;
+              if (accessToken == null || accessToken.isEmpty) {
+                throw ApiException.fromType(ExceptionType.invalidCredentials);
+              }
+
               final user = extractPayloadFromJwt(accessToken);
               final data = onLoginSuccess != null
                   ? await onLoginSuccess(accessToken, user)
                   : <String, dynamic>{};
 
-              final host =
-                  urlApi != null ? 'https://${Uri.parse(urlApi).host}' : null;
-
+              final host = _extractOrigin(urlApi);
               final employeeId =
                   (user['id'] ?? user['user_id'] ?? user['nip'])
                           ?.toString() ??
                       '';
 
-              final permissions = await repository.fetchUserPermissions(
+              final permissions = await _repository.fetchUserPermissions(
                 accessToken: accessToken,
                 employeeId: employeeId,
                 host: host,
@@ -94,5 +98,16 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         },
       );
     });
+  }
+
+  final AuthenticationRepositoryApi _repository;
+
+  static String? _extractOrigin(String? urlApi) {
+    if (urlApi == null || urlApi.isEmpty) return null;
+    final uri = Uri.tryParse(urlApi);
+    if (uri == null || !uri.hasScheme || uri.host.isEmpty) return null;
+    return uri.hasPort
+        ? '${uri.scheme}://${uri.host}:${uri.port}'
+        : '${uri.scheme}://${uri.host}';
   }
 }

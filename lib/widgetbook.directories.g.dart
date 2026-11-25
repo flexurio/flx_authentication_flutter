@@ -10,7 +10,6 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-
 import 'package:flx_authentication_flutter/src/app/view/page/login/login_page.widgetbook.dart'
     as _flx_authentication_flutter_src_app_view_page_login_login_page_widgetbook;
 import 'package:flx_authentication_flutter/src/app/view/widget/login_logo.widgetbook.dart'
@@ -38,6 +37,12 @@ final directories = <_widgetbook.WidgetbookNode>[
                         builder:
                             _flx_authentication_flutter_src_app_view_page_login_login_page_widgetbook
                                 .loginPageDefaultUseCase,
+                      ),
+                      _widgetbook.WidgetbookUseCase(
+                        name: 'Mock flx-nocode-api (POST)',
+                        builder:
+                            _flx_authentication_flutter_src_app_view_page_login_login_page_widgetbook
+                                .loginPageMockNoCodeApiUseCase,
                       ),
                       _widgetbook.WidgetbookUseCase(
                         name: 'With Asset Logo',

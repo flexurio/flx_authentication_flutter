@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flx_authentication_flutter/flx_authentication_flutter.dart';
 import 'package:flx_authentication_flutter/widgetbook.directories.g.dart';
@@ -6,6 +9,116 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
+
+String _buildMockJwt(String nip) {
+  final header = base64Url.encode(utf8.encode('{"alg":"HS256","typ":"JWT"}'));
+  final payload = base64Url.encode(
+    utf8.encode(
+      jsonEncode({
+        'nip': nip,
+        'name': 'Mock User ($nip)',
+        'rl': 'plant_qa_manager',
+      }),
+    ),
+  );
+  return '$header.$payload.mock_signature';
+}
+
+void _installMockAuthInterceptor() {
+  Api.dio.interceptors.add(
+    InterceptorsWrapper(
+      onRequest: (options, handler) {
+        if (options.uri.host != 'mock.local') {
+          return handler.next(options);
+        }
+
+        final path = options.uri.path;
+        final method = options.method.toUpperCase();
+
+        if (path == '/login') {
+          if (method != 'POST') {
+            return handler.reject(
+              DioException(
+                requestOptions: options,
+                response: Response<Map<String, dynamic>>(
+                  requestOptions: options,
+                  statusCode: 405,
+                  data: {
+                    'success': false,
+                    'message': 'Method Not Allowed (allow: POST)',
+                  },
+                ),
+                type: DioExceptionType.badResponse,
+              ),
+            );
+          }
+
+          final authHeader =
+              options.headers['Authorization']?.toString() ?? '';
+          var nip = 'mock_user';
+          var password = '';
+          if (authHeader.startsWith('Basic ')) {
+            final decoded = utf8.decode(
+              base64Decode(authHeader.substring(6)),
+            );
+            final sep = decoded.indexOf(':');
+            if (sep >= 0) {
+              nip = decoded.substring(0, sep);
+              password = decoded.substring(sep + 1);
+            }
+          }
+
+          if (password == 'wrong') {
+            return handler.resolve(
+              Response<Map<String, dynamic>>(
+                requestOptions: options,
+                statusCode: 200,
+                data: {
+                  'success': false,
+                  'message': 'Invalid Username or Password',
+                },
+              ),
+            );
+          }
+
+          return handler.resolve(
+            Response<Map<String, dynamic>>(
+              requestOptions: options,
+              statusCode: 200,
+              data: {
+                'success': true,
+                'message': 'Login success (mock flx-nocode-api)',
+                'data': _buildMockJwt(nip),
+              },
+            ),
+          );
+        }
+
+        if (path == '/users/login') {
+          return handler.resolve(
+            Response<Map<String, dynamic>>(
+              requestOptions: options,
+              statusCode: 200,
+              data: {
+                'success': true,
+                'message': 'OTP sent',
+                'data': {'auth_at': '1790833344.mock'},
+              },
+            ),
+          );
+        }
+
+        return handler.resolve(
+          Response<Map<String, dynamic>>(
+            requestOptions: options,
+            statusCode: 200,
+            data: {'success': true, 'data': <dynamic>[]},
+          ),
+        );
+      },
+    ),
+  );
+}
 
 class UserRepositoryMock extends UserRepository {
   @override
@@ -44,6 +157,8 @@ Future<void> main() async {
     backgroundLoginPage: '',
     applicationConfig: null,
   );
+
+  _installMockAuthInterceptor();
 
   runApp(const WidgetbookApp());
 }

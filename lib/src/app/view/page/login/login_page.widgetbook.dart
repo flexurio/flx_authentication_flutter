@@ -62,3 +62,40 @@ Widget loginPageWithAssetLogoUseCase(BuildContext context) {
     logoNamedUrl: 'assets/images/logoipsum-named.png',
   );
 }
+
+@widgetbook.UseCase(
+  name: 'Mock flx-nocode-api (POST)',
+  type: LoginPage,
+)
+Widget loginPageMockNoCodeApiUseCase(BuildContext context) {
+  final withTwoFactor = context.knobs.boolean(
+    label: 'With Two Factor',
+    initialValue: false,
+  );
+  return LoginPage.prepare(
+    urlAuthApi: withTwoFactor
+        ? 'http://mock.local/users/login'
+        : 'http://mock.local/login',
+    withTwoFactor: withTwoFactor,
+    usernameLabel: context.knobs.string(
+      label: 'Username Label',
+      initialValue: 'NIP',
+    ),
+    usingPassword: true,
+    loginType: LoginFormType.nipPassword,
+    onLoginSuccess: (token, payload) async {
+      debugPrint('[WIDGETBOOK MOCK] Login success! payload=$payload');
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: Colors.green,
+            content: Text(
+              'Login Sukses! NIP: ${payload['nip']} | Role: ${payload['rl']}',
+            ),
+          ),
+        );
+      }
+      return payload;
+    },
+  );
+}

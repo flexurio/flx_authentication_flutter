@@ -29,45 +29,61 @@ class AuthenticationRepositoryApi extends Repository {
     required String nip,
     required String password,
     required String? url,
+    String? method,
   }) async {
     try {
       final targetUrl = url ?? pathLogin;
-      final isPost = targetUrl.contains('verify-password');
+      final isVerifyPassword = targetUrl.contains('verify-password');
+      final resolvedMethod =
+          (method ?? (isVerifyPassword ? 'POST' : 'GET')).toUpperCase();
       final response = await dio.request<Map<String, dynamic>>(
         targetUrl,
-        data: isPost ? jsonEncode({'device_id': ''}) : null,
+        data: isVerifyPassword ? jsonEncode({'device_id': ''}) : null,
         options: Options(
-          method: isPost ? 'POST' : 'GET',
+          method: resolvedMethod,
           headers: {
             RequestHeader.authorization: getBasicAuthHeader(nip, password),
           },
         ),
       );
 
-      final rawData = response.data?['data'];
-      final data = rawData is Map<String, dynamic> ? rawData : null;
       final success = response.data?['success'] as bool? ?? false;
       if (!success) {
         throw ApiException.fromType(ExceptionType.invalidUsernamePassword);
       }
 
-      if (data?.containsKey('access_token') ?? false) {
-        return LoginAuthResult.direct(
-          accessToken: data!['access_token'] as String,
-          refreshToken: data['refresh_token'] as String?,
-          user: data,
-        );
-      }
-
-      if (data?.containsKey('auth_at') ?? false) {
-        return LoginAuthResult.twoFactor(authId: data!['auth_at'] as String);
-      }
-
-      return LoginAuthResult.twoFactor(authId: nip);
+      return _parseLoginAuthResult(
+        rawData: response.data?['data'],
+        fallbackAuthId: nip,
+      );
     } catch (error, stackTrace) {
       print('[ERROR] loginWithTwoFactor failed: $error\n$stackTrace');
       throw checkErrorApi(error);
     }
+  }
+
+  LoginAuthResult _parseLoginAuthResult({
+    required Object? rawData,
+    required String fallbackAuthId,
+  }) {
+    if (rawData is String && rawData.isNotEmpty) {
+      return LoginAuthResult.direct(accessToken: rawData);
+    }
+
+    final data = rawData is Map<String, dynamic> ? rawData : null;
+    if (data?.containsKey('access_token') ?? false) {
+      return LoginAuthResult.direct(
+        accessToken: data!['access_token'] as String,
+        refreshToken: data['refresh_token'] as String?,
+        user: data,
+      );
+    }
+
+    if (data?.containsKey('auth_at') ?? false) {
+      return LoginAuthResult.twoFactor(authId: data!['auth_at'] as String);
+    }
+
+    return LoginAuthResult.twoFactor(authId: fallbackAuthId);
   }
 
   Future<List<String>> fetchUserPermissions({
@@ -118,9 +134,20 @@ class AuthenticationRepositoryApi extends Repository {
         ),
       );
 
-      final data = response.data!['data'] as String;
-      print('[LOGIN] data: $data');
-      return data;
+      final success = response.data?['success'] as bool? ?? true;
+      if (!success) {
+        throw ApiException.fromType(ExceptionType.invalidUsernamePassword);
+      }
+
+      final rawData = response.data?['data'];
+      if (rawData is String && rawData.isNotEmpty) {
+        return rawData;
+      }
+      if (rawData is Map<String, dynamic> &&
+          rawData['access_token'] is String) {
+        return rawData['access_token'] as String;
+      }
+      throw ApiException.fromType(ExceptionType.invalidCredentials);
     } catch (error) {
       print('[LOGIN] error: $error');
       throw checkErrorApi(error);

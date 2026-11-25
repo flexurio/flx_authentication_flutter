@@ -138,5 +138,46 @@ void main() {
         throwsA(isA<Exception>()),
       );
     });
+
+    test(
+      'sends POST and returns LoginAuthResult.direct when method is POST and data is plain JWT string (flx-nocode-api flow)',
+      () async {
+        RequestOptions? capturedOptions;
+        dio.httpClientAdapter = MockHttpClientAdapter((options) {
+          capturedOptions = options;
+          return ResponseBody.fromString(
+            jsonEncode({
+              'success': true,
+              'message': 'Login success',
+              'data': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.payload.sig',
+            }),
+            200,
+            headers: {
+              Headers.contentTypeHeader: [Headers.jsonContentType],
+            },
+          );
+        });
+
+        final repo = AuthenticationRepositoryApi(
+          dio: dio,
+          onUnauthorized: () {},
+        );
+
+        final result = await repo.loginWithTwoFactor(
+          nip: 'qa_manager',
+          password: 'secret',
+          url: 'http://localhost:8107/login',
+          method: 'POST',
+        );
+
+        expect(capturedOptions?.method, equals('POST'));
+        expect(capturedOptions?.data, isNull);
+        expect(result.isTwoFactor, isFalse);
+        expect(
+          result.accessToken,
+          equals('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.payload.sig'),
+        );
+      },
+    );
   });
 }
