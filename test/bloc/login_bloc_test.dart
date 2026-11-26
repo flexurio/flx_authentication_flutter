@@ -143,9 +143,9 @@ void main() {
     );
 
     test(
-      'keeps GET when withTwoFactor is false and authMethod is omitted (DJM flow)',
+      'keeps GET when withTwoFactor is false and authMethod is omitted (direct GET flow)',
       () async {
-        final token = _buildTestJwt({'nip': '1901016', 'name': 'DJM User'});
+        final token = _buildTestJwt({'nip': '1901016', 'name': 'Direct User'});
         RequestOptions? loginRequest;
         final dio = Dio()
           ..httpClientAdapter = _StubHttpClientAdapter((options) {
@@ -186,7 +186,7 @@ void main() {
             '1901016',
             'secret',
             false,
-            'https://djm-api.flexurio.com/users/auth/login',
+            'https://api.example.com/users/auth/login',
           ),
         );
 
