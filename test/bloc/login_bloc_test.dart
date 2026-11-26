@@ -75,6 +75,7 @@ void main() {
             'secret',
             false,
             'http://localhost:8107/login',
+            authMethod: 'POST',
           ),
         );
 
@@ -137,6 +138,73 @@ void main() {
         expect(
           states.last,
           equals(const LoginState.successWithTwoFactor('1790833344.2201001')),
+        );
+      },
+    );
+
+    test(
+      'keeps GET when withTwoFactor is false and authMethod is omitted (DJM flow)',
+      () async {
+        final token = _buildTestJwt({'nip': '1901016', 'name': 'DJM User'});
+        RequestOptions? loginRequest;
+        final dio = Dio()
+          ..httpClientAdapter = _StubHttpClientAdapter((options) {
+            if (options.path.endsWith('/users/auth/login')) {
+              loginRequest = options;
+              return ResponseBody.fromString(
+                jsonEncode({
+                  'success': true,
+                  'message': 'OK',
+                  'data': {
+                    'access_token': token,
+                    'refresh_token': 'refresh_123',
+                  },
+                }),
+                200,
+                headers: {
+                  Headers.contentTypeHeader: [Headers.jsonContentType],
+                },
+              );
+            }
+            return ResponseBody.fromString(
+              jsonEncode({'success': true, 'data': <dynamic>[]}),
+              200,
+              headers: {
+                Headers.contentTypeHeader: [Headers.jsonContentType],
+              },
+            );
+          });
+
+        final repo = AuthenticationRepositoryApi(dio: dio, onUnauthorized: () {});
+        final bloc = LoginBloc(repository: repo);
+
+        final states = <LoginState>[];
+        final sub = bloc.stream.listen(states.add);
+
+        bloc.add(
+          const LoginEvent.submit(
+            '1901016',
+            'secret',
+            false,
+            'https://djm-api.flexurio.com/users/auth/login',
+          ),
+        );
+
+        await Future<void>.delayed(const Duration(milliseconds: 100));
+        await sub.cancel();
+        await bloc.close();
+
+        expect(loginRequest?.method, equals('GET'));
+        expect(
+          states.last,
+          equals(
+            LoginState.success(
+              token,
+              const [],
+              const {},
+              refreshToken: 'refresh_123',
+            ),
+          ),
         );
       },
     );

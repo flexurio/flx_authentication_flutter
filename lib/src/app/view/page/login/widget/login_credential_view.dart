@@ -15,6 +15,7 @@ class LoginCredentialView extends StatelessWidget {
     this.config,
     this.additionalField,
     this.onUsernameChanged,
+    this.authMethod,
     super.key,
   });
 
@@ -29,6 +30,7 @@ class LoginCredentialView extends StatelessWidget {
   final LoginConfig? config;
   final Widget? additionalField;
   final ValueChanged<String>? onUsernameChanged;
+  final String? authMethod;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +43,7 @@ class LoginCredentialView extends StatelessWidget {
         usernameLabel: usernameLabel,
         urlAuthApi: urlAuthApi,
         withTwoFactor: withTwoFactor,
+        authMethod: authMethod,
         onSuccessWithTwoFactor: onSuccessWithTwoFactor,
         onLoginSuccess: onLoginSuccess,
         config: config,

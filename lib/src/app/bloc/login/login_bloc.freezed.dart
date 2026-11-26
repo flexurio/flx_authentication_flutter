@@ -572,6 +572,7 @@ mixin _$LoginEvent {
   bool get withTwoFactor;
   String? get urlApi;
   OnLoginSuccess? get onLoginSuccess;
+  String? get authMethod;
 
   /// Create a copy of LoginEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -592,16 +593,18 @@ mixin _$LoginEvent {
                 other.withTwoFactor == withTwoFactor) &&
             (identical(other.urlApi, urlApi) || other.urlApi == urlApi) &&
             (identical(other.onLoginSuccess, onLoginSuccess) ||
-                other.onLoginSuccess == onLoginSuccess));
+                other.onLoginSuccess == onLoginSuccess) &&
+            (identical(other.authMethod, authMethod) ||
+                other.authMethod == authMethod));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, nip, password, withTwoFactor, urlApi, onLoginSuccess);
+  int get hashCode => Object.hash(runtimeType, nip, password, withTwoFactor,
+      urlApi, onLoginSuccess, authMethod);
 
   @override
   String toString() {
-    return 'LoginEvent(nip: $nip, password: $password, withTwoFactor: $withTwoFactor, urlApi: $urlApi, onLoginSuccess: $onLoginSuccess)';
+    return 'LoginEvent(nip: $nip, password: $password, withTwoFactor: $withTwoFactor, urlApi: $urlApi, onLoginSuccess: $onLoginSuccess, authMethod: $authMethod)';
   }
 }
 
@@ -616,7 +619,8 @@ abstract mixin class $LoginEventCopyWith<$Res> {
       String password,
       bool withTwoFactor,
       String? urlApi,
-      OnLoginSuccess? onLoginSuccess});
+      OnLoginSuccess? onLoginSuccess,
+      String? authMethod});
 }
 
 /// @nodoc
@@ -636,6 +640,7 @@ class _$LoginEventCopyWithImpl<$Res> implements $LoginEventCopyWith<$Res> {
     Object? withTwoFactor = null,
     Object? urlApi = freezed,
     Object? onLoginSuccess = freezed,
+    Object? authMethod = freezed,
   }) {
     return _then(_self.copyWith(
       nip: null == nip
@@ -658,6 +663,10 @@ class _$LoginEventCopyWithImpl<$Res> implements $LoginEventCopyWith<$Res> {
           ? _self.onLoginSuccess
           : onLoginSuccess // ignore: cast_nullable_to_non_nullable
               as OnLoginSuccess?,
+      authMethod: freezed == authMethod
+          ? _self.authMethod
+          : authMethod // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -756,7 +765,7 @@ extension LoginEventPatterns on LoginEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String nip, String password, bool withTwoFactor,
-            String? urlApi, OnLoginSuccess? onLoginSuccess)?
+            String? urlApi, OnLoginSuccess? onLoginSuccess, String? authMethod)?
         submit,
     required TResult orElse(),
   }) {
@@ -764,7 +773,7 @@ extension LoginEventPatterns on LoginEvent {
     switch (_that) {
       case _Submit() when submit != null:
         return submit(_that.nip, _that.password, _that.withTwoFactor,
-            _that.urlApi, _that.onLoginSuccess);
+            _that.urlApi, _that.onLoginSuccess, _that.authMethod);
       case _:
         return orElse();
     }
@@ -786,14 +795,14 @@ extension LoginEventPatterns on LoginEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String nip, String password, bool withTwoFactor,
-            String? urlApi, OnLoginSuccess? onLoginSuccess)
+            String? urlApi, OnLoginSuccess? onLoginSuccess, String? authMethod)
         submit,
   }) {
     final _that = this;
     switch (_that) {
       case _Submit():
         return submit(_that.nip, _that.password, _that.withTwoFactor,
-            _that.urlApi, _that.onLoginSuccess);
+            _that.urlApi, _that.onLoginSuccess, _that.authMethod);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -814,14 +823,14 @@ extension LoginEventPatterns on LoginEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String nip, String password, bool withTwoFactor,
-            String? urlApi, OnLoginSuccess? onLoginSuccess)?
+            String? urlApi, OnLoginSuccess? onLoginSuccess, String? authMethod)?
         submit,
   }) {
     final _that = this;
     switch (_that) {
       case _Submit() when submit != null:
         return submit(_that.nip, _that.password, _that.withTwoFactor,
-            _that.urlApi, _that.onLoginSuccess);
+            _that.urlApi, _that.onLoginSuccess, _that.authMethod);
       case _:
         return null;
     }
@@ -832,7 +841,7 @@ extension LoginEventPatterns on LoginEvent {
 
 class _Submit implements LoginEvent {
   const _Submit(this.nip, this.password, this.withTwoFactor, this.urlApi,
-      {this.onLoginSuccess});
+      {this.onLoginSuccess, this.authMethod});
 
   @override
   final String nip;
@@ -844,6 +853,8 @@ class _Submit implements LoginEvent {
   final String? urlApi;
   @override
   final OnLoginSuccess? onLoginSuccess;
+  @override
+  final String? authMethod;
 
   /// Create a copy of LoginEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -865,16 +876,18 @@ class _Submit implements LoginEvent {
                 other.withTwoFactor == withTwoFactor) &&
             (identical(other.urlApi, urlApi) || other.urlApi == urlApi) &&
             (identical(other.onLoginSuccess, onLoginSuccess) ||
-                other.onLoginSuccess == onLoginSuccess));
+                other.onLoginSuccess == onLoginSuccess) &&
+            (identical(other.authMethod, authMethod) ||
+                other.authMethod == authMethod));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, nip, password, withTwoFactor, urlApi, onLoginSuccess);
+  int get hashCode => Object.hash(runtimeType, nip, password, withTwoFactor,
+      urlApi, onLoginSuccess, authMethod);
 
   @override
   String toString() {
-    return 'LoginEvent.submit(nip: $nip, password: $password, withTwoFactor: $withTwoFactor, urlApi: $urlApi, onLoginSuccess: $onLoginSuccess)';
+    return 'LoginEvent.submit(nip: $nip, password: $password, withTwoFactor: $withTwoFactor, urlApi: $urlApi, onLoginSuccess: $onLoginSuccess, authMethod: $authMethod)';
   }
 }
 
@@ -890,7 +903,8 @@ abstract mixin class _$SubmitCopyWith<$Res>
       String password,
       bool withTwoFactor,
       String? urlApi,
-      OnLoginSuccess? onLoginSuccess});
+      OnLoginSuccess? onLoginSuccess,
+      String? authMethod});
 }
 
 /// @nodoc
@@ -910,6 +924,7 @@ class __$SubmitCopyWithImpl<$Res> implements _$SubmitCopyWith<$Res> {
     Object? withTwoFactor = null,
     Object? urlApi = freezed,
     Object? onLoginSuccess = freezed,
+    Object? authMethod = freezed,
   }) {
     return _then(_Submit(
       null == nip
@@ -932,6 +947,10 @@ class __$SubmitCopyWithImpl<$Res> implements _$SubmitCopyWith<$Res> {
           ? _self.onLoginSuccess
           : onLoginSuccess // ignore: cast_nullable_to_non_nullable
               as OnLoginSuccess?,
+      authMethod: freezed == authMethod
+          ? _self.authMethod
+          : authMethod // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }

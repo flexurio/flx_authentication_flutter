@@ -20,6 +20,7 @@ class LoginPage extends StatefulWidget {
     this.additionalField,
     this.onUsernameChanged,
     this.formHeight,
+    this.authMethod,
   );
 
   final OnLoginSuccess onLoginSuccess;
@@ -37,6 +38,7 @@ class LoginPage extends StatefulWidget {
   final Widget? additionalField;
   final ValueChanged<String>? onUsernameChanged;
   final double? formHeight;
+  final String? authMethod;
 
   static Widget prepare({
     required OnLoginSuccess onLoginSuccess,
@@ -54,6 +56,7 @@ class LoginPage extends StatefulWidget {
     Widget? additionalField,
     ValueChanged<String>? onUsernameChanged,
     double? formHeight,
+    String? authMethod,
   }) {
     return MultiBlocProvider(
       providers: [BlocProvider(create: (_) => LoginBloc())],
@@ -73,6 +76,7 @@ class LoginPage extends StatefulWidget {
         additionalField,
         onUsernameChanged,
         formHeight,
+        authMethod,
       ),
     );
   }
@@ -132,6 +136,7 @@ class _LoginPageState extends State<LoginPage> {
               usernameLabel: widget.usernameLabel,
               urlAuthApi: widget.urlAuthApi,
               withTwoFactor: widget.withTwoFactor,
+              authMethod: widget.authMethod,
               config: effectiveConfig,
               additionalField: widget.additionalField,
               onUsernameChanged: widget.onUsernameChanged,

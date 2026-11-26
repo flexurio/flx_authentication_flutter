@@ -35,6 +35,7 @@ abstract class LoginEvent with _$LoginEvent {
     bool withTwoFactor,
     String? urlApi, {
     OnLoginSuccess? onLoginSuccess,
+    String? authMethod,
   }) = _Submit;
 }
 
@@ -44,17 +45,24 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         super(const _Initial()) {
     on<LoginEvent>((event, emit) async {
       await event.when(
-        submit: (nip, password, withTwoFactor, urlApi, onLoginSuccess) async {
+        submit: (
+          nip,
+          password,
+          withTwoFactor,
+          urlApi,
+          onLoginSuccess,
+          authMethod,
+        ) async {
           emit(const _Loading());
           try {
             print(
-              '[LOGIN] submit with nip: $nip, withTwoFactor: $withTwoFactor',
+              '[LOGIN] submit with nip: $nip, withTwoFactor: $withTwoFactor, authMethod: $authMethod',
             );
             final result = await _repository.loginWithTwoFactor(
               nip: nip,
               password: password,
               url: urlApi,
-              method: withTwoFactor ? null : 'POST',
+              method: authMethod,
             );
             if (withTwoFactor && result.isTwoFactor) {
               emit(_SuccessWithTwoFactor(result.authId!));

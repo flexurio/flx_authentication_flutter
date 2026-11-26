@@ -71,21 +71,53 @@ AuthenticationBloc.initialize(
 ### Rendering Login Page
 
 ```dart
-Widget build(BuildContext context) {
-  return LoginPage(
-    urlAuthApi: 'https://api.flexurio.com/users/auth/login',
-    urlAuthApiTwoFactor: 'https://api.flexurio.com/users/auth/token_auth',
-    urlRole: 'https://api.flexurio.com/users',
-    onLoginSuccess: (context, data) {
-      // Custom routing on successful authentication
-      Navigator.of(context).pushReplacementNamed('/home');
-    },
-    userRepository: UserRepositoryApp.instance,
-    logo: Image.asset('assets/images/logo.png'),
-    title: 'Flexurio Chiron ERP',
-    subtitle: 'Sign in to your account',
-  );
-}
+// Default flow (Chiron ERP: DJM, Metiska, Voltune) — uses GET by default
+LoginPage.prepare(
+  urlAuthApi: 'https://api.flexurio.com/users/auth/login',
+  urlAuthApiTwoFactor: 'https://api.flexurio.com/users/auth/token_auth',
+  withTwoFactor: true, // or false for direct login (e.g. DJM)
+  onLoginSuccess: (accessToken, userPayload) async {
+    return userPayload;
+  },
+);
+
+// Explicit POST flow (e.g. flx-nocode-api) — returns plain JWT string in `data`
+LoginPage.prepare(
+  urlAuthApi: 'http://localhost:8107/login',
+  withTwoFactor: false,
+  authMethod: 'POST',
+  onLoginSuccess: (accessToken, userPayload) async {
+    return userPayload;
+  },
+);
+```
+
+### Supported Login Flows & HTTP Methods
+
+`authMethod` is an optional parameter on `LoginPage.prepare(...)` and `LoginEvent.submit(...)`. When omitted (`null`), the repository keeps full backward compatibility with legacy clients:
+
+| Client / Backend | `withTwoFactor` | `authMethod` | HTTP Request | Expected `data` Payload | Result |
+|---|---|---|---|---|---|
+| **DJM** | `false` or `true` | `null` (default) | `GET /users/auth/login` | `{"access_token": "...", "refresh_token": "..."}` | `LoginAuthResult.direct` |
+| **Metiska** | `true` | `null` (default) | `GET /users/auth/login` | `{"auth_at": "..."}` | `LoginAuthResult.twoFactor` |
+| **Voltune** | `true` | `null` (default) | `GET /users/auth/login` | `null` | `LoginAuthResult.twoFactor(authId: nip)` |
+| **Verify Password** | any | `null` (auto) | `POST /*verify-password*` | `{"access_token": "..."}` or `"<jwt>"` | `LoginAuthResult.direct` |
+| **`flx-nocode-api`** | `false` | `'POST'` | `POST /login` | `"<jwt_string>"` | `LoginAuthResult.direct` |
+
+> **Important:** Do not tie the HTTP method to `withTwoFactor`. Always pass `authMethod: 'POST'` explicitly when targeting endpoints that only accept `POST` (such as `flx-nocode-api`), so `GET`-based direct-login clients (such as DJM) remain unaffected.
+
+### Local Testing & Widgetbook
+
+Run unit tests (repository + `LoginBloc` covering DJM, Metiska, Voltune, and `flx-nocode-api`):
+
+```bash
+flutter test test/resource/authentication_repository_test.dart test/bloc/login_bloc_test.dart
+```
+
+Run Widgetbook locally without a real backend using the built-in `mock.local` Dio interceptor (`LoginPage → Mock flx-nocode-api (POST)`):
+
+```bash
+flutter run -t lib/widgetbook.dart -d macos
 ```
 
 ### Checking User Permissions

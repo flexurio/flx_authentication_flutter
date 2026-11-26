@@ -77,6 +77,7 @@ Widget loginPageMockNoCodeApiUseCase(BuildContext context) {
         ? 'http://mock.local/users/login'
         : 'http://mock.local/login',
     withTwoFactor: withTwoFactor,
+    authMethod: withTwoFactor ? null : 'POST',
     usernameLabel: context.knobs.string(
       label: 'Username Label',
       initialValue: 'NIP',

@@ -21,6 +21,7 @@ class LoginForm extends StatefulWidget {
     this.config,
     this.additionalField,
     this.onUsernameChanged,
+    this.authMethod,
     super.key,
   });
 
@@ -40,6 +41,7 @@ class LoginForm extends StatefulWidget {
   final LoginConfig? config;
   final Widget? additionalField;
   final ValueChanged<String>? onUsernameChanged;
+  final String? authMethod;
 
   @override
   State<LoginForm> createState() => _LoginFormState();
@@ -92,6 +94,7 @@ class _LoginFormState extends State<LoginForm> {
               widget.withTwoFactor,
               widget.urlAuthApi,
               onLoginSuccess: widget.onLoginSuccess,
+              authMethod: widget.authMethod,
             ),
           );
     }
